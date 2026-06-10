@@ -1,11 +1,5 @@
 # [Public Health Microbial Genomics](https://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/)
 
-Course material for Public Health Microbial Genomics
-
-
-- [VM login instructions](https://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Course_materials/vm_login_instructions.html)
-- [VM logout instructions](https://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Course_materials/vm_logout_instructions.html)
-
 
 ## Practicals
 
@@ -22,11 +16,9 @@ Course material for Public Health Microbial Genomics
 - Practical 6 - [AMR variant detection](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_6.html)
 
 
-## Assignment
+## Useful Links
 
-- [Public Health Microbial Genomics Assignment](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Assignment/public_health_microbial_genomics_assignment.html)
-
-## Other Useful Links
-
+- [VM login instructions](https://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Course_materials/vm_login_instructions.html)
+- [VM logout instructions](https://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Course_materials/vm_logout_instructions.html)
 - [Overview of file types](http://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Course_materials/overview_of_file_types.html)
 
