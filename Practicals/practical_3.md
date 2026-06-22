@@ -1,4 +1,6 @@
 # Variant calling for phylogenetic trees & application to public health 
+By Dr Jessica Webb
+
 {:.no_toc}
 
 * TOC
