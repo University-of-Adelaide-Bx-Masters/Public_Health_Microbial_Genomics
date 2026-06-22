@@ -6,6 +6,7 @@
 
 # **1. Introduction**
 
+Insert diagram -  public health microbial genomics workflow &  indicate which step we at 
 
 ## 1.1 Practical Overview
 
