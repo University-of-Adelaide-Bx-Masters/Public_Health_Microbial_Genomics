@@ -31,13 +31,15 @@ source activate bioinf
 
 ## 2.2 Create directory structure
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
+
 ```bash
 mkdir --parents ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xxx
 mkdir -p ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xx
 mkdir -p ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xx
-
+```
 ## 2.3 Get data
 The data for today's practical is located in `~/data/intro_pathogens`. As in previous practicals, we will use symlinks instead of copying large data files.
+
 ```bash
 cd ~/Practical_phylogenetic_trees_surveillance
 # create symlinks for all fastq files
