@@ -58,4 +58,6 @@ TO ADD IN
 
 # **5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA**
 
+use `cgmlst-dists`
+
 # **6. Comparison of MLST and core-genome MLST**
