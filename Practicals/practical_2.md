@@ -54,18 +54,22 @@ TO ADD IN
 
 # **3. Assigning strains an MLST using the `mlst` tool**
 
-`mlst` requires a genome assembly (FASTA format) file as input. 
+The `mlst` tool by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against PubMLST typing schemes and reports the sequence type.
 
-Before running `mlst` we can check what schemes are available and confirm the M. tuberculosis scheme is listed
+### Before running `mlst` we can check what schemes are available and confirm the M. tuberculosis scheme is listed
 
 ```bash
 # List all available schemes
 mlst --list
 
-# Check if M. tuberculosis scheme is listed - we can use `grep`
+# Check if M. tuberculosis scheme is listed - we can use grep
 mlst --list | grep tuberculosis
 ```
-you should see `mtuberculosis in the output, confirming the scheme is available. 
+you should see `mtuberculosis` in the output, confirming the scheme is available. 
+
+### Run `mlst` 
+
+`mlst` requires a genome assembly (FASTA format) file as input. 
 
 
 
