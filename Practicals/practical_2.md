@@ -71,7 +71,7 @@ you should see `mtuberculosis` in the output, confirming the scheme is available
 
 `mlst` requires a genome assembly (FASTA format) file as input. 
 
-Example command for multiple samples:
+Example command for one sample:
 
 ```bash
 mlst todo.fasta todo.fasta
