@@ -159,6 +159,13 @@ to do
 
 For this practical we will use Microreact to visulise the phylogenomic tree. It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
 
+Step 1: Prepare files for Microreact 
+
+Microreact requires two files:
+1. A phylogenomic tree in Newick format (`.nwk` or `.tre`)
+2. A metdata CSV file with a column names `id` matching the sample names in the tree 
+
+
 # **7. Overlay genotyping data and epidemiological data for interpretation – “genomic epidemiology”**
 
 
