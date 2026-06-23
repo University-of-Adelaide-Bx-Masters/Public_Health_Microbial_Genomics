@@ -56,7 +56,7 @@ TO ADD IN
 
 The `mlst` tool by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against PubMLST typing schemes and reports the sequence type.
 
-### Before running `mlst` we can check what schemes are available and confirm the M. tuberculosis scheme is listed
+### 3.1 Before running `mlst` we can check what schemes are available and confirm the M. tuberculosis scheme is listed
 
 ```bash
 # List all available schemes
@@ -67,7 +67,7 @@ mlst --list | grep tuberculosis
 ```
 you should see `mtuberculosis` in the output, confirming the scheme is available. 
 
-### Run `mlst` 
+### 3.2 Run `mlst` 
 
 `mlst` requires a genome assembly (FASTA format) file as input. 
 
@@ -83,7 +83,7 @@ mlst todo.fasta todo.fasta
 - the ST (sequence type)
 - the allel IDs
 
-Repeat `mlst` for the remaining samples and direct the results to an `output` file 
+Task: Repeat `mlst` for the remaining samples and direct the results to an `output` file 
 
 ```bash 
 mlst *.fa* --quiet > output
@@ -91,7 +91,7 @@ mlst *.fa* --quiet > output
 
 ## Questions
 
-# **4. Core-genome MLST**
+# **4. Perform Core-genome MLST**
 
 use `chewbbaca`
 
