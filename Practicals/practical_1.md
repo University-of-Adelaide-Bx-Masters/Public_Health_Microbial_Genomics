@@ -52,4 +52,4 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. Mapping sequencing reads to a reference genome using snippy**
+# **3. Species classification**
