@@ -54,6 +54,21 @@ TO ADD IN
 
 # **3. Assigning strains an MLST using the `mlst` tool**
 
+`mlst` requires a genome assembly (FASTA format) file as input. 
+
+Before running `mlst` we can check what schemes are available and confirm the M. tuberculosis scheme is listed
+
+```bash
+# List all available schemes
+mlst --list
+
+# Check if M. tuberculosis scheme is listed - we can use `grep`
+mlst --list | grep tuberculosis
+```
+you should see `mtuberculosis in the output, confirming the scheme is available. 
+
+
+
 # **4. Core-genome MLST**
 
 # **5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA**
