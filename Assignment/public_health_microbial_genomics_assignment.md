@@ -1,9 +1,9 @@
-# **Practical Assignment 1a - Public Health Microbial Genomics**
+# **Practical Assignment 1b - Public Health Microbial Genomics**
 
-The data you need for this assignment can be found in `~/data/Assignment1a`. This includes:
+The data you need for this assignment can be found in `~/data/Assignment1b`. This includes:
 
 
-### **You must use tools and approaches covered during the practicals. All analysis must be performed on your allocated VM in a directory named `~/Assignment1a`.**
+### **You must use tools and approaches covered during the practicals. All analysis must be performed on your allocated VM in a directory named `~/Assignment1b`.**
 
 Your submission should include the following files:
 - xyz
