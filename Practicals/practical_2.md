@@ -77,8 +77,18 @@ Example command for one sample:
 mlst todo.fasta todo.fasta
 ```
 
-`mlst` generates a number of files reporting 
+`mlst` returns a tab-seperated line containing:
+- the filename
+- the macthing PubMLST schema name
+- the ST (sequence type)
+- the allel IDs
 
+Repeat `mlst` for the remaining samples and direct the results to an `output` file 
+
+```bash
+## can do this is 
+mlst *.fa* --quiet > output
+```
 
 # **4. Core-genome MLST**
 
