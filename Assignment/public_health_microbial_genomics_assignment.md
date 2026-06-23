@@ -17,9 +17,9 @@ Your submission should include the following files:
 
 
 
-## Part C (variant calling & trees) - 12 marks
+## Part C (variant calling & trees) - xx marks
 
 
 
-## Part D (antimicrobial resistance) - 8 marks
+## Part D (antimicrobial resistance) - xx marks
 
