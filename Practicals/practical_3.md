@@ -1,4 +1,4 @@
-# Variant calling for phylogenetic trees & application to public health 
+# Variant calling for phylogenomic trees & application to public health 
 By Dr Jessica Webb
 
 {:.no_toc}
@@ -19,8 +19,8 @@ Insert diagram -  public health microbial genomics workflow &  indicate which st
 ## 1.2 Learning Outcomes
 1.	Gain more in-depth knowledge and further practice on calling variants 
 2.	Learn how a variant calling tool works 
-3.	Learn how to build phylogenetic trees from variants 
-4.	Learn how to interpret phylogenetic trees and application to pathogen surveillance
+3.	Learn how to build phylogenomic trees from variants 
+4.	Learn how to interpret phylogenenomic trees and application to pathogen surveillance
 
 # **2. Setup**
 
@@ -107,16 +107,43 @@ To better understand how Snippy processes sequencing reads and generates variant
 
 We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. 
 
+#### 3.3.1 View the snippy command and parameters used when we ran snippy: 
+
+```bash
+grep "outdir" insertpath/snps.log
+```
+
+This shows you the exact Snippy command that was run, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
+
 ## 3.4 Now let’s look at some of the snippy output files 
 Snippy 
 
 # **4. Run snippy core to create input for building a tree** 
  
-We now need to created a core genome SNP alignment to input onto our tree building tool, to do this we use snippy-core. 
+We now need to created a core genome SNP alignment to input into our tree building tool, to do this we use snippy-core. 
 
-Now run snippy-core to generate the core gneome SNP alignment files across all samples: 
+Now run snippy-core to generate the core genome SNP alignment files across all samples: 
 
+```bash
+#Note: This is one long command
+snippy-core --prefix Practical_phylogenetic_trees_surveillance/results/core --ref Practical_phylogenetic_trees_surveillance/reference.gbk
+Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
+Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
+Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
+Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
+Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
+```
+Now we wait for snippy-core to finish running - this should take ~xx
 
+the above snippy-core command will generate files with core.* prefix. To view a list of the ouput files we can use `ls`
+
+```bash
+ls Practical_phylogenetic_trees_surveillance/results/core*
+```
+You should see the path to 6 files, and the files that are the most important include:
+- core.aln: Core genome SNP alignment 
+- core.tab: Tab-seperated table of core SNPs with alleles
+- core.full.aln: Whole genome SNP alignment, including invariant sites 
 
 
 # **5. Build a phylogenetic tree from variant sites**
