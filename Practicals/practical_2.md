@@ -83,13 +83,20 @@ mlst todo.fasta todo.fasta
 - the ST (sequence type)
 - the allel IDs
 
-Task: Repeat `mlst` for the remaining samples and direct the results to an `output` file 
+Task:
+- Repeat `mlst` for the remaining samples and direct the results to an `output` file 
 
 ```bash 
-mlst *.fa* --quiet > output
+mlst *.fasta > tb_mlst_results.txt
 ```
+Task: 
+- View the results on the terminal
+- Count how many isolates belong to each ST 
+- Extract isolates belonging to STx
 
 ## Questions
+1. to test conceptial undertanding
+2. allele intepretation 
 
 # **4. Perform Core-genome MLST**
 
