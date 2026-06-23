@@ -39,6 +39,7 @@ mkdir --parents ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xxx
 mkdir -p ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xx
 mkdir -p ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xx
 ```
+
 ## 2.3 Get data
 The data for today's practical is located in `~/data/variants_trees`. As in previous practicals, we will use symlinks instead of copying large data files.
 
@@ -48,8 +49,6 @@ cd ~/Practical_phylogenetic_trees_surveillance
 ln -s ~/data/Practical_phylogenetic_trees_surveillance/*.fastq.gz xx/
 # create symlink for reference genome
 ln -s ~/data/Practical_phylogenetic_trees_surveillance/xyz.fasta xx/
-# create symlink for kraken database
-ln -s ~/data/dbs/kraken/std_8g db/
 # we can confirm where we are 
 pwd
 ```
@@ -59,12 +58,11 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-
 # **3. Mapping sequencing reads to a reference genome using snippy**
 
 A very talented bioinformatician who is a friend of mine (Torsten Seemann) wrote Snippy (https://github.com/tseemann/snippy). Snippy is a widely used pipeline that maps reads to a reference genome, to identify variants and produces a range of outputs. snippy uses BWA-MEM, SAMtools and FreeBayes, which we will learn more about in this practical. If you have done one of our bioinformatics courses you may find snippy familiar, however as a bioinformatician snippy will likely become one of the tools that you will most frequently use and so in this practical we will be looking at snippy in more detail. 
 
-## 3.1 run Snippy for variant calling 
+## 3.1 Run Snippy for variant calling 
 
 Snippy requires: 
 
@@ -72,43 +70,60 @@ Snippy requires:
 - Single- or paired-end sequencing reads from one or more isolates
 - An output folder to put results in
 
-We can explore the Snippy help page to understand the available options:
+We can explore the snippy help page to understand the available options:
 
 ```bash
 snippy --help
 ```
 
-The key parameters we will use are:
+The key parameters of Snippy are:
+
 Parameter	Description
-- outdir`	Directory where Snippy will write its output files
-- R1`	Path to the forward (R1) FASTQ file
-- R2`	Path to the reverse (R2) FASTQ file
-- ref`	Path to the reference genome (FASTA format)
-- cpus`	Number of CPU threads to use (default: 8)
-- ram`	Maximum RAM in GB (default: 8)
-- minqual`	Minimum variant quality score (default: 100)
-`--minfrac`	Minimum allele frequency to call a variant (default: 0.9)
-`--prefix`	Prefix for output files (default: `snps`)
+- outdir:	Directory where Snippy will write its output files
+- R1:	Path to the forward (R1) FASTQ file
+- R2: Path to the reverse (R2) FASTQ file
+- ref:	Path to the reference genome (FASTA format)
+- cpus:	Number of CPU threads to use (default: 8)
+- ram:	Maximum RAM in GB (default: 8)
+- minqual:	Minimum variant quality score (default: 100)
+- minfra: Minimum allele frequency to call a variant (default: 0.9)
+- prefix: Prefix for output files (default: snps)
 
+Now the fun part, run snippy for each sample. Example command for one sample:
 
+```bash
+#Note: This is one long command
+snippy --outdir /todo/ --ref
+references/pathtorftodo.fa --R1
+/todo/ 1.fastq.gz --R2
+/todo/ _2.fastq.gz 
+```
+Now we wait for snippy to finish this should take ~xx for one sample 
 
-## 3.2 Examine snippy logs 
+#### Task: Repeat snippy for the remaining xx samples
+
+## 3.3 Examine snippy logs 
 To better understand how Snippy processes sequencing reads and generates variant calls, we will inspect the snp.log output file. The log records the commands executed during the analysis, allowing you to trace each stage of the snippy pipeline, including read alignment, BAM processing, variant calling and variant filtering. If you run a tool and it fails – information on why the tool failed to run will often be in the .log file – so this is an important file. 
 
-We will run the following grep commands to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. 
+We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. 
 
-## 3.3 Now let’s look at some of the snippy output files 
+## 3.4 Now let’s look at some of the snippy output files 
+Snippy 
 
-## 3.4 Now let’s run snippy (script)/use snippy-multi (need .txt as input) on each of our remaining reads 
+# **4. Run snippy core to create input for building a tree** 
+ 
+We now need to created a core genome SNP alignment to input onto our tree building tool, to do this we use snippy-core. 
 
-## 3.4 Run snippy core to create input for building a tree 
+Now run snippy-core to generate the core gneome SNP alignment files across all samples: 
 
 
-# **4. Build a phylogenetic tree from variant sites**
 
-# **5. Visualise a phylogenetic tree using Microreact**
 
-# **6. Overlay genotyping data and epidemiological data for interpretation – “genomic epidemiology”**
+# **5. Build a phylogenetic tree from variant sites**
+
+# **6. Visualise a phylogenetic tree using Microreact**
+
+# **7. Overlay genotyping data and epidemiological data for interpretation – “genomic epidemiology”**
 
 
 
