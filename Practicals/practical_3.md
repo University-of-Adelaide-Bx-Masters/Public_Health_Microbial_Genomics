@@ -162,13 +162,13 @@ For this practical we will use Microreact to visulise the phylogenomic tree. It 
 Download tree file for Microreact: 
 - A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `todo.nwk` file from the VM. This can be found in your `Practical_phylogenetic_trees_surveillance/results` folder.   
 
-# **7. Overlay genotyping data and epidemiological metadata onto the tree in Microreact**
+# **7. Overlay genotyping data onto the tree in Microreact**
+
+# **8. Overlay epidemiological metadata onto the tree in Microreact**
 
 One of the most powerful aspects of microbial genomics is the ability to integrate genomic data with epidemiological metadata to investigate outbreak dynamics. 
 
 Download metadata file for Microreact: 
 - A metdata `.CSV` file with a column named `id` matching the sample names in the tree: Download the metadata file from the VM. Note in a real surveillance scenario, your metadata CSV could include columns such as: `collection_date`, `country`, `hospital`, `patient_id`, `MLST_ST`, `resistance_profile`, etc. For this practical this file has been generated for you and can be found in your`Practical_phylogenetic_trees_surveillance/results` folder. 
-
-# **8. Overlay genotyping data onto the tree in Microreact**
 
 
