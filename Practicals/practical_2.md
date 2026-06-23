@@ -82,6 +82,8 @@ mlst todo.fasta todo.fasta
 
 # **4. Core-genome MLST**
 
+use `chewbbaca`
+
 # **5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA**
 
 use `cgmlst-dists`
