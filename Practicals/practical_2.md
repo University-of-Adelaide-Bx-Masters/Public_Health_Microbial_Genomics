@@ -52,4 +52,8 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. Bacterial genotyping**
+# **3. Assigning strains an MLST using the `mlst` tool**
+
+# **4. Core-genome MLST**
+
+# **5. Comparison of MLST and core-genome MLST**
