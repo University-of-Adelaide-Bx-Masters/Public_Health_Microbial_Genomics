@@ -3,7 +3,7 @@
 The data you need for this assignment can be found in `~/data/Assignment1a`. This includes:
 
 
-### **You must use tools and approaches covered during the practicals. All analysis must be performed on your allocated VM in a directory named `~/Assignment2`.**
+### **You must use tools and approaches covered during the practicals. All analysis must be performed on your allocated VM in a directory named `~/Assignment1a`.**
 
 Your submission should include the following files:
 - xyz
