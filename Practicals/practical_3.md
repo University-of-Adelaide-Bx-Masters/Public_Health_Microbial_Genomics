@@ -17,10 +17,11 @@ Insert diagram -  public health microbial genomics workflow &  indicate which st
 
 
 ## 1.2 Learning Outcomes
-1.	Gain more in-depth knowledge and further practice on calling variants 
+1.	Gain more in-depth knowledge and further practice on identifying variants 
 2.	Learn how a variant calling tool works 
-3.	Learn how to build phylogenomic trees from variants 
-4.	Learn how to interpret phylogenenomic trees and application to pathogen surveillance
+3.	Learn how to build a phylogenomic trees from variants 
+4.	Learn how to visualise and interpret a phylogenenomic trees
+5.	Learn how to overlay metadata onto a phylogenomic tree and application to pathogen surveillance
 
 # **2. Setup**
 
@@ -102,12 +103,12 @@ Now we wait for snippy to finish this should take ~xx for one sample
 
 #### Task: Repeat snippy for the remaining xx samples
 
-## 3.3 Examine snippy logs 
+## 3.2 Examine snippy logs 
 To better understand how Snippy processes sequencing reads and generates variant calls, we will inspect the snp.log output file. The log records the commands executed during the analysis, allowing you to trace each stage of the snippy pipeline, including read alignment, BAM processing, variant calling and variant filtering. If you run a tool and it fails – information on why the tool failed to run will often be in the .log file – so this is an important file. 
 
 We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. 
 
-#### 3.3.1 View the snippy command and parameters used when we ran snippy: 
+#### 3.2.1 View the snippy command and parameters used when we ran snippy: 
 
 ```bash
 grep "outdir" insertpath/snps.log
@@ -115,7 +116,7 @@ grep "outdir" insertpath/snps.log
 
 This shows you the exact Snippy command that was run, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
 
-## 3.4 Now let’s look at some of the snippy output files 
+## 3.3 Now let’s look at some of the snippy output files 
 Snippy 
 
 # **4. Run snippy core to create input for building a tree** 
@@ -146,9 +147,17 @@ You should see the path to 6 files, and the files that are the most important in
 - core.full.aln: Whole genome SNP alignment, including invariant sites 
 
 
-# **5. Build a phylogenetic tree from variant sites**
+# **5. Build a phylogenomic tree from variant sites**
 
-# **6. Visualise a phylogenetic tree using Microreact**
+Run `iqTree` to create a tree from the core SNP alignment:
+
+```bash
+to do
+```
+
+# **6. Visualise the phylogenomic tree using Microreact**
+
+For this practical we will use Microreact to visulise the phylogenomic tree. It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
 
 # **7. Overlay genotyping data and epidemiological data for interpretation – “genomic epidemiology”**
 
