@@ -87,7 +87,7 @@ Task:
 - Repeat `mlst` for the remaining samples and direct the results to an `output` file 
 
 ```bash 
-mlst *.fasta > tb_mlst_results.txt
+mlst --quiet *.fasta > tb_mlst_results.txt
 ```
 Task: 
 - View the results on the terminal
