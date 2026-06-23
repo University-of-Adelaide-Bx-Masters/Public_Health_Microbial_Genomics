@@ -85,10 +85,11 @@ mlst todo.fasta todo.fasta
 
 Repeat `mlst` for the remaining samples and direct the results to an `output` file 
 
-```bash
-## can do this is 
+```bash 
 mlst *.fa* --quiet > output
 ```
+
+## Questions
 
 # **4. Core-genome MLST**
 
