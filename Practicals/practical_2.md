@@ -118,10 +118,19 @@ bla bla bla
 chewBBACA.py PrepExternalSchema -i downloaded_schema_to_do/ -o salmonella_schema_adapted --cpu 4
 ```
 
-### 4.4 Performe allele calling on the Salmonella enterica genome allemblies 
+### 4.4 Performe allele calling on the Salmonella enterica genome allemblies
 
 `chewBACCA` requires genome assemblies (FASTA) as input files
 
+run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes 
+
+```bash
+chewBBACA.py AlleleCall -i genomes_to_analyze -g salmonella_schema_adapted -o allele_calling_results --cpu 4 --bsr 0.6(WHICH VALUE TO USE HERE!!!!)
+```
+The main output fils is `allele_calling_results.tsv`, which is a tab delimited file with"
+- Rows: genome assemblies
+- Columns: schema loci
+- Values: allele identiffiers or classification code 
 
 # **5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA**
 
