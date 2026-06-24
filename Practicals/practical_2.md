@@ -12,6 +12,11 @@ Insert diagram -  public health microbial genomics workflow &  indicate which st
 
 ## 1.1 Practical Overview
 
+In practice, MLST and cgMLST are often used together:
+   -  MLST first: Quick screening to identify strain types
+   - cgMLST second: High-resolution analysis of isolates of interest
+   - Combined interpretation: MLST for context, cgMLST for detail
+
 
 ## 1.2 Learning Outcomes
 
@@ -130,10 +135,17 @@ chewBBACA.py AlleleCall -i genomes_to_analyze -g salmonella_schema_adapted -o al
 The main output fils is `allele_calling_results.tsv`, which is a tab delimited file with"
 - Rows: genome assemblies
 - Columns: schema loci
-- Values: allele identiffiers or classification code 
+- Values: allele identiffiers or classification code
+
+### 4.5 schema evaluator
+
+### 4.6 Allele call evaluator
+
+### 4.7 Extarct cgMLST 
+
 
 # **5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA**
 
 use `cgmlst-dists`
 
-# **6. Comparison of MLST and core-genome MLST results**
+# **6. Visual comparison of MLST and core-genome MLST results**
