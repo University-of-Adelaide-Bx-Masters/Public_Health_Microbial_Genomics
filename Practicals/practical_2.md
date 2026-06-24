@@ -141,8 +141,30 @@ The main output fils is `allele_calling_results.tsv`, which is a tab delimited f
 
 ### 4.6 Allele call evaluator
 
-### 4.7 Extarct cgMLST 
+### 4.7 Determine the set of loci that make up the core genome 
 
+Not all loci are present in all genomes.
+
+To focus on the core genome (loci present in ≥95% or 100% of isolates) we will run `chewBBACA` as here:
+
+```bash
+# Extract core genome loci
+chewBBACA.py ExtractCgMLST -i allele_calling_results.tsv \
+                            -o cgmlst_results \
+                            --t 0.95 \
+                           #(OPTIONAL) --r allele_calling_results/RepeatedLoci.txt
+```
+
+Parameters explained:
+-i: Input allele calling results file
+-o: Output directory
+--t: Threshold (0.95 = loci present in ≥95% of genomes)
+--r: File with repeated loci to exclude (optional)
+
+Outputs:
+- cgMLST.tsv: Allele profiles for core genome loci only
+- cgMLSTschema.txt: List of core genome loci
+-  mdata_stats.tsv: Statistics on missing data per genome
 
 # **5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA**
 
