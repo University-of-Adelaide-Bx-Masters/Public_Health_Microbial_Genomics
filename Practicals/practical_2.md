@@ -98,12 +98,33 @@ Task:
 1. to test conceptial undertanding
 2. allele intepretation 
 
-# **4. Perform Core-genome MLST**
+# **4. Perform Core-genome MLST using `chewBBACA`**
 
-use `chewbbaca`
+`chewBBACA` is a commonly used tool to xyz 
+
+
+### 4.2 Download the Salmonella enterica core genome MLST schema
+
+`chewbbaca` requires a scheme for xyz 
+
+The Salmonella enterica core genome MLST schema has already been downloaded for you and is located here `~/data/bacterial_genotyping`
+
+
+### 4.3 Adapt the Salmonella enterica core genome MLST schema so that it can be used with `chewBBACA`
+
+bla bla bla
+
+```bash
+chewBBACA.py PrepExternalSchema -i downloaded_schema_to_do/ -o salmonella_schema_adapted --cpu 4
+```
+
+### 4.4 Performe allele calling on the Salmonella enterica genome allemblies 
+
+`chewBACCA` requires genome assemblies (FASTA) as input files
+
 
 # **5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA**
 
 use `cgmlst-dists`
 
-# **6. Comparison of MLST and core-genome MLST**
+# **6. Comparison of MLST and core-genome MLST results**
