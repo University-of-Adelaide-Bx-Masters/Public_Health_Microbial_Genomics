@@ -52,4 +52,15 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. Species classification**
+# **3. Species classification using `kraken`**
+
+
+# **4. Species classification using `fastANI`**
+
+
+# **5. Compare `kraken` and `fastANI` results**
+
+
+
+
+
