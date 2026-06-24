@@ -170,4 +170,7 @@ Outputs:
 
 use `cgmlst-dists`
 
-# **6. Visual comparison of MLST and core-genome MLST results**
+# **6. Cluster at various thresholds (MIGHT HAVE ATO WRITE CUSTOM SCRIPT)**
+
+
+# **7. Visual comparison of MLST and core-genome MLST results**
