@@ -166,11 +166,11 @@ Outputs:
 - cgMLSTschema.txt: List of core genome loci
 -  mdata_stats.tsv: Statistics on missing data per genome
 
-# **5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA**
+### 5. Calculate distance matrix from cgMLST allele call tables of ChewBBACA
 
 use `cgmlst-dists`
 
-# **6. Cluster at various thresholds (5, 10, 20 - MIGHT HAVE TO WRITE CUSTOM SCRIPT)**
+### 6. Cluster at various thresholds (5, 10, 20 - MIGHT HAVE TO WRITE CUSTOM SCRIPT)**
 
 
-# **7. Visual comparison of MLST and core-genome MLST results**
+### 7. Visual comparison of MLST and core-genome MLST results**
