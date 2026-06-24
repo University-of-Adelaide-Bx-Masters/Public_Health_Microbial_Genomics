@@ -174,10 +174,10 @@ Run `cgmlst-dists` to calculate distance matrix from cgMLST allele call table th
 cgmlst-dists pathto/allele_call.tab > distance.tab
 ```
 
-# **6. Cluster at various thresholds (5, 10, 20 allele differences?)**
+# **6. Calculate pairwise allelic differences (5, 10, 20 allelic differences?)**
 
 ``` bash
-custom script???
+custom python script???
 ```
 
 # **7. Visual comparison of MLST and core-genome MLST results**
