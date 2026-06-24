@@ -1,4 +1,4 @@
-# Antimicorbial resistance gene detection 
+# Antimicrobial resistance gene detection 
 By Dr Jessica Webb
 
 {:.no_toc}
