@@ -15,7 +15,6 @@ Insert diagram -  public health microbial genomics workflow &  indicate which st
 
 ## 1.2 Learning Outcomes
 
-
 # **2. Setup**
 
 ## 2.1 Activate software
@@ -65,17 +64,12 @@ View the option for running `Kraken2`
 ``` bash
 bla bla
 ```
-
-Now run `Kraken2` 1 isol
-sing the following command:
+Run `Kraken2` on one isolate using the following command:
 
 ``` bash
 kraken2 --threads 2 --db db/std_8g --output --report addpath/nameofreads.report --paired addpath/toadd_1.fastq.gz addpath/toadd_2.fastq.gz
 ```
-`kraken` generates the following files:
-- x
-- x
-- x
+`kraken` generates the following file:
 - x
 
 ### 3.1 Run Bracken
@@ -108,7 +102,13 @@ command
 ### 4.1 Run `fastANI` 
 
 
+### QUESTIONS
+
 # **5. Compare `kraken` and `fastANI` results**
+
+
+### QUESTIONS
+
 
 
 
