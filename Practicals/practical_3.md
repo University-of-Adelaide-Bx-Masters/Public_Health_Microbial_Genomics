@@ -1,4 +1,4 @@
-# Variant calling for phylogenomic trees & application to public health 
+# Variant calling for phylogenomic trees & surveillance
 By Dr Jessica Webb
 
 {:.no_toc}
