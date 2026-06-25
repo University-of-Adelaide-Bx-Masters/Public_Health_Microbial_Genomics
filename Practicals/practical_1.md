@@ -52,19 +52,56 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. Species classification using Kraken 2**
+# **3. Species classification using Kraken**
 
-We need to confirm which species is present, and Kraken is a very useful tool for this purpose. It is extremely fast, making it well suited for public health settings where rapid results are essential. As a result, Kraken is often used as an initial screening tool to identify the species present in a sample before more detailed analyses are performed.
+We need to determine the species present in a sample, and Kraken is a very useful tool for this purpose. It is extremely fast, making it well suited for public health settings where rapid results are essential. As a result, Kraken is often used as an initial screening tool to identify the species present in a sample before more detailed analyses are performed.
 
-### 3.1 Run `kraken 2` 
+### 3.1 Run `kraken2` 
 
-The input files for `Kraken 2` are assumed to be genome assemblies (FASTA) by default, but `Kraken 2` can also take other files as input including sequencing reads (FASTQ). For today we will run `Kraken 2` over sequencing reads.  
+The input files for `kraken2` are assumed to be genome assemblies (FASTA) by default, but `kraken2` can also take other files as input including sequencing reads (FASTQ). For today we will run `kraken2` over sequencing reads.  
 
-Run `Kraken 2` using the following command:
+View the option for running `Kraken2` 
+
+``` bash
+bla bla
+```
+
+Now run `Kraken2` 1 isol
+sing the following command:
 
 ``` bash
 kraken2 --threads 2 --db db/std_8g --output --report addpath/nameofreads.report --paired addpath/toadd_1.fastq.gz addpath/toadd_2.fastq.gz
 ```
+`kraken` generates the following files:
+- x
+- x
+- x
+- x
+
+### 3.1 Run Braken
+
+The 'kraken2` tool does not xyz and thus we next need to run a tool called 'braken`. 
+
+View the options for running `bracken`
+
+```bash
+bracken -h
+```
+
+Run `bracken` with the following command 
+
+```bash
+command
+```
+
+`bracken` generates two files:
+- xx
+- xx
+  
+### QUESTIONS
+-
+-
+
 
 # **4. Species classification using `fastANI`**
 
