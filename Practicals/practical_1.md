@@ -54,7 +54,7 @@ TO ADD IN
 
 # **3. Species classification using Kraken**
 
-we need to confirm what species is present and `kraken` is a very useful tool for this. The tool is very fast and so in public health settings we want a quick result and so this tool is often used for an initual screen of isolates to identy the species prsent in a sample.  
+We need to confirm which species is present, and Kraken is a very useful tool for this purpose. It is extremely fast, making it well suited for public health settings where rapid results are essential. As a result, Kraken is often used as an initial screening tool to identify the species present in a sample before more detailed analyses are performed.
 
 ### 3.1 Run `kraken 2` 
 
