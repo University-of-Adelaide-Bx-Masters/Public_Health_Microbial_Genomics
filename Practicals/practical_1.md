@@ -69,12 +69,13 @@ Run `Kraken2` on one isolate using the following command:
 ``` bash
 kraken2 --threads 2 --db db/std_8g --output --report addpath/nameofreads.report --paired addpath/toadd_1.fastq.gz addpath/toadd_2.fastq.gz
 ```
+
 `kraken` generates the following file:
 - x
 
 ### 3.1 Run Bracken
 
-The 'kraken2` tool does not xyz and thus we next need to run a tool called `bracken`
+The `kraken2` tool does not xyz and thus we next need to run a tool called `bracken`
 
 View the options for running `bracken`
 
