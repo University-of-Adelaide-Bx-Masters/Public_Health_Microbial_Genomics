@@ -58,15 +58,17 @@ We need to confirm which species is present, and Kraken is a very useful tool fo
 
 ### 3.1 Run `kraken 2` 
 
-Input files to `Kraken 2` can be genome assemblies (FASTA)  or sequencing reads (FASTQ)
+The input files for `Kraken 2` are assumed to be genome assemblies (FASTA) by default, but `Kraken 2` can also take other files as input including sequencing reads (FASTQ). But for today we will run `Kraken 2` over genome assemblies. 
 
 Run `Kraken 2` using the following command:
 
 ``` bash
-bla bla bla
+kraken2 -db /path/to/database/kraken2/standard8 --threads 2 --gzip-compressed --paired --report kraken2/CNGB1553_kraken2.txt --use-names CNGB1553_S31_L001_R1_001.fastq.gz CNGB1553_S31_L001_R2_001.fastq.gz
 ```
 
 # **4. Species classification using `fastANI`**
+
+### 4.1 Run `fastANI` 
 
 
 # **5. Compare `kraken` and `fastANI` results**
