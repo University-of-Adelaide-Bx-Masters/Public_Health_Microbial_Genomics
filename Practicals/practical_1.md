@@ -78,9 +78,9 @@ kraken2 --threads 2 --db db/std_8g --output --report addpath/nameofreads.report 
 - x
 - x
 
-### 3.1 Run Braken
+### 3.1 Run `bracken`
 
-The 'kraken2` tool does not xyz and thus we next need to run a tool called 'braken`. 
+The 'kraken2` tool does not xyz and thus we next need to run a tool called `braken`
 
 View the options for running `bracken`
 
