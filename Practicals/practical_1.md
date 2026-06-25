@@ -52,18 +52,18 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. Species classification using Kraken**
+# **3. Species classification using Kraken 2**
 
 We need to confirm which species is present, and Kraken is a very useful tool for this purpose. It is extremely fast, making it well suited for public health settings where rapid results are essential. As a result, Kraken is often used as an initial screening tool to identify the species present in a sample before more detailed analyses are performed.
 
 ### 3.1 Run `kraken 2` 
 
-The input files for `Kraken 2` are assumed to be genome assemblies (FASTA) by default, but `Kraken 2` can also take other files as input including sequencing reads (FASTQ). But for today we will run `Kraken 2` over genome assemblies. 
+The input files for `Kraken 2` are assumed to be genome assemblies (FASTA) by default, but `Kraken 2` can also take other files as input including sequencing reads (FASTQ). For today we will run `Kraken 2` over sequencing reads.  
 
 Run `Kraken 2` using the following command:
 
 ``` bash
-kraken2 -db /path/to/database/kraken2/standard8 --threads 2 --gzip-compressed --paired --report kraken2/CNGB1553_kraken2.txt --use-names CNGB1553_S31_L001_R1_001.fastq.gz CNGB1553_S31_L001_R2_001.fastq.gz
+kraken2 --threads 2 --db db/std_8g --output --report addpath/nameofreads.report --paired addpath/toadd_1.fastq.gz addpath/toadd_2.fastq.gz
 ```
 
 # **4. Species classification using `fastANI`**
