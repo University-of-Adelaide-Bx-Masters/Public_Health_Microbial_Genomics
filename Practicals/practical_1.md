@@ -56,7 +56,7 @@ TO ADD IN
 
 We need to determine the species present in a sample, and Kraken is a very useful tool for this purpose. It is extremely fast, making it well suited for public health settings where rapid results are essential. As a result, Kraken is often used as an initial screening tool to identify the species present in a sample before more detailed analyses are performed.
 
-### 3.1 Run `kraken2` 
+### 3.1 Run Kraken 
 
 The input files for `kraken2` are assumed to be genome assemblies (FASTA) by default, but `kraken2` can also take other files as input including sequencing reads (FASTQ). For today we will run `kraken2` over sequencing reads.  
 
@@ -78,9 +78,9 @@ kraken2 --threads 2 --db db/std_8g --output --report addpath/nameofreads.report 
 - x
 - x
 
-### 3.1 Run `bracken`
+### 3.1 Run Bracken
 
-The 'kraken2` tool does not xyz and thus we next need to run a tool called `braken`
+The 'kraken2` tool does not xyz and thus we next need to run a tool called `bracken`
 
 View the options for running `bracken`
 
