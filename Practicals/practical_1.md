@@ -52,8 +52,19 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. Species classification using `kraken`**
+# **3. Species classification using Kraken**
 
+we need to confirm what species is present and `kraken` is a very useful tool for this. The tool is very fast and so in public health settings we want a quick result and so this tool is often used for an initual screen of isolates to identy the species prsent in a sample.  
+
+### 3.1 run `kraken 2` 
+
+Input files to `Kraken 2` can be genome assemblies (FASTA)  or sequencing reads (FASTQ)
+
+Run `Kraken 2` using the following command:
+
+``` bash
+bla bla bla
+```
 
 # **4. Species classification using `fastANI`**
 
