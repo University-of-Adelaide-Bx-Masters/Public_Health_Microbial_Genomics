@@ -60,13 +60,12 @@ TO ADD IN
 `prokka`
 ```
 
-## 3.2 Read mapping and Variant detection 
+## 3.2 Identify variants 
 
-## 3.3 Variant annotation 
+## 3.3 AMR variants detected
 
-## 3.4 Identify AMR variants 
+## 3.4 Visualise variants 
 
-## 3.5 Visualise variants 
 --> use IGV
 
 
