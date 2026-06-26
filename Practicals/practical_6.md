@@ -54,11 +54,11 @@ TO ADD IN
 
 # **3. AMR variant detection**
 
-### 3.1 Annotate reference genome 
+## 3.1 Annotate reference genome 
 
-### 3.2 Variant calling 
+## 3.2 Variant calling 
 
-### 3.1 Identify AMR variants 
+## 3.1 Identify AMR variants 
 
 
 
