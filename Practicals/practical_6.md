@@ -67,6 +67,7 @@ TO ADD IN
 ## 3.4 Identify AMR variants 
 
 ## 3.5 Visualise variants 
+--> use IGV
 
 
 
