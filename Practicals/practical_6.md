@@ -56,9 +56,17 @@ TO ADD IN
 
 ## 3.1 Annotate reference genome 
 
-## 3.2 Variant calling 
+``` bash
+`prokka`
+```
 
-## 3.1 Identify AMR variants 
+## 3.2 Read mapping and Variant detection 
+
+## 3.3 Variant annotation 
+
+## 3.4 Identify AMR variants 
+
+## 3.5 Visualise variants 
 
 
 
