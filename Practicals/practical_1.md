@@ -89,7 +89,7 @@ bracken -h
 Run `bracken` with the following command 
 
 ```bash
-command
+bracken -d db/std_8g -r 150 -i addpath/nameofreads.report -o addpath/todo.bracken
 ```
 
 `bracken` generates two files:
@@ -97,7 +97,7 @@ command
 - xx
   
 ### QUESTIONS
--
+- What bacterial species is present in the sample?  
 -
 
 ### 3.1 Run Kraken2 and Bracken over all samples 
