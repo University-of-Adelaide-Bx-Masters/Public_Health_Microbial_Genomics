@@ -106,14 +106,13 @@ bracken -d db/std_8g -r 150 -i addpath/nameofreads.report -o addpath/todo.bracke
 # **4. Species classification using `fastANI`**
 
 
-### QUESTIONS
 
 ### 4.1 Run `fastANI` 
 
 
 ### QUESTIONS
 
-# **5. Compare `kraken` and `fastANI` results**
+# **5. Compare `kraken2` and `fastANI` results**
 
 
 ### QUESTIONS
