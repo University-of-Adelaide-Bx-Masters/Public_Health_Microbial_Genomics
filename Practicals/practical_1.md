@@ -91,7 +91,7 @@ kraken2 --help
 Run `Kraken2` on one isolate using the following command:
 
 ``` bash
-kraken2 --threads 2 --db db/std_8g --output --report addpath/nameofreads.report --paired addpath/toadd_1.fastq.gz addpath/toadd_2.fastq.gz
+kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.report --paired reads/ERR10479037_1.fastq.gz reads/ERR10479037_2.fastq.gz
 ```
 
 The command includes
