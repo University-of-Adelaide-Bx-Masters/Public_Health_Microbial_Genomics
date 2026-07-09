@@ -28,9 +28,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,reference}
-mkdir -p ~/Practical_species_classification/ xx
-mkdir -p ~/Practical_species_classification/ xx
+mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,reference,db}
 ```
 
 ## 2.3 Get data
@@ -39,9 +37,11 @@ The data for today's practical is located in `~/data/species_classification`. As
 ```bash
 cd ~/Practical_species_classification
 # create symlinks for all fastq files
-ln -s ~/data/Practical_species_classification/*.fastq.gz xx/
+ln -s ~/data/public_health_genomics/species_classification/*.fastq.gz reads/
 # create symlink for reference genome
-ln -s ~/data/Practical_species_classification/xyz.fasta xx/
+ln -s ~/data/public_health_genomics/species_classification/xyz.fasta reference/
+# create symlink for kraken database
+ln -s ~/data/dbs/kraken/std_8g db/
 # we can confirm where we are 
 pwd
 ```
