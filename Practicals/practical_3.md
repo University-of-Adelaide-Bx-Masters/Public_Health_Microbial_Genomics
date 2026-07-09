@@ -36,9 +36,9 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xxx
-mkdir -p ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xx
-mkdir -p ~/Practical_variant_calling_phylogenetic_trees_surveillance/ xx
+mkdir --parents ~/Practical_variants_trees/ xxx
+mkdir -p ~/Practical_variants_trees/ xx
+mkdir -p ~/Practical_variants_trees/ xx
 ```
 
 ## 2.3 Get data
