@@ -28,7 +28,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_species_classification/ xxx
+mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,reference}
 mkdir -p ~/Practical_species_classification/ xx
 mkdir -p ~/Practical_species_classification/ xx
 ```
