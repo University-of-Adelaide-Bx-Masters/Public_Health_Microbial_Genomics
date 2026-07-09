@@ -48,7 +48,31 @@ pwd
 
 If you run the `tree` command, you can see the structure of all the directories and symlinks you've created. It should look something like this:
 ```
-TO ADD IN
+├── db
+│   └── std_8g -> /shared//a1237649/data/dbs/kraken/std_8g
+├── fastani
+├── kraken
+├── reads
+│   ├── ERR10479021_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479021_1.fastq.gz
+│   ├── ERR10479021_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479021_2.fastq.gz
+│   ├── ERR10479025_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479025_1.fastq.gz
+│   ├── ERR10479025_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479025_2.fastq.gz
+│   ├── ERR10479028_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479028_1.fastq.gz
+│   ├── ERR10479028_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479028_2.fastq.gz
+│   ├── ERR10479029_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479029_1.fastq.gz
+│   ├── ERR10479029_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479029_2.fastq.gz
+│   ├── ERR10479032_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479032_1.fastq.gz
+│   ├── ERR10479032_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479032_2.fastq.gz
+│   ├── ERR10479034_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479034_1.fastq.gz
+│   ├── ERR10479034_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479034_2.fastq.gz
+│   ├── ERR10479035_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479035_1.fastq.gz
+│   ├── ERR10479035_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479035_2.fastq.gz
+│   ├── ERR10479037_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479037_1.fastq.gz
+│   ├── ERR10479037_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479037_2.fastq.gz
+│   ├── ERR10479039_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479039_1.fastq.gz
+│   └── ERR10479039_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/species_classification/ERR10479039_2.fastq.gz
+└── reference
+    └── GCA_000009505.1_ASM950v1_genomic.fasta -> /shared//a1237649/data/public_health_genomics/species_classification/GCA_000009505.1_ASM950v1_genomic.fasta
 ```
 
 # **3. Species classification using Kraken2**
