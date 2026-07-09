@@ -113,7 +113,7 @@ bracken -h
 Run `bracken` with the following command 
 
 ```bash
-bracken -d db/std_8g -r 150 -i addpath/nameofreads.report -o addpath/todo.bracken
+bracken -d db/std_8g -r 150 -i kraken/ERR10479037.report -o kraken/ERR10479037.bracken
 ```
 
 `bracken` generates two files:
