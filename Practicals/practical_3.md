@@ -171,12 +171,7 @@ Now run snippy-core to generate the core genome SNP alignment files across all s
 
 ```bash
 #Note: This is one long command
-snippy-core --prefix Practical_phylogenetic_trees_surveillance/results/core --ref Practical_phylogenetic_trees_surveillance/reference.gbk
-Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
-Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
-Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
-Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
-Practical_phylogenetic_trees_surveillance/results/pathtostrain/todo_xx
+snippy-core --prefix snippy/core_genome --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta snippy/ERR10479021 snippy/ERR10479025 snippy/ERR10479028 snippy/ERR10479029 snippy/ERR10479032 snippy/ERR10479034 snippy/ERR10479035 snippy/ERR10479037 snippy/ERR10479039
 ```
 Now we wait for snippy-core to finish running - this should take ~xx
 
