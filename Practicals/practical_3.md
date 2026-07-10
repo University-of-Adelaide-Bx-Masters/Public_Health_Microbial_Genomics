@@ -121,7 +121,6 @@ snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genom
 ```
 Now we wait for snippy to finish this should take ~2 minutes for one sample 
 
-#### Task: Repeat snippy for the remaining xx samples
 
 ## 3.2 Examine snippy logs 
 To better understand how Snippy processes sequencing reads and generates variant calls, we will inspect the snp.log output file. The log records the commands executed during the analysis, allowing you to trace each stage of the snippy pipeline, including read alignment, BAM processing, variant calling and variant filtering. If you run a tool and it fails – information on why the tool failed to run will often be in the .log file – so this is an important file. 
@@ -138,6 +137,10 @@ This shows you the exact Snippy command that was run, including all parameters. 
 
 ## 3.3 Now let’s look at some of the snippy output files 
 Snippy 
+
+## 3.4 Run snippy over all samples 
+
+#### Task: Repeat snippy for the remaining xx samples
 
 # **4. Run snippy core to create input for building a tree** 
  
