@@ -121,7 +121,6 @@ snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genom
 ```
 Now we wait for snippy to finish this should take ~2 minutes for one sample 
 
-
 ## 3.2 Examine snippy logs 
 To better understand how Snippy processes sequencing reads and generates variant calls, we will inspect the snp.log output file. The log records the commands executed during the analysis, allowing you to trace each stage of the snippy pipeline, including read alignment, BAM processing, variant calling and variant filtering. If you run a tool and it fails – information on why the tool failed to run will often be in the .log file – so this is an important file. 
 
@@ -173,25 +172,27 @@ Now run snippy-core to generate the core genome SNP alignment files across all s
 #Note: This is one long command
 snippy-core --prefix snippy/core_genome --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta snippy/ERR10479021 snippy/ERR10479025 snippy/ERR10479028 snippy/ERR10479029 snippy/ERR10479032 snippy/ERR10479034 snippy/ERR10479035 snippy/ERR10479037 snippy/ERR10479039
 ```
-Now we wait for snippy-core to finish running - this should take ~xx
-
 the above snippy-core command will generate files with core.* prefix. To view a list of the ouput files we can use `ls`
 
 ```bash
-ls Practical_phylogenetic_trees_surveillance/results/core*
+ls snippy/core*
 ```
 You should see the path to 6 files, and the files that are the most important include:
-- core.aln: Core genome SNP alignment 
-- core.tab: Tab-seperated table of core SNPs with alleles
-- core.full.aln: Whole genome SNP alignment, including invariant sites 
-
+- core_genome.aln: Core genome SNP alignment 
+- core_genome.tab: Tab-seperated table of core SNPs with alleles
+- core_genome.full.aln: Whole genome SNP alignment, including invariant sites 
 
 # **5. Build a phylogenomic tree from variant sites**
 
 Run `iqTree` to create a tree from the core SNP alignment:
 
 ```bash
-to do
+# first lets move the core.aln into the tree directory using the 'mv' command
+mv snippy/core_genome.aln tree
+# then remove the reference genome from the alignment
+
+# now run iqtree 
+iqtree -T 2 --mem 16G -s tree/core_genome.aln
 ```
 
 # **6. Visualise the phylogenomic tree using Microreact**
