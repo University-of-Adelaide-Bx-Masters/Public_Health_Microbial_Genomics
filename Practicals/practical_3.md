@@ -199,7 +199,13 @@ This creates a phylogenomic tree in newick format - its the 'core_genome.full.al
 For this practical we will use Microreact to visulise the phylogenomic tree. It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
 
 Download tree file for Microreact: 
-- A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `todo.nwk` file from the VM. This can be found in your `Practical_phylogenetic_trees_surveillance/results` folder.   
+- A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `todo.nwk` file from the VM. This can be found in your `Practical_phylogenetic_trees_surveillance/results` folder.
+
+
+
+
+<img width="1912" height="627" alt="image" src="https://github.com/user-attachments/assets/cd14797e-5328-4b16-8ac8-852a3603d628" />
+
 
 # **7. Overlay genotyping data onto the tree in Microreact**
 
