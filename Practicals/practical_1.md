@@ -10,6 +10,9 @@ By Dr Jessica Webb
 
 Insert diagram -  public health microbial genomics workflow &  indicate which step we at 
 
+<img width="806" height="699" alt="image" src="https://github.com/user-attachments/assets/2538c913-b400-46be-9f3b-5a43ff44afb0" />
+
+
 ## 1.1 Practical Overview
 
 
