@@ -139,7 +139,7 @@ Snippy
 
 ## 3.4 Run snippy over all samples 
 
-This will take ~20 minutes to run 
+This will take ~30 minutes to finish 
 
 ```bash
 #!/bin/bash
