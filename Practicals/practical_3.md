@@ -132,7 +132,6 @@ We will use `grep` to look at what is happening in the snippy log files and to u
 ```bash
 grep "outdir" insertpath/snps.log
 ```
-
 This shows you the exact Snippy command that was run, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
 
 ## 3.3 Now let’s look at some of the snippy output files 
@@ -140,7 +139,17 @@ Snippy
 
 ## 3.4 Run snippy over all samples 
 
-#### Task: Repeat snippy for the remaining xx samples
+```bash
+#!/bin/bash
+
+# Load software
+
+# List of samples with Illumina data
+
+# Loop over each sample
+
+# Run snippy
+```
 
 # **4. Run snippy core to create input for building a tree** 
  
