@@ -192,7 +192,7 @@ mv snippy/core_genome.full.aln tree
 # now run iqtree 
 iqtree -T 2 --mem 16G -s tree/core_genome.full.aln
 ```
-This creates a phylogenomic tree in newick format - its the 'core_genome.full.aln.treefile' which we will visulise in a tree visualisation tool called Microreact. 
+This creates a phylogenomic tree in newick format - its the 'core_genome.full.aln.treefile' which we will visualise in a tree visualisation tool called Microreact. 
 
 # **6. Visualise the phylogenomic tree using Microreact**
 
