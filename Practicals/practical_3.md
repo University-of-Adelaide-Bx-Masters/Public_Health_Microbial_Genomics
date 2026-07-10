@@ -187,12 +187,10 @@ You should see the path to 6 files, and the files that are the most important in
 Run `iqTree` to create a tree from the core SNP alignment:
 
 ```bash
-# first lets move the core.aln into the tree directory using the 'mv' command
-mv snippy/core_genome.aln tree
-# then remove the reference genome from the alignment
-
+# first lets move the core.genome.full.aln into the tree directory using the 'mv' command
+mv snippy/core_genome.full.aln tree
 # now run iqtree 
-iqtree -T 2 --mem 16G -s tree/core_genome.aln
+iqtree -T 2 --mem 16G -s tree/core_genome.full.aln
 ```
 
 # **6. Visualise the phylogenomic tree using Microreact**
