@@ -205,6 +205,10 @@ Download tree file for Microreact:
 
 <img width="1821" height="658" alt="image" src="https://github.com/user-attachments/assets/2d7e8ec5-947a-40d5-be09-171c0ef42b56" />
 
+now lets midpoint root the tree 
+
+<img width="1873" height="733" alt="image" src="https://github.com/user-attachments/assets/40a7cb6f-66db-45ef-a69d-c7b244f0bb18" />
+
 
 
 # **7. Overlay genotyping data onto the tree in Microreact**
