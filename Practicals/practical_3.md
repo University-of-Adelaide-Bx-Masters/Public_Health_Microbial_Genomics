@@ -117,12 +117,9 @@ Now the fun part, run snippy for each sample. Example command for one sample:
 
 ```bash
 #Note: This is one long command
-snippy --outdir /todo/ --ref
-references/pathtorftodo.fa --R1
-/todo/ 1.fastq.gz --R2
-/todo/ _2.fastq.gz 
+snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta --R1 reads/ERR10479021_1.fastq.gz --R2 reads/ERR10479021_2.fastq.gz 
 ```
-Now we wait for snippy to finish this should take ~xx for one sample 
+Now we wait for snippy to finish this should take ~2 minutes for one sample 
 
 #### Task: Repeat snippy for the remaining xx samples
 
