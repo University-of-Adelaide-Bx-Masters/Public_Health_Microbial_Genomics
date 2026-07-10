@@ -32,14 +32,14 @@ mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,referen
 ```
 
 ## 2.3 Get data
-The data for today's practical is located in `~/data/species_classification`. As in previous practicals, we will use symlinks instead of copying large data files.
+The data for today's practical is located in `~/data/microbial_genomics`. As in previous practicals, we will use symlinks instead of copying large data files.
 
 ```bash
 cd ~/Practical_species_classification
 # create symlinks for all fastq files
-ln -s ~/data/public_health_genomics/species_classification/*.fastq.gz reads/
+ln -s ~/data/public_health_genomics/microbial_genomics/*.fastq.gz reads/
 # create symlink for reference genome
-ln -s ~/data/public_health_genomics/species_classification/GCA_000009505.1_ASM950v1_genomic.fasta reference/
+ln -s ~/data/public_health_genomics/microbial_genomics/GCA_000009505.1_ASM950v1_genomic.fasta reference/
 # create symlink for kraken database
 ln -s ~/data/dbs/kraken/std_8g db/
 # we can confirm where we are 
