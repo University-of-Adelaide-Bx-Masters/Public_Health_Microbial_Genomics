@@ -130,7 +130,7 @@ We will use `grep` to look at what is happening in the snippy log files and to u
 #### 3.2.1 View the snippy command and parameters used when we ran snippy: 
 
 ```bash
-grep "outdir" insertpath/snps.log
+grep "outdir" snippy/ERR10479021/snps.log
 ```
 This shows you the exact Snippy command that was run, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
 
@@ -143,12 +143,22 @@ Snippy
 #!/bin/bash
 
 # Load software
+source activate bioinf
 
 # List of samples with Illumina data
+SAMPLES=(ERR10479025 ERR10479028 ERR10479029 ERR10479032 ERR10479034 ERR10479035 ERR10479037 ERR10479039)
 
 # Loop over each sample
+for SAMPLE in "${SAMPLES[@]}";
+do
 
-# Run snippy
+# Run snippy over the remaning samples
+snippy \
+        --outdir snippy/${SAMPLE} \
+        --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta \
+        --R1 reads/${SAMPLE}_1.fastq.gz \
+        --R2 reads/${SAMPLE}_2.fastq.gz
+done
 ```
 
 # **4. Run snippy core to create input for building a tree** 
