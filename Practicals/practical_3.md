@@ -203,8 +203,8 @@ Download tree file for Microreact:
 
 
 
+<img width="1821" height="658" alt="image" src="https://github.com/user-attachments/assets/2d7e8ec5-947a-40d5-be09-171c0ef42b56" />
 
-<img width="1912" height="627" alt="image" src="https://github.com/user-attachments/assets/cd14797e-5328-4b16-8ac8-852a3603d628" />
 
 
 # **7. Overlay genotyping data onto the tree in Microreact**
