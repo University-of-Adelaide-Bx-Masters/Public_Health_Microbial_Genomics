@@ -40,7 +40,7 @@ mkdir --parents ~/Practical_variants_trees/{assembly,metadata,reads,snippy,tree}
 ```
 
 ## 2.3 Get data
-The data for today's practical is located in `~/data/variants_trees`. As in previous practicals, we will use symlinks instead of copying large data files.
+The data for today's practical is located in `~/data/microbial_genomics`. As in previous practicals, we will use symlinks instead of copying large data files.
 
 ```bash
 # navigate to working directory
