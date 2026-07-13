@@ -173,17 +173,13 @@ We have now used `mlst` to assign a sequence type to our salmonella samples, whi
 
 `chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particulalry in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR)- based allele calling alogarithm to identify allels across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
 
-
 ### 4.2 Salmonella enterica core genome MLST schema
 
-Before `chewbbaca` can be run on the samples - we need to requires a scheme for xyz 
+cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is quiet alot more genes compared to the seven genes included in the mlst) 
 
-The Salmonella enterica core genome MLST schema has already been downloaded for you and is located here `~/data/bacterial_genotyping`
+Before `chewbbaca` can be run on the samples the salmonella enterica cgMLST schema (file containing all) needs to be downloaded from ridom seqsphere and adapted so that it is the correct format for input into `chewbacca`   
 
-
-### 4.3 Adapt the Salmonella enterica core genome MLST schema so that it can be used with `chewBBACA`
-
-bla bla bla
+YOU DO NOT NEED TO RUN THIS COMMAND I HAVE ALREADY DONE THIS FOR YOU - THIS IS TO SHOW YOU HOW COMMAND LOOKS FOR CONVERTING cgMLST SCHEMA FOR INPUT INTO `chewbacca`. 
 
 ```bash
 chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial_genomics/salmonella_cgMLST/ -o salmonella_schema
