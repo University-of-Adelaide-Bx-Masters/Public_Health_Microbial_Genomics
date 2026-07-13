@@ -124,7 +124,7 @@ On the terminal you should see the `mlst` command returned a tab-seperated line 
 <img width="1265" height="342" alt="image" src="https://github.com/user-attachments/assets/663749fc-2dad-4df5-80a6-0cfb8ecc15a0" />
 
 
-The command we ran above generally autodetects an appropriate bacterial schemea to use. However their may be times where an incorrect schema is selected by the `mlst` tool. This can happen for example between closeley related bacterial species (e.g. shigella and e.coli), where the house keeping genes are genetically similar. To overcome this, you can force `mlst` to use a specific scheme by adding the option `--schema` followed by the name of the schema - in our case we are working with salmonella samples so we will use the `salmonella` schema: 
+The command we ran above generally autodetects an appropriate bacterial scheme to use. However their may be times where an incorrect scheme is selected by the `mlst` tool. This can happen for example between closeley related bacterial species (e.g. shigella and e.coli), where the house keeping genes are genetically similar. To overcome this, you can force `mlst` to use a specific scheme by adding the option `--schema` followed by the name of the scheme - in our case we are working with salmonella samples so we will use the `salmonella` scheme: 
 
 ```bash
 mlst --scheme salmonella --quiet assembly/ERR10479021.fasta
