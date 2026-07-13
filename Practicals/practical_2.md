@@ -177,9 +177,9 @@ We have now used `mlst` to assign a sequence type to our salmonella samples, whi
 
 cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is quiet alot more genes compared to the seven genes included in the mlst) 
 
-Before `chewbbaca` can be run on the samples the salmonella enterica cgMLST schema (file containing all) needs to be downloaded from ridom seqsphere and adapted so that it is the correct format for input into `chewbacca`   
+Before `chewbbaca` can be run on the samples the salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky - I ahve already done this step for you.   
 
-YOU DO NOT NEED TO RUN THIS COMMAND I HAVE ALREADY DONE THIS FOR YOU - THIS IS TO SHOW YOU HOW COMMAND LOOKS FOR CONVERTING cgMLST SCHEMA FOR INPUT INTO `chewbacca`. 
+YOU DO NOT NEED TO RUN THIS COMMAND I HAVE ALREADY DONE THIS FOR YOU - THIS IS TO SHOW YOU HOW THE COMMAND LOOKS FOR CONVERTING cgMLST SCHEMA FOR INPUT INTO `chewbacca`. 
 
 ```bash
 chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial_genomics/salmonella_cgMLST/ -o salmonella_schema
