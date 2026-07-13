@@ -203,7 +203,7 @@ The main output file is the `results_alleles.tsv`, which is a tab delimited file
 - Columns: schema loci
 - Values: allele identifiers or classification code
 
-### 4.5 schema evaluator
+### 4.5 schema evaluator 
 
 build an interactive report for schema evaluation 
 
@@ -279,7 +279,7 @@ The fewer allele differences between two isolates, the more closely related they
 single linkage clustering 
 
 ``` bash
-custom python script???
+to do custom script 
 ```
 
 # **7. Visual comparison of MLST and core-genome MLST results**
