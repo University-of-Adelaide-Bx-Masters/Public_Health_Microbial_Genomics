@@ -13,7 +13,7 @@ Insert diagram -  public health microbial genomics workflow &  indicate which st
 ## 1.1 Practical Overview
 
 In practice, MLST and cgMLST are often used together:
-   -  MLST first: Quick screening to identify strain types
+   -  MLST first: Quick screening to identify strain types and potential outbreaks
    - cgMLST second: High-resolution analysis of isolates of interest
    - Combined interpretation: MLST for context, cgMLST for detail
 
