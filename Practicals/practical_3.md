@@ -11,7 +11,8 @@ Whole-genome sequencing (WGS) of bacterial pathogens has transformed public heal
 
 The figure below is an example of a microbial genomics workflow that may be undertaken in a public health laboratory. In Practicals 1 and 2 you learned about species classification and microbial genotyping, this pratcial will focus on the steps highlighted in blue in the below figure. Which includes sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
 
-Insert diagram -  public health microbial genomics workflow &  indicate which step we at 
+<img width="806" height="591" alt="image" src="https://github.com/user-attachments/assets/8ab7ea23-a1a3-416e-9a79-88757197144c" />
+
 
 ## 1.1 Practical Overview
 
