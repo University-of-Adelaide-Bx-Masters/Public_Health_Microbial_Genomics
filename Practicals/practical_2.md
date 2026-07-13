@@ -141,7 +141,7 @@ You can do this using the following command, at the same time we will direct the
 mlst --scheme salmonella --quiet assembly/E*.fasta > salmonella_mlst_results.tsv
 ```
 
-Task: 
+**Task:** 
 - View the results on the terminal
 - How many STs are present in the salmonella samples?
 - Count how many isolates belong to each ST 
