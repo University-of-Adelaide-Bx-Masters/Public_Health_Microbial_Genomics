@@ -129,15 +129,15 @@ The command we ran above generally autodetects an appropriate bacterial schemea 
 ```bash
 mlst --scheme salmonella --quiet assembly/ERR10479021.fasta
 ```
-Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the schema campared to when we didnt force the schema - lucky! 
+Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the scheme campared to when we didnt force the scheme - lucky! 
 
-If you were to specificy the wrong scheme for the organism in your sample - the command will run but you will not get any results. For exampl lets run the Mycobacterium tuberculosis scheme over a salmonella sample:
+Now lets look at if you were to specificy the wrong scheme for the organism in your sample. The command will run but you will not get any results. For example lets run the Mycobacterium tuberculosis scheme over a salmonella sample:
 
 ```bash
 mlst --scheme mycobacteria_2 --quiet assembly/ERR10479021.fasta
 ```
 
-You can see that a `-` is present for the ST and allele IDs. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with downstream analysis including genotyping. 
+On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` schema that we specified have not been detected in out salmonella sample. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with ensuring thet you are running the correct downstream analysis - and as we ahve just seen this is important to get a sequence type. 
 
 ### 3.2 Run `mlst` over all samples
 
