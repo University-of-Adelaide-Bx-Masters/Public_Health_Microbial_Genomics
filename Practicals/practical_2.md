@@ -62,7 +62,7 @@ The `mlst` tool by Torsten Seemann scans bacterial genome assemblies (in FASTA f
 Run this to get the help information for mlst
 
 ```bash
-`mlst` -h
+mlst -h
 ```
 
 ### 3.1 Before running `mlst` we can check what schemes are available and confirm the salmonella scheme is listed
