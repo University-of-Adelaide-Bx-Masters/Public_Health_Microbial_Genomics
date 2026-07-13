@@ -219,6 +219,15 @@ Main output is the `schema_report.html` file
 
 build an interactive report for allele calling schema evaluation 
 
+```bash
+chewBBACA.py AlleleCallEvaluator -i cgmlst/allele_calling_results/results_20260713T071622/ -g db/salmonella_schema -o cgmlst/AlleleCallEvaluator
+```
+
+This takes ~xx minutes to complete 
+
+This produces the following outputs:
+
+
 ### 4.5 Determine the set of loci that make up the core genome 
 
 Not all loci are present in all genomes.
