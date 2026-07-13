@@ -65,7 +65,7 @@ Run this to get the help information for mlst
 mlst -h
 ```
 
-### 3.1 Before running `mlst` we can check what schemes are available and confirm the salmonella scheme is listed
+### 3.1 Before running `mlst` we can check what schemes are available
 
 ```bash
 # List all available schemes
@@ -74,23 +74,58 @@ mlst --list
 # Check if salmonella scheme is listed - we can use grep
 mlst --list | grep salmonella
 ```
-you should see `salmonella` in the output highlighted in red, confirming the scheme is available. 
+you should see `salmonella` in the terminal output highlighted in red, confirming the scheme is available. 
 
-### 3.2 Run `mlst` 
+### 3.2 Run `mlst` over one sample
 
 `mlst` requires a genome assembly (FASTA format) file as input. 
 
 Example command for one sample:
 
 ```bash
-mlst todo.fasta todo.fasta
+mlst assembly/ERR10479021.fasta
 ```
 
-`mlst` returns a tab-seperated line containing:
-- the filename
-- the macthing PubMLST schema name
-- the ST (sequence type)
-- the allel IDs
+You can see on the terminal that running the above command has returned alot of information, but really all we want is the line that has 
+
+```bash
+This is mlst 2.35.0 running on linux with Perl 5.032001
+Checking mlst dependencies:
+Found 'blastn' => /apps/conda3/singularity/envs/bioinf/bin/blastn
+Found 'any2fasta' => /apps/conda3/singularity/envs/bioinf/bin/any2fasta
+Excluding 4 schemes: abaumannii senterica_achtman_2 vcholerae_2 ecoli
+Running: any2fasta -q assembly\/ERR10479021\.fasta > /tmp/9CN_VXuNnA/mlst.fna
+Running:  blastn -query /tmp/9CN_VXuNnA/mlst.fna -out /tmp/9CN_VXuNnA/mlst.bls -db \/apps\/conda3\/singularity\/envs\/bioinf\/db\/blast\/mlst\.fa -num_threads 1 -ungapped -dust no -word_size 32 -max_target_seqs 100000 -perc_identity 95 -evalue 1E-20 -outfmt '6 sseqid slen length nident qseqid qstart qend qseq sstrand'
+Found exact allele match salmonella.hisD-1135
+Found exact allele match ecoli_achtman_4.fumC-532
+Found exact allele match salmonella.purE-5
+Found exact allele match salmonella.sucA-192
+Found exact allele match salmonella.aroC-5
+Found exact allele match salmonella.thrA-1
+Found exact allele match salmonella.hemD-3
+Found exact allele match salmonella.dnaN-67
+assembly/ERR10479021.fasta      salmonella      5438    aroC(5) dnaN(67)        hemD(3) hisD(1135)      purE(5) sucA(192)       thrA(1)
+If you like MLST, you're absolutely going to love wgMLST!
+```
+
+
+On the terminal you should see the `mlst` command returned a tab-seperated line containing:
+- The filename
+- The macthing PubMLST schema name
+- The Sequence Type (ST)
+- Genes and their allele IDs
+
+<img width="1265" height="342" alt="image" src="https://github.com/user-attachments/assets/663749fc-2dad-4df5-80a6-0cfb8ecc15a0" />
+
+
+The command we ran above generally autodetects an appropriate bacterial schemea to use. However their may be times where an incorrect schema is selected by the `mlst` tool. This can happen for example between closeley related bacterial species (e.g. shigella and e.coli), where the house keeping genes are genetically similar. To overcome this, you can force `mlst` to use a specific scheme by adding the option `--schema` followed by the name of the schema - in our case we are working with salmonella samples so we will use the `salmonella` schema: 
+
+```bash
+mlst --scheme salmonella assembly/ERR10479021.fasta
+```
+Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the schema campared to when we didnt force the schema - lucky! 
+
+### 3.2 Run `mlst` over all samples
 
 Task:
 - Repeat `mlst` for the remaining samples and direct the results to an `output` file named `salmonella_mlst_results.txt`
