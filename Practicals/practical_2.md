@@ -137,7 +137,7 @@ Now lets look at if you were to specificy the wrong scheme for the organism in y
 mlst --scheme mycobacteria_2 --quiet assembly/ERR10479021.fasta
 ```
 
-On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` schema that we specified have not been detected in out salmonella sample. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with ensuring thet you are running the correct downstream analysis - and as we ahve just seen this is important to get a sequence type. 
+On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` scheme that we specified have not been detected in out salmonella sample. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with ensuring thet you are running the correct downstream analysis - and as we have just seen this is important to get a sequence type. 
 
 ### 3.2 Run `mlst` over all samples
 
@@ -149,11 +149,11 @@ You can do this using the following command, at the same time we will direct the
 mlst --scheme salmonella --quiet assembly/E*.fasta > salmonella_mlst_results.tsv
 ```
 
-**Task:** 
-Remember that if a sample belongs to the same ST it is likely an outbreak. View the output results(`salmonella_mlst_results.tsv`) on the terminal: 
+**Questions:** 
+Remember that if a sample belongs to the same ST it is likely an outbreak. View the output results(`salmonella_mlst_results.tsv`) on the terminal and answer the following questions: 
 - How many STs are present in the salmonella samples?
-- Do you observe any outbreaks or clones?
-- If so how many different outbreaks could be present?
+- Do you observe any outbreaks?
+- If so how many outbreaks could be present?
   
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
