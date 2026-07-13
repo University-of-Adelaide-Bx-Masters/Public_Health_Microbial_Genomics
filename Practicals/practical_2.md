@@ -169,7 +169,7 @@ Remember that if multiple samples belong to the same ST they likely represent an
   
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
-We have now used `mlst` to assign a sequence type to our salmonella samples, which is an important tool for the initual quick screaning of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
+We have used `mlst` to assign a sequence type to our salmonella samples, which is an important tool for the initual quick screaning of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
 
 `chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particulalry in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR)- based allele calling alogarithm to identify allels across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
 
@@ -187,15 +187,20 @@ chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial
 
 ### 4.4 Perform allele calling on the Salmonella enterica genome assemblies
 
-To run `chewBACCA` all you need is:
+To run `chewBACCA` `AlleleCall` you need:
 - Genome assemblies (FASTA) as input files
 - A cgMLST schema (includes gene loci and alleles)
 
 Now the fun part - lets go ahead and run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes: 
 
 ```bash
-chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results --cpu 4 --bsr 0.6(WHICH VALUE TO USE HERE!!!!)
+chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
 ```
+
+Started running at 441pm
+
+
+
 The main output file is the `allele_calling_results.tsv`, which is a tab delimited file with:
 - Rows: genome assemblies
 - Columns: schema loci
@@ -203,7 +208,11 @@ The main output file is the `allele_calling_results.tsv`, which is a tab delimit
 
 ### 4.5 schema evaluator
 
+build an interactive report for schema evaluation 
+
 ### 4.6 Allele call evaluator
+
+build an interactive report for allele calling schema evaluation 
 
 ### 4.7 Determine the set of loci that make up the core genome 
 
