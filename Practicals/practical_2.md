@@ -206,11 +206,14 @@ The main output file is the `results_alleles.tsv`, which is a tab delimited file
 
 ### 4.3 schema evaluator 
 
-build an interactive report for schema evaluation 
+build an interactive report for schema evaluation: 
 
 ```bash
 chewBBACA.py SchemaEvaluator -g db/salmonella_schema -o cgmlst/schema_evaluator
 ```
+This takes ~10 minutes to complete 
+
+Main output is the `schema_report.html` file 
 
 ### 4.4 Allele call evaluator
 
