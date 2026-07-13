@@ -131,6 +131,14 @@ mlst --scheme salmonella --quiet assembly/ERR10479021.fasta
 ```
 Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the schema campared to when we didnt force the schema - lucky! 
 
+If you were to specificy the wrong scheme for the organism in your sample - the command will run but you will not get any results. For exampl lets run the Mycobacterium tuberculosis scheme over a salmonella sample:
+
+```bash
+mlst --scheme mycobacteria_2 --quiet assembly/ERR10479021.fasta
+```
+
+You can see that a `-` is present for the ST and allele IDs. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with downstream analysis including genotyping. 
+
 ### 3.2 Run `mlst` over all samples
 
 Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping samples. We can now go ahead and genotype the remaining salmonella samples. All of our salmonella assemblies begin with the letter "E". So the easiest way to run `mlst` over all our samples is to use a wild card to call all the .fasta samples begining with E and run the `mlst` tool on each of the assembly files. 
