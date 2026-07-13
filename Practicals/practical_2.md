@@ -223,7 +223,7 @@ build an interactive report for allele calling schema evaluation
 chewBBACA.py AlleleCallEvaluator -i cgmlst/allele_calling_results/results_20260713T071622/ -g db/salmonella_schema -o cgmlst/AlleleCallEvaluator
 ```
 
-This takes ~xx minutes to complete 
+This takes ~12 minutes to complete 
 
 This produces the following outputs:
 
