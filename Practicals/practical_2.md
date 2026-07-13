@@ -169,14 +169,14 @@ Remember that if multiple samples belong to the same ST they likely represent an
   
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
-We have now used `mlst` to assign a sequence type to our salmonella samples, which is an important tool for the initual quick screaning of samples to identify potential bacterial outbreaks. The next step would be to then undertake cgMLST analysis on the samples. cgMLST is based on thousands of core genes (present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
+We have now used `mlst` to assign a sequence type to our salmonella samples, which is an important tool for the initual quick screaning of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
 
-`chewBBACA` is a commonly used tool for undertaking cgMLST across bacterial genomes in public helath settings for bacterial genotyping and is commonly used for outbreak investigations. `chewBBACA uses a BLAST score ratio (BCR)- based allele calling alogarithm to identify allels across genome assemblies, producing allelic profiles that can be compared between bacterial samples. 
+`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particulalry in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR)- based allele calling alogarithm to identify allels across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
 
 
 ### 4.2 Salmonella enterica core genome MLST schema
 
-`chewbbaca` requires a scheme for xyz 
+Before `chewbbaca` can be run on the samples - we need to requires a scheme for xyz 
 
 The Salmonella enterica core genome MLST schema has already been downloaded for you and is located here `~/data/bacterial_genotyping`
 
