@@ -133,11 +133,12 @@ Looking at the results you can see that we get the same ST, genes and allele IDs
 
 ### 3.2 Run `mlst` over all samples
 
-Task:
-- Repeat `mlst` for the remaining samples and direct the results to an `output` file named `salmonella_mlst_results.txt`
+Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping samples. We can now go ahead and genotype the remaining salmonella samples. All of our salmonella assemblies begin with the letter "E". So the easiest way to run `mlst` over all our samples is to use a wild card to call all the .fasta samples begining with E and run the `mlst` tool on each of the assembly files. 
 
-```bash 
-mlst --quiet *.fasta > salmonella_mlst_results.txt
+You can do this using the following command, at the same time we will direct the results to an output file named (`salmonella_mlstresults.tsv`):
+
+```bash
+mlst --scheme salmonella --quiet assembly/E*.fasta > salmonella_mlst_results.tsv
 ```
 
 Task: 
