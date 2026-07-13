@@ -142,14 +142,11 @@ mlst --scheme salmonella --quiet assembly/E*.fasta > salmonella_mlst_results.tsv
 ```
 
 **Task:** 
-- View the results on the terminal
+Remember that if a sample belongs to the same ST it is likely an outbreak. View the output results(`salmonella_mlst_results.tsv`) on the terminal: 
 - How many STs are present in the salmonella samples?
-- Count how many isolates belong to each ST 
-- Extract isolates belonging to STx
-
-## Questions
-1. to test conceptial understanding
-2. allele intepretation 
+- Do you observe any outbreaks or clones?
+- If so how many different outbreaks could be present?
+  
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
 
