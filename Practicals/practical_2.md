@@ -85,8 +85,7 @@ Example command for one sample:
 ```bash
 mlst assembly/ERR10479021.fasta
 ```
-
-You can see on the terminal that running the above command has returned alot of information, but really all we want is the line that has 
+You should see something like this on the terminal - you can see that running the above command has returned alot of information, but we are most interested in one of the lines. This line contains the mlst information that we are interested in. 
 
 ```bash
 This is mlst 2.35.0 running on linux with Perl 5.032001
@@ -108,8 +107,15 @@ assembly/ERR10479021.fasta      salmonella      5438    aroC(5) dnaN(67)        
 If you like MLST, you're absolutely going to love wgMLST!
 ```
 
+`mlst` has a special flag that we can use to get quiet output by using the `--quiet` option. 
 
-On the terminal you should see the `mlst` command returned a tab-seperated line containing:
+Now try this and take note of what is printed on the terminal 
+
+```bash
+mlst --quiet assembly/ERR10479021.fasta
+```
+
+On the terminal you should see the `mlst` command returned a tab-seperated line (this is the line that we are most interested in) containing:
 - The filename
 - The macthing PubMLST schema name
 - The Sequence Type (ST)
@@ -121,7 +127,7 @@ On the terminal you should see the `mlst` command returned a tab-seperated line 
 The command we ran above generally autodetects an appropriate bacterial schemea to use. However their may be times where an incorrect schema is selected by the `mlst` tool. This can happen for example between closeley related bacterial species (e.g. shigella and e.coli), where the house keeping genes are genetically similar. To overcome this, you can force `mlst` to use a specific scheme by adding the option `--schema` followed by the name of the schema - in our case we are working with salmonella samples so we will use the `salmonella` schema: 
 
 ```bash
-mlst --scheme salmonella assembly/ERR10479021.fasta
+mlst --scheme salmonella --quiet assembly/ERR10479021.fasta
 ```
 Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the schema campared to when we didnt force the schema - lucky! 
 
