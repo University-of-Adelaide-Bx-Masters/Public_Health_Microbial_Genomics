@@ -244,9 +244,9 @@ This command calculates the number of allele differences between every pair of i
 show example output 
 
 Here you can see (adapt to here):
-0 = identical allelic profiles
-3 = three allele differences
-25 = twenty-five allele differences
+- 0 = identical allelic profiles
+- 3 = three allele differences
+- 25 = twenty-five allele differences
 
 The fewer allele differences between two isolates, the more closely related they are.
 
