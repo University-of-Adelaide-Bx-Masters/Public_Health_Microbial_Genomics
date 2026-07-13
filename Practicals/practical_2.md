@@ -46,8 +46,8 @@ The data for today's practical is located in `~/data/microbial_genomics`. As in 
 cd ~/Practical_bacterial_genotyping
 # create symlinks for all genome assembly (FASTA format) files
 ln -s ~/data/public_health_genomics/microbial_genomics/assemblies/*.fasta assembly/
-# create symlink for cgmlst schema 
-ln -s ~/data/public_health_genomics/microbial_genomics/salmonella_cgMLST/salmonella_schema 
+# create symlink for salmonella cgmlst schema 
+ln -s ~/data/public_health_genomics/microbial_genomics/salmonella_schema db/
 # we can confirm where we are 
 pwd
 ```
