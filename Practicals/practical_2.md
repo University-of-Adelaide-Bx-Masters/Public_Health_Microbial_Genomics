@@ -185,20 +185,18 @@ YOU DO NOT NEED TO RUN THIS COMMAND I HAVE ALREADY DONE THIS FOR YOU - THIS IS T
 chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial_genomics/salmonella_cgMLST/ -o salmonella_schema
 ```
 
-### 4.4 Performe allele calling on the Salmonella enterica genome assemblies
-
-Now the fun part - lets go ahead and run `chewBACCA` 
+### 4.4 Perform allele calling on the Salmonella enterica genome assemblies
 
 To run `chewBACCA` all you need is:
 - Genome assemblies (FASTA) as input files
 - A cgMLST schema (includes gene loci and alleles)
 
-run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes 
+Now the fun part - lets go ahead and run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes: 
 
 ```bash
 chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results --cpu 4 --bsr 0.6(WHICH VALUE TO USE HERE!!!!)
 ```
-The main output file is the `allele_calling_results.tsv`, which is a tab delimited file with"
+The main output file is the `allele_calling_results.tsv`, which is a tab delimited file with:
 - Rows: genome assemblies
 - Columns: schema loci
 - Values: allele identifiers or classification code
