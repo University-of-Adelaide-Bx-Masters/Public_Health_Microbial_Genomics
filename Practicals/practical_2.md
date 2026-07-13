@@ -169,8 +169,9 @@ Remember that if multiple samples belong to the same ST they likely represent an
   
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
+We have now used `mlst` to assign a sequence type to our salmonella samples, which is an important tool for the initual quick screaning of samples to identify potential bacterial outbreaks. The next step would be to then undertake cgMLST analysis on the samples. cgMLST is based on thousands of core genes (present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
 
-`chewBBACA` is a commonly used tool to xyz 
+`chewBBACA` is a commonly used tool for undertaking cgMLST across bacterial genomes. 
 
 
 ### 4.2 Download the Salmonella enterica core genome MLST schema
@@ -195,7 +196,7 @@ chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial
 run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes 
 
 ```bash
-chewBBACA.py AlleleCall -i genomes_to_analyze -g salmonella_schema_adapted -o allele_calling_results --cpu 4 --bsr 0.6(WHICH VALUE TO USE HERE!!!!)
+chewBBACA.py AlleleCall -i genomes_to_analyze -g db/salmonella_schema -o allele_calling_results --cpu 4 --bsr 0.6(WHICH VALUE TO USE HERE!!!!)
 ```
 The main output fils is `allele_calling_results.tsv`, which is a tab delimited file with"
 - Rows: genome assemblies
