@@ -34,20 +34,18 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_bacterial_genotyping/ xxx
-mkdir -p ~/Practical_bacterial_genotyping/ xx
-mkdir -p ~/Practical_bacterial_genotyping/ xx
+mkdir --parents ~/Practical_bacterial_genotyping/{assembly,cgmlst,db,mlst}
 ```
 
 ## 2.3 Get data
-The data for today's practical is located in `~/data/bacterial_genotyping`. As in previous practicals, we will use symlinks instead of copying large data files.
+The data for today's practical is located in `~/data/microbial_genomics`. As in previous practicals, we will use symlinks instead of copying large data files.
 
 ```bash
 cd ~/Practical_bacterial_genotyping
-# create symlinks for all fastq files
-ln -s ~/data/Practical_bacterial_genotyping/*.fastq.gz xx/
-# create symlink for reference genome
-ln -s ~/data/Practical_bacterial_genotyping/xyz.fasta xx/
+# create symlinks for all genome assembly (FASTA format) files
+ln -s ~/data/public_health_genomics/microbial_genomics/assemblies/*.fasta assembly/
+# create symlink for cgmlst schema 
+ln -s ~/data/public_health_genomics/microbial_genomics/TO DOOO
 # we can confirm where we are 
 pwd
 ```
@@ -67,10 +65,10 @@ The `mlst` tool by Torsten Seemann scans bacterial genome assemblies (in FASTA f
 # List all available schemes
 mlst --list
 
-# Check if M. tuberculosis scheme is listed - we can use grep
-mlst --list | grep tuberculosis
+# Check if salmonella scheme is listed - we can use grep
+mlst --list | grep salmonella
 ```
-you should see `mtuberculosis` in the output, confirming the scheme is available. 
+you should see `salmonella` in the output highlighted in red, confirming the scheme is available. 
 
 ### 3.2 Run `mlst` 
 
