@@ -32,7 +32,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,reference,db}
+mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,reference,db,assembly}
 ```
 
 ## 2.3 Get data
@@ -42,6 +42,8 @@ The data for today's practical is located in `~/data/microbial_genomics`. As in 
 cd ~/Practical_species_classification
 # create symlinks for all fastq files
 ln -s ~/data/public_health_genomics/microbial_genomics/*.fastq.gz reads/
+# create symlinks for all genome assembly (FASTA format) files
+ln -s ~/data/public_health_genomics/microbial_genomics/assemblies/*.fasta assembly/
 # create symlink for reference genome
 ln -s ~/data/public_health_genomics/microbial_genomics/GCA_000009505.1_ASM950v1_genomic.fasta reference/
 # create symlink for kraken database
