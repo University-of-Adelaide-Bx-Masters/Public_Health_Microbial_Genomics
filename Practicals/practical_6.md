@@ -57,14 +57,21 @@ TO ADD IN
 ## 3.1 Annotate reference genome 
 
 ``` bash
-`prokka`
+`prokka` `bacta`
 ```
 
 ## 3.2 Identify variants 
 
-## 3.3 AMR variants detected
+do with snippy using .gff annotation as reference 
 
-## 3.4 Visualise variants 
+``` bash
+`snippy` 
+```
+
+## 3.3 AMR variants of interest 
+name of the gene - .tsv from prokka
+
+## 3.4 Visualise AMR variants 
 
 --> use IGV
 
