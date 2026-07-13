@@ -87,18 +87,19 @@ mlst todo.fasta todo.fasta
 - the allel IDs
 
 Task:
-- Repeat `mlst` for the remaining samples and direct the results to an `output` file 
+- Repeat `mlst` for the remaining samples and direct the results to an `output` file named `salmonella_mlst_results.txt`
 
 ```bash 
-mlst --quiet *.fasta > tb_mlst_results.txt
+mlst --quiet *.fasta > salmonella_mlst_results.txt
 ```
+
 Task: 
 - View the results on the terminal
 - Count how many isolates belong to each ST 
 - Extract isolates belonging to STx
 
 ## Questions
-1. to test conceptial undertanding
+1. to test conceptial understanding
 2. allele intepretation 
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
