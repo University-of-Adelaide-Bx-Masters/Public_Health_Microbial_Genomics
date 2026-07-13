@@ -198,10 +198,11 @@ This will take ~15 minutes to run - you will see stuff happening in the terminal
 ```bash
 chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
 ```
+
 The main output file is the `results_alleles.tsv`, which is a tab delimited file with:
-- Rows: genome assemblies
-- Columns: schema loci
-- Values: allele identifiers or classification code
+- Rows, genome assemblies
+- Columns, schema loci
+- Values, allele identifiers or classification code
 
 ### 4.3 schema evaluator 
 
