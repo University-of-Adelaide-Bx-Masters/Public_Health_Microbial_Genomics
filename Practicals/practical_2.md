@@ -59,7 +59,13 @@ TO ADD IN
 
 The `mlst` tool by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against PubMLST typing schemes and reports the sequence type.
 
-### 3.1 Before running `mlst` we can check what schemes are available and confirm the M. tuberculosis scheme is listed
+Run this to get the help information for mlst
+
+```bash
+`mlst` -h
+```
+
+### 3.1 Before running `mlst` we can check what schemes are available and confirm the salmonella scheme is listed
 
 ```bash
 # List all available schemes
@@ -95,6 +101,7 @@ mlst --quiet *.fasta > salmonella_mlst_results.txt
 
 Task: 
 - View the results on the terminal
+- How many STs are present in the salmonella samples?
 - Count how many isolates belong to each ST 
 - Extract isolates belonging to STx
 
