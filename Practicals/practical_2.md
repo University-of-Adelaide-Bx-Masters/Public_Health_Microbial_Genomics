@@ -131,6 +131,16 @@ mlst --scheme salmonella --quiet assembly/ERR10479021.fasta
 ```
 Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the scheme campared to when we didnt force the scheme - lucky! 
 
+However, because we used the `--quiet` setting we did not get all of the information printed on the terminal - if we run without `--quiet` 
+
+```bash
+mlst --scheme salmonella assembly/ERR10479021.fasta
+```
+You can actually see that the results are different to the results from when we didnt specify a scheme. 
+
+**Question:** 
+- can you see whihc result is different? hint its not to do with the ST or allele IDs. 
+
 Now lets look at if you were to specificy the wrong scheme for the organism in your sample. The command will run but you will not get any results. For example lets run the Mycobacterium tuberculosis scheme over a salmonella sample:
 
 ```bash
