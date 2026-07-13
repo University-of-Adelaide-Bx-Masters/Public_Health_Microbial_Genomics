@@ -47,7 +47,7 @@ cd ~/Practical_bacterial_genotyping
 # create symlinks for all genome assembly (FASTA format) files
 ln -s ~/data/public_health_genomics/microbial_genomics/assemblies/*.fasta assembly/
 # create symlink for cgmlst schema 
-ln -s ~/data/public_health_genomics/microbial_genomics/TO DOOO
+ln -s ~/data/public_health_genomics/microbial_genomics/salmonella_cgMLST/salmonella_schema 
 # we can confirm where we are 
 pwd
 ```
@@ -158,14 +158,14 @@ Now you have genotyped one sample! well done - you can see how simple `mlst` is 
 You can do this using the following command, at the same time we will direct the results to an output file named (`salmonella_mlstresults.tsv`):
 
 ```bash
-mlst --scheme salmonella --quiet assembly/E*.fasta > salmonella_mlst_results.tsv
+mlst --scheme salmonella --quiet assembly/E*.fasta > mlst/salmonella_mlst_results.tsv
 ```
 
 **Questions:** 
-Remember that if a sample belongs to the same ST it is likely an outbreak. View the output results(`salmonella_mlst_results.tsv`) on the terminal and answer the following questions: 
+Remember that if multiple samples belong to the same ST they likely represent an outbreak. View the output results(`salmonella_mlst_results.tsv`) on the terminal and answer the following questions: 
 - How many STs are present in the salmonella samples?
 - Do you observe any outbreaks?
-- If so how many outbreaks could be present?
+- How many outbreaks could be present?
   
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
@@ -185,10 +185,10 @@ The Salmonella enterica core genome MLST schema has already been downloaded for 
 bla bla bla
 
 ```bash
-chewBBACA.py PrepExternalSchema -i downloaded_schema_to_do/ -o salmonella_schema_adapted --cpu 4
+chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial_genomics/salmonella_cgMLST/ -o salmonella_schema
 ```
 
-### 4.4 Performe allele calling on the Salmonella enterica genome allemblies
+### 4.4 Performe allele calling on the Salmonella enterica genome assemblies
 
 `chewBACCA` requires genome assemblies (FASTA) as input files
 
