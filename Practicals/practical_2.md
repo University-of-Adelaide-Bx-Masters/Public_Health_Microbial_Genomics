@@ -177,7 +177,7 @@ We have now used `mlst` to assign a sequence type to our salmonella samples, whi
 
 cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is quiet alot more genes compared to the seven genes included in the mlst) 
 
-Before `chewbbaca` can be run on the samples the salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky - I ahve already done this step for you.   
+Before `chewbbaca` can be run on the samples the salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky for you - I have already done this step.   
 
 YOU DO NOT NEED TO RUN THIS COMMAND I HAVE ALREADY DONE THIS FOR YOU - THIS IS TO SHOW YOU HOW THE COMMAND LOOKS FOR CONVERTING cgMLST SCHEMA FOR INPUT INTO `chewbacca`. 
 
@@ -187,19 +187,21 @@ chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial
 
 ### 4.4 Performe allele calling on the Salmonella enterica genome assemblies
 
-To run `chewBACCA` you need:
-- genome assemblies (FASTA) as input files
+Now the fun part - lets go ahead and run `chewBACCA` 
+
+To run `chewBACCA` all you need is:
+- Genome assemblies (FASTA) as input files
 - A cgMLST schema (includes gene loci and alleles)
 
 run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes 
 
 ```bash
-chewBBACA.py AlleleCall -i genomes_to_analyze -g db/salmonella_schema -o allele_calling_results --cpu 4 --bsr 0.6(WHICH VALUE TO USE HERE!!!!)
+chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results --cpu 4 --bsr 0.6(WHICH VALUE TO USE HERE!!!!)
 ```
-The main output fils is `allele_calling_results.tsv`, which is a tab delimited file with"
+The main output file is the `allele_calling_results.tsv`, which is a tab delimited file with"
 - Rows: genome assemblies
 - Columns: schema loci
-- Values: allele identiffiers or classification code
+- Values: allele identifiers or classification code
 
 ### 4.5 schema evaluator
 
