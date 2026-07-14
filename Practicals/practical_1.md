@@ -21,6 +21,8 @@ In this practical we will be testing different tools for bacterial species class
 `bracken` builds on Kraken's results to provide more accurate estimates of species abundance, correcting for reads that are shared between closely related organisms.
 `FastANI` compares whole genome sequences (in FASTA format) and calculates the Average Nucleotide Identity (ANI) between them.
 
+INCLUDE MENTION OF WHAT DATA IS TO BE USED - READS AND THEIR CORRESPONDING GENOME ASSEMBLIES - HAVE ALREADY BEEN ASSEMBLED READY FOR THE PRACTICAL 
+
 
 ## 1.2 Learning Outcomes
 
@@ -275,6 +277,7 @@ different salmonella species
 
 ### QUESTIONS
 
+
 # **7.`kraken2`, `bracken` and `fastANI` results**
 
 Kraken identified reads as Salmonella enterica and Bracken estimated that S. enterica makes up ~99% of the samples. Those tools tell you what is present and in what abundance.
@@ -284,10 +287,6 @@ We then took the S. enterica genomeme assembly and compared it with a S. enteric
 ANI = 99% → your genome is nearly identical to the reference strain.
 
 This confirms that our samples our in fact S. enterica using a different approach. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to determine the species.  
-
-### QUESTIONS
-
-
 
 
 
