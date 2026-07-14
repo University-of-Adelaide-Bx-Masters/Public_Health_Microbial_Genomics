@@ -11,9 +11,6 @@ By Dr Jessica Webb
 <img width="804" height="583" alt="image" src="https://github.com/user-attachments/assets/9adc05b6-a0ff-4e59-9a03-e8d57d3fc899" />
 
 
-
-
-
 ## 1.1 Practical Overview
 
 
@@ -129,7 +126,7 @@ kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.repor
 `kraken2` generates a report of all taxa found in the sample, we wont be looking at this report in detail but we will use it as input for `bracken` in step 3.2.  
 
 
-### 3.2 Run Bracken
+# **4. Species classification using Bracken**
 
 `bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to `kraken2` that improves species or genus-level abundance estimates.
 
@@ -140,6 +137,7 @@ Why do we need to use `bracken`?
 - The `kraken2` report (This can be found here, kraken/ERR10479037.report)
 - the `kraken2` database (This can be found here, db/std_8g) 
 
+### 4.1 Run Bracken
 View the options for running `bracken`
 
 ```bash
@@ -167,7 +165,7 @@ Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal
 - Can you confirm what species of bacteria is present in our sample? 
 - What is the percentage of reads in our sample that belong to this species?  
   
-### 3.1 Run Kraken2 and Bracken over all samples 
+# **5 Run Kraken2 and Bracken over all samples** 
 
 You have run `kraken2` and `bracken` over one sample, we now need to run the tools over the remaining samples so that we can confirm what bacteiral species is present. 
 
@@ -212,20 +210,26 @@ This will take ~5 minutes to run.
 
 ### QUESTIONS
 Have a look at the `bracken` output files on the terminal
-- Can you confirm what species of bacteria is present in our sample? 
-- What is the percentage of reads in our sample that belong to this species?
-- Do all samples belong to the same species?   
+- Can you confirm what species of bacteria is present in the samples? 
+- What is the percentage of reads in the samples that belong to this species?
+- Do all samples belong to the same species?
 
-# **4. Species classification using `fastANI`**
+# **6. Species classification using `fastANI`**
 
 
 
-### 4.1 Run `fastANI` 
+### 6.1 Run `fastANI` 
+
+
+
+
+
 
 
 ### QUESTIONS
 
-# **5. Compare `kraken2` and `fastANI` results**
+# **7. Compare `kraken2` and `fastANI` results**
+
 
 
 ### QUESTIONS
