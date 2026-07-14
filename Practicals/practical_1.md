@@ -22,7 +22,7 @@ The public helath microbial genomics workflow can look a bit like the below work
 
 
 ## 1.1 Practical Overview
-For this practcial you will be working with paired-end illumina sequencing data (FASTQ) and their corrsponding genome assemblies (FASTA) from 9 bacterial isolates. The sequencing data are from 9 isolates that have actually been implicated in an outbreak in the Northern Queensland, Australia. Imagine that you work in the Queensland state public helath reference laboratory your first task is to idenifty the bacterial species that is present in the 9 isolates. 
+For this practcial you will be working with paired-end illumina sequencing data (FASTQ) and their corrsponding genome assemblies (FASTA) from 9 bacterial isolates. The sequencing data are from 9 isolates that have actually been implicated in an outbreak in the Northern Queensland, Australia. Imagine that you work in the Queensland state public health reference laboratory, your first task is to idenifty the bacterial species that is present in the 9 isolates. 
 
 In this practical you will be testing different tools for bacterial species classification including `kraken2`, `bracken` and `FastANI`. These three tools complement one another and are often used together. 
 
