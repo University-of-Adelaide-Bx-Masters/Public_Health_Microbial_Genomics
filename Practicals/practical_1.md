@@ -273,7 +273,7 @@ Column descriptions:
 - 1483 out of 1529 fragments mapped. Is this a good number?
 
 ### 6.2 Run `fastANI` over the remaning samples 
-Now run `fastANI` over the remaining samples using the below. You need to create a script and copy the contents below into it and then save and run. Remeber we did this earlier in the practical. 
+Now run `fastANI` over the remaining samples using the below. You need to create a script and copy the contents below into it and then save and run. You learnt how to do this earlier in this practical.  
 
 ```bash
 #!/bin/bash
@@ -295,9 +295,24 @@ do
         -o fastani/${SAMPLE}
 done
 ```
-Then use cat to print the results for each sample to the terminal:
+Then use `cat` and a wildcard `*` to print the results for each sample to the terminal: 
 
+```bash
+cat fastani/E*
+```
 
+You should see the following:
+
+```bash
+assembly/ERR10479025.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0572 1476    1542
+assembly/ERR10479028.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0485 1473    1522
+assembly/ERR10479029.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.02   1478    1526
+assembly/ERR10479032.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0909 1412    1455
+assembly/ERR10479034.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.081  1470    1519
+assembly/ERR10479035.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0612 1474    1521
+assembly/ERR10479037.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0338 1483    1529
+assembly/ERR10479039.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0423 1479    1527
+```
 
 
 # **7.`kraken2`, `bracken` and `fastANI` results**
