@@ -160,7 +160,10 @@ Where:
 
 Important to note that we are running with the -r option, as the read length of our sequencing reads are 150bp and not the default which is 100bp. 
 
-`bracken` generates two files:
+The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037_bracken) 
+
+Have a look at the file on the terminal
+
 - xx
 - xx
   
