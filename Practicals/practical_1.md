@@ -21,7 +21,7 @@ In this practical we will be testing different tools for bacterial species class
 `bracken` builds on Kraken's results to provide more accurate estimates of species abundance, correcting for reads that are shared between closely related organisms.
 `FastANI` compares whole genome sequences (in FASTA format) and calculates the Average Nucleotide Identity (ANI) between them.
 
-INCLUDE MENTION OF WHAT DATA IS TO BE USED - READS AND THEIR CORRESPONDING GENOME ASSEMBLIES - HAVE ALREADY BEEN ASSEMBLED READY FOR THE PRACTICAL 
+For this practcial you will be working with paired-end illumina sequencing data (FASTQ) and their corrsponding genome assmeblies (FASTA) from 9 bacterial isolates. You will work thorugh the practical to determine the bacterial species that is present in the 9 isolates.
 
 
 ## 1.2 Learning Outcomes
