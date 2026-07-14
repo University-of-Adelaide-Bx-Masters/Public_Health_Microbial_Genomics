@@ -231,8 +231,8 @@ You have now had a play with identifying species in samples using `kraken2` and 
 Above `kraken2` and `bracken` gave us an indication of "What species is there, and how much?", whilst FastANI answers "How genetically similar is this genome to another genome?".
 
 ANI thresholds and their meanings:
-- kkkk
-
+- ≥ 95%	ANI, same species
+- <83% ANI, different species 
 
 ### 6.1 Run `fastANI` 
 
@@ -275,15 +275,17 @@ Column descriptions:
 ### 6.2 Run `fastANI` over the remaning samples 
 
 
+
+
 # **7.`kraken2`, `bracken` and `fastANI` results**
 
-Kraken identified reads as Salmonella enterica and Bracken estimated that S. enterica makes up ~99% of the samples. Those tools tell you what is present and in what abundance.
+In our samples `kraken2`identified reads as Salmonella enterica and `bracken` estimated that S. enterica makes up ~99% of reads in all our samples. Those tools tell you what is present and in what abundance.
 
-We then took the S. enterica genomeme assembly and compared it with a S. enterica reference using FastANI, we found that:
+We then took the S. enterica genome assemblies and compared them with a reference genome (the we already know id S. enterica reference) using `fastANI`, we found that:
 
-ANI = 99% → your genome is nearly identical to the reference strain.
+across all our samples when compared to the reference ANI = 99% → your genome is nearly identical to the reference genome. 
 
-This confirms that our samples our in fact S. enterica using a different approach. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to determine the species.  
+This confirms that our samples our S. enterica using a different approach. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to dettermine the species.  
 
 
 
