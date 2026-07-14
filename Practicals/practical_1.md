@@ -273,6 +273,29 @@ Column descriptions:
 - 1483 out of 1529 fragments mapped. Is this a good number?
 
 ### 6.2 Run `fastANI` over the remaning samples 
+Now run `fastANI` over the remaining samples using the below. You need to create a script and copy the contents below into it and then save and run. Remeber we did this earlier in the practical. 
+
+```bash
+#!/bin/bash
+
+# Load software
+source activate bioinf
+
+# List of samples with Illumina data
+SAMPLES=(ERR10479025 ERR10479028 ERR10479029 ERR10479032 ERR10479034 ERR10479035 ERR10479039)
+
+# Loop over each sample
+for SAMPLE in "${SAMPLES[@]}";
+do
+
+        # Run fastANI over the samples
+        fastANI \
+        -q assembly/${SAMPLE}.fasta \
+        -r reference/GCA_000009505.1_ASM950v1_genomic.fasta \
+        -o fastani/${SAMPLE}
+done
+```
+Then use cat to print the results for each sample to the terminal:
 
 
 
@@ -281,11 +304,11 @@ Column descriptions:
 
 In our samples `kraken2`identified reads as Salmonella enterica and `bracken` estimated that S. enterica makes up ~99% of reads in all our samples. Those tools tell you what is present and in what abundance.
 
-We then took the S. enterica genome assemblies and compared them with a reference genome (the we already know id S. enterica reference) using `fastANI`, we found that:
+We then took the S. enterica genome assemblies and compared them with a reference genome (the we already know is S. enterica reference) using `fastANI`, we found that:
 
-across all our samples when compared to the reference ANI = 99% → your genome is nearly identical to the reference genome. 
+across all our samples when compared to the reference, ANI = 99% → your genome is nearly identical to the reference genome. 
 
-This confirms that our samples our S. enterica using a different approach. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to dettermine the species.  
+This confirms that our samples our S. enterica using a different approach. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to dettermine the species. 
 
 
 
