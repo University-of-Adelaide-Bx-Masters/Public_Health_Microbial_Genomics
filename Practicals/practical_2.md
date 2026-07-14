@@ -8,8 +8,7 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
-Firstly, congratulations, in the previous practical (species classification) you idenitifed that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia 
-
+Firstly, congratulations, in the previous practical (species classification) you idenitifed that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia Salmonella makes up a large portion of disease cases that are notified to the Australian government. We get ~20,000 cases of Salmonella in Australia each year. That is alot of cases and you can imagine how busy the Public health labs are with sequencing and analysing all of the Salmonella cases. 
 
 Now that we know that we are working with Salmonella enterica, we can now move on to the next step of the genomics workflow, which is to perform bacterial genotyping. 
 
