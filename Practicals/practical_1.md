@@ -244,7 +244,7 @@ You can look at the options to run `fastANI`
 ```bash
 fastANI -h
 ```
-First lets do a one to one comparison. In this instance we will compare one of our Salmonella enterica samples against a Salmonella enterica reference: 
+First lets do a one to one comparison. In this instance we will compare one of our Salmonella enterica samples against a Salmonella enterica reference genome: 
 
 ```bash
 fastANI -q assembly/ERR10479037.fasta -r reference/GCA_000009505.1_ASM950v1_genomic.fasta -o fastani/ERR10479037
@@ -266,13 +266,15 @@ different salmonella species
 
 ### QUESTIONS
 
-# **7. What doe the `kraken2`, `bracken` and `fastANI` results mean in relation to each other?**
+# **7.`kraken2`, `bracken` and `fastANI` results**
 
-Suppose Kraken identifies reads as Salmonella enterica and Bracken estimates that S. enterica makes up 99% of your sample. Those tools tell you what is present and in what abundance.
+Kraken identified reads as Salmonella enterica and Bracken estimated that S. enterica makes up ~99% of the samples. Those tools tell you what is present and in what abundance.
 
-If you assemble the S. enterica genomes and compare it with a reference using FastANI, we found that:
+We then took the S. enterica genomeme assembly and compared it with a S. enterica reference using FastANI, we found that:
 
 ANI = 99% → your genome is nearly identical to the reference strain.
+
+This confirms that our samples our in fact S. enterica using a different approach. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to determine the species.  
 
 ### QUESTIONS
 
