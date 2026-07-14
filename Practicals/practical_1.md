@@ -257,21 +257,22 @@ cat fastani/ERR10479037
 You should get something that looks like this 
 
 ```bash
-
+assembly/ERR10479037.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0338 1483    1529
 ``` 
-salmonella enterica 
-salmonella enterica subspecies
+
+
+different salmonella species 
+
 
 ### QUESTIONS
 
-# **7. Compare `kraken2` and `fastANI` results**
+# **7. What doe the `kraken2`, `bracken` and `fastANI` results mean in relation to each other?**
 
 Suppose Kraken identifies reads as Salmonella enterica and Bracken estimates that S. enterica makes up 99% of your sample. Those tools tell you what is present and in what abundance.
 
-If you assemble the S. enterica genomes and compare it with a reference using FastANI, you might find:
+If you assemble the S. enterica genomes and compare it with a reference using FastANI, we found that:
 
-ANI = 99.8% → your genome is nearly identical to the reference strain.
-ANI = 94.2% → despite the initial classification, your genome may actually belong to a different, closely related species.
+ANI = 99% → your genome is nearly identical to the reference strain.
 
 ### QUESTIONS
 
