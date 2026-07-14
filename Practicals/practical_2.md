@@ -11,7 +11,7 @@ By Dr Jessica Webb
 Firstly, congratulations, in the previous practical (species classification) you idenitifed that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia 
 
 
-Now that we know that we are working with Salmonella enterica, we can now move on to the next step of the genomics workflow, which is bacterial genotyping. 
+Now that we know that we are working with Salmonella enterica, we can now move on to the next step of the genomics workflow, which is to perform bacterial genotyping. 
 
 
 <img width="808" height="588" alt="image" src="https://github.com/user-attachments/assets/a0719c5b-af60-4605-ad0c-a00da9f892e2" />
