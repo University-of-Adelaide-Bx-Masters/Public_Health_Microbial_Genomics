@@ -225,9 +225,9 @@ Have a look at the `bracken` output files on the terminal
 
 # **6. Species classification using `fastANI`**
 
-You have now had a play with identifying species in samples using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with FastANI for species classifiction.  
+You have now had a play with identifying species in samples using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with `fastANI` for species classifiction.  
 
-Above `kraken2` and `bracken` gave us an indication of "What species is there, and how much?", whilst FastANI answers "How genetically similar is this genome to another genome?".
+Above `kraken2` and `bracken` gave us an indication of "What species is there, and how much?", whilst `fastANI` answers "How genetically similar is this genome to another genome?".
 
 ANI thresholds and their meanings:
 - ≥ 95%	ANI, same species
