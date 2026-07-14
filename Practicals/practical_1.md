@@ -131,10 +131,10 @@ kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.repor
 
 ### 3.2 Run Bracken
 
-`bracken' (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to Kraken2 that improves species- or genus-level abundance estimates.
+`bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to Kraken2 that improves species- or genus-level abundance estimates.
 
 Why do we need to use `bracken`?
-Kraken2 classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `Kraken2` species assignments can underestimate the abundance of some species. 
+- Kraken2 classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `Kraken2` species assignments can underestimate the abundance of some species in a sample. 
 
 The `kraken2` tool does not xyz and thus we next need to run a tool called `bracken`
 
