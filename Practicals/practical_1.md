@@ -246,7 +246,7 @@ You can look at the options to run `fastANI`
 ```bash
 fastANI -h
 ```
-First lets do a one to one comparison. In this instance we will compare one of our Salmonella enterica samples against a Salmonella enterica reference genome: 
+First lets do a one to one comparison. In this instance we will compare one of our Salmonella enterica samples against a reference genome (we already know that this genome is S. enterica): 
 
 ```bash
 fastANI -q assembly/ERR10479037.fasta -r reference/GCA_000009505.1_ASM950v1_genomic.fasta -o fastani/ERR10479037
