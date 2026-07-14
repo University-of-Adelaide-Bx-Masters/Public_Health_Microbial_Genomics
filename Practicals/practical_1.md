@@ -272,7 +272,7 @@ Column descriptions:
 - 1483 out of 1529 fragments mapped. Is this a good number?
 
 ### 6.2 Run `fastANI` over the remaning samples 
-Now run `fastANI` over the remaining samples using the below. You need to create a script and copy the contents below into it and then save and run. You learnt how to do this earlier in this practical.  
+Now run `fastANI` over the remaining samples using the below. You need to create a script and copy the contents below into it and then save and run. You learnt how to do this earlier in the practical.  
 
 ```bash
 #!/bin/bash
