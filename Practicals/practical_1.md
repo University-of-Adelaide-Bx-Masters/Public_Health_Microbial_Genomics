@@ -168,10 +168,10 @@ Where:
 
 Important to note that we are running with the -r option, as the read length of our sequencing reads are 150bp and not the default which is 100bp. 
 
-The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037_bracken). Important columns are the `name`, `new_est_reads` and `fraction_total_reads`. 
+The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037.bracken). Important columns are the `name`, `new_est_reads` and `fraction_total_reads`. 
 
 ### QUESTIONS
-Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal
+Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal (you can use the `head` command for this)
 - Can you confirm what species of bacteria is present in our sample? 
 - What is the percentage of reads in our sample that belong to this species?  
   
