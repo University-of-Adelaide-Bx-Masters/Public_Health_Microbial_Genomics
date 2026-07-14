@@ -174,11 +174,10 @@ You have run `kraken2` and `bracken` over one sample, we now need to run the too
 Since we have 8 samples to process, it will make our code much simpler if we use a for loop. The script below uses steps that you may have learned about if you have completed a bioinformatics course at Adelaide Uni. Make sure you understand what each step is doing and ask for help if you dont understand. It is important that you understand both the setup and the contents of this script, this is because you will need to submit scripts as appart of the assignments for this course. 
 
 In order to run the script:
-
-    Open a file called species.sh by typing nano species.sh
-    Copy the text from the code block below into the nano editor
-    Save the file and close nano by holding down Ctrl and typing x, then type y, then press Enter
-    To run the script, type bash run_qc.sh. It should take around 5 minutes to run.
+- Open a file called species.sh by typing nano species.sh
+- Copy the text from the code block below into the nano editor
+- Save the file and close nano by holding down Ctrl and typing x, then type y, then press Enter
+- To run the script, type bash species.sh. It should take around 5 minutes to run.
 
 ```bash
 #!/bin/bash
@@ -193,7 +192,7 @@ SAMPLES=(ERR10479025 ERR10479028 ERR10479029 ERR10479032 ERR10479034 ERR10479035
 for SAMPLE in "${SAMPLES[@]}";
 do
 
-# Run kraken2 over the remaning samples
+# Run kraken2 over the samples
 kraken2 \
         --threads 2 \
         --db db/std_8g \
@@ -201,10 +200,15 @@ kraken2 \
         --report kraken/${SAMPLE}.report \
         --paired reads/${SAMPLE}_1.fastq.gz reads/${SAMPLE}_1.fastq.gz
 
-# Run bracken over the remaning samples
-
+# Run bracken over the samples
+bracken \
+        -d db/std_8g \
+        -r 150 \
+        -i kraken/${SAMPLE}.report \
+        -o kraken/${SAMPLE}.bracken
 done
 ```
+This will take ~5 minutes to run. 
 
 # **4. Species classification using `fastANI`**
 
