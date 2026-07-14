@@ -134,9 +134,11 @@ kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.repor
 `bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to Kraken2 that improves species- or genus-level abundance estimates.
 
 Why do we need to use `bracken`?
-- Kraken2 classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `Kraken2` species assignments can underestimate the abundance of some species in a sample. 
+- `kraken2` classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `kraken2` species assignments can underestimate the abundance of some species in a sample.
 
-The `kraken2` tool does not xyz and thus we next need to run a tool called `bracken`
+`bracken` requires: 
+- The `kraken2` report (This can be found here, kraken/ERR10479037.report)
+- the `kraken2` database (This can be found here, db/std_8g) 
 
 View the options for running `bracken`
 
@@ -144,11 +146,19 @@ View the options for running `bracken`
 bracken -h
 ```
 
-Run `bracken` with the following command 
+We will run `bracken` with the following command: 
 
 ```bash
 bracken -d db/std_8g -r 150 -i kraken/ERR10479037.report -o kraken/ERR10479037.bracken
 ```
+
+Where:
+- -d = Kraken2 database
+- -r = read length (150 bp)
+- -i = Kraken2 report
+- -o = Bracken output
+
+Important to note that we are running with the -r option, as the read length of our sequencing reads are 150bp and not the default which is 100bp. 
 
 `bracken` generates two files:
 - xx
