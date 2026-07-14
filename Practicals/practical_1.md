@@ -229,20 +229,38 @@ You have now had a play with identifying species in samples using `kraken2` and 
 Above `kraken2` and `bracken` gave us an indication of "What species is there, and how much?", whilst FastANI answers "How genetically similar is this genome to another genome?".
 
 ANI thresholds and their meanings:
+- kkkk
 
 
 ### 6.1 Run `fastANI` 
 
-`
-compare salmonella with a reference 
+`fastANI` supports three comparison modes: 
+- one query genome to one reference genome
+- one query genome to many reference genomes
+- many query genomes to many reference genomes 
 
+You can look at the options to run `fastANI`
 
+```bash
+fastANI -h
+```
+First lets do a one to one comparison. In this instance we will compare one of our Salmonella enterica samples against a Salmonella enterica reference: 
 
+```bash
+fastANI -q assembly/ERR10479037.fasta -r reference/GCA_000009505.1_ASM950v1_genomic.fasta -o fastani/ERR10479037
+```
+and use the `cat` command to view the results 
+
+```bash
+cat fastani/ERR10479037
+```
+You should get something that looks like this 
+
+```bash
+
+``` 
 salmonella enterica 
 salmonella enterica subspecies
-
-
-
 
 ### QUESTIONS
 
