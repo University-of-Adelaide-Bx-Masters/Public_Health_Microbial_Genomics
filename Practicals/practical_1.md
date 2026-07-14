@@ -117,7 +117,7 @@ Options:
   --output FILENAME       Print output to filename (default: stdout); "-" will
                           suppress normal output
   --report FILENAME       Print a report with aggregrate counts/clade to file
-  --paired              The filenames provided have paired-end reads (
+  --paired                The filenames provided have paired-end reads
  ```
 
 Now run `kraken2` on one isolate using the following command:
@@ -131,7 +131,7 @@ kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.repor
 
 ### 3.2 Run Bracken
 
-`bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to Kraken2 that improves species- or genus-level abundance estimates.
+`bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to `kraken2` that improves species or genus-level abundance estimates.
 
 Why do we need to use `bracken`?
 - `kraken2` classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `kraken2` species assignments can underestimate the abundance of some species in a sample.
@@ -169,6 +169,36 @@ Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal
   
 ### 3.1 Run Kraken2 and Bracken over all samples 
 
+You have run `kraken2` and `bracken` over one sample, we now need to run the tools over the remaining samples so that we can confirm what bacteiral species is present. 
+
+I have provided a script for you here to run `kraken2` and `bracken` over the remaining samples. Take note of both the setup and the contents of this script. When creating scripts for this course, you are expected to follow this structure and format.
+
+```bash
+#!/bin/bash
+
+# Load software
+source activate bioinf
+
+# List of samples with Illumina data
+SAMPLES=(ERR10479025 ERR10479028 ERR10479029 ERR10479032 ERR10479034 ERR10479035 ERR10479037 ERR10479039)
+
+# Loop over each sample
+for SAMPLE in "${SAMPLES[@]}";
+do
+
+# Run kraken2 over the remaning samples
+snippy \
+        --outdir snippy/${SAMPLE} \
+        --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta \
+        --R1 reads/${SAMPLE}_1.fastq.gz \
+        --R2 reads/${SAMPLE}_2.fastq.gz
+
+
+# Run bracken over the remaning samples
+
+
+done
+```
 
 # **4. Species classification using `fastANI`**
 
