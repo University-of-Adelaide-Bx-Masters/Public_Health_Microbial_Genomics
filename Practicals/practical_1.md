@@ -8,12 +8,12 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
+[INSERT SECTION ON INTRO TO PUBLIC HELATH GENOMICS, WORKFLOW AND SALMONELLA]
+
 <img width="804" height="583" alt="image" src="https://github.com/user-attachments/assets/9adc05b6-a0ff-4e59-9a03-e8d57d3fc899" />
 
 
 ## 1.1 Practical Overview
-
-[INSERT SECTION ON INTRO TO PUBLIC HELATH GENOMICS AND SALMONELLA]
 
 In this practical we will be testing different tools for bacterial species classification including `kraken2`, `bracken` and `FastANI`. These three tools complement one another and answer different biological questions.
 
@@ -224,9 +224,9 @@ Have a look at the `bracken` output files on the terminal
 
 # **6. Species classification using `fastANI`**
 
-You have now had a play with identifying species using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with FastANI for species classifiction.  
+You have now had a play with identifying species in samples using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with FastANI for species classifiction.  
 
-Above `kraken2` and `bracken` gave us an indication of  "What species is there, and how much?", whilst FastANI answers "How genetically similar is this genome to another genome?".
+Above `kraken2` and `bracken` gave us an indication of "What species is there, and how much?", whilst FastANI answers "How genetically similar is this genome to another genome?".
 
 ### 6.1 Run `fastANI` 
 
@@ -240,7 +240,12 @@ Above `kraken2` and `bracken` gave us an indication of  "What species is there, 
 
 # **7. Compare `kraken2` and `fastANI` results**
 
+Suppose Kraken identifies reads as Salmonella enterica and Bracken estimates that S. enterica makes up 99% of your sample. Those tools tell you what is present and in what abundance.
 
+If you assemble the S. enterica genomes and compare it with a reference using FastANI, you might find:
+
+ANI = 99.8% → your genome is nearly identical to the reference strain.
+ANI = 94.2% → despite the initial classification, your genome may actually belong to a different, closely related species.
 
 ### QUESTIONS
 
