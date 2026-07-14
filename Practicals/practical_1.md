@@ -210,6 +210,12 @@ done
 ```
 This will take ~5 minutes to run. 
 
+### QUESTIONS
+Have a look at the `bracken` output files on the terminal
+- Can you confirm what species of bacteria is present in our sample? 
+- What is the percentage of reads in our sample that belong to this species?
+- Do all samples belong to the same species?   
+
 # **4. Species classification using `fastANI`**
 
 
