@@ -8,6 +8,16 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
+### Pathogen genomics landscape in Australia
+
+Australia is divided into states and territories, known collectively as jurisdictions. Each jurisdiction is responsible for delivering its own public health services, including the surveillance, diagnosis, and management of infectious diseases. To support these activities, each jurisdiction has a central public health laboratory that provides specialised diagnostic testing, disease surveillance, outbreak investigation, and pathogen genomics services for its population.
+
+Many infectious diseases in Australia are classified as notifiable diseases. This means that when a laboratory or healthcare provider identifies a case of one of these diseases, they are legally required to notify the relevant state or territory public health authority. These notifications enable public health teams to monitor disease trends, rapidly detect outbreaks, implement control measures, and coordinate responses to protect the community.
+
+As part of the public health response, selected pathogens are referred to the jurisdictional public health laboratory for whole-genome sequencing. Every year a public health laboratory may recieve 100s of thousands of pathogens for sequencing and so a streamlined genomic workflow is required to promtly identy and characterise isolates. The resulting genomic data are analysed using pathogen genomics workflows to determine characteristics such as species identification, genotyping, genetic relatedness, phylogenomics and antimicrobial resistance gene and variants. Genomic information can then be combined with epidemiological data, we can then identify transmission links, detect outbreaks, monitor the emergence of new variants or resistant strains, and inform public health interventions.
+
+The public helath micorbial genomcis workflow can look a bit like the below workflow figure. One of the very first steps is to identfy what bacterial species the correscponding sample is, this confirms what pathogen is present and once this is known we can then perform downstream analysis (e.g. genotyping, phylogenomics, antimicrobial resistance investigations). 
+
 [INSERT SECTION ON INTRO TO PUBLIC HELATH GENOMICS, WORKFLOW AND SALMONELLA]
 
 <img width="804" height="583" alt="image" src="https://github.com/user-attachments/assets/9adc05b6-a0ff-4e59-9a03-e8d57d3fc899" />
