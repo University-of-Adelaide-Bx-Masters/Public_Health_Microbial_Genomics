@@ -34,7 +34,7 @@ In this practical you will be testing different tools for bacterial species clas
 ## 1.2 Learning Outcomes
 1. Gain additional practice in performing species classification
 2. Learn how to perform species classification with additional tools
-3. Intergarte multiple species classification methods to make robust taxonomic assignment in real-world setting o interperate species classification results 
+3. Intergarte multiple species classification methods to make robust taxonomic assignment in real-world scenarios
 
 # **2. Setup**
 
