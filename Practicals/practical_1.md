@@ -216,7 +216,6 @@ bracken \
         -o kraken/${SAMPLE}.bracken
 done
 ```
-This will take ~5 minutes to run. 
 
 ### QUESTIONS
 Have a look at the `bracken` output files on the terminal
