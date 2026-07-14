@@ -126,8 +126,8 @@ Now run `kraken2` on one isolate using the following command:
 kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.report --paired reads/ERR10479037_1.fastq.gz reads/ERR10479037_2.fastq.gz
 ```
 
-`kraken2` generates the following file:
-- x
+`kraken2` generates a report of all taxa found in the sample, we wont be looking at this report in detail but we will use it as input for `bracken` in step 3.2.  
+
 
 ### 3.2 Run Bracken
 
