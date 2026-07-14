@@ -18,8 +18,6 @@ As part of the public health response, selected pathogens are referred to the ju
 
 The public helath micorbial genomcis workflow can look a bit like the below workflow figure. One of the very first steps is to identfy what bacterial species the correscponding sample is, this confirms what pathogen is present and once this is known we can then perform downstream analysis (e.g. genotyping, phylogenomics, antimicrobial resistance investigations). 
 
-[INSERT SECTION ON INTRO TO PUBLIC HELATH GENOMICS, WORKFLOW AND SALMONELLA]
-
 <img width="804" height="583" alt="image" src="https://github.com/user-attachments/assets/9adc05b6-a0ff-4e59-9a03-e8d57d3fc899" />
 
 
