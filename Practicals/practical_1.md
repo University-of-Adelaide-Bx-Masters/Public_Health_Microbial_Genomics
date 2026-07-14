@@ -95,18 +95,31 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 # **3. Species classification using Kraken2**
 
-We need to determine the species present in a sample, and Kraken is a very useful tool for this purpose. It is extremely fast, making it well suited for public health settings where rapid results are essential. As a result, Kraken is often used as an initial screening tool to identify the species present in a sample before more detailed analyses are performed.
+We need to determine the species present in a sample, and `Kraken2` is a very useful tool for this purpose. It is extremely fast, making it well suited for public health settings where rapid results are essential. As a result, `Kraken2` is often used as an initial screening tool to identify the species present in a sample before more detailed analyses are performed.
 
 ### 3.1 Run Kraken2 
 
 The input files for `kraken2` are assumed to be genome assemblies (FASTA) by default, but `kraken2` can also take other files as input including sequencing reads (FASTQ). For today we will run `kraken2` over sequencing reads.  
 
-View the option for running `Kraken2` 
+To investigate the general command structure of `Kraken2` type:
 
 ``` bash
-kraken2 --help
+kraken2
 ```
-Run `kraken2` on one isolate using the following command:
+on your terminal you should see the options for running `kraken2` 
+
+We will run `kraken2` using the following options:
+```bash
+Options:
+  --db NAME               Name for Kraken 2 DB
+                          (default: none)
+  --threads NUM           Number of threads (default: 1)  
+  --output FILENAME       Print output to filename (default: stdout); "-" will
+                          suppress normal output
+    --paired                The filenames provided have paired-end reads
+ ```
+
+Now run `kraken2` on one isolate using the following command:
 
 ``` bash
 kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.report --paired reads/ERR10479037_1.fastq.gz reads/ERR10479037_2.fastq.gz
