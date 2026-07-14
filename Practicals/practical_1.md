@@ -254,12 +254,21 @@ and use the `cat` command to view the results
 ```bash
 cat fastani/ERR10479037
 ```
-You should get something that looks like this 
+You should get something that looks like this - with five columns: 
 
 ```bash
 assembly/ERR10479037.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0338 1483    1529
 ``` 
+Column descriptions:
+- Query genome: Path to query genome file
+- Reference genome: Path to reference genome file
+- ANI value: Average Nucleotide Identity (percentage)
+- Mapped fragments: Number of query fragments that aligned to reference
+- Total fragments: Total number of query fragments
 
+
+
+The most important part of the results is the third row, this is the ANI % threshold and a % of 99.0338% confirms that the 
 
 different salmonella species 
 
