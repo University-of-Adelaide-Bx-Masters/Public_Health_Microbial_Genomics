@@ -160,7 +160,7 @@ Where:
 
 Important to note that we are running with the -r option, as the read length of our sequencing reads are 150bp and not the default which is 100bp. 
 
-The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037_bracken) and the important column is the `new_est_reads`, whihch gives the newly estimated reads. 
+The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037_bracken). Important column is the `name`, `new_est_reads` and `fraction_total_reads`. 
 
 ### QUESTIONS
 Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal
