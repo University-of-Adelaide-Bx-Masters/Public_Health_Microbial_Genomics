@@ -171,7 +171,7 @@ Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal
 
 You have run `kraken2` and `bracken` over one sample, we now need to run the tools over the remaining samples so that we can confirm what bacteiral species is present. 
 
-Since we have 8 samples to process, it will make our code much simpler if we use a for loop. The script below uses steps that you may have learned about if you have completed a bioinformatics course at Adelaide Uni. Make sure you understand what each step is doing and ask for help if you dont understand. Its important to understand both the setup and the contents of this script. 
+Since we have 8 samples to process, it will make our code much simpler if we use a for loop. The script below uses steps that you may have learned about if you have completed a bioinformatics course at Adelaide Uni. Make sure you understand what each step is doing and ask for help if you dont understand. It is important that you understand both the setup and the contents of this script, this is because you will need to submit scripts as appart of the assignments for this course. 
 
 In order to run the script:
 
