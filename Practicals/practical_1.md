@@ -268,14 +268,11 @@ Column descriptions:
 - Mapped fragments: Number of query fragments that aligned to reference
 - Total fragments: Total number of query fragments
 
-
-
-The most important part of the results is the third row, this is the ANI % threshold and a % of 99.0338% confirms that the 
-
-different salmonella species 
-
-
 ### QUESTIONS
+- What does an ANI % of 99.0338% indicate? does this indicate that the sample and reference are the same species? 
+- 1483 out of 1529 fragments mapped. Is this a good number?
+
+### 6.2 Run `fastANI` over the remaning samples 
 
 
 # **7.`kraken2`, `bracken` and `fastANI` results**
