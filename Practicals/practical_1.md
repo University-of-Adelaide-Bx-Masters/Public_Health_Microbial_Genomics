@@ -228,10 +228,18 @@ You have now had a play with identifying species in samples using `kraken2` and 
 
 Above `kraken2` and `bracken` gave us an indication of "What species is there, and how much?", whilst FastANI answers "How genetically similar is this genome to another genome?".
 
+ANI thresholds and their meanings:
+
+
 ### 6.1 Run `fastANI` 
 
+`
+compare salmonella with a reference 
 
 
+
+salmonella enterica 
+salmonella enterica subspecies
 
 
 
