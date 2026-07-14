@@ -12,6 +12,8 @@ Firstly, congratulations, in the previous practical (species classification) you
 
 Now that we know that we are working with Salmonella enterica, we can now move on to the next step of the genomics workflow (indicated by a yellow start in the workflow figure below), which is to genotype the 9 Salmonella enterica sequences. 
 
+Multilocus Sequence Typing (MLST) is widely used globally and is standardised across hundreads of bacterial species which allows for global comparisons. This is particulalry important for comparing strains across different georaphical areas that might be implicated in an outbreak. 
+
 
 <img width="808" height="588" alt="image" src="https://github.com/user-attachments/assets/a0719c5b-af60-4605-ad0c-a00da9f892e2" />
 
