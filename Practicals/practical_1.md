@@ -13,6 +13,14 @@ By Dr Jessica Webb
 
 ## 1.1 Practical Overview
 
+[INSERT SECTION ON INTRO TO PUBLIC HELATH GENOMICS AND SALMONELLA]
+
+In this practical we will be testing different tools for bacterial species classification including `kraken2`, `bracken` and `FastANI`. These three tools complement one another and answer different biological questions.
+
+`kraken2` classifies sequencing reads by comparing short k-mers to a reference database. It tells you which organisms/organism are present in a sample.
+`bracken` builds on Kraken's results to provide more accurate estimates of species abundance, correcting for reads that are shared between closely related organisms.
+`FastANI` compares whole genome sequences (in FASTA format) and calculates the Average Nucleotide Identity (ANI) between them.
+
 
 ## 1.2 Learning Outcomes
 
@@ -216,7 +224,9 @@ Have a look at the `bracken` output files on the terminal
 
 # **6. Species classification using `fastANI`**
 
+You have now had a play with identifying species using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with FastANI for species classifiction.  
 
+Above `kraken2` and `bracken` gave us an indication of  "What species is there, and how much?", whilst FastANI answers "How genetically similar is this genome to another genome?".
 
 ### 6.1 Run `fastANI` 
 
