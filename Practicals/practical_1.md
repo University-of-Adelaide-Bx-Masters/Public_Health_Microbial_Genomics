@@ -106,17 +106,18 @@ To investigate the general command structure of `Kraken2` type:
 ``` bash
 kraken2
 ```
-on your terminal you should see the options for running `kraken2` 
+On your terminal you should see the options for running `kraken2` 
 
 We will run `kraken2` using the following options:
 ```bash
 Options:
+  --threads NUM           Number of threads (default: 1)
   --db NAME               Name for Kraken 2 DB
                           (default: none)
-  --threads NUM           Number of threads (default: 1)  
   --output FILENAME       Print output to filename (default: stdout); "-" will
                           suppress normal output
-    --paired                The filenames provided have paired-end reads
+  --report FILENAME       Print a report with aggregrate counts/clade to file
+  --paired              The filenames provided have paired-end reads (
  ```
 
 Now run `kraken2` on one isolate using the following command:
@@ -125,9 +126,6 @@ Now run `kraken2` on one isolate using the following command:
 kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.report --paired reads/ERR10479037_1.fastq.gz reads/ERR10479037_2.fastq.gz
 ```
 
-The command includes
-- todo
-  
 `kraken2` generates the following file:
 - x
 
