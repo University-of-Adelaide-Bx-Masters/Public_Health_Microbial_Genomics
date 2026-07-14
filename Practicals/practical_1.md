@@ -295,7 +295,7 @@ do
         -o fastani/${SAMPLE}
 done
 ```
-Then use `cat` and a wildcard `*` to print the results for each sample to the terminal: 
+Then use `cat` command and wildcard `*` to print the results for each sample to the terminal: 
 
 ```bash
 cat fastani/E*
@@ -313,7 +313,9 @@ assembly/ERR10479035.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta
 assembly/ERR10479037.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0338 1483    1529
 assembly/ERR10479039.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta        99.0423 1479    1527
 ```
-
+### Question 
+- What do the ANI % indicate? are the sample and reference the same species? 
+- are all of the samples the same species? 
 
 # **7.`kraken2`, `bracken` and `fastANI` results**
 
@@ -321,7 +323,7 @@ In our samples `kraken2`identified reads as Salmonella enterica and `bracken` es
 
 We then took the S. enterica genome assemblies and compared them with a reference genome (the we already know is S. enterica reference) using `fastANI`, we found that:
 
-across all our samples when compared to the reference, ANI = 99% → your genome is nearly identical to the reference genome. 
+across all our samples when compared to the reference, ANI = ~99% → your genome is nearly identical to the reference genome. 
 
 This confirms that our samples our S. enterica using a different approach. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to dettermine the species. 
 
