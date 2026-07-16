@@ -11,7 +11,16 @@ By Dr Jessica Webb
 <img width="857" height="586" alt="image" src="https://github.com/user-attachments/assets/fbac366b-6c0d-4e17-b43e-76bb52025f4c" />
 
 
-## 1.1 Practical Overview
+## 1.1 Practical Overview 
+
+Consider the following scenario: we have 3 patients (Table 1, below) who have serious blood stream infections caused by the bacterium Burkholderia pseudomallei with all patients failing to respond to first line antibiotic (merepenem) therapy. Whole genome sequencing was performed on their first bacterial isolates (taken from the patients prior to antibiotic therpay) and on a second isolate that is now resistant to the treatment drug meropenem (taken from the patients after they had started antibiotic treatment). Genomic tools were unable to idenify the genetic mechanism that is leading to the resistance in the secondary isolates, indicating that a novel mutation that hasent been seen before may be present. Your task is to determine what genetic variant is present in the secondary isolates that could explain the drug resistance and treatment failure. 
+
+**In this practical, you will:**
+- Annotate a reference bacterial genome to identify genes and their functions
+- Align sequencing reads from a resistant isolate to the annotated reference genome
+- Call variants (SNPs and indels) that differ between the isolate and reference
+- Annotate variants to predict their functional impact (synonymous, missense, nonsense, frameshift)
+- Visualize variants in genomic context to assess quality and biological relevance
 
 
 ## 1.2 Learning Outcomes
@@ -48,13 +57,28 @@ pwd
 ```
 
 If you run the `tree` command, you can see the structure of all the directories and symlinks you've created. It should look something like this:
-```
-TO ADD IN
+```bash.
+├── assembly
+│   ├── MSHR3763_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_references/MSHR3763_genomic.fasta
+│   ├── MSHR5864_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_references/MSHR5864_genomic.fasta
+│   └── MSHR6522_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_references/MSHR6522_genomic.fasta
+├── bakta
+├── reads
+│   ├── MSHR4083_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_reads/MSHR4083_1.fastq.gz
+│   ├── MSHR4083_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_reads/MSHR4083_2.fastq.gz
+│   ├── MSHR6755_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_reads/MSHR6755_1.fastq.gz
+│   ├── MSHR6755_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_reads/MSHR6755_2.fastq.gz
+│   ├── MSHR7929_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_reads/MSHR7929_1.fastq.gz
+│   └── MSHR7929_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_reads/MSHR7929_2.fastq.gz
+└── snippy
 ```
 
 # **3. AMR variant detection**
 
 ## 3.1 Annotate reference genome 
+
+Firstaly we need to annotate the first isolate from the patient. 
+
 
 ``` bash
 `prokka` `bacta`
@@ -62,7 +86,7 @@ TO ADD IN
 
 ## 3.2 Identify variants 
 
-do with snippy using .gff annotation as reference 
+do with snippy using .gbk annotation as reference 
 
 we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the follow up isolate back to the primary) at a time, 
 
