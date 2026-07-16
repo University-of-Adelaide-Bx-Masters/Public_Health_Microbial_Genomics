@@ -30,20 +30,19 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_amr_variant/ xxx
-mkdir -p ~/Practical_amr_variant/ xx
-mkdir -p ~/Practical_amr_variant/ xx
+mkdir --parents ~/Practical_amr_variants/{assembly,reads,bakta,snippy}
 ```
 
 ## 2.3 Get data
-The data for today's practical is located in `~/data/amr_variant`. As in previous practicals, we will use symlinks instead of copying large data files.
+The data for today's practical is located in `~/data/amr_variants`. As in previous practicals, we will use symlinks instead of copying large data files.
 
 ```bash
-cd ~/Practical_amr_variant
+# navigate to working directory
+cd ~/Practical_amr_variants
 # create symlinks for all fastq files
-ln -s ~/data/Practical_amr_variant/*.fastq.gz xx/
+ln -s ~/data/public_health_genomics/amr_variants/burk_reads/*.fastq.gz reads/
 # create symlink for reference genome
-ln -s ~/data/Practical_amr_variant/ xyz.fasta xx/
+ln -s ~/data/public_health_genomics/amr_variants/burk_references/*.fasta assembly/
 # we can confirm where we are 
 pwd
 ```
@@ -65,8 +64,10 @@ TO ADD IN
 
 do with snippy using .gff annotation as reference 
 
+we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the follow up isolate back to the primary) at a time, 
+
 ``` bash
-`snippy` 
+snippy --outdir snippy/MSHR4083 --ref assembly/MSHR3763.gff --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz  
 ```
 
 ## 3.3 AMR variants of interest 
