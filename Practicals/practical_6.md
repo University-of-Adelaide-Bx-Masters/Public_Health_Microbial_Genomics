@@ -81,12 +81,22 @@ Firstaly we need to annotate the first isolate from the patient.
 
 
 ``` bash
-`prokka` `bacta`
+bakta \
+  --db shared/a1237649/bakta_db \
+  --output bakta/MSHR3763_annotation \
+  --prefix reference_annotated \
+  --genus Burkholderia \
+  --species pseudomallei \
+   --gram - \
+   --keep-contig-headers \
+  --complete \
+  --locus-tag burk \
+  assembly/MSHR3763_genomic.fasta
 ```
 
 ## 3.2 Identify variants 
 
-do with snippy using .gbk annotation as reference 
+Now that we have an genome annotation file we can use this do with snippy using .gbk annotation as reference 
 
 we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the follow up isolate back to the primary) at a time, 
 
