@@ -80,24 +80,16 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 # **3. AMR variant detection**
 
-## 3.1 Annotate reference genome 
+## 3.1 Annotated reference genome 
 
-Firstaly we need to annotate the first isolate from the patient. 
+You may be thinking - what does it mean to annotate a genome? 
 
 
 ``` bash
-bakta \
-  --db shared/a1237649/bakta_db \
-  --output bakta/MSHR3763_annotation \
-  --prefix reference_annotated \
-  --genus Burkholderia \
-  --species pseudomallei \
-   --gram - \
-   --keep-contig-headers \
-  --complete \
-  --locus-tag burk \
-  assembly/MSHR3763_genomic.fasta
+look at .gbk file
 ```
+
+Lucky for you we already ahve the genome annotations, annoatted the first isolate from the patient becuase we will use this as our reference genome to call variants in the next step. 
 
 ## 3.2 Identify variants 
 
