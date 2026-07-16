@@ -98,7 +98,7 @@ Now that we have an genome annotation file we can use this do with snippy using 
 we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the follow up isolate back to the primary) at a time, 
 
 ``` bash
-snippy --outdir snippy/MSHR4083 --ref assembly/MSHR3763.gff --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz  
+snippy --outdir snippy/MSHR4083 --ref assembly/MSHR3763_1.gb assembly/MSHR3763_2.gb --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz  
 ```
 
 ## 3.3 AMR variants of interest 
