@@ -54,3 +54,7 @@ TO ADD IN
 ```
 
 # **3. AMR gene detection**
+
+amrfinder
+abritamr
+resfinder 
