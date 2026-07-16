@@ -13,14 +13,19 @@ By Dr Jessica Webb
 
 ## 1.1 Practical Overview 
 
-Consider the following scenario: we have 3 patients (Table 1, below) who have serious blood stream infections caused by the bacterium Burkholderia pseudomallei with all patients failing to respond to first line antibiotic (merepenem) therapy. Whole genome sequencing was performed on their first bacterial isolates (taken from the patients prior to antibiotic therpay) and on a second isolate that is now resistant to the treatment drug meropenem (taken from the patients after they had started antibiotic treatment). Genomic tools were unable to idenify the genetic mechanism that is leading to the resistance in the secondary isolates, indicating that a novel mutation that hasent been seen before may be present. Your task is to determine what genetic variant is present in the secondary isolates that could explain the drug resistance and treatment failure. 
+Consider the following scenario: Three patients (Table 1) have developed serious bloodstream infections caused by the bacterium *Burkholderia pseudomallei*. Despite receiving first-line antibiotic therapy with meropenem, all patients have failed to respond to treatment.
 
-**In this practical, you will:**
-- Annotate a reference bacterial genome to identify genes and their functions
-- Align sequencing reads from a resistant isolate to the annotated reference genome
-- Call variants (SNPs and indels) that differ between the isolate and reference
-- Annotate variants to predict their functional impact (synonymous, missense, nonsense, frameshift)
-- Visualize variants in genomic context to assess quality and biological relevance
+Whole-genome sequencing (WGS) was performed on the initial bacterial isolates collected from each patient prior to antibiotic exposure, as well as on subsequent isolates obtained after treatment had commenced. These secondary isolates were found to be resistant to meropenem, indicating the emergence of antibiotic resistance during therapy.
+
+Previous genomic analyses were unable to identify the genetic mechanism responsible for resistance in the secondary isolates, suggesting that a previously uncharacterised mutation or novel genetic variant may be contributing to treatment failure. Your task is to identify the genetic variant(s) present in the secondary isolates that could explain the observed meropenem resistance.
+
+In this practical, you will:
+
+* Annotate a reference bacterial genome to identify genes and their predicted functions.
+* Align sequencing reads from a resistant isolate to the annotated reference genome.
+* Identify genetic variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (indels), that differ between the isolate and the reference genome.
+* Annotate detected variants to predict their potential functional effects, including synonymous, missense, nonsense, and frameshift mutations.
+* Visualize variants within their genomic context to evaluate data quality and assess their potential biological relevance.
 
 
 ## 1.2 Learning Outcomes
