@@ -12,7 +12,7 @@ By Dr Jessica Webb
 
 
 ## 1.1 Practical Overview
-
+ - working with the same set of salmonella isolates - now know that we are deadling with a clonal salmonella outbreak, and we want to know if the outbreak is a clonal Antimcirobial resistant outbreak. 
 
 ## 1.2 Learning Outcomes
 
@@ -30,20 +30,17 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_amr_gene/ xxx
-mkdir -p ~/Practical_species_classification/ xx
-mkdir -p ~/Practical_species_classification/ xx
+mkdir --parents ~/Practical_amr_gene/{assemblies, amrfinder, abritamr}
 ```
 
 ## 2.3 Get data
-The data for today's practical is located in `~/data/amr_gene`. As in previous practicals, we will use symlinks instead of copying large data files.
+The data for today's practical is located in `~/data/microbial_genomics`. As in previous practicals, we will use symlinks instead of copying large data files.
 
 ```bash
-cd ~/Practical_species_classification
-# create symlinks for all fastq files
-ln -s ~/data/Practical_species_classification/*.fastq.gz xx/
-# create symlink for reference genome
-ln -s ~/data/Practical_species_classification/xyz.fasta xx/
+cd ~/Practical_amr_gene
+# create symlinks for all genome assembly (FASTA format) files
+# create symlink for amrfinder and abritamr
+ln -s ~/data/public_health_genomics/microbial_genomics/TODOOOOOOO
 # we can confirm where we are 
 pwd
 ```
@@ -55,6 +52,6 @@ TO ADD IN
 
 # **3. AMR gene detection**
 
-amrfinder
-abritamr
-resfinder 
+amrfinder - (what lacking that abritamr does?) 
+abritamr - assemblies - antibiotic classes and custom reports 
+
