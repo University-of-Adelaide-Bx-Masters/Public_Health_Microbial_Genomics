@@ -30,7 +30,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_amr_gene/{assemblies, amrfinder, abritamr}
+mkdir --parents ~/Practical_amr_gene/{assemblies, amrfinder, abritamr, salmonella_tree}
 ```
 
 ## 2.3 Get data
@@ -39,8 +39,11 @@ The data for today's practical is located in `~/data/microbial_genomics`. As in 
 ```bash
 cd ~/Practical_amr_gene
 # create symlinks for all genome assembly (FASTA format) files
-# create symlink for amrfinder and abritamr
-ln -s ~/data/public_health_genomics/microbial_genomics/TODOOOOOOO
+ln -s ~/data/public_health_genomics/microbial_genomics/assemblies/*.fasta assemblies/
+# create symlink for amrfinder database 
+ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db
+# create symlink for the tree you genertated in the variants and phylo practical
+ln -s ~/data/public_health_genomics/microbial_genomics/TODOOOO
 # we can confirm where we are 
 pwd
 ```
@@ -50,14 +53,45 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. AMR detection using amrfinder**
+# **3. AMR detection using AMRFinder plus**
 
+AMRFinderPlus
+- nnnnnn
+
+
+**Now run amrfinder**
+
+'amrfinder' is a relatively simple tool to run 
 amrfinder - (what lacking that abritamr does?) 
+
+
 
 
 # **4. AMR detection using abritamr**
 abritamr - assemblies - antibiotic classes and custom reports 
 
+We can run `abritamr` based on the species we have in the samples. Before we run lets check if Salmonella is available:
+
+```bash
+abritamr run -h | grep Salmonella
+```
+You should see Salmonella in the terminal output highlighted in red, confirming the species is available.
+
+Now run over one sample and include salmonella as the designates species: 
+
+```bash
+abritamr run --contigs assemblies/ERR10479021.fasta --prefix abritamr/ERR10479021 --species Salmonella 
+```
+
+running `anritamr` `run` generates five outpur files per sample:
+- amrfinder.out
+- summary_matches.txt
+- summary_partials.txt
+- sumamry_virulance.txt
+
+.....
+
+Now repeat `abritamr` on the 8 remaning samples 
 
 # **5. Overlay AMR data onto the Salmonella tree**
-
+Brining the data together to aid in intepretation 
