@@ -12,7 +12,7 @@ By Dr Jessica Webb
 
 
 ## 1.1 Practical Overview
- - working with the same set of salmonella isolates - now know that we are deadling with a clonal salmonella outbreak, and we want to know if the outbreak is a clonal Antimcirobial resistant outbreak. 
+ - working with the same set of salmonella isolates - now know that we are deadling with a clonal salmonella outbreak, and we want to determine wheather it is also an antimicrobial resistant outbreak. 
 
 ## 1.2 Learning Outcomes
 
@@ -50,8 +50,14 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. AMR gene detection**
+# **3. AMR detection using amrfinder**
 
 amrfinder - (what lacking that abritamr does?) 
+
+
+# **4. AMR detection using abritamr**
 abritamr - assemblies - antibiotic classes and custom reports 
+
+
+# **5. Overlay AMR data onto the Salmonella tree**
 
