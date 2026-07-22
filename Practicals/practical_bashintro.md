@@ -24,10 +24,30 @@ It runs for a single 2 hour practical and has three parts:
 2. Practice data wrangling in BASH using common commands and regular expressions
 3. Understand the purpose of BASH scripting and how to write and comment simple scripts
 
-# **2. Setup**
+## 1.3 Why is BASH and BASH scripting essential for Bioinformatics? 
 
-## 2.1 Activate software
-For today's practical, you will need to activate the `bioinf` conda environment:
+**Linux is the standard platform for Bioinformatics**
+
+Most bioinformatics software is designed to run on Linux. 
+Large analyses, such as genome assembly and sequence alignment, often require more computing power than a personal computer can provide and are instead run on Linux-based high-performance computing (HPC) clusters or cloud platforms. 
+These systems typically have no graphical interface, so Bash is used to navigate files, run software, and manage analyses.
+
+**Automation and Scalability**
+
+Many bioinformatics analyses are repetitive and can take hours or days to complete. Bash scripts automate these tasks, allowing the same workflow to be applied consistently to hundreds or thousands of samples. This saves time, reduces manual effort, and makes analyses easy to scale.
+
+**Reproducibility and reducing human error**
+
+Bash scripts provide a complete record of the commands used to analyse data, making analyses easy to reproduce and share. 
+This allows other researchers to verify results and to run the same process on a different dataset.
+They also reduce human error by ensuring every sample is processed using the same commands, avoiding mistakes such as incorrect file names, missing options, or overwritten outputs.
+
+# **2. Login and Setup**
+
+Log into your Virtual Machine. [Click here](https://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Course_materials/vm_login_instructions.html) for instructions if you can't remember. 
+
+We will also be using some of the software provided by the `bioinf` conda environment. 
+Activate it as below. 
 
 ```bash
 source activate bioinf
@@ -37,7 +57,7 @@ source activate bioinf
 
 In this section, we'll review a few simple commands/skills which we will then use to work out what a number of other commands are doing.
 
-### Where am I?
+## Where am I?
 **Check your command prompt or use `pwd` - Print Working Directory**
 
 The terminal command prompt on your VM includes the path to your current location - your working directory.
@@ -65,7 +85,7 @@ cd ~
 - What does the `~` mean?
 - An absolute path always points to the same location, regardless of your current directory, while a relative path specifies a location __relative__ to your current working directory. Which of the commands above are absolute and which are relative? 
 
-### What else is here?
+## What else is here?
 **`ls` - list**
 
 The `ls` command is an abbreviation of list. It lists the contents of a directory. 
@@ -87,7 +107,7 @@ ls -lh /shared/data/intro_bash
 - Which file is biggest and how big is it?
 - When were these files last modified? 
 
-### Look at contents of a file
+## Look at contents of a file
 **`less filename`**
 
 Use the `less` command to view the contents of a file. 
@@ -104,7 +124,7 @@ When you're done looking, press `q` to exit.
 
 You can view any plain-text file using `less`.
 
-### How to get help 
+## How to get help 
 For inbuilt BASH commands: **`man commandname`**
 
 For other tools/software: usually **`commandname --help`** OR  **`commandname -h`**
@@ -124,7 +144,7 @@ man ls
 To exit a manual page, press `q`.   
 
 
-### Investigating common commands
+## Investigating common commands
 
 Now you know how to:
 - see where you are by checking the command prompt
@@ -133,7 +153,7 @@ Now you know how to:
 - open the manual for a command with `man commandname`
 
 Run each line of code below one at a time and in between, use the commands and techniques we just covered to find out what each one does. 
-Write down what you find as a helpful reference for yourself and do we can go through them together. 
+Write down your findigs to go through as a class. Make sure you know what a command does before moving on to the next one. 
 
 
 ```bash
@@ -145,99 +165,262 @@ cd ~/bash_crash_course
 
 touch notes.txt
 
-echo "Lactobacillus amylovorus GRL 1112" > notes.txt
+echo "This is some very boring text" > notes.txt
 
-echo "Obtained with wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/182/855/GCF_000182855.2_ASM18285v1/GCF_000182855.2_ASM18285v1_genomic.gff.gz" >> notes.txt
+echo "And this is some more very boring text" >> notes.txt
 
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/182/855/GCF_000182855.2_ASM18285v1/GCF_000182855.2_ASM18285v1_genomic.gff.gz
+wget http://ftp.ensembl.org/pub/release-107/fasta/caenorhabditis_elegans/dna/Caenorhabditis_elegans.WBcel235.dna.toplevel.fa.gz
 
-gunzip GCF_000182855.2_ASM18285v1_genomic.gff.gz
+gunzip Caenorhabditis_elegans.WBcel235.dna.toplevel.fa.gz
 
-mv GCF_000182855.2_ASM18285v1_genomic.gff lactobacillus.gff
+mv Caenorhabditis_elegans.WBcel235.dna.toplevel.fa c_elegans.fa
 
-head lactobacillus.gff
+head -n5 c_elegans.fa
 
-tail lactobacillus.gff
+tail c_elegans.fa
 
-cat notes.txt
+head c_elegans.fa >> notes.txt
 
-cp /shared/data/intro_bash/words words.txt
+wc -l notes.txt
 
-head -n5 words.txt
+cp notes.txt otherfile.txt 
 
-tail -n5 words.txt
+rm c_elegans.fa
 
-wc -l words.txt
+rm notes.txt otherfile.txt
 
-rm words.txt
+cd ..
 
 du -sh ~
-
 ```
 
-At the end of this section, you should have 
+After running all of the commands above in order, there should be an empty directory `bash_crash_course` in your home directory and your working directory should be your home directory.
+
+Using commands and techniques from above, try to do the tasks below.
+- Change into the `~/bash_crash_course` directory
+- Download GFF file at ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/182/855/GCF_000182855.2_ASM18285v1/GCF_000182855.2_ASM18285v1_genomic.gff.gz to this directory
+- Unzip the GFF file
+- Rename the GFF file to `lactobacillus.gff`
+- Send first 25 lines of `lactobacillus.gff` to a file called `example.gff`
 
 
-# **Filtering, Parsing, and Wrangling text**
+At the end of this section, you should have a directory called `bash_crash_course` in your home directory and it should contain two files, one called `lactobacillus.gff` and the other called `example.gff`.  
+These files will be used in the next section. 
 
-This section covers some useful commands for wrangling data in BASH. These include:
-- `grep`
-- `cut`
-- `sort`
-- `uniq`
-- `awk`
-- `sed` and regular expressions
-
-
-### Download and inspect the file
-
-
-### How many genes are annotated?
-
-### How many CDS features are there?
-
-```bash
-
-```
-
-
-
-grep, cut, sort, count etc. 
-
-
-
-### The power of patterns 
-- Regex (sed)
-
-
-### sed and regular expressions
-
-
-- grep and sed
-- awk
-- cut
-- sort 
-
-
-```bash
-
-```
-
-- head/tail,  grep, cut
-
-###  
-
-
-- Regular expressions with grep
-- inspect fasta and gff and get info from them
-- sed
 
 
 # **BASH scripts**
 
-- bash scriptsi
-- A basic workflow that downloads a dataset and does something basic? run fastqc? get data from the file? 
-- loops
-- read qc, read alignment and variant calling
+In this section we'll write a BASH script that runs a simple workflow on 3 samples. This script will:
+- Create necessary directories
+- Obtain reference genome and Illumina reads
+- Run quality control with `fastp`
+- Align reads to a reference genome with `bwa mem`
+- Summarise alignment statistics with `samtools`
+- Produce a text file containing the following information:
+	- Identifier of reference genome
 
+
+We will work through the process of testing code and building the script step by step. 
+
+## Create script skeleton
+
+You can use the code below as a skeleton for your script.
+You can either create the script now using `nano` or you can use a text file (use notepad on Windows) and transfer the contents of the text file to a script once we're ready to start testing it. 
+Call the script whatever you want but make sure it ends with `.sh` and is located in your `~/bash_crash_course` directory. 
+
+
+```bash
+#!/bin/bash
+
+# Variables
+
+# Load software
+
+# Create directories
+
+# Get data
+
+# Run Quality Control
+
+# Align reads to reference genome
+
+# Summarise alignment statistics
+
+```
+
+## Create directories
+
+Some tools will fail if the specified output directory doesn't already exist. Therefore, it's good practice to create necessary directories up front.
+This also helps us to stay organised. 
+
+Make sure you're in the `bash_crash_course` directory and then create the directory structure shown below. 
+
+```txt
+.
+├── 0_data
+├── 1_trimmed
+│   ├── fastp
+├── 2_aligned
+├── 3_stats
+```
+
+
+<details>
+<summary>Example code</summary>
+<pre>$ # comment<br>cut -f1 afile.txt<br>#afinal comment line</pre>
+</details>
+
+
+<details>
+<summary>Code</summary>
+
+```bash
+# comment
+cut -f1 file.txt
+```
+
+</details>
+
+## Get data
+
+
+## Run quality control
+
+## Align reads to reference genome
+
+## Summarise alignment statistics
+
+
+
+# **Filtering, Parsing, and Wrangling text**
+
+This section covers some useful commands for wrangling data in BASH and uses the `lactobacillus.gff` and `example.gff` files from the previous sections.  
+
+Overview of useful commands and applications:
+- `grep` - search a file for a word or pattern
+- `cut`	 - remove or select sections from each line of a file
+- `sort` - sort lines
+- `uniq` - Used after sorting to retain only one of each unique item/line
+- `awk`	 - Good for filtering based on criteria and processing text
+- `sed`	 - Stream EDitor - filtering and transforming text
+
+
+
+## Inspect files
+
+`lactobacillus.gff` is a GFF file (General Feature Format) and GFF files store genome annotations in a tab-delimited plain-text format.
+View the file using `less` as below:
+
+```bash
+less --chop-long-lines lactobacillus.gff
+```
+
+The file begins with a number of header lines which all begin with `#`. The header includes the version of the gff format, details of the genome assembly build and annotation source, and the species. 
+After the header are the annotations themselves. Each line annotates a different feature and the tab-separated columns are listed below. 
+The aim of this exercise is to practice your BASH skills so you can focus on the items/columns in bold for this exercise.
+
+1. **Sequence ID**
+2. Source
+3. **Feature type**
+4. **Start**
+5. **Stop**
+6. Score
+7. Strand
+8. Phase
+9. **Attributes**
+
+
+Press `q` to exit `less`. 
+
+Now view `example.gff`.
+
+```bash
+less -S example.gff
+```
+
+The file `example.gff` is just the first 25 lines of the lactobacillus.gff file and we'll use it to test the commands below so that we can clearly see what is going on. 
+The following is a set of questions about the contents of `example.gff` and some code that steps through the development of a command that answers that question. 
+Read each question, view `example.gff` using less to work out what the question is asking, and then run each line of code individually so that you can see how the command develops.
+
+
+**How many features are annotated (ie. how many non-header lines are there)?**
+
+```bash
+grep "^#" example.gff
+
+grep -c "^#" example.gff 
+```
+
+
+**How many different sources of annotations are there?**
+
+```bash
+cut -s -f2 example.gff
+
+cut -s -f2 example.gff | sort
+
+cut -s -f2 example.gff | sort | uniq
+
+cut -s -f2 example.gff | sort | uniq -c
+
+cut -s -f2 example.gff | sort | uniq -c | wc -l
+```
+
+**What are the coordinates of the longest gene and how long is it?**
+
+```bash
+awk '$3=="gene"{print $0}' example.gff
+
+awk '$3=="gene"{print $1, $4, $5}' example.gff
+
+awk '$3=="gene"{print $5-$4+1, $1, $4, $5}' example.gff
+
+awk '$3=="gene"{print $5-$4+1, $1, $4, $5}' example.gff | sort -nr 
+
+awk '$3=="gene"{print $5-$4+1, $1, $4, $5}' example.gff | sort -nr | head -n1
+
+``` 
+
+
+Now, using what you learnt from the questions above, write commands to answer the questions below:
+
+
+- How many different sequences are annotated? ie. How many unique values in Column 1.
+- How many features are of the type "CDS". ie. How many times is CDS listed in Column 3.
+- How many genes are annotated on each sequence/chromosome?
+`awk '$3=="gene"{print $0}' lactobacillus.gff | cut -f1 | sort | uniq -c` 
+- Which CDS region is the shortest?
+- How many genes are annotated?
+
+```bash
+grep "\sgene\t" lactobacillus.gff
+```
+
+
+
+
+
+
+# **BASH scripts**
+
+BASH scripts 
+
+Write a BASH script to do the following:
+
+- Create a symlink to the file 
+- Run FastQC on the file 
+- Run Fastp on the file
+- Index the reference genome with `bwa mem`
+- Align reads to the reference genome with `bwa mem`
+- Summarise the alignments using `samtools stats`
+
+
+```bash
+#!/bin/bash
+
+## Create necessary directories
+
+## 
+```
 
