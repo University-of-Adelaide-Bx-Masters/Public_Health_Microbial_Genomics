@@ -189,6 +189,10 @@ rm c_elegans.fa
 
 rm notes.txt otherfile.txt
 
+ln -s /shared/data/intro_bash/words words.txt
+
+rm words.txt
+
 cd ..
 
 du -sh ~
@@ -255,6 +259,7 @@ Some tools will fail if the specified output directory doesn't already exist. Th
 This also helps us to stay organised. 
 
 Make sure you're in the `bash_crash_course` directory and then create the directory structure shown below. 
+Use `ls` or `tree` to check your progress. 
 
 ```txt
 .
@@ -263,33 +268,166 @@ Make sure you're in the `bash_crash_course` directory and then create the direct
 │   ├── fastp
 ├── 2_aligned
 ├── 3_stats
+└── script.sh
 ```
-
-
-<details>
-<summary>Example code</summary>
-<pre>$ # comment<br>cut -f1 afile.txt<br>#afinal comment line</pre>
-</details>
-
 
 <details>
 <summary>Code</summary>
 
 ```bash
-# comment
-cut -f1 file.txt
+mkdir 0_data
+mkdir -p 1_trimmed/fastp
+mkdir 2_aligned
+mkdir 3_stats
 ```
 
 </details>
 
 ## Get data
 
+Copy the reference genome `/shared/data/bash_crash_prac/reference.fa` to your `bash_crash_prac` directory. 
+
+Also, create symlinks in the `0_data` directory to the fastq files in `/shared/data/bash_crash_prac/`. 
+
+Once you've done this, running `tree` will show something like below:
+
+```txt
+.
+├── 0_data
+│   ├── sampleA_R1.fq.gz -> /shared/data/bash_crash_prac/sampleA_R1.fq.gz
+│   ├── sampleA_R2.fq.gz -> /shared/data/bash_crash_prac/sampleA_R2.fq.gz
+│   ├── sampleB_R1.fq.gz -> /shared/data/bash_crash_prac/sampleB_R1.fq.gz
+│   ├── sampleB_R2.fq.gz -> /shared/data/bash_crash_prac/sampleB_R2.fq.gz
+│   ├── sampleC_R1.fq.gz -> /shared/data/bash_crash_prac/sampleC_R1.fq.gz
+│   └── sampleC_R2.fq.gz -> /shared/data/bash_crash_prac/sampleC_R2.fq.gz
+├── 1_trimmed
+│   ├── fastp
+├── 2_aligned
+├── 3_stats
+├── reference.fa
+└── script.sh
+
+```
+
+Add the code you used to your `script.sh`. 
+
+<details>
+<summary>Code</summary>
+
+```bash
+# get reference
+cp /shared/data/bash_crash_prac/reference.fa .
+
+# symlinks to reads
+ln -s /shared/data/bash_crash_prac/*.fq.gz 0_data/
+```
+
+</details>
+
 
 ## Run quality control
 
+We will now use `fastp` to trim our reads. 
+A skeleton `fastp` command is shown below.
+Replace `<value>`s so that sampleA is trimmed making sure that:
+- Trimmed reads are output to the `1_trimmed` directory and named `sampleA_R1.fq.gz` and `sampleA_R2.fq.gz`
+- Reads are a minimum of 90bp long
+- The mean quality of bases within a 4bp window is 25
+- The html report is placed in `1_trimmed/fastp` 
+
+```bash
+fastp --thread 2 \
+-i <value> \
+-I <value> \
+-o <value> \
+-O <value> \
+--cut_right \
+--cut_window_size 4 \
+--cut_mean_quality <value> \
+--length_required <value> \
+--html <value>
+
+```
+
+
+Add the working code to your `script.sh`.
+
+<details>
+<summary>Code</summary>
+
+```bash
+fastp --thread 2 \
+-i 0_data/sampleA_R1.fq.gz \
+-I 0_data/sampleA_R2.fq.gz \
+-o 1_trimmed/sampleA_R1.fq.gz \
+-O 1_trimmed/sampleA_R2.fq.gz \
+--cut_right \
+--cut_window_size 4 \
+--cut_mean_quality 25 \
+--length_required 90 \
+--html 1_trimmed/fastp/sampleA.html
+```
+
+</details>
+
+
+
 ## Align reads to reference genome
 
+To align reads to a reference genome, we first need to index the reference genome. 
+Use the code below to do this: 
+
+```bash
+bwa index reference.fa
+```
+
+Now we can align reads. Use the code skeleton below for this command, replacing `<value>`s as appropriate.
+Use the `samtools view --help` documentation to find out what type of file will be output so that your output file in the `2_aligned` directory has the correct extension. 
+
+
+```bash
+bwa mem -t 2 reference.fa <value> <value> | samtools view -bh - > <value>
+```
+
+Add the code you used to your `script.sh`.
+
+<details>
+<summary>Code</summary>
+
+```bash
+# index the reference genome first
+bwa index reference.fa
+
+# align reads to reference
+bwa mem -t 2 reference.fa \
+1_trimmed/sampleA_R1.fq.gz \
+1_trimmed/sampleA_R2.fq.gz \
+| samtools view -bh - > 2_aligned/sampleA.bam
+```
+
+</details>
+
+
 ## Summarise alignment statistics
+
+Now we'll generate some alignment statistics. 
+Replace `<value>` and modify the command below so that the output is sent to '3_stats/sampleA.txt'. 
+
+```bash
+samtools stats <value>
+```
+
+Add the code you used to your `script.sh`.
+
+<details>
+<summary>Code</summary>
+
+```bash
+samtools stats 2_aligned/sampleA.bam > 3_stats/sampleA.txt
+```
+
+</details>
+
 
 
 
