@@ -44,7 +44,7 @@ They also reduce human error by ensuring every sample is processed using the sam
 
 # **2. Login and Setup**
 
-Log into your Virtual Machine. [Click here](https://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Course_materials/vm_login_instructions.html) for instructions if you can't remember. 
+Log into your Virtual Machine. [Click here](https://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Course_materials/vm_login_instructions.html) for instructions if you can't remember how. 
 
 We will also be using some of the software provided by the `bioinf` conda environment. 
 Activate it as below. 
@@ -53,17 +53,18 @@ Activate it as below.
 source activate bioinf
 ```
 
-# **Commonly used commands**
+# **3. Commonly used commands**
 
 In this section, we'll review a few simple commands/skills which we will then use to work out what a number of other commands are doing.
 
-## Where am I?
+## 3.1 Where am I?
 **Check your command prompt or use `pwd` - Print Working Directory**
 
 The terminal command prompt on your VM includes the path to your current location - your working directory.
 In the example below, the user is in their home directory `/shared/a1761942`.
 
-![Terminal Command Prompt](images/command_prompt_annotated.png)
+<img src="images/command_prompt_annotated.png" alt="Terminal command prompt" width="500">
+
 
 Alternatively, you can use the `pwd` command to find your current working directory. 
 While this isn't super useful when we're working in our VMs, other terminal command prompts may not include the current working directory so it's worth knowing. 
@@ -85,7 +86,7 @@ cd ~
 - What does the `~` mean?
 - An absolute path always points to the same location, regardless of your current directory, while a relative path specifies a location __relative__ to your current working directory. Which of the commands above are absolute and which are relative? 
 
-## What else is here?
+## 3.2 What else is here?
 **`ls` - list**
 
 The `ls` command is an abbreviation of list. It lists the contents of a directory. 
@@ -107,7 +108,7 @@ ls -lh /shared/data/intro_bash
 - Which file is biggest and how big is it?
 - When were these files last modified? 
 
-## Look at contents of a file
+## 3.3 Look at contents of a file
 **`less filename`**
 
 Use the `less` command to view the contents of a file. 
@@ -124,7 +125,7 @@ When you're done looking, press `q` to exit.
 
 You can view any plain-text file using `less`.
 
-## How to get help 
+## 3.4 How to get help 
 For inbuilt BASH commands: **`man commandname`**
 
 For other tools/software: usually **`commandname --help`** OR  **`commandname -h`**
@@ -144,7 +145,7 @@ man ls
 To exit a manual page, press `q`.   
 
 
-## Investigating common commands
+## 3.5 Investigating more common commands
 
 Now you know how to:
 - see where you are by checking the command prompt
@@ -221,8 +222,6 @@ In this section we'll write a BASH script that runs a simple workflow on 3 sampl
 - Run quality control with `fastp`
 - Align reads to a reference genome with `bwa mem`
 - Summarise alignment statistics with `samtools`
-- Produce a text file containing the following information:
-	- Identifier of reference genome
 
 
 We will work through the process of testing code and building the script step by step. 
@@ -231,15 +230,14 @@ We will work through the process of testing code and building the script step by
 
 You can use the code below as a skeleton for your script.
 You can either create the script now using `nano` or you can use a text file (use notepad on Windows) and transfer the contents of the text file to a script once we're ready to start testing it. 
-Call the script whatever you want but make sure it ends with `.sh` and is located in your `~/bash_crash_course` directory. 
+Call the script whatever you want (it's called `script.sh` in the examples) but make sure it ends with `.sh` and is located in your `~/bash_crash_course` directory. 
 
 
 ```bash
 #!/bin/bash
 
-# Variables
-
 # Load software
+source activate bioinf
 
 # Create directories
 
@@ -253,12 +251,20 @@ Call the script whatever you want but make sure it ends with `.sh` and is locate
 
 ```
 
+The data we'll be using is located in the `/shared/data/bash_crash_prac/` directory.
+Use `ls` and whatever options you like to answer the following questions about the contents of this directory: 
+- Is the `reference.fa` file compressed?
+- How big is the `reference.fa` file?
+- When was the 'reference.fa' file last modified?
+- How many samples are there?
+- Are the files containing sample reads compressed? 
+
 ## Create directories
 
 Some tools will fail if the specified output directory doesn't already exist. Therefore, it's good practice to create necessary directories up front.
 This also helps us to stay organised. 
 
-Make sure you're in the `bash_crash_course` directory and then create the directory structure shown below. 
+Make sure you're in the `bash_crash_course` directory and then write and run code in the terminal to create the directory structure shown below. 
 Use `ls` or `tree` to check your progress. 
 
 ```txt
@@ -270,6 +276,8 @@ Use `ls` or `tree` to check your progress.
 ├── 3_stats
 └── script.sh
 ```
+
+Add the code you used to your `script.sh` in the appropriate location. 
 
 <details>
 <summary>Code</summary>
@@ -285,11 +293,11 @@ mkdir 3_stats
 
 ## Get data
 
-Copy the reference genome `/shared/data/bash_crash_prac/reference.fa` to your `bash_crash_prac` directory. 
+Write code to copy the reference genome `/shared/data/bash_crash_prac/reference.fa` to your `bash_crash_prac` directory. 
 
 Also, create symlinks in the `0_data` directory to the fastq files in `/shared/data/bash_crash_prac/`. 
 
-Once you've done this, running `tree` will show something like below:
+Once you've done this, running `tree` should show something like below:
 
 ```txt
 .
@@ -309,7 +317,7 @@ Once you've done this, running `tree` will show something like below:
 
 ```
 
-Add the code you used to your `script.sh`. 
+Add the code you used to your `script.sh`.
 
 <details>
 <summary>Code</summary>
@@ -411,13 +419,18 @@ bwa mem -t 2 reference.fa \
 ## Summarise alignment statistics
 
 Now we'll generate some alignment statistics. 
-Replace `<value>` and modify the command below so that the output is sent to '3_stats/sampleA.txt'. 
+Replace `<value>` and modify the command below so that the output is sent to `3_stats/sampleA.txt`. 
+
 
 ```bash
 samtools stats <value>
 ```
 
-Add the code you used to your `script.sh`.
+Check that this command worked with `less 3_stats/sampleA.txt`.
+The file that displays should start with the line `# This file was produced by samtools stats (1.20+htslib-1.21) and can be plotted using plot-bamstats`. 
+We'll take a closer look at these results later.
+
+Add the code you used to your `script.sh` but don't include the `less` command.
 
 <details>
 <summary>Code</summary>
@@ -429,6 +442,77 @@ samtools stats 2_aligned/sampleA.bam > 3_stats/sampleA.txt
 </details>
 
 
+## Test your script
+
+Because you have already run all of the code that is currently in your script, it will be hard to tell if the script is working properly if you simply run it again. 
+Therefore, to test it more thoroughly, we'll delete the directories and files that it's supposed to generate before running it. 
+
+```bash
+# delete the reference genome and index files
+rm reference.fa reference.fa.*
+
+# delete directories
+rm -r 0_data/ 1_trimmed/ 2_aligned/ 3_stats/ 
+```
+
+Make sure you don't delete the `script.sh` that you've been working on! 
+
+
+Now, run your script with `bash script.sh`. 
+It will probably take about a minute to complete and you should see some output to the terminal while its running. 
+
+
+If your script works as expected, running `tree` should show something like below:
+
+```txt
+.
+├── 0_data
+│   ├── sampleA_R1.fq.gz -> /shared/data/bash_crash_prac/sampleA_R1.fq.gz
+│   ├── sampleA_R2.fq.gz -> /shared/data/bash_crash_prac/sampleA_R2.fq.gz
+│   ├── sampleB_R1.fq.gz -> /shared/data/bash_crash_prac/sampleB_R1.fq.gz
+│   ├── sampleB_R2.fq.gz -> /shared/data/bash_crash_prac/sampleB_R2.fq.gz
+│   ├── sampleC_R1.fq.gz -> /shared/data/bash_crash_prac/sampleC_R1.fq.gz
+│   └── sampleC_R2.fq.gz -> /shared/data/bash_crash_prac/sampleC_R2.fq.gz
+├── 1_trimmed
+│   ├── fastp
+│   │   └── sampleA.html
+│   ├── sampleA_R1.fq.gz
+│   └── sampleA_R2.fq.gz
+├── 2_aligned
+│   └── sampleA.bam
+├── 3_stats
+│   └── sampleA.txt
+├── reference.fa
+├── reference.fa.amb
+├── reference.fa.ann
+├── reference.fa.bwt
+├── reference.fa.pac
+├── reference.fa.sa
+├── script.sh
+```
+
+If it doesn't or if your script stopped with an error message, try to work out where your script went wrong and fix it. 
+
+## Generalise to multiple samples
+
+Now that your script runs on a single sample, let's set it up to process multiple samples using a loop. 
+We'll use a `for` loop like in the example below to do this. 
+
+
+```bash
+for SAMPLE in sampleA sampleB sampleC;
+do
+
+	# Place all code that must be run for each sample individual in here
+	# Replace all instances of sampleA in this code with ${SAMPLE} <- See below for a shortcut on how to do this.
+	# Then when the loop runs, it will run three times, once for each of the samples listed, replacing ${SAMPLE} inside of the loop with the sample name on each iteration
+	
+done
+```
+
+Questions to consider:
+- Which parts of our workflow only need to be run once, regardless of how many samples we're processing? 
+- Does it matter whether these steps are placed before or after the for loop?
 
 
 # **Filtering, Parsing, and Wrangling text**
