@@ -300,10 +300,7 @@ Add the code you used to create your directories to `script.sh` in the appropria
 <details>
 <summary>Code</summary>
 
-<pre>$ mkdir 0_data<br>
-mkdir -p 1_trimmed/fastp<br>
-mkdir 2_aligned<br>
-mkdir 3_stats</pre>
+<pre>mkdir 0_data<br>mkdir -p 1_trimmed/fastp<br>mkdir 2_aligned<br>mkdir 3_stats</pre>
 
 </details>
 
