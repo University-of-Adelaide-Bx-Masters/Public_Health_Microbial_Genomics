@@ -87,10 +87,29 @@ cd ~
 - What does the `~` mean?
 - An absolute path always points to the same location, regardless of your current directory, while a relative path specifies a location relative to your current working directory. Which of the paths above are absolute and which are relative? 
 
-## 3.2 What else is here?
-**`ls` - list**
+## 3.2 How to get help 
+For inbuilt BASH commands: `man commandname`
 
-The `ls` command is an abbreviation of list. It lists the contents of a directory. 
+For other tools/software: usually `commandname --help` OR `commandname -h`
+
+Here we're using inbuilt BASH commands so the `man` command will be most useful.
+Open the manual for the `ls` command as below and answer the following questions (you will need to scroll):
+
+```bash
+man ls
+```
+
+**Questions:**
+- What does it say the `ls` command does?
+- What do the `-l` and `-h` options do?
+- What would the command `ls -lt` do?
+
+To exit a manual page, press `q`.
+
+## 3.3 What files and directories are in this location?
+`ls` - list
+
+The `ls` command is an abbreviation of list. As you just saw in the manual documentation, it lists the contents of a directory. 
 
 Try the commands below to see the difference in output. 
 
@@ -109,8 +128,8 @@ ls -lh /shared/data/intro_bash
 - Which file is biggest and how big is it?
 - When were these files last modified? 
 
-## 3.3 Look at contents of a file
-**`less filename`**
+## 3.4 Look at contents of a file
+`less filename`
 
 Use the `less` command to view the contents of a file. 
 
@@ -125,42 +144,24 @@ Some terminals don't allow mouse scrolling so the keyboard commands are good to 
 When you're done looking, press `q` to exit. 
 
 You can view any plain-text file using `less`.
-
-## 3.4 How to get help 
-For inbuilt BASH commands: **`man commandname`**
-
-For other tools/software: usually **`commandname --help`** OR  **`commandname -h`**
-
-Here we're using inbuilt BASH commands so the `man` command will be most useful.
-Open the manual for the `ls` command as below and answer the following questions (you will need to scroll):
-
-```bash
-man ls
-```
-
-**Questions:**
-- What does it say the `ls` command does? 
-- What do the `-l` and `-h` options do?
-- What would the command `ls -lt` do?
-
-To exit a manual page, press `q`.   
-
+A useful variation is `less -S afile` where the `-S` option prevents long lines of text from wrapping in the display. 
 
 ## 3.5 Investigating more common commands
 
 Now you know how to:
-- see where you are by checking the command prompt
-- list the contents of a directory with `ls`
-- see the contents of a file with `less filename`
-- open the manual for a command with `man commandname`
+- See where you are by checking the command prompt or `pwd`
+- Open the manual for a command with `man commandname`
+- List the contents of a directory with `ls`
+- See the contents of a file with `less filename`
 
 **In Class Exercise**
 
 Run each line of code below one at a time and in between each line, use the commands and techniques we just covered (`man`, `ls`, `less`, and `pwd`) to find out what each one does. 
 Write down your findings and make sure you know what a command does before moving on to the next one. 
-These commands don't perform any analysis.
-They are simply examples that demonstrate a range of very commonly used BASH commands. 
-If they are run in the order presented, you will end up with an empty directory called `bash_crash_course` in which you will work for the remainder of the practical. 
+
+**Note:** These commands don't perform any analysis.
+They are only a set of examples that demonstrate a range of very commonly used BASH commands. 
+If they are run in the order presented, you will end up with an empty directory called `bash_crash_course` in your home directory in which you will work for the remainder of the practical. 
 
 Don't worry if you can't remember the exact syntax for these commands. 
 It's expected that you will need to use the help documentation or consult the command manual because even experienced bioinformaticians still need to do this frequently. 
@@ -171,7 +172,7 @@ cd ~
 
 mkdir bash_crash_course
 
-cd ~/bash_crash_course
+cd bash_crash_course
 
 echo "This is some very boring text" > notes.txt
 
@@ -183,7 +184,7 @@ gunzip Caenorhabditis_elegans.WBcel235.dna.toplevel.fa.gz
 
 mv Caenorhabditis_elegans.WBcel235.dna.toplevel.fa c_elegans.fa
 
-head -n5 c_elegans.fa
+head -n7 c_elegans.fa
 
 tail c_elegans.fa
 
@@ -201,62 +202,51 @@ ln -s /shared/data/intro_bash/words words.txt
 
 rm words.txt
 
-cd ..
-
 du -sh ~
 ```
 
 Go through your findings together as a class.
-
-After running all of the commands above in order, there should be an empty directory `bash_crash_course` in your home directory and your working directory should be your home directory.
 
 
 # **4. BASH scripts**
 
 In this section we'll write a BASH script that processes 3 samples in a very simple bioinformatics workflow. This script will:
 - Create necessary directories
-- Obtain reference genome and Illumina reads
+- Obtain a reference genome and paired-end Illumina reads
 - Run quality control with `fastp`
 - Align reads to a reference genome with `bwa`
 - Summarise alignment statistics with `samtools`
 
+We will write the script to process 1 sample (sampleA) from start to finish first, and then modify the script to automate processing multiple samples.
 
 We will work through the process of testing code and building the script step by step.
-Code is provided for each of these steps but it is hidden in a dropdown box. 
+Code is provided for each of these steps but it is hidden in a dropdown box at the end of each section. 
 Try to work out the code for yourself using the information and hints provided.
+Also, remember to comment your code! 
 
+**Finding our data**
 
 The data we'll be using is located in the `/shared/data/bash_crash_prac/` directory.
 Use `ls` with whatever options are appropriate to answer the following questions about the contents of this directory:
 - Is the `reference.fa` file compressed?
 - How big is the `reference.fa` file?
-- When was the 'reference.fa' file last modified?
+- When was the `reference.fa` file last modified?
 - How many samples are there?
-- Are the files containing sample reads compressed?
+- Are the files containing reads compressed?
 
 
 <details>
 <summary>Code</summary>
 
-```bash
-<pre>$ ls -lh /shared/data/bash_crash_prac/</pre>
-```
+<pre>ls -lh /shared/data/bash_crash_prac/</pre>
 
 </details>
 
 
 ## 4.1 Create script skeleton
 
-You can use the code below as a skeleton for your script. 
-You can either create the script now using `nano` or you can use a text file (use notepad on Windows) and transfer the contents of the text file to a script once we're ready to start testing it. 
-The script should be called `script.sh` and be located in your `~/bash_crash_course` directory.
-
-To do this:
-- Run `nano script.sh` 
-- Paste the code skeleton below into the empty text file that appears
-- Once you're happy with the file, press `Ctrl + x` to exit the editor
-- Press `y` when asked `Save modified buffer?`
-- Press `enter` when asked `File Name to Write: script.sh` to save the file
+Use the code below as a skeleton for your script. 
+Take a minute to make sure you understand what part of the workflow each heading refers to.
 
 
 ```bash
@@ -277,13 +267,32 @@ source activate bioinf
 
 ```
 
+Use `nano` to create your script using the steps below.
+The script should be called `script.sh` and be located in your `~/bash_crash_course` directory.
+
+While you will need to create your script using `nano` eventually, feel free to build your script in a plain text file (ie. notepad on Windows) and transfer the contents of the text file to the script once we're ready to start testing it.
+
+
+To create `script.sh` with `nano`:
+- Run `nano script.sh`
+- Paste the code skeleton below into the empty text file that appears (or your pre-prepared code)
+- Once you're happy with the file, press `Ctrl + x` to exit the editor
+- Press `y` when asked `Save modified buffer?`
+- Press `enter` when asked `File Name to Write: script.sh` to save the file
+
+
 ## 4.2 Create directories
 
 Many tools will fail if the specified output directory doesn't exist before the tool is run. 
-Therefore, it's good practice to create necessary directories up front.
+Therefore, it's good practice to create directories up front.
 
 Make sure you're in the `bash_crash_course` directory and then write and run code in the terminal to create the directory structure shown below. 
-Use `ls` or `tree` to check your progress. 
+
+**Hint 1:** you used this command in Section 3.5.
+
+**Hint 2:** The `-p` option for this command will be useful.
+
+Run `ls` or `tree` to check your progress. 
 
 ```txt
 .
@@ -295,7 +304,7 @@ Use `ls` or `tree` to check your progress.
 └── script.sh
 ```
 
-Add the code you used to create your directories to `script.sh` in the appropriate location. 
+Add the code you used to create your directories to `script.sh` (or your text file) in the appropriate location. 
 
 <details>
 <summary>Code</summary>
@@ -306,9 +315,9 @@ Add the code you used to create your directories to `script.sh` in the appropria
 
 ## 4.3 Get data
 
-Write code to copy the reference genome `/shared/data/bash_crash_prac/reference.fa` to your `bash_crash_prac` directory. 
-
-Also, create symlinks in the `0_data` directory to the fastq files in `/shared/data/bash_crash_prac/`. 
+Write code to:
+- copy the reference genome `/shared/data/bash_crash_prac/reference.fa` to your `bash_crash_prac` directory. 
+- create symlinks in the `0_data` directory to the fastq files in `/shared/data/bash_crash_prac/`. 
 
 Once you've done this, running `tree` should show something like below:
 
@@ -335,13 +344,8 @@ Add the code you used to your `script.sh`.
 <details>
 <summary>Code</summary>
 
-```bash
-# get reference
-cp /shared/data/bash_crash_prac/reference.fa .
+<pre># get reference<br>cp /shared/data/bash_crash_prac/reference.fa . <br># symlinks to reads <br>ln -s /shared/data/bash_crash_prac/\*.fq.gz 0_data/ </pre>
 
-# symlinks to reads
-ln -s /shared/data/bash_crash_prac/*.fq.gz 0_data/
-```
 
 </details>
 
