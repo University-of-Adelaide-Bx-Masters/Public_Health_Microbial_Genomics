@@ -317,7 +317,7 @@ Add the code you used to create your directories to `script.sh` (or your text fi
 
 Write code to:
 - copy the reference genome `/shared/data/bash_crash_prac/reference.fa` to your `bash_crash_prac` directory. 
-- create symlinks in the `0_data` directory to the fastq files in `/shared/data/bash_crash_prac/`. 
+- create symlinks in the `0_data` directory to the `*.fq.gz` files in `/shared/data/bash_crash_prac/`. 
 
 Once you've done this, running `tree` should show something like below:
 
@@ -372,7 +372,8 @@ fastp --thread 2 \
 --cut_window_size 4 \
 --cut_mean_quality <value> \
 --length_required <value> \
---html <value>
+--html <value> \
+--json /dev/null
 
 ```
 
@@ -381,18 +382,7 @@ Add the working code to your `script.sh`.
 <details>
 <summary>Code</summary>
 
-```bash
-fastp --thread 2 \
--i 0_data/sampleA_R1.fq.gz \
--I 0_data/sampleA_R2.fq.gz \
--o 1_trimmed/sampleA_R1.fq.gz \
--O 1_trimmed/sampleA_R2.fq.gz \
---cut_right \
---cut_window_size 4 \
---cut_mean_quality 25 \
---length_required 90 \
---html 1_trimmed/fastp/sampleA.html
-```
+<pre>fastp --thread 2 \<br>-i 0_data/sampleA_R1.fq.gz \<br>-I 0_data/sampleA_R2.fq.gz \<br>-o 1_trimmed/sampleA_R1.fq.gz \<br>-O 1_trimmed/sampleA_R2.fq.gz \<br>--cut_right \<br>--cut_window_size 4 \<br>--cut_mean_quality 25 \<br>--length_required 90 \<br>--html 1_trimmed/fastp/sampleA.html \<br>--json /dev/null</pre>
 
 </details>
 
@@ -419,16 +409,8 @@ Add both the indexing and alignment code to your `script.sh`.
 <details>
 <summary>Code</summary>
 
-```bash
-# index the reference genome first
-bwa index reference.fa
+<pre># index the reference genome first<br>bwa index reference.fa<br> <br># align reads to reference<br>bwa mem -t 2 reference.fa \<br>1_trimmed/sampleA_R1.fq.gz \<br>1_trimmed/sampleA_R2.fq.gz \<br>| samtools view -bh - > 2_aligned/sampleA.bam</pre>
 
-# align reads to reference
-bwa mem -t 2 reference.fa \
-1_trimmed/sampleA_R1.fq.gz \
-1_trimmed/sampleA_R2.fq.gz \
-| samtools view -bh - > 2_aligned/sampleA.bam
-```
 
 </details>
 
@@ -592,8 +574,8 @@ do
 	--cut_window_size 4 \
 	--cut_mean_quality 25 \
 	--length_required 90 \
-	--html 1_trimmed/fastp/${SAMPLE}.html
-
+	--html 1_trimmed/fastp/${SAMPLE}.html \
+	--json /dev/null
 
 	# Align reads to reference genome
 	bwa mem -t 2 reference.fa \
