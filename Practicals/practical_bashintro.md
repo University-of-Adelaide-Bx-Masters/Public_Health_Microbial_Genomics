@@ -1,7 +1,6 @@
 # (Re)introducing BASH - A Crash Course
-By Chelsea Matthews
-
 {:.no_toc}
+By Chelsea Matthews
 
 * TOC
 {:toc}
@@ -13,16 +12,18 @@ By Chelsea Matthews
 This practical serves to re-familiarise students in their second semester of Bioinformatics with BASH. 
 It assumes students have completed one semester of Bioinformatics and is designed to remind and reintroduce, and not to teach from scratch. 
 
-It runs for a single 2 hour practical and has three parts:
+It has three parts:
 - Commonly used commands
-- Data Wrangling
 - BASH scripts
+- Filtering, parsing, and wrangling
+
+While we some parts will use common Bioinformatics files and the BASH scripting section builds a very simple bioinformatics workflow, the emphasis is on BASH scripting and not on interpretation of results. 
 
 ## 1.2 Learning Outcomes
 
 1. Re-familiarise yourself with navigating the terminal and using common BASH commands
-2. Practice data wrangling in BASH using common commands and regular expressions
-3. Understand the purpose of BASH scripting and how to write and comment simple scripts
+2. Understand the purpose of BASH scripting and how to write and comment simple scripts
+3. Practice data wrangling in BASH using common commands and regular expressions
 
 ## 1.3 Why is BASH and BASH scripting essential for Bioinformatics? 
 
@@ -63,7 +64,7 @@ In this section, we'll review a few simple commands/skills which we will then us
 The terminal command prompt on your VM includes the path to your current location - your working directory.
 In the example below, the user is in their home directory `/shared/a1761942`.
 
-<img src="images/command_prompt_annotated.png" alt="Terminal command prompt" width="500">
+<img src="images/command_prompt_annotated.png" alt="Terminal command prompt" width="600">
 
 
 Alternatively, you can use the `pwd` command to find your current working directory. 
@@ -84,7 +85,7 @@ cd ~
 
 **Questions:**
 - What does the `~` mean?
-- An absolute path always points to the same location, regardless of your current directory, while a relative path specifies a location __relative__ to your current working directory. Which of the commands above are absolute and which are relative? 
+- An absolute path always points to the same location, regardless of your current directory, while a relative path specifies a location relative to your current working directory. Which of the paths above are absolute and which are relative? 
 
 ## 3.2 What else is here?
 **`ls` - list**
@@ -155,8 +156,12 @@ Now you know how to:
 
 **In Class Exercise**
 
-Run each line of code below one at a time and in between each line, use the commands and techniques we just covered to find out what each one does. 
+Run each line of code below one at a time and in between each line, use the commands and techniques we just covered (`man`, `ls`, `less`, and `pwd`) to find out what each one does. 
 Write down your findings and make sure you know what a command does before moving on to the next one. 
+These commands don't perform any analysis.
+They are simply examples that demonstrate a range of very commonly used BASH commands. 
+If they are run in the order presented, you will end up with an empty directory called `bash_crash_course` in which you will work for the remainder of the practical. 
+
 Don't worry if you can't remember the exact syntax for these commands. 
 It's expected that you will need to use the help documentation or consult the command manual because even experienced bioinformaticians still need to do this frequently. 
 
@@ -208,16 +213,17 @@ After running all of the commands above in order, there should be an empty direc
 
 # **4. BASH scripts**
 
-In this section we'll write a BASH script that processes 3 samples. This script will:
+In this section we'll write a BASH script that processes 3 samples in a very simple bioinformatics workflow. This script will:
 - Create necessary directories
 - Obtain reference genome and Illumina reads
-- Run quality control with `fastp` and `fastqc`
+- Run quality control with `fastp`
 - Align reads to a reference genome with `bwa`
 - Summarise alignment statistics with `samtools`
 
 
 We will work through the process of testing code and building the script step by step.
-Code is provided for each of these steps but it is hidden in a dropdown box. Try to work out the code for yourself using the information and hints provided.
+Code is provided for each of these steps but it is hidden in a dropdown box. 
+Try to work out the code for yourself using the information and hints provided.
 
 
 The data we'll be using is located in the `/shared/data/bash_crash_prac/` directory.
@@ -233,7 +239,7 @@ Use `ls` with whatever options are appropriate to answer the following questions
 <summary>Code</summary>
 
 ```bash
-ls -lh /shared/data/bash_crash_prac/
+<pre>$ ls -lh /shared/data/bash_crash_prac/</pre>
 ```
 
 </details>
@@ -245,6 +251,12 @@ You can use the code below as a skeleton for your script.
 You can either create the script now using `nano` or you can use a text file (use notepad on Windows) and transfer the contents of the text file to a script once we're ready to start testing it. 
 The script should be called `script.sh` and be located in your `~/bash_crash_course` directory.
 
+To do this:
+- Run `nano script.sh` 
+- Paste the code skeleton below into the empty text file that appears
+- Once you're happy with the file, press `Ctrl + x` to exit the editor
+- Press `y` when asked `Save modified buffer?`
+- Press `enter` when asked `File Name to Write: script.sh` to save the file
 
 
 ```bash
@@ -288,12 +300,10 @@ Add the code you used to create your directories to `script.sh` in the appropria
 <details>
 <summary>Code</summary>
 
-```bash
-mkdir 0_data
-mkdir -p 1_trimmed/fastp
-mkdir 2_aligned
-mkdir 3_stats
-```
+<pre>$ mkdir 0_data<br>
+mkdir -p 1_trimmed/fastp<br>
+mkdir 2_aligned<br>
+mkdir 3_stats</pre>
 
 </details>
 
