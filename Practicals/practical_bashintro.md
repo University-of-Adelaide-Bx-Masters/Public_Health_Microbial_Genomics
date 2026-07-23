@@ -434,9 +434,7 @@ Add the code to your `script.sh` but don't include the `less` command.
 <details>
 <summary>Code</summary>
 
-```bash
-samtools stats 2_aligned/sampleA.bam > 3_stats/sampleA.txt
-```
+<pre>samtools stats 2_aligned/sampleA.bam > 3_stats/sampleA.txt</pre>
 
 </details>
 
@@ -509,7 +507,7 @@ cp script.sh script_loop.sh
 ```
 
 We'll use a `for` loop like in the example below.
-The loop iterates over the provided sample names and will run whatever code is inside of the loop for each sample, replaing `${SAMPLE}` with the sample name each time.  
+The loop iterates over the provided sample names and will run whatever code is inside of the loop for each sample, replacing `${SAMPLE}` with the sample name each time.  
 
 ```bash
 for SAMPLE in sampleA sampleB sampleC;
@@ -616,7 +614,15 @@ For each of the following sections, try to work out which parts of the command a
 grep "^>" reference.fa
 ```
 
-Modify the above command to count the number of sequence identifiers in a FASTA file.
+- Modify the above command to count the number of sequence identifiers in a FASTA file.
+
+<details>
+<summary>Code</summary>
+
+<pre># one method<br>grep -c "^>" reference.fa<br># another method<br>grep "^>" reference.fa | wc -l</pre>
+
+</details>
+
 
 ## 5.2 Print just the file header (lines beginning with #)
 
@@ -624,7 +630,14 @@ Modify the above command to count the number of sequence identifiers in a FASTA 
 grep "^#" 3_stats/sampleA.txt
 ```
 
-Modify the command to print all of the lines that **don't** begin with a `#`.
+- Modify the command to print all of the lines that **don't** begin with a `#`.
+
+<details>
+<summary>Code</summary>
+
+<pre>grep -v "^#" 3_stats/sampleA.txt</pre>
+
+</details>
 
 
 ## 5.3 Count the number of bp in a FASTA file
@@ -634,13 +647,15 @@ grep -v "^>" reference.fa | wc | awk '{print $3-$1}'
 
 ```
 
+
+
 ## 5.4 Extract a single column of data and count of each value
 
 ```bash
 cut -s -f2 example.gff | sort | uniq -c
 ```
 
-Modify the command to count the number of unique values, not how many there are of each value.
+- Modify the command to count the number of unique values, not how many there are of each value.
 
 ## 5.5 Find and replace `sampleA` with `${SAMPLE}`
 
@@ -651,5 +666,12 @@ sed 's/sampleA/${SAMPLE}/g' script.sh
 - When might this command have been useful?
 - Work out how to save the output of this command to a new file
 
+<details>
+<summary>Code</summary>
+When we moved our code into the loop and had to replace all values of sampleA with ${SAMPLE}
 
+<pre>sed 's/sampleA/${SAMPLE}/g' script.sh > newfile.txt</pre>
+
+
+</details>
 
