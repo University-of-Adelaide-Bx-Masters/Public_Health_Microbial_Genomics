@@ -114,33 +114,16 @@ prokka \
 ```
 
 **Paramater explinations:**
-
-    --outdir results/prokka_annotation: Specifies the output directory where all Prokka results will be saved. If the directory exists, use --force to overwrite.
-
-    --prefix reference_annotated: Sets the prefix for all output files (e.g., reference_annotated.gff, reference_annotated.gbk). This helps organize results when annotating multiple genomes.
-
-    --genus Staphylococcus: Specifies the genus of the organism. Prokka uses this information to search genus-specific databases for more accurate functional annotations.
-
-    --species aureus: Specifies the species. Combined with --genus, this improves annotation accuracy by prioritizing species-specific gene names and functions.
-
-    --strain NCTC8325: Optional strain identifier included in the output metadata. Useful for record-keeping and reproducibility.
-
-    --kingdom Bacteria: Indicates the organism is bacterial (as opposed to Archaea or Viruses). This determines which gene prediction models and databases Prokka will use.
-
-    --gram pos: Specifies Gram-positive bacteria. This is a metadata field that can help with downstream analysis and interpretation (e.g., cell wall-related genes).
-
-    --cpus 4: Number of CPU threads to use for parallel processing. Adjust based on your system's resources (e.g., --cpus 8 for faster annotation on multi-core machines).
-
-    --force: Overwrites the output directory if it already exists. Without this flag, Prokka will exit with an error if the directory is present.
-
-    --compliant: Ensures output files comply with NCBI submission standards (e.g., GenBank format). Useful if you plan to submit annotations to public databases.
-
-    --centre UNI: Sequencing center identifier (metadata). Replace "UNI" with your institution's abbreviation.
-
-    --locustag SAUR: Locus tag prefix for gene identifiers (e.g., SAUR_00001, SAUR_00002). This creates systematic, unique gene IDs.
-
-    data/reference.fasta: Path to the input reference genome in FASTA format.
-
+  - outdir prokka/MSHR3763_annotation: Specifies the output directory where all Prokka results will be saved. If the directory exists, use --force to overwrite.
+  - prefix  MSHR3763_annotated: Sets the prefix for all output files (e.g., reference_annotated.gff, reference_annotated.gbk). This helps organize results when annotating multiple genomes.
+  - genus burkholderia: Specifies the genus of the organism. Prokka uses this information to search genus-specific databases for more accurate functional annotations.
+  - species pseudomallei: Specifies the species. Combined with --genus, this improves annotation accuracy by prioritizing species-specific gene names and functions.
+  - strain MSHR3763: Optional strain identifier included in the output metadata. Useful for record-keeping and reproducibility.
+  - kingdom Bacteria: Indicates the organism is bacterial (as opposed to Archaea or Viruses). This determines which gene prediction models and databases Prokka will use.
+  - force: Overwrites the output directory if it already exists. Without this flag, Prokka will exit with an error if the directory is present.
+  - compliant: Ensures output files comply with NCBI submission standards (e.g., GenBank format). Useful if you plan to submit annotations to public databases.
+  - locustag BPS: Locus tag prefix for gene identifiers (e.g., SAUR_00001, SAUR_00002). This creates systematic, unique gene IDs.
+  - assembly/MSHR3763_genomic.fasta: Path to the input reference genome in FASTA format.
 
 Expected Runtime: 15 minutes (~8 Mb bacterial genome).
 
