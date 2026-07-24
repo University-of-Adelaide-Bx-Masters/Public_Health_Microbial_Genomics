@@ -44,7 +44,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_amr_variants/{assembly,reads,bakta,snippy}
+mkdir --parents ~/Practical_amr_variants/{assembly,reads,prokka,snippy}
 ```
 
 ## 2.3 Get data
@@ -80,10 +80,26 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 # **3. AMR variant detection**
 
-## 3.1 Annotated reference genome 
+## 3.1 Reference genome annotation 
 
 You may be thinking - what does it mean to annotate a genome? 
 
+Run `prokka` over one sample: 
+
+```bash
+prokka \
+  --outdir prokka/MSHR3763_annotation \
+  --prefix MSHR3763_annotated \
+  --genus burkholderia \
+  --species pseudomallei \
+  --strain MSHR3763 \
+  --kingdom Bacteria \
+  --force \
+  --compliant \
+  --locustag BPS \
+  assembly/MSHR3763_genomic.fasta
+```
+start 13:59
 
 ``` bash
 look at .gbk file
