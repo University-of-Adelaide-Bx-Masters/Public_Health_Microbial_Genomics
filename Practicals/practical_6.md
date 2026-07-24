@@ -15,7 +15,7 @@ By Dr Jessica Webb
 
 Consider the following scenario: Three patients (Table 1) have developed serious bloodstream infections caused by the bacterium *Burkholderia pseudomallei*. Despite receiving first-line antibiotic therapy with meropenem, all patients have failed to respond to treatment.
 
-Whole-genome sequencing (WGS) was performed on the initial bacterial isolates collected from each patient prior to antibiotic exposure, as well as on subsequent isolates obtained after treatment had commenced. These secondary isolates were found to be resistant to meropenem, indicating the emergence of antibiotic resistance during therapy.
+Whole-genome sequencing (WGS) was performed on the initial bacterial isolates (we often call this the primary isolate) collected from each patient prior to antibiotic exposure, as well as on subsequent isolates (we call this a secondary isolate) obtained after treatment had commenced. These secondary isolates were found to be resistant to meropenem, indicating the emergence of antibiotic resistance during therapy.
 
 Previous genomic analyses were unable to identify the genetic mechanism responsible for resistance in the secondary isolates, suggesting that a previously uncharacterised mutation or novel genetic variant may be contributing to treatment failure. Your task is to identify the genetic variant(s) present in the secondary isolates that could explain the observed meropenem resistance.
 
@@ -25,8 +25,21 @@ In this practical, you will:
 * Align sequencing reads from a resistant isolate to the annotated reference genome.
 * Identify genetic variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (indels), that differ between the isolate and the reference genome.
 * Annotate detected variants to predict their potential functional effects, including synonymous, missense, nonsense, and frameshift mutations.
-* Visualize variants within their genomic context to evaluate data quality and assess their potential biological relevance.
+* Visualise variants within their genomic context to evaluate data quality and assess their potential biological relevance.
 
+**The data that we will be working with today inludes a primary isolate and secondary isolate from three patients:**
+
+Patient 1:
+- MSHR3763 (primary isolate)
+- MSHR4083 (secondary isolate):
+
+Patient 2:
+- MSHR5864 (primary isolate)
+- MSHR6755 (secondary isolate)
+
+Patient 3: 
+- MSHR6522 (primary isolate)
+- MSHR7929 (secondary isolate)
 
 ## 1.2 Learning Outcomes
 
@@ -84,7 +97,7 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 You may be thinking - what does it mean to annotate a genome? 
 
-Run `prokka` over one sample: 
+Run `prokka` over one reference genome: 
 
 ```bash
 prokka \
@@ -99,7 +112,7 @@ prokka \
   --locustag BPS \
   assembly/MSHR3763_genomic.fasta
 ```
-start 13:59
+this will take 5 to 10 minutes 
 
 ``` bash
 look at .gbk file
