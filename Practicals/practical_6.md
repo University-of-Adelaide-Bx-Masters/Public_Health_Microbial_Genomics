@@ -125,7 +125,7 @@ prokka \
   - locustag BPS: Locus tag prefix for gene identifiers (e.g., SAUR_00001, SAUR_00002). This creates systematic, unique gene IDs.
   - assembly/MSHR3763_genomic.fasta: Path to the input reference genome in FASTA format.
 
-Expected Runtime: 15 minutes (~8 Mb bacterial genome).
+**Expected Runtime: 15 minutes (~8 Mb bacterial genome).**
 
 
 
