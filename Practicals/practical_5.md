@@ -69,22 +69,26 @@ Before you run `amrfinder` you would usually check to see if you have the most u
 Run `amrfinder` on one sample:
 
 ```bash
-amrfinder -n assemblies/ERR10479021.fasta -O Salmonella -o amrfinder/ERR10479021_amrfinder.txt -d db/latest
+amrfinder -n assemblies/${SAMPLE}.fasta -O Salmonella -o amrfinder/${SAMPLE}_amrfinder.txt -d db/latest
 ```
 
-This should take a few minutes to run
+This should run quickly
 
 The above command explained:
-- 
+- lkkk
+- kkkk
+- kkkkk
+
+Now lets look at the AMRFinderPlus results:
+
+Questions:
+- Did you find any AMR genes in the results file?
+- What does this result mean? 
+
+You can see that for the Salmonella sample - that no AMR genes were detected. 
 
 
-- 
-
-
-Interpreting the AMRFinderPlus results:
-
-
-You can see that for our Salmonella samples that belong to the Northern terrirory outbreak - that no AMR genes were detected. 
+# **4. Run AMRFinder plus over all Salmonella samples**
 
 Now run `amrfinder`
 
@@ -106,7 +110,7 @@ Now run over one sample and include salmonella as the designates species:
 abritamr run --contigs assemblies/ERR10479021.fasta --prefix abritamr/ERR10479021 --species Salmonella 
 ```
 
-running `anritamr` `run` generates five outpur files per sample:
+Running `anritamr` `run` generates five outpur files per sample:
 - amrfinder.out
 - summary_matches.txt
 - summary_partials.txt
