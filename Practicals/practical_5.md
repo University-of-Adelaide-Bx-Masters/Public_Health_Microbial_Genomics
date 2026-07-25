@@ -74,7 +74,7 @@ Run `amrfinder` on one sample:
 amrfinder -n assemblies/ERR10479021.fasta -O Salmonella -o amrfinder/ERR10479021_amrfinder.txt -d db/latest
 ```
 
-~~~~~~~~THIS ONE WORKED over B.p so maybe no AMR in any of the salmonella ~~~~~~~~~
+THIS ONE WORKED over B.p so maybe no AMR in any of the salmonella
 
 amrfinder -n /shared/a1237649/Practical_amr_variants/assembly/MSHR3763_genomic.fasta -O Burkholderia_pseudomallei -o amrfinder/MSHR3763_amrfinder.txt -d db/latest
 
