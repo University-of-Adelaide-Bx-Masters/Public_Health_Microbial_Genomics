@@ -90,7 +90,7 @@ You can see that for the Salmonella sample - that no AMR genes were detected.
 
 # **4. Run AMRFinder plus over all Salmonella samples**
 
-Now run `amrfinder`
+Create a script called amrfinder.sh to run `amrfinder` over all Salmonella samples (its the genome assemblies in the assemblies folder. 
 
 
 
