@@ -12,7 +12,7 @@ By Dr Jessica Webb
 
 
 ## 1.1 Practical Overview
- - working with the same set of salmonella isolates - now know that we are deadling with a clonal salmonella outbreak, and we want to determine wheather it is also an antimicrobial resistant outbreak. 
+ - working with the same set of salmonella isolates - now know that these Salmonella belong to a clonal salmonella outbreak, and we want to determine wheather it is also an antimicrobial resistant outbreak. 
 
 ## 1.2 Learning Outcomes
 
@@ -75,6 +75,9 @@ amrfinder -n assemblies/ERR10479021.fasta -O Salmonella -o amrfinder/ERR10479021
 This should take a few minutes to run
 
 The above command explained:
+- 
+
+
 - 
 
 
