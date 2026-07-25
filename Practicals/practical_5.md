@@ -69,7 +69,7 @@ Before you run `amrfinder` you would usually check to see if you have the most u
 Run `amrfinder` on one sample:
 
 ```bash
-amrfinder -n assemblies/${SAMPLE}.fasta -O Salmonella -o amrfinder/${SAMPLE}_amrfinder.txt -d db/latest
+amrfinder -n assemblies/ERR10479021.fasta -O Salmonella -o amrfinder/ERR10479021_amrfinder.txt -d db/latest
 ```
 
 This should run quickly
@@ -90,9 +90,12 @@ You can see that for the Salmonella sample - that no AMR genes were detected.
 
 # **4. Run AMRFinder plus over all Salmonella samples**
 
-Create a script called amrfinder.sh to run `amrfinder` over all Salmonella samples (its the genome assemblies in the assemblies folder. 
+Create a script called amrfinder.sh to run `amrfinder` over all Salmonella samples (Remember the genome assemblies are in the assemblies/ folder). 
 
-
+Questions:
+- Did you find any AMR genes in the results files?
+- What do these results mean?
+  
 
 # **4. AMR detection using abritamr**
 abritamr - assemblies - antibiotic classes and custom reports 
@@ -104,7 +107,7 @@ abritamr run -h | grep Salmonella
 ```
 You should see Salmonella in the terminal output highlighted in red, confirming the species is available.
 
-Now run over one sample and include salmonella as the designates species: 
+Now run over one sample and include salmonella as the designated species: 
 
 ```bash
 abritamr run --contigs assemblies/ERR10479021.fasta --prefix abritamr/ERR10479021 --species Salmonella 
