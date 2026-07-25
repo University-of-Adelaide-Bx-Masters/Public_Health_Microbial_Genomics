@@ -74,6 +74,11 @@ Run `amrfinder` on one sample:
 amrfinder -n assemblies/ERR10479021.fasta -O Salmonella -o amrfinder/ERR10479021_amrfinder.txt -d db/latest
 ```
 
+~~~~~~~~THIS ONE WORKED over B.p so maybe no AMR in any of the salmonella ~~~~~~~~~
+
+amrfinder -n /shared/a1237649/Practical_amr_variants/assembly/MSHR3763_genomic.fasta -O Burkholderia_pseudomallei -o amrfinder/MSHR3763_amrfinder.txt -d db/latest
+
+
 This should run quickly
 
 The above command explained:
@@ -97,7 +102,15 @@ Create a script called amrfinder.sh to run `amrfinder` over all Salmonella sampl
 Questions:
 - Did you find any AMR genes in the results files?
 - What do these results mean?
-  
+
+# **4. Run AMRFinder plus over a drug resistant Salmonella strain**
+
+```bash
+amrfinder -n salMDR_assembly/salMDR.fasta -O Salmonella -o amrfinder/salMDR_amrfinder.txt -d db/latest
+```
+
+This will take a couple of minutes to run.....
+
 
 # **4. AMR detection using abritamr**
 abritamr - assemblies - antibiotic classes and custom reports 
@@ -123,7 +136,7 @@ Running `anritamr` `run` generates five outpur files per sample:
 
 .....
 
-Now repeat `abritamr` on the 8 remaning samples 
+Now write a script to repeat `abritamr` on the remaning samples 
 
 # **5. Overlay AMR data onto the Salmonella tree**
 Brining the data together to aid in intepretation 
