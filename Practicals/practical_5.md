@@ -55,14 +55,29 @@ TO ADD IN
 
 # **3. AMR detection using AMRFinder plus**
 
+
+
 AMRFinderPlus
 - nnnnnn
+amrfinder - (what lacking that abritamr does?)
 
 
 **Now run amrfinder**
 
-'amrfinder' is a relatively simple tool to run 
-amrfinder - (what lacking that abritamr does?) 
+Before you run `amrfinder` you would usually check to see if you have the most upto date AMR database downloaded. I have already done this step for you so you dont need to worry about that. `amrfinder` is a relatively simple tool to run - all you really need is a genome assembly as the input file. 
+
+Run `amrfinder` on one sample:
+
+```bash
+amrfinder -n  ~/data/public_health_genomics/microbial_genomics/assemblies/ERR10479021.fasta  -o ERR10479021_amrfinder.txt
+```
+
+This should take a few minutes to run
+
+The above command:
+- 
+
+
 
 
 
