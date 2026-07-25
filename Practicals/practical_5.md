@@ -30,7 +30,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_amr_gene/{assemblies, amrfinder, abritamr, salmonella_tree}
+mkdir --parents ~/Practical_amr_gene/{assemblies, amrfinder, abritamr, salmonella_tree, db}
 ```
 
 ## 2.3 Get data
@@ -41,7 +41,7 @@ cd ~/Practical_amr_gene
 # create symlinks for all genome assembly (FASTA format) files
 ln -s ~/data/public_health_genomics/microbial_genomics/assemblies/*.fasta assemblies/
 # create symlink for amrfinder database 
-ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db
+ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db/latest db/
 # create symlink for the tree you genertated in the variants and phylo practical
 ln -s ~/data/public_health_genomics/microbial_genomics/TODOOOO
 # we can confirm where we are 
@@ -69,16 +69,21 @@ Before you run `amrfinder` you would usually check to see if you have the most u
 Run `amrfinder` on one sample:
 
 ```bash
-amrfinder -n  ~/data/public_health_genomics/microbial_genomics/assemblies/ERR10479021.fasta  -o ERR10479021_amrfinder.txt
+amrfinder -n assemblies/ERR10479021.fasta -O Salmonella -o amrfinder/ERR10479021_amrfinder.txt -d db/latest
 ```
 
 This should take a few minutes to run
 
-The above command:
+The above command explained:
 - 
 
 
+Interpreting the AMRFinderPlus results:
 
+
+You can see that for our Salmonella samples that belong to the Northern terrirory outbreak - that no AMR genes were detected. 
+
+Now run `amrfinder`
 
 
 
