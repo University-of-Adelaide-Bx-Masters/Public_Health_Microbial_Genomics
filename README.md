@@ -3,9 +3,11 @@
 
 ## Practicals
 
-**Microbial outbreak detection**
+**Introduction**
 
 - Practical 1 - [Re-introducing BASH - a crash course](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_bashintro.html)
+
+**Microbial outbreak detection**
 
 - Practical 2 - [Bacterial species classification](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_1.html)
 - Practical 3 - [Bacterial genotyping](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_2.html)
