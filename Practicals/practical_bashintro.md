@@ -545,10 +545,10 @@ bash script_loop.sh
 In this final section we'll use some more BASH commands to extract information from some of the files we've used or produced with our workflow.
 These commands, or variations of them, may be very useful in other parts of the course. 
 
-Overview of useful commands and applications:
-- `grep` - search a file for a word or pattern
-- `cut`  - remove or select sections from each line of a file
-- `sort` - sort lines
+Overview of useful commands and common/general applications:
+- `grep` - Search a file for a word or pattern, a bit like ctrl + F
+- `cut`  - Remove or select sections from each line of a file
+- `sort` - Sort lines
 - `uniq` - Used after sorting to retain only one of each unique item/line
 - `awk`  - Good for filtering based on criteria and processing text
 - `sed`  - Stream EDitor - filtering and transforming text
@@ -587,8 +587,9 @@ grep "^SN" 3_stats/sampleA.txt | cut -f 2-
 <summary>Answer</summary>
 
 1. Prints column two and any columns after that
-
-2. <pre>grep "^SN" 3_stats/sampleA.txt | cut -f 2,3</pre>
+<br>
+2. 
+<pre>grep "^SN" 3_stats/sampleA.txt | cut -f 2,3</pre>
 
 </details>
 
@@ -605,13 +606,14 @@ grep -v "^>" reference.fa | wc | awk '{print $3-$1}'
 3. Would this command work on a multi-fasta (a fasta file containing more than one sequence)?
 
 <details>
-<summary><b>Hint</b></summary>
+<summary>Hints!!</summary>
 
 A byte is equal to a single character. For example, TGCA is 4 bytes.
 A newline (where a line of text ends and moves to the next line) is also a type of character. 
 
 </details>
 
+<br>
 
 <details>
 <summary>Answer</summary>
