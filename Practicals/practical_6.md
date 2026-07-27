@@ -13,9 +13,9 @@ By Dr Jessica Webb
 
 ## 1.1 Practical Overview 
 
-Consider the following scenario: Three patients (Table 1) have developed serious bloodstream infections caused by the bacterium *Burkholderia pseudomallei*. Despite receiving first-line antibiotic therapy with meropenem, all patients have failed to respond to treatment.
+Consider the following scenario: Three patients (Table 1) have developed serious bloodstream infections caused by the bacterium *Burkholderia pseudomallei* (a soil bacterium that is found in the north of Australia that causes the serious infectious disease melioidosis). Despite receiving first-line antibiotic therapy with meropenem, all patients have failed to respond to treatment.
 
-Whole-genome sequencing (WGS) was performed on the initial bacterial isolates collected from each patient prior to antibiotic exposure, as well as on subsequent isolates obtained after treatment had commenced. These secondary isolates were found to be resistant to meropenem, indicating the emergence of antibiotic resistance during therapy.
+Whole-genome sequencing (WGS) was performed on the initial bacterial isolates (we often call this the primary isolate) collected from each patient prior to antibiotic exposure, as well as on subsequent isolates (we call this a secondary isolate) obtained after treatment had commenced. These secondary isolates were found to be resistant to meropenem, indicating the emergence of antibiotic resistance during therapy.
 
 Previous genomic analyses were unable to identify the genetic mechanism responsible for resistance in the secondary isolates, suggesting that a previously uncharacterised mutation or novel genetic variant may be contributing to treatment failure. Your task is to identify the genetic variant(s) present in the secondary isolates that could explain the observed meropenem resistance.
 
@@ -25,8 +25,21 @@ In this practical, you will:
 * Align sequencing reads from a resistant isolate to the annotated reference genome.
 * Identify genetic variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (indels), that differ between the isolate and the reference genome.
 * Annotate detected variants to predict their potential functional effects, including synonymous, missense, nonsense, and frameshift mutations.
-* Visualize variants within their genomic context to evaluate data quality and assess their potential biological relevance.
+* Visualise variants within their genomic context to evaluate data quality and assess their potential biological relevance.
 
+**The data that we will be working with today inludes a primary isolate and secondary isolate from three patients:**
+
+Patient 1:
+- MSHR3763 (primary isolate)
+- MSHR4083 (secondary isolate):
+
+Patient 2:
+- MSHR5864 (primary isolate)
+- MSHR6755 (secondary isolate)
+
+Patient 3: 
+- MSHR6522 (primary isolate)
+- MSHR7929 (secondary isolate)
 
 ## 1.2 Learning Outcomes
 
@@ -44,7 +57,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_amr_variants/{assembly,reads,bakta,snippy}
+mkdir --parents ~/Practical_amr_variants/{assembly,reads,prokka,snippy}
 ```
 
 ## 2.3 Get data
@@ -80,9 +93,40 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 # **3. AMR variant detection**
 
-## 3.1 Annotated reference genome 
+## 3.1 Reference genome annotation 
 
 You may be thinking - what does it mean to annotate a genome? 
+
+Run `prokka` over one reference genome: 
+
+```bash
+prokka \
+  --outdir prokka/MSHR3763_annotation \
+  --prefix MSHR3763_annotated \
+  --genus burkholderia \
+  --species pseudomallei \
+  --strain MSHR3763 \
+  --kingdom Bacteria \
+  --force \
+  --compliant \
+  --locustag BPS \
+  assembly/MSHR3763_genomic.fasta
+```
+
+**Paramater explinations:**
+  - outdir prokka/MSHR3763_annotation: Specifies the output directory where all Prokka results will be saved. If the directory exists, use --force to overwrite.
+  - prefix  MSHR3763_annotated: Sets the prefix for all output files (e.g., reference_annotated.gff, reference_annotated.gbk). This helps organize results when annotating multiple genomes.
+  - genus burkholderia: Specifies the genus of the organism. Prokka uses this information to search genus-specific databases for more accurate functional annotations.
+  - species pseudomallei: Specifies the species. Combined with --genus, this improves annotation accuracy by prioritizing species-specific gene names and functions.
+  - strain MSHR3763: Optional strain identifier included in the output metadata. Useful for record-keeping and reproducibility.
+  - kingdom Bacteria: Indicates the organism is bacterial (as opposed to Archaea or Viruses). This determines which gene prediction models and databases Prokka will use.
+  - force: Overwrites the output directory if it already exists. Without this flag, Prokka will exit with an error if the directory is present.
+  - compliant: Ensures output files comply with NCBI submission standards (e.g., GenBank format). Useful if you plan to submit annotations to public databases.
+  - locustag BPS: Locus tag prefix for gene identifiers (e.g., SAUR_00001, SAUR_00002). This creates systematic, unique gene IDs.
+  - assembly/MSHR3763_genomic.fasta: Path to the input reference genome in FASTA format.
+
+**Expected Runtime: 15 minutes (~8 Mb bacterial genome).**
+
 
 
 ``` bash
@@ -98,7 +142,7 @@ Now that we have an genome annotation file we can use this do with snippy using 
 we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the follow up isolate back to the primary) at a time, 
 
 ``` bash
-snippy --outdir snippy/MSHR4083 --ref assembly/MSHR3763_1.gb assembly/MSHR3763_2.gb --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz  
+snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz
 ```
 
 ## 3.3 AMR variants of interest 

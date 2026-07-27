@@ -12,7 +12,7 @@ By Dr Jessica Webb
 
 
 ## 1.1 Practical Overview
- - working with the same set of salmonella isolates - now know that we are deadling with a clonal salmonella outbreak, and we want to determine wheather it is also an antimicrobial resistant outbreak. 
+ - working with the same set of salmonella isolates - now know that these Salmonella belong to a clonal salmonella outbreak, and we want to determine wheather it is also an antimicrobial resistant outbreak. 
 
 ## 1.2 Learning Outcomes
 
@@ -30,7 +30,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_amr_gene/{assemblies, amrfinder, abritamr, salmonella_tree}
+mkdir --parents ~/Practical_amr_gene/{assemblies, salMDR_assembly, amrfinder, abritamr, salmonella_tree, db}
 ```
 
 ## 2.3 Get data
@@ -38,10 +38,12 @@ The data for today's practical is located in `~/data/microbial_genomics`. As in 
 
 ```bash
 cd ~/Practical_amr_gene
-# create symlinks for all genome assembly (FASTA format) files
+# create symlinks for genome assembly (FASTA format) files
 ln -s ~/data/public_health_genomics/microbial_genomics/assemblies/*.fasta assemblies/
+# create symlinks for an additional genome assembly (FASTA format) file
+ln -s ~/data/public_health_genomics/amr_genes/*.fasta salMDR_assembly/
 # create symlink for amrfinder database 
-ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db
+ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db/latest db/
 # create symlink for the tree you genertated in the variants and phylo practical
 ln -s ~/data/public_health_genomics/microbial_genomics/TODOOOO
 # we can confirm where we are 
@@ -55,16 +57,59 @@ TO ADD IN
 
 # **3. AMR detection using AMRFinder plus**
 
+
+
 AMRFinderPlus
 - nnnnnn
+amrfinder - (what lacking that abritamr does?)
 
 
 **Now run amrfinder**
 
-'amrfinder' is a relatively simple tool to run 
-amrfinder - (what lacking that abritamr does?) 
+Before you run `amrfinder` you would usually check to see if you have the most upto date AMR database downloaded. I have already done this step for you so you dont need to worry about that. `amrfinder` is a relatively simple tool to run - all you really need is a genome assembly as the input file. 
+
+Run `amrfinder` on one sample:
+
+```bash
+amrfinder -n assemblies/ERR10479021.fasta -O Salmonella -o amrfinder/ERR10479021_amrfinder.txt -d db/latest
+```
+
+THIS ONE WORKED over B.p so maybe no AMR in any of the salmonella
+
+amrfinder -n /shared/a1237649/Practical_amr_variants/assembly/MSHR3763_genomic.fasta -O Burkholderia_pseudomallei -o amrfinder/MSHR3763_amrfinder.txt -d db/latest
 
 
+This should run quickly
+
+The above command explained:
+- lkkk
+- kkkk
+- kkkkk
+
+Now lets look at the AMRFinderPlus results:
+
+Questions:
+- Did you find any AMR genes in the results file?
+- What does this result mean? 
+
+You can see that for the Salmonella sample - that no AMR genes were detected. 
+
+
+# **4. Run AMRFinder plus over all Salmonella samples**
+
+Create a script called amrfinder.sh to run `amrfinder` over all Salmonella samples (Remember the genome assemblies are in the assemblies/ folder). 
+
+Questions:
+- Did you find any AMR genes in the results files?
+- What do these results mean?
+
+# **4. Run AMRFinder plus over a drug resistant Salmonella strain**
+
+```bash
+amrfinder -n salMDR_assembly/salMDR.fasta -O Salmonella -o amrfinder/salMDR_amrfinder.txt -d db/latest
+```
+
+This will take a couple of minutes to run.....
 
 
 # **4. AMR detection using abritamr**
@@ -77,13 +122,13 @@ abritamr run -h | grep Salmonella
 ```
 You should see Salmonella in the terminal output highlighted in red, confirming the species is available.
 
-Now run over one sample and include salmonella as the designates species: 
+Now run over one sample and include salmonella as the designated species: 
 
 ```bash
 abritamr run --contigs assemblies/ERR10479021.fasta --prefix abritamr/ERR10479021 --species Salmonella 
 ```
 
-running `anritamr` `run` generates five outpur files per sample:
+Running `anritamr` `run` generates five outpur files per sample:
 - amrfinder.out
 - summary_matches.txt
 - summary_partials.txt
@@ -91,7 +136,7 @@ running `anritamr` `run` generates five outpur files per sample:
 
 .....
 
-Now repeat `abritamr` on the 8 remaning samples 
+Now write a script to repeat `abritamr` on the remaning samples 
 
 # **5. Overlay AMR data onto the Salmonella tree**
 Brining the data together to aid in intepretation 
