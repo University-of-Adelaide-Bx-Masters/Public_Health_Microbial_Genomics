@@ -344,7 +344,7 @@ Add the code you used to your `script.sh`.
 <details>
 <summary>Code</summary>
 
-<pre># get reference<br>cp /shared/data/bash_crash_prac/reference.fa . <br># symlinks to reads <br>ln -s /shared/data/bash_crash_prac/\*.fq.gz 0_data/ </pre>
+<pre># get reference<br>cp /shared/data/bash_crash_prac/reference.fa . <br># symlinks to reads <br>ln -s /shared/data/bash_crash_prac/*.fq.gz 0_data/ </pre>
 
 
 </details>
