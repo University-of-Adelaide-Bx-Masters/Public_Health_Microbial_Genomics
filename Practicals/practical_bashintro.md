@@ -496,6 +496,8 @@ If your script works as expected, running `tree` should show something like belo
 
 If it doesn't or if your script stopped with an error message, try to work out where your script went wrong and fix it. 
 
+[Example code here](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/bashintro_code1.html)
+
 ## 4.8 Generalise to multiple samples
 
 Now that your script runs on a single sample, let's set it up to process multiple samples using a loop. 
@@ -533,62 +535,7 @@ Now test your script again! It should process all 3 samples, one after the other
 bash script_loop.sh
 ```
 
-
-<details>
-<summary>Code</summary>
-
-```bash
-#!/bin/bash
-
-# Load software
-source activate bioinf
-
-# Create directories
-mkdir 0_data
-mkdir -p 1_trimmed/fastp
-mkdir 2_aligned
-mkdir 3_stats
-
-# Get data
-# symlink to illumina reads
-ln -s /shared/data/bash_crash_prac/*.fq.gz 0_data/
-
-# copy reference to current directory
-cp /shared/data/bash_crash_prac/reference.fa .
-
-# index reference genome
-bwa index referencefa
-
-for SAMPLE in sampleA sampleB sampleC;
-do
-
-	# Run Quality Control
-	fastp --thread 2 \
-	-i 0_data/${SAMPLE}_R1.fq.gz \
-	-I 0_data/${SAMPLE}_R2.fq.gz \
-	-o 1_trimmed/${SAMPLE}_R1.fq.gz \
-	-O 1_trimmed/${SAMPLE}_R2.fq.gz \
-	--cut_right \
-	--cut_window_size 4 \
-	--cut_mean_quality 25 \
-	--length_required 90 \
-	--html 1_trimmed/fastp/${SAMPLE}.html \
-	--json /dev/null
-
-	# Align reads to reference genome
-	bwa mem -t 2 reference.fa \
-	1_trimmed/${SAMPLE}_R1.fq.gz \
-	1_trimmed/${SAMPLE}_R2.fq.gz \
-	| samtools view -bh - > 2_aligned/${SAMPLE}.bam
-
-	# Summarise alignment statistics
-	samtools stats 2_aligned/${SAMPLE}.bam > 3_stats/${SAMPLE}.txt
-
-done
-
-```
-
-</details>
+[Example code here](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/bashintro_code2.html)
 
 
 # **5. Filtering, Parsing, and Wrangling text**
@@ -617,7 +564,7 @@ grep "^>" reference.fa
 - Modify the above command to count the number of sequence identifiers in a FASTA file.
 
 <details>
-<summary>Code</summary>
+<summary>Answer</summary>
 
 <pre># one method<br>grep -c "^>" reference.fa<br># another method<br>grep "^>" reference.fa | wc -l</pre>
 
@@ -633,7 +580,7 @@ grep "^#" 3_stats/sampleA.txt
 - Modify the command to print all of the lines that **don't** begin with a `#`.
 
 <details>
-<summary>Code</summary>
+<summary>Answer</summary>
 
 <pre>grep -v "^#" 3_stats/sampleA.txt</pre>
 
@@ -647,6 +594,27 @@ grep -v "^>" reference.fa | wc | awk '{print $3-$1}'
 
 ```
 
+1. What information does `wc` print? (check the manual to find out)
+2. Explain how each part of this command works and eventually counts the number of bps in a file. 
+3. Would this command work on a multi-fasta (a fasta file containing more than one sequence)?
+
+<details>
+<summary><b>Hint</b></summary>
+
+A byte is equal to a single character. For example, TGCA is 4 bytes.
+A newline (where a line of text ends and moves to the next line) is also a type of character. 
+
+</details>
+
+
+<details>
+<summary>Answer</summary>
+
+<ul><li>1. Prints number of newline characters, number of words, and number of bytes.</li>
+<li>2. Gets all lines that don't begin with the greater than symbol, runs wc (word count), and then subtracts the wc output first column (the number of newline characters) from the third column (number of bytes which is number of characters) to give the total number of characters which = number of bps.</li>
+<li>3. Yes. Because the first step (grep) excludes all lines beginning with greater than, it will simply discard all sequence ids and count the total number of bps in the file.</li></ul>
+
+</details>
 
 
 ## 5.4 Extract a single column of data and count of each value
@@ -667,9 +635,10 @@ sed 's/sampleA/${SAMPLE}/g' script.sh
 - Work out how to save the output of this command to a new file
 
 <details>
-<summary>Code</summary>
-When we moved our code into the loop and had to replace all values of sampleA with ${SAMPLE}
+<summary>Answer</summary>
+1. When we moved our code into the loop and had to replace all values of sampleA with ${SAMPLE}
 
+2. 
 <pre>sed 's/sampleA/${SAMPLE}/g' script.sh > newfile.txt</pre>
 
 
