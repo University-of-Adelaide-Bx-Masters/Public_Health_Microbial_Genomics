@@ -535,13 +535,15 @@ Now test your script again! It should process all 3 samples, one after the other
 bash script_loop.sh
 ```
 
+- How can you tell that all three samples were processed successfully? 
+
 [Example code here](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/bashintro_code2.html)
 
 
 # **5. Filtering, Parsing, and Wrangling text**
 
 In this final section we'll use some more BASH commands to extract information from some of the files we've used or produced with our workflow.
-These commands, or variations of them, may be very useful in the rest of the course. 
+These commands, or variations of them, may be very useful in other parts of the course. 
 
 Overview of useful commands and applications:
 - `grep` - search a file for a word or pattern
@@ -551,8 +553,8 @@ Overview of useful commands and applications:
 - `awk`  - Good for filtering based on criteria and processing text
 - `sed`  - Stream EDitor - filtering and transforming text
 
-For each of the following sections, try to work out which parts of the command are doing what. 
-
+For each of the following sections, run the provided command and try to work out how the command works.
+Answer any questions. 
 
 ## 5.1 Get all sequence identifiers in a FASTA file
 
@@ -561,28 +563,32 @@ For each of the following sections, try to work out which parts of the command a
 grep "^>" reference.fa
 ```
 
-- Modify the above command to count the number of sequence identifiers in a FASTA file.
+1. Modify the above command to count the number of sequence identifiers in a FASTA file.
+2. Modify the above command to print only the header (lines beginning with `#`) of `3_stats/sampleA.txt`.
 
 <details>
 <summary>Answer</summary>
 
-<pre># one method<br>grep -c "^>" reference.fa<br># another method<br>grep "^>" reference.fa | wc -l</pre>
+<pre># Question1:<br># one method<br>grep -c "^>" reference.fa<br># another method<br>grep "^>" reference.fa | wc -l<br><br># Question 2:<br>grep "^#" 3_stats/sampleA.txt</pre>
 
 </details>
 
 
-## 5.2 Print just the file header (lines beginning with #)
+## 5.2 Extract Summary Numbers from `samtools stats` output
 
 ```bash
-grep "^#" 3_stats/sampleA.txt
+grep "^SN" 3_stats/sampleA.txt | cut -f 2-
 ```
 
-- Modify the command to print all of the lines that **don't** begin with a `#`.
+- What does the `2-` part in the `cut` command mean?
+- How would you specify to print only column 2 and column 3?
 
 <details>
 <summary>Answer</summary>
 
-<pre>grep -v "^#" 3_stats/sampleA.txt</pre>
+1. Prints column two and any columns after that
+
+2. <pre>grep "^SN" 3_stats/sampleA.txt | cut -f 2,3</pre>
 
 </details>
 
@@ -617,30 +623,20 @@ A newline (where a line of text ends and moves to the next line) is also a type 
 </details>
 
 
-## 5.4 Extract a single column of data and count of each value
-
-```bash
-cut -s -f2 example.gff | sort | uniq -c
-```
-
-- Modify the command to count the number of unique values, not how many there are of each value.
-
-## 5.5 Find and replace `sampleA` with `${SAMPLE}`
+## 5.4 Find and replace `sampleA` with `${SAMPLE}`
 
 ```bash
 sed 's/sampleA/${SAMPLE}/g' script.sh
 ```
 
-- When might this command have been useful?
+- When during this practical might this command have been useful and why?
 - Work out how to save the output of this command to a new file
 
 <details>
 <summary>Answer</summary>
-1. When we moved our code into the loop and had to replace all values of sampleA with ${SAMPLE}
+When we moved our code into the loop and had to replace all values of sampleA with ${SAMPLE}. This would have been useful because it would ensure that we didn't miss any sampleA's and didn't make any typos. 
 
-2. 
 <pre>sed 's/sampleA/${SAMPLE}/g' script.sh > newfile.txt</pre>
-
 
 </details>
 
