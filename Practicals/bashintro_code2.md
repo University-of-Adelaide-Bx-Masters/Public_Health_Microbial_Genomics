@@ -1,4 +1,5 @@
-Code
+
+Example code for script_loop.sh
 
 ```bash
 #!/bin/bash

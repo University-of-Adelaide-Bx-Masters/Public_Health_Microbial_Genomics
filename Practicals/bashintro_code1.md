@@ -1,10 +1,8 @@
 
 Example code for script.sh
-- processes SampleA
 
 ```bash
 #!/bin/bash
-
 
 # Load software
 source activate bioinf
@@ -33,7 +31,6 @@ fastp --thread 2 \
 --cut_mean_quality 25 \
 --length_required 90 \
 --html 1_trimmed/fastp/sampleA.html
-
 
 # Align reads to reference genome
 # index reference genome
