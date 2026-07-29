@@ -187,28 +187,37 @@ When you ran `snippy` above (in section 3.1) it created two versions of the pseu
 
 ## 3.3 Now let’s look at some of the snippy output files 
 
-Now look at the key output files produced by `snippy`: 
+Some of the important output files are:
+- `snps.bam`
+- snps.vcf
+- The consensus genome sequence 
+- The table of variants 
+  
+  To look at `snps.bam`
 
-The bam file
+  ```bash
+ samtools view -H snippy/ERR10479021/snps.bam | head -30
+  ```
 
-The vcf file 
+  To look at `snps.vcf`
 
-The consensus genome sequence
+  ```bash
+  aaa
+  `````
 
+  
+  To look at `snps.vcf`
 
-The table of variants 
+  ```bash
+  aaa
+  `````
 
+  To look at `snps.vcf`
 
-bam file 
-
-vcf file 
-
-The tab file - human-readable variant summary 
-
-The consensus FASTA file 
-
-
-
+  ```bash
+  aaa
+  `````
+   
 ## 3.4 Run snippy over all samples 
 
 You now need to run `snippy` over the remaining samples using the below. You need to create a script called snippy.sh and copy the contents below into it and complete the # Run snippy over the samples section of the script. Then save and run the script. You learnt how to do this in previous practicals. Please let us know if you need help :)
