@@ -215,9 +215,9 @@ Important to note that we are running with the -r option, as the read length of 
 The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037.bracken). 
 
 Important columns in the `bracken` output (`ERR10479037.bracken`) are:
-- `name`,
-- `new_est_reads`
-- `fraction_total_reads`. 
+- `name`, identified organism 
+- `new_est_reads` newly estimated reads 
+- `fraction_total_reads` proportion of all sequencing reads assigned to the organism 
 
 ### QUESTIONS
 Have a look at the `bracken` output file (ERR10479037.bracken) on the terminal (you can use the `head` command for this)
