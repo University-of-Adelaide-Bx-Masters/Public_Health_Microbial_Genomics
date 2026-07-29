@@ -329,6 +329,6 @@ It is a little hard to tell but the tree is showing some important information:
 
 # **8. Bonus task**
 
-You can remove the reference genome from the `core_genome.full.aln.treefile`file by deleting it, then re upload the file to Microreact, midpoint root and overlay the metadata on to the tree. 
+You can remove the reference genome from the `core_genome.full.aln.treefile`file by deleting it, then re upload the file to Microreact, midpoint root and overlay the metadata on to the tree. Take note of how the tree has changed. 
 
 
