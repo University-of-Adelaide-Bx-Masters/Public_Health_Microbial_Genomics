@@ -134,7 +134,7 @@ Options:
                           (default: none)
   --output FILENAME       Print output to filename (default: stdout); "-" will
                           suppress normal output
-  --report FILENAME       Print a report with aggregrate counts/clade to file
+  --report FILENAME       Print a report with aggregate counts/clade to file
   --paired                The filenames provided have paired-end reads
  ```
 
@@ -149,7 +149,7 @@ kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.repor
 
 # **4. Species classification using Bracken**
 
-`bracken` (Bayesian Re-estimation of Abundance with Classification KrakEN) is a companion tool to `kraken2` that improves species or genus-level abundance estimates.
+`bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to `kraken2` that improves species or genus-level abundance estimates.
 
 Why do we need to use `bracken`?
 - `kraken2` classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `kraken2` species assignments can underestimate the abundance of some species in a sample.
@@ -335,7 +335,7 @@ We then took the Salmonella enterica genome assemblies and compared them with a 
 
 Across all our samples when compared to the reference, ANI = ~99% → all genomes are nearly identical to the reference genome. 
 
-This is a further confirmation that our samples belong to Salmonella enterica - well done. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to determine the species. 
+This is a further confirmation that our samples belong to Salmonella enterica - well done. We can also have instances whereby `kraken2`, `bracken` are not able to delineate the species present in a sample and in that case `fastANI` can be used to determine the species. 
 
 
 
