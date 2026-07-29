@@ -1,4 +1,4 @@
-<img width="980" height="340" alt="image" src="https://github.com/user-attachments/assets/bcd5ca93-eec2-463c-802d-9843514bbb53" /># Variant calling for phylogenomic trees & surveillance
+# Variant calling for phylogenomic trees & surveillance
 By Dr Jessica Webb
 
 {:.no_toc}
