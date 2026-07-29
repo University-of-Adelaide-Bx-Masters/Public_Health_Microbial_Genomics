@@ -201,6 +201,8 @@ The consensus FASTA file
 
 ## 3.4 Run snippy over all samples 
 
+You now need to run `snippy` over the remaining samples using the below. You need to create a script called snippy.sh and copy the contents below into it and complete the # Run snippy over the samples section of the script. Then save and run. You learnt how to do this in previous practicals. Please let us know if you need help :)
+
 This will take ~30 minutes to finish 
 
 ```bash
@@ -216,12 +218,10 @@ SAMPLES=(ERR10479025 ERR10479028 ERR10479029 ERR10479032 ERR10479034 ERR10479035
 for SAMPLE in "${SAMPLES[@]}";
 do
 
-# Run snippy over the remaning samples
-snippy \
-        --outdir snippy/${SAMPLE} \
-        --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta \
-        --R1 reads/${SAMPLE}_1.fastq.gz \
-        --R2 reads/${SAMPLE}_2.fastq.gz
+# Run snippy over the remaining samples
+
+
+
 done
 ```
 
