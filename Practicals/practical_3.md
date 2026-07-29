@@ -270,25 +270,28 @@ It is important to understand that many other tools exist to visualise trees suc
 
 Download tree file for Microreact: 
 - A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `core_genome.full.aln.treefile`file from the VM. This can be found in your `Practical_phylogenetic_trees_surveillance/results` folder.
-- Open a web browser and got to the Microreact website (https://microreact.org).
-- Upload the `core_genome.full.aln.treefile`file.
+- Open a web browser and go to the Microreact website (https://microreact.org)
+- Click on "UPLOAD" to create a new project
+- Then drag and drop the `core_genome.full.aln.treefile`file in to the browser
 - Click `continue` to visualise and explore the tree.
 
 The tree should see something like this: 
-Note - this tree is unrooted which means that the tree does not have a direction in time. 
+
+Note that this tree is unrooted which means that the tree does not have a direction in time. 
+
 <img width="1821" height="658" alt="image" src="https://github.com/user-attachments/assets/2d7e8ec5-947a-40d5-be09-171c0ef42b56" />
 
 Root the tree using the outgroup (the reference genome): 
+- In the Microreact tree panel, click on the branch leading to sample the reference genome.
+- Select "Set as Outgroup" or "Root on this branch".
+- The tree will be re-drawn with the reference genome at the base, giving the tree a temporal direction.
 
-In the Microreact tree panel, click on the branch leading to sample M66.
-Select "Set as Outgroup" or "Root on this branch".
-The tree will be re-drawn with M66 at the base, giving the tree a temporal direction.
-
-now lets midpoint root the tree 
+The rooted tree should look something like this: 
 
 <img width="1873" height="733" alt="image" src="https://github.com/user-attachments/assets/40a7cb6f-66db-45ef-a69d-c7b244f0bb18" />
 
-
+Question:
+- After rooting, do the samples cluster into distinct groups?
 
 # **7. Overlay genotyping and epidemiological data onto the tree in Microreact**
 
@@ -296,6 +299,12 @@ One of the most powerful aspects of microbial genomics is the ability to integra
 
 Download metadata file for Microreact: 
 - A metdata `.CSV` file with a column named `id` matching the sample names in the tree: Download the metadata file from the VM. Note in a real surveillance scenario, your metadata CSV could include columns such as: `collection_date`, `country`, `hospital`, `patient_id`, `MLST_ST`, `resistance_profile`, etc. For this practical this file has been generated for you and can be found in your`Practical_phylogenetic_trees_surveillance/results` folder. 
+
+Now upload the metadata file to Microreact and explore the tree
+To explore the tree you can:
+
+Question:
+- 
 
 # **8. Bonus task**
 
