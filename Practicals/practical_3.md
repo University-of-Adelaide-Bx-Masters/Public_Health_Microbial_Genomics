@@ -9,7 +9,7 @@ By Dr Jessica Webb
 # **1. Introduction**
 Whole-genome sequencing (WGS) of bacterial pathogens has transformed public health microbiology. By comparing the genomes of bacterial isolates, we can determine how closely related they are, identify outbreaks, and track the spread of antimicrobial resistance. 
 
-The figure below is an example of a microbial genomics workflow that may be undertaken in a public health laboratory. In Practicals 1 and 2 you learned about species classification and microbial genotyping, this pratcial will focus on the steps highlighted in blue in the below figure. Which includes sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
+The figure below is an example of a microbial genomics workflow that may be undertaken in a public health laboratory. In Practicals 1 and 2 you learned about species classification and microbial genotyping, this practical will focus on the steps highlighted in blue in the below figure. Which includes sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
 
 <img width="806" height="591" alt="image" src="https://github.com/user-attachments/assets/8ab7ea23-a1a3-416e-9a79-88757197144c" />
 
@@ -117,7 +117,6 @@ Parameter	Description
 Now the fun part, run snippy for each sample. Example command for one sample:
 
 ```bash
-#Note: This is one long command
 snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta --R1 reads/ERR10479021_1.fastq.gz --R2 reads/ERR10479021_2.fastq.gz 
 ```
 Now we wait for snippy to finish this should take ~2 minutes for one sample 
@@ -162,6 +161,11 @@ snippy \
         --R2 reads/${SAMPLE}_2.fastq.gz
 done
 ```
+
+
+**WE WILL END THE FIRST PART OF THE PRACTICAL HERE AND THE REMAINING PART OF THE PRACTICAL WE WILL DO IN THE NEXT PRACTICAL SESSION**
+
+
 
 # **4. Run snippy core to create input for building a tree** 
  
