@@ -201,7 +201,7 @@ The consensus FASTA file
 
 ## 3.4 Run snippy over all samples 
 
-You now need to run `snippy` over the remaining samples using the below. You need to create a script called snippy.sh and copy the contents below into it and complete the # Run snippy over the samples section of the script. Then save and run. You learnt how to do this in previous practicals. Please let us know if you need help :)
+You now need to run `snippy` over the remaining samples using the below. You need to create a script called snippy.sh and copy the contents below into it and complete the # Run snippy over the samples section of the script. Then save and run the script. You learnt how to do this in previous practicals. Please let us know if you need help :)
 
 This will take ~30 minutes to finish 
 
