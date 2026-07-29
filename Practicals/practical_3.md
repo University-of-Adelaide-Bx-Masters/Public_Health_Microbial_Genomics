@@ -188,35 +188,37 @@ When you ran `snippy` above (in section 3.1) it created two versions of the pseu
 ## 3.3 Now let’s look at some of the snippy output files 
 
 Some of the important output files are:
-- `snps.bam`
-- snps.vcf
-- The consensus genome sequence 
-- The table of variants 
-  
-  To look at `snps.bam`:
+- The alignments in BAM format. Includes unmapped, multimapping reads (`snps.bam`)
+- 'The final annotated variants in VCF format (`snps.vcf')
+- A version of the reference genome with all variants instantiated ('consensus.fa)  
+- A simple tab-seperated summary of all variants (`.tab`) 
 
-  ```bash
+
+To look at `snps.bam`:
+
+```bash
  samtools view -H snippy/ERR10479021/snps.bam | head -30
- ```
+```
 
-  To look at `snps.vcf`: 
+To look at `snps.vcf`: 
 
-  ```bash
-  aaa
-  `````
-
-  
-  To look at the consensus genome sequence:
-
-  ```bash
-  aaa
-  `````
+```bash 
+ head -35 new-sample-1/snps.vcf 
+`````
 
   To look at the table of variants 
 
   ```bash
-  aaa
-  `````
+ head -5 new-sample-1/snps.tab
+ `````
+
+To look at the consensus genome sequence:
+
+```bash
+head new-sample-1/snps.consensus.fa
+`````
+
+
    
 ## 3.4 Run snippy over all samples 
 
