@@ -321,7 +321,7 @@ Column descriptions:
 - 1483 out of 1529 fragments mapped. Is this a good number?
 
 ### 6.2 Run `fastANI` over the remaning samples 
-Now run `fastANI` over the remaining samples using the below. You need to create a script and copy the contents below into it and then save and run. You learnt how to do this earlier in the practical.  
+Now run `fastANI` over the remaining samples using the below. You need to create a script called fastani.sh and copy the contents below into it and complete the `# Run fastANI over the samples` section of the script. Then save and run. You learnt how to do this earlier in the practical. Please let us know if you need help :) 
 
 ```bash
 #!/bin/bash
@@ -337,10 +337,8 @@ for SAMPLE in "${SAMPLES[@]}";
 do
 
         # Run fastANI over the samples
-        fastANI \
-        -q assembly/${SAMPLE}.fasta \
-        -r reference/GCA_000009505.1_ASM950v1_genomic.fasta \
-        -o fastani/${SAMPLE}
+
+
 done
 ```
 Then use `cat` command and wildcard `*` to print the results for each sample to the terminal: 
@@ -369,9 +367,9 @@ assembly/ERR10479039.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta
 
 In our samples `kraken2` identified reads belonging to Salmonella and `bracken` estimated that it was the Salmonella enterica species that made up ~99% of reads in all our samples. Those tools tell you what is present and in what abundance.
 
-We then took the Salmonella enterica genome assemblies and compared them with a reference genome (that we already know is Salmonella enterica) using `fastANI`, to confirm that the species present is Salmonella enterica.We found that:
+We then took the Salmonella enterica genome assemblies and compared them with a reference genome (that we already know is Salmonella enterica) using `fastANI`, to confirm that the species present is Salmonella enterica. We found that:
 
-Across all our samples when compared to the reference, ANI = ~99% → all genomes are nearly identical to the reference genome. 
+Across all our samples when compared to the reference, ANI = ~99% → all genomes were nearly identical to the reference genome. 
 
 This is a further confirmation that our samples belong to Salmonella enterica - well done. We can also have instances whereby `kraken2`, `bracken` are not able to delineate the species present in a sample and in that case `fastANI` can be used to determine the species. 
 
