@@ -305,13 +305,30 @@ Download metadata file for Microreact:
 - In this file you can see 4 rows: `id` (matching the sample names in the tree), source (source of samples linked to the outbreak), species (bacterial species as designated in the species classification practical) and mlst ST (mlst ST from genotyping practical). 
 
 Now upload the metadata file to Microreact and explore the tree:
-- drag and drop the `metadata.csv` into the Microreact browser containing tree  
+- Drag and drop the `metadata.csv` into the Microreact browser containing tree
+- Click continue
+- Click on column in tree-labels and select "id"
+- Click on column in metdata.csv and select "id"
+- Click continue
+- Then click the Tree tab - top left hand side (ask me if you cant find this)
+- Then click Metadata blocks top right and under the "select all" select "source", "species" and "ST"
+- Then click legend on the right hand side
 
-Question:
-- 
+  You should see something like this:
+
+  <img width="1847" height="883" alt="image" src="https://github.com/user-attachments/assets/84d6c7ad-6ac2-413c-a9fb-05d51aa92892" />
+
+You can now see the metadata has been overlaid next to the phylogenomic tree. 
+
+It is a little hard to tell but the tree is showing some important information: 
+- Two main groups exist on the tree, one group has four isolates these are the ones that belong to the ST1972 (green square under ST) and the second group consists of five isolates these isolates belong to ST 5438 (yellow square under ST)
+- You would expect to see isolates belonging to the same ST grouping together and that is what we see 
+- You can see that the isolates in group two consist of a closely related cluster of one water isolate and four human isolates.
+- Group two isolates are the isolates that are linked to the Northern territory outbreak and these results indicate that the humans were infected from water contaminated with Salmonella.
+- The group one isolates do not form an outbreak (it is hard to see this, you would see this better if we removed the reference genome from the tree) and you can see that the branch lengths are slightly longer compared to the branch lengths within the group 2 cluster. 
 
 # **8. Bonus task**
 
-
+Remove the reference genome from the alignment and repeat the Microreact steps. 
 
 
