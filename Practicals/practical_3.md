@@ -193,26 +193,26 @@ Some of the important output files are:
 - The consensus genome sequence 
 - The table of variants 
   
-  To look at `snps.bam`
+  To look at `snps.bam`:
 
   ```bash
  samtools view -H snippy/ERR10479021/snps.bam | head -30
-  ```
+ ```
 
-  To look at `snps.vcf`
+  To look at `snps.vcf`: 
 
   ```bash
   aaa
   `````
 
   
-  To look at `snps.vcf`
+  To look at the consensus genome sequence:
 
   ```bash
   aaa
   `````
 
-  To look at `snps.vcf`
+  To look at the table of variants 
 
   ```bash
   aaa
