@@ -144,15 +144,48 @@ Now run `kraken2` on one isolate using the following command:
 kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.report --paired reads/ERR10479037_1.fastq.gz reads/ERR10479037_2.fastq.gz
 ```
 
-`kraken2` generates a report of all taxa found in the sample, we wont be looking at this report in detail but we will use it as input for `bracken` in step 4 below.  
+`kraken2` generates a report (found here `kraken/ERR10479037.report`) of all taxa found in the sample. The first few lines of the report are shown here, if you want to bring this up on your terminal just `head` the file:
 
+```bash
+  4.50  38361   38361   U       0       unclassified
+ 95.50  814199  2678    R       1       root
+ 95.19  811520  9       R1      131567    cellular organisms
+ 95.18  811498  4174    R2      2           Bacteria
+ 94.69  807315  291     K       3379134       Pseudomonadati
+ 94.66  807024  1137    P       1224            Pseudomonadota
+ 94.52  805855  4390    C       1236              Gammaproteobacteria
+ 94.00  801426  10149   O       91347               Enterobacterales
+ 92.81  791235  44195   F       543                   Enterobacteriaceae
+ 87.57  746581  671921  G       590                     Salmonella
+```
+
+The kraken-report is tab-delimited, with one line per taxon, with fields from left-to-right, as follows:
+1. Percentage of all reads that belong to this taxon 
+2. Number of reads covered by the clade rooted at this taxon
+3. Number of reads assigned to this taxon
+4. A rank code, indicating (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, or (S)pecies. All other ranks are simply “-“.
+5. NCBI Taxonomy ID
+6. The indented scientific name
+
+This is the most informative line in the Kraken-report:
+
+```bash
+87.57  746581  671921  G       590                     Salmonella
+```
+- 87.57% of all reads belong somewhere within the genus Salmonella.
+- 746,581 reads are assigned to the genus or one of its species.
+- 671,921 reads are assigned directly to the genus, meaning Kraken2 could not confidently place them into a specific Salmonella species.
+
+These results indicate that the sample is strongly dominated by the bacteria Salmonella. However Kraken2 was not able to identify down to species level from these reads. This is likely because Kraken2 assigns taxonomy based on exact k-mer matches and so if a k-mer appears in multiple species it will only classify to genus level. 
+ 
+You will now use the Kraken2 report as input to run the `bracken` tool in step 4 below. 
 
 # **4. Species classification using Bracken**
 
 `bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to `kraken2` that improves species or genus-level abundance estimates.
 
 Why do we need to use `bracken`?
-- `kraken2` classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `kraken2` species assignments can underestimate the abundance of some species in a sample.
+- `kraken2` classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `kraken2` species assignments can underestimate the abundance of some species in a sample or is not able to identify the species. 
 
 `bracken` requires: 
 - The `kraken2` report (This can be found here, kraken/ERR10479037.report)
@@ -179,10 +212,15 @@ Where:
 
 Important to note that we are running with the -r option, as the read length of our sequencing reads are 150bp and not the default which is 100bp. 
 
-The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037.bracken). Important columns are the `name`, `new_est_reads` and `fraction_total_reads`. 
+The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037.bracken). 
+
+Important columns in the `bracken` output (`ERR10479037.bracken`) are:
+- `name`,
+- `new_est_reads`
+- `fraction_total_reads`. 
 
 ### QUESTIONS
-Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal (you can use the `head` command for this)
+Have a look at the `bracken` output file (ERR10479037.bracken) on the terminal (you can use the `head` command for this)
 - Can you confirm what species of bacteria is present in our sample? 
 - What is the percentage of reads in our sample that belong to this species?  
   
