@@ -124,7 +124,7 @@ Now we wait for snippy to finish this should take ~2 minutes for one sample
 ## 3.2 Examine snippy logs 
 To better understand how Snippy processes sequencing reads and generates variant calls, we will inspect the snp.log output file. The log records the commands executed during the analysis, allowing you to trace each stage of the snippy pipeline, including read alignment, BAM processing, variant calling and variant filtering. If you run a tool and it fails – information on why the tool failed to run will often be in the .log file – so this is an important file. 
 
-We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. Note that for this section you do not need to understand all of the commands that snippy uses at each step (that would be alot of information). 
+We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. Note that for this section you do not need to understand all of the commands that snippy uses at each step (that would be alot of information) and you will not be assessed on the snippy logs section. 
 
 First view the snippy command and parameters used when we you ran snippy: 
 
@@ -161,7 +161,7 @@ You should see the `samtools` command on the terminal - looks something like thi
  samtools markdup -T /tmp --threads 3 -r -s - -
 ```
 
-`snippy` then uses `freebays` to call variants against the reference genome, producing a variant call file (snps.raw.vcf), run:  
+`snippy` then uses `freebays` to call variants in your sample against the reference genome, producing a variant call file (snps.raw.vcf), run:  
 
 ```bash
 grep "freebayes" snippy/ERR10479021/snps.log
@@ -173,19 +173,15 @@ You should see something like this on the terminal:
 freebayes-parallel reference/ref.txt 8 -p 2 -P 0 -C 2 -F 0.05 --min-coverage 10 --min-repeat-entropy 1.0 -q 13 -m 60 --strict-vcf   -f reference/ref.fa snps.bam > snps.raw.vcf
 ```
 
-`Snippy` then applies some filters to assess the quality of those variants. It then applies the high quality variants to the reference genome to create a ‘pseudosequence consensus’ representation of our new genome
+`Snippy` then applies some filters to assess the quality of those variants - retaining only high confidence variants. It then applies the high quality variants to the reference genome sequence to create a ‘pseudosequence consensus’ - a version of the reference genome with the samples variants substituted in. 
 
 ```bash
-grep "bcftools" snippy/ERR10479021/snps.log
+grep "bcftools filter" snippy/ERR10479021/snps.log
 ```
 
-
-
-
-
-#### 3.2.1 View the snippy command and parameters used when we ran snippy: 
-
-
+Snippy creates two versions of the pseudosequence consensus:
+- snps.consensus.fa, contains all high-quality variants (SNPs and INDELs)
+- snps.consensus.subs.fa, contains only high-quality SNPs (no INDELs)
 
 
 ## 3.3 Now let’s look at some of the snippy output files 
