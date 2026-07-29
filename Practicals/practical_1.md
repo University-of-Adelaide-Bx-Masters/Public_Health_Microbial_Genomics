@@ -14,17 +14,17 @@ Australia is divided into states and territories, known collectively as jurisdic
 
 Many infectious diseases in Australia are classified as notifiable diseases. This means that when a laboratory or healthcare provider identifies a case of one of these diseases, they are legally required to notify the relevant state or territory public health authority. These notifications enable public health teams to monitor disease trends, rapidly detect outbreaks, implement control measures, and coordinate responses to protect the community.
 
-As part of the public health response, selected pathogens are referred to the jurisdictional public health laboratory for whole-genome sequencing. Every year a public health laboratory may recieve 100s of thousands of pathogens for sequencing and so a streamlined genomic workflow is required to promptly identify and characterise isolates. The resulting genomic data are analysed using pathogen genomics workflows to determine characteristics such as species identification, genotyping, genetic relatedness, phylogenomics and antimicrobial resistance gene and variants. Genomic information can then be combined with epidemiological data, we can then identify transmission links, detect outbreaks, monitor the emergence of new variants or resistant strains, and inform public health interventions.
+As part of the public health response, selected pathogens are referred to the jurisdictional public health laboratory for whole-genome sequencing. Every year a public health laboratory may receive 100s of thousands of pathogens for sequencing and so a streamlined genomic workflow is required to promptly identify and characterise bacterial isolates. The resulting genomic data are analysed using pathogen genomics workflows to determine characteristics such as species identification, genotyping, genetic relatedness, phylogenomics and detecting antimicrobial resistance gene and variants. Genomic information can then be combined with epidemiological data, we can then identify transmission links, detect outbreaks, monitor the emergence of new variants or resistant strains, and inform public health interventions.
 
-The public helath microbial genomics workflow can look a bit like the below workflow figure, and for the Public Health Genomics module we will work through a number of the workflow steps during the practical sessions. One of the very first steps is to identfy what bacterial species the corresponding sample is, this confirms what pathogen is present and once this is known we can then perform downstream analysis (e.g. genotyping, phylogenomics, antimicrobial resistance investigations). 
+The public health microbial genomics genomics workflow can look a bit like the workflow in the below figure, and for the Public Health Microbial Genomics module we will work through a number of the steps in the workflow during the practical sessions. One of the very first steps is to identify what bacterial species the corresponding sample is, this confirms what pathogen is present and once this is known we can then perform downstream analysis (e.g. genotyping, phylogenomics, antimicrobial resistance investigations). 
 
 <img width="804" height="583" alt="image" src="https://github.com/user-attachments/assets/9adc05b6-a0ff-4e59-9a03-e8d57d3fc899" />
 
 
 ## 1.1 Practical Overview
-For this practcial you will be working with paired-end illumina sequencing data (FASTQ) and their corrsponding genome assemblies (FASTA) from 9 bacterial isolates. The sequencing data are from 9 isolates that have actually been implicated in an outbreak in the Northern Queensland, Australia. Imagine that you work in the Queensland state public health reference laboratory, your first task is to idenifty the bacterial species that is present in the 9 isolates. 
+For this practical you will be working with paired-end illumina sequencing data (FASTQ) and their corresponding genome assemblies (FASTA) from 9 bacterial isolates. The sequencing data are from 9 isolates that have been involved in an outbreak in the Northern Queensland, Australia. Imagine that you work in the Queensland state public health reference laboratory, your first task is to identify the bacterial species that is present in the 9 isolates. 
 
-In this practical you will be testing different tools for bacterial species classification including `kraken2`, `bracken` and `FastANI`. These three tools complement one another and are core tools used together in publci health and research settings. 
+In this practical you will be testing different tools for bacterial species classification including `kraken2`, `bracken` and `FastANI`. These three tools complement one another and are core tools used together in public health and research settings. 
 
 `kraken2` classifies sequencing reads by comparing short k-mers to a reference database. It tells you which organisms/organism are present in a sample.
 `bracken` builds on Kraken's results to provide more accurate estimates of species abundance, correcting for reads that are shared between closely related organisms.
@@ -34,7 +34,7 @@ In this practical you will be testing different tools for bacterial species clas
 ## 1.2 Learning Outcomes
 1. Gain additional practice in performing species classification
 2. Learn how to perform species classification with additional tools
-3. Intergarte multiple species classification methods to make robust taxonomic assignment in real-world scenarios
+3. Integrate multiple species classification methods to make robust taxonomic assignment in real-world scenarios
 
 # **2. Setup**
 
@@ -46,7 +46,7 @@ source activate bioinf
 ```
 
 ## 2.2 Create directory structure
-Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
+Let's create a new directory for today's practical and create sub-directories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
 mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,reference,db,assembly}
