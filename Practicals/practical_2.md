@@ -61,13 +61,17 @@ TO ADD IN
 
 # **3. Assigning strains an MLST using the `mlst` tool**
 
-The `mlst` tool by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against PubMLST typing schemes and reports the sequence type.
+The `mlst` tool written by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against an online database (known as PubMLST, we wont discuss this database in detail today) that houses the MLST typing schemes and reports the sequence type.
 
-Run this to get the help information for mlst
+Lets get started, 
+
+First run this to get the help information for `mlst`
 
 ```bash
 mlst -h
 ```
+
+You can see a whole bunch of stuff on the terminal - feel free to read over this if you like. 
 
 ### 3.1 Before running `mlst` we can check what schemes are available
 
@@ -119,7 +123,7 @@ Now try this and take note of what is printed on the terminal
 mlst --quiet assembly/ERR10479021.fasta
 ```
 
-On the terminal you should see the `mlst` command returned a tab-seperated line (this is the line that we are most interested in) containing:
+On the terminal you should see the `mlst` command returned a tab-separated line (this is the line that we are most interested in) containing:
 - The filename
 - The macthing PubMLST schema name
 - The Sequence Type (ST)
@@ -128,34 +132,34 @@ On the terminal you should see the `mlst` command returned a tab-seperated line 
 <img width="1265" height="342" alt="image" src="https://github.com/user-attachments/assets/663749fc-2dad-4df5-80a6-0cfb8ecc15a0" />
 
 
-The command we ran above generally autodetects an appropriate bacterial scheme to use. However their may be times where an incorrect scheme is selected by the `mlst` tool. This can happen for example between closeley related bacterial species (e.g. shigella and e.coli), where the house keeping genes are genetically similar. To overcome this, you can force `mlst` to use a specific scheme by adding the option `--schema` followed by the name of the scheme - in our case we are working with salmonella samples so we will use the `salmonella` scheme: 
+The command we ran above generally auto detects an appropriate bacterial scheme to use. However their may be times where an incorrect scheme is selected by the `mlst` tool. This can happen for example between closely related bacterial species (e.g. shigella and e.coli), where the house keeping genes are genetically similar. To overcome this, you can force `mlst` to use a specific scheme by adding the option `--schema` followed by the name of the scheme - in our case we are working with salmonella samples so we will use the `salmonella` scheme: 
 
 ```bash
 mlst --scheme salmonella --quiet assembly/ERR10479021.fasta
 ```
-Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the scheme campared to when we didnt force the scheme - lucky! 
+Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the scheme compared to when we didn't force the scheme - lucky! 
 
 However, because we used the `--quiet` setting we did not get all of the information printed on the terminal - if we run without `--quiet` 
 
 ```bash
 mlst --scheme salmonella assembly/ERR10479021.fasta
 ```
-You can actually see that the results are different to the results from when we didnt specify a scheme. 
+You can actually see that the results are different to the results from when we didn't specify a scheme. 
 
 **Question:** 
 - can you see which result is different? hint its not to do with the ST or allele IDs. 
 
-Now lets look at if you were to specificy the wrong scheme for the organism in your sample. The command will run but you will not get any results. For example lets run the Mycobacterium tuberculosis scheme over a salmonella sample:
+Now lets look at if you were to specify the wrong scheme for the organism in your sample. The command will run but you will not get any results. For example lets run the Mycobacterium tuberculosis scheme over a salmonella sample:
 
 ```bash
 mlst --scheme mycobacteria_2 --quiet assembly/ERR10479021.fasta
 ```
 
-On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` scheme that we specified have not been detected in out salmonella sample. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with ensuring thet you are running the correct downstream analysis - and as we have just seen this is important to get a sequence type. 
+On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` scheme that we specified have not been detected in out salmonella sample. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with ensuring that you are running the correct downstream analysis - and as we have just seen this is important to get a sequence type. 
 
 ### 3.2 Run `mlst` over all samples
 
-Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping samples. We can now go ahead and genotype the remaining salmonella samples. All of our salmonella assemblies begin with the letter "E". So the easiest way to run `mlst` over all our samples is to use a wild card to call all the .fasta samples begining with E and run the `mlst` tool on each of the assembly files. 
+Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping samples. We can now go ahead and genotype the remaining salmonella samples. All of our salmonella assemblies begin with the letter "E". So the easiest way to run `mlst` over all our samples is to use a wild card to call all the .fasta samples beginning with E and run the `mlst` tool on each of the assembly files. 
 
 You can do this using the following command, at the same time we will direct the results to an output file named (`salmonella_mlstresults.tsv`):
 
@@ -171,15 +175,15 @@ Remember that if multiple samples belong to the same ST they likely represent an
   
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
-We have used `mlst` to assign a sequence type to our salmonella samples, which is an important tool for the initual quick screaning of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
+We have used `mlst` to assign a sequence type to our Salmonella enterica samples, which is an important tool for the initial quick screening of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
 
-`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particulalry in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR)- based allele calling alogarithm to identify allels across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
+`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particularly in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR)- based allele calling alogarithm to identify alleles across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
 
 ### 4.1 Salmonella enterica core genome MLST schema
 
 cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is quiet alot more genes compared to the seven genes included in the mlst) 
 
-Before `chewbbaca` can be run on the samples the salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky for you - I have already done this step.   
+Before `chewbbaca` can be run on the samples the Salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky for you - I have already done this step.   
 
 YOU DO NOT NEED TO RUN THIS COMMAND I HAVE ALREADY DONE THIS FOR YOU - THIS IS TO SHOW YOU HOW THE COMMAND LOOKS FOR CONVERTING cgMLST SCHEMA FOR INPUT INTO `chewbacca`. 
 
@@ -195,7 +199,7 @@ To run `chewBACCA` `AlleleCall` you need:
 
 Now the fun part - lets go ahead and run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes: 
 
-This will take ~15 minutes to run - you will see stuff happening in the terminal and it will stop once finihsed. 
+This will take ~15 minutes to run - you will see stuff happening in the terminal and it will stop once finished. 
 
 ```bash
 chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
