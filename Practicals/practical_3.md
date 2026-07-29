@@ -187,7 +187,17 @@ When you ran `snippy` above (in section 3.1) it created two versions of the pseu
 
 ## 3.3 Now let’s look at some of the snippy output files 
 
-Now look at the key output files produced by `snippy`
+Now look at the key output files produced by `snippy`: 
+
+The bam file
+
+The vcf file 
+
+The consensus genome sequence
+
+
+The table of variants 
+
 
 bam file 
 
@@ -224,11 +234,6 @@ do
 
 done
 ```
-
-
-**WE WILL END THE FIRST PART OF THE PRACTICAL HERE AND THE REMAINING PART OF THE PRACTICAL WE WILL DO IN THE NEXT PRACTICAL SESSION**
-
-
 
 # **4. Run snippy core to create input for building a tree** 
  
@@ -327,8 +332,5 @@ It is a little hard to tell but the tree is showing some important information:
 - Group two isolates are the isolates that are linked to the Northern territory outbreak and these results indicate that the humans were infected from water contaminated with Salmonella.
 - The group one isolates do not form an outbreak (it is hard to see this, you would see this better if we removed the reference genome from the tree) and you can see that the branch lengths are slightly longer compared to the branch lengths within the group 2 cluster. 
 
-# **8. Bonus task**
-
-You can remove the reference genome from the `core_genome.full.aln.treefile`file by deleting it, then re upload the file to Microreact, midpoint root and overlay the metadata on to the tree. Take note of how the tree has changed. 
 
 
