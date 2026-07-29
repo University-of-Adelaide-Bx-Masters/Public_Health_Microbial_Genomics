@@ -367,9 +367,9 @@ assembly/ERR10479039.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta
 
 # **7.`kraken2`, `bracken` and `fastANI` results**
 
-In our samples `kraken2` identified reads as Salmonella enterica and `bracken` estimated that Salmonella enterica makes up ~99% of reads in all our samples. Those tools tell you what is present and in what abundance.
+In our samples `kraken2` identified reads belonging to Salmonella and `bracken` estimated that it was the Salmonella enterica species that made up ~99% of reads in all our samples. Those tools tell you what is present and in what abundance.
 
-We then took the Salmonella enterica genome assemblies and compared them with a reference genome (that we already know is Salmonella enterica) using `fastANI`, we found that:
+We then took the Salmonella enterica genome assemblies and compared them with a reference genome (that we already know is Salmonella enterica) using `fastANI`, to confirm that the species present is Salmonella enterica.We found that:
 
 Across all our samples when compared to the reference, ANI = ~99% → all genomes are nearly identical to the reference genome. 
 
