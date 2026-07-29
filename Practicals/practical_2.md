@@ -8,26 +8,22 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
-Firstly, congratulations, in the previous practical (species classification) you idenitifed that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia Salmonella makes up a large portion of disease cases that are notified to the Australian government. We get ~20,000 cases of Salmonella in Australia each year. That is alot of cases and you can imagine how busy the Public health labs are with sequencing and analysing all of the Salmonella cases. 
+Firstly, congratulations, in the previous practical (species classification) you identified that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia Salmonella makes up a large proportion of infectious disease cases that are notified to the Australian government. We get ~20,000 cases of Salmonella in Australia each year. That is alot of cases and you can imagine how busy the Public health laboratories are with sequencing and analysing all of the Salmonella cases. 
 
 Now that we know that we are working with Salmonella enterica, we can now move on to the next step of the genomics workflow (indicated by a yellow start in the workflow figure below), which is to genotype the 9 Salmonella enterica sequences. 
 
 <img width="808" height="588" alt="image" src="https://github.com/user-attachments/assets/a0719c5b-af60-4605-ad0c-a00da9f892e2" />
 
-
-Bacterial genotyping......Multilocus Sequence Typing (MLST) is widely used globally and is standardised across hundreads of bacterial species which allows for global comparisons. This is particulalry important for comparing strains across different georaphical areas that might be implicated in an outbreak.
-
 ## 1.1 Practical Overview
-
+For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the species classification practical, for this practical we will be working with their genome assemblies (FASTA). Remember that in the species classification practical you identified the 9 isolates as salmonella enterica and the next step in the microbial genomics workflow is to genotype the 9 samples. You will be testing different genotyping approaches that are commonly used for bacterial genotyping, they include MLST (genotyping of bacteria based on seven house keeping genes) and cgMLST (genotyping of bacteria based on thousands of core genome genes). Remember that bacterial samples belonging to the same MLST sequence type are likely to be associated with the same outbreak.
 
 In practice, MLST and cgMLST are often used together:
-   -  MLST first: Quick screening to identify strain types and potential outbreaks
-   - cgMLST second: High-resolution analysis of isolates of interest
-   - Combined interpretation: MLST for context, cgMLST for detail
-
-
+   -  MLST is used first to quickly screen bacterial isolates to identify any potential outbreaks
+   - cgMLST is then used as a higher genetic resolution approach to confirm outbreaks 
+ 
 ## 1.2 Learning Outcomes
-
+1. Gain practice in performing bacterial genotyping 
+2. Learn how to interoperate results and relevance to public health surveillance of bacteria 
 
 # **2. Setup**
 
