@@ -180,14 +180,14 @@ freebayes-parallel reference/ref.txt 8 -p 2 -P 0 -C 2 -F 0.05 --min-coverage 10 
 grep "bcftools consensus" snippy/ERR10479021/snps.log
 ```
 
-When you ran `snippy` above it created two versions of the pseudosequence consensus:
+When you ran `snippy` above (in section 3.1) it created two versions of the pseudosequence consensus:
 - snps.consensus.fa, contains all high-quality variants (SNPs and INDELs)
 - snps.consensus.subs.fa, contains only high-quality SNPs (no INDELs)
 
 
 ## 3.3 Now let’s look at some of the snippy output files 
 
-Let's now look at the key output files produced by `snippy`
+Now look at the key output files produced by `snippy`
 
 bam file 
 
@@ -281,13 +281,15 @@ now lets midpoint root the tree
 
 
 
-# **7. Overlay genotyping data onto the tree in Microreact**
-
-# **8. Overlay epidemiological metadata onto the tree in Microreact**
+# **7. Overlay genotyping and epidemiological data onto the tree in Microreact**
 
 One of the most powerful aspects of microbial genomics is the ability to integrate genomic data with epidemiological metadata to investigate outbreak dynamics. 
 
 Download metadata file for Microreact: 
 - A metdata `.CSV` file with a column named `id` matching the sample names in the tree: Download the metadata file from the VM. Note in a real surveillance scenario, your metadata CSV could include columns such as: `collection_date`, `country`, `hospital`, `patient_id`, `MLST_ST`, `resistance_profile`, etc. For this practical this file has been generated for you and can be found in your`Practical_phylogenetic_trees_surveillance/results` folder. 
+
+# **8. Bonus task**
+
+
 
 
