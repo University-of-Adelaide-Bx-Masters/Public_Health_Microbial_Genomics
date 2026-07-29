@@ -50,6 +50,8 @@ cd ~/Practical_variants_trees
 ln -s ~/data/public_health_genomics/microbial_genomics/*.fastq.gz reads/
 # create symlink for reference genome
 ln -s ~/data/public_health_genomics/microbial_genomics/GCA_000009505.1_ASM950v1_genomic.fasta assembly/
+# create symlink for metadata
+ln -s ~/data/public_health_genomics/microbial_genomics/metadata.csv metadata/
 # we can confirm where we are 
 pwd
 ```
@@ -189,10 +191,9 @@ When you ran `snippy` above (in section 3.1) it created two versions of the pseu
 
 Some of the important output files are:
 - The alignments in BAM format. Includes unmapped, multimapping reads (`snps.bam`)
-- 'The final annotated variants in VCF format (`snps.vcf')
-- A version of the reference genome with all variants instantiated ('consensus.fa)  
-- A simple tab-seperated summary of all variants (`.tab`) 
-
+- The final annotated variants in VCF format (`snps.vcf')
+- A simple tab-separated summary of all variants (`.tab`) 
+- A version of the reference genome with all variants instantiated ('consensus.fa`)  
 
 To look at `snps.bam`:
 
@@ -217,7 +218,6 @@ To look at the consensus genome sequence:
 ```bash
 head new-sample-1/snps.consensus.fa
 `````
-
 
    
 ## 3.4 Run snippy over all samples 
