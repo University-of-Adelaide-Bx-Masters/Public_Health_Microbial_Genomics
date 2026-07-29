@@ -264,16 +264,25 @@ This creates a phylogenomic tree in newick format - its the 'core_genome.full.al
 
 # **6. Visualise the phylogenomic tree using Microreact**
 
-For this practical we will use Microreact to visulise the phylogenomic tree. Microreact (https://microreact.org) is a free, web-based tool developed by the Centre for Genomic Pathogen Surveillance (CGPS) that allows you to interactively visualise phylogenetic trees alongside epidemiological metadata. It is widely used in public health genomics for outbreak investigation and surveillance.
+For this practical we will use Microreact to visulise the phylogenomic tree (`core_genome.full.aln.treefile`). Microreact (https://microreact.org) is a free, web-based tool developed by the Center for Genomic Pathogen Surveillance (CGPS) that allows you to interactively visualise phylogenomic trees alongside epidemiological metadata. It is widely used in public health genomics for outbreak investigation and surveillance.
 
 It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
 
 Download tree file for Microreact: 
-- A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `todo.nwk` file from the VM. This can be found in your `Practical_phylogenetic_trees_surveillance/results` folder.
+- A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `core_genome.full.aln.treefile`file from the VM. This can be found in your `Practical_phylogenetic_trees_surveillance/results` folder.
+- Open a web browser and got to the Microreact website (https://microreact.org).
+- Upload the `core_genome.full.aln.treefile`file.
+- Click `continue` to visualise and explore the tree.
 
-
-
+The tree should see something like this: 
+Note - this tree is unrooted which means that the tree does not have a direction in time. 
 <img width="1821" height="658" alt="image" src="https://github.com/user-attachments/assets/2d7e8ec5-947a-40d5-be09-171c0ef42b56" />
+
+Root the tree using the outgroup (the reference genome): 
+
+In the Microreact tree panel, click on the branch leading to sample M66.
+Select "Set as Outgroup" or "Root on this branch".
+The tree will be re-drawn with M66 at the base, giving the tree a temporal direction.
 
 now lets midpoint root the tree 
 
