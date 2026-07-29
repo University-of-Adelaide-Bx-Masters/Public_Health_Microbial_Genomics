@@ -329,6 +329,6 @@ It is a little hard to tell but the tree is showing some important information:
 
 # **8. Bonus task**
 
-Remove the reference genome from the alignment and repeat the Microreact steps. 
+You can remove the reference genome from the `core_genome.full.aln.treefile`file by deleting it, then re upload the file to Microreact, midpoint root and overlay the metadata on to the tree. 
 
 
