@@ -124,14 +124,66 @@ Now we wait for snippy to finish this should take ~2 minutes for one sample
 ## 3.2 Examine snippy logs 
 To better understand how Snippy processes sequencing reads and generates variant calls, we will inspect the snp.log output file. The log records the commands executed during the analysis, allowing you to trace each stage of the snippy pipeline, including read alignment, BAM processing, variant calling and variant filtering. If you run a tool and it fails – information on why the tool failed to run will often be in the .log file – so this is an important file. 
 
-We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. 
+We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed.
 
-#### 3.2.1 View the snippy command and parameters used when we ran snippy: 
+First view the snippy command and parameters used when we you ran snippy: 
 
 ```bash
 grep "outdir" snippy/ERR10479021/snps.log
 ```
-This shows you the exact Snippy command that was run, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
+You should see something like this on the terminal:
+
+```bash
+/apps/conda3/singularity/envs/bioinf/bin/snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta --R1 reads/ERR10479021_1.fastq.gz --R2 reads/ERR10479021_2.fastq.gz
+```
+This shows you the exact `snippy` command that you ran above, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
+
+`snippy` then maps the sequencing reads to the reference genome using `bwa mem`, run the below to see the `bwa mem`command: 
+
+```bash
+grep "bwa mem" snippy/ERR10479021/snps.log
+```
+
+You should see the `bwa mem` command on the terminal - looks something like this: 
+```bash
+bwa mem  -Y -M -R '@RG\tID:ERR10479021\tSM:ERR10479021' -t 8 reference/ref.fa /shared/data/public_health_genomics/microbial_genomics/ERR10479021_1.fastq.gz /shared/data/public_health_genomics/microbial_genomics/ERR10479021_2.fastq.gz | samclip --max 10 --ref reference/ref.fa.fai | samtools sort -n -l 0 -T /tmp --threads 3 -m 2000M | samtools fixmate -m --threads 3 - - | samtools sort -l 0 -T /tmp --threads 3 -m 2000M | samtools markdup -T /tmp --threads 3 -r -s - - > snps.bam
+```
+
+`snippy` then ....
+
+samtools
+
+```bash
+grep "COMMAND: samtools" snippy/ERR10479021/snps.log
+```
+
+`snippy` then uses `freebays` to call variants against the reference genome, producing a variant call file (snps.raw.vcf), run:  
+
+```bash
+grep "freebayes" snippy/ERR10479021/snps.log
+```
+
+You should see something like this on the terminal:
+
+```bash
+freebayes-parallel reference/ref.txt 8 -p 2 -P 0 -C 2 -F 0.05 --min-coverage 10 --min-repeat-entropy 1.0 -q 13 -m 60 --strict-vcf   -f reference/ref.fa snps.bam > snps.raw.vcf
+```
+
+
+bcftools
+
+```bash
+grep "bbcftools" snippy/ERR10479021/snps.log
+```
+
+
+
+
+
+#### 3.2.1 View the snippy command and parameters used when we ran snippy: 
+
+
+
 
 ## 3.3 Now let’s look at some of the snippy output files 
 Snippy 
