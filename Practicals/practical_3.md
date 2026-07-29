@@ -264,7 +264,9 @@ This creates a phylogenomic tree in newick format - its the 'core_genome.full.al
 
 # **6. Visualise the phylogenomic tree using Microreact**
 
-For this practical we will use Microreact to visulise the phylogenomic tree. It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
+For this practical we will use Microreact to visulise the phylogenomic tree. Microreact (https://microreact.org) is a free, web-based tool developed by the Centre for Genomic Pathogen Surveillance (CGPS) that allows you to interactively visualise phylogenetic trees alongside epidemiological metadata. It is widely used in public health genomics for outbreak investigation and surveillance.
+
+It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
 
 Download tree file for Microreact: 
 - A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `todo.nwk` file from the VM. This can be found in your `Practical_phylogenetic_trees_surveillance/results` folder.
