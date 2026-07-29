@@ -116,7 +116,7 @@ We need to determine the species present in a sample, and `Kraken2` is a very us
 
 ### 3.1 Run Kraken2 
 
-The input files for `kraken2` are assumed to be genome assemblies (FASTA) by default, but `kraken2` can also take other files as input including sequencing reads (FASTQ). For today we will run `kraken2` over sequencing reads.  
+The input files for `kraken2` are assumed to be genome assemblies (FASTA) by default, but `kraken2` can also take other files as input including sequencing reads (FASTQ). For today you will run `kraken2` over sequencing reads.  
 
 To investigate the general command structure of `Kraken2` type:
 
@@ -126,6 +126,7 @@ kraken2
 On your terminal you should see the options for running `kraken2` 
 
 We will run `kraken2` using the following options:
+
 ```bash
 Options:
   --threads NUM           Number of threads (default: 1)
@@ -143,12 +144,12 @@ Now run `kraken2` on one isolate using the following command:
 kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.report --paired reads/ERR10479037_1.fastq.gz reads/ERR10479037_2.fastq.gz
 ```
 
-`kraken2` generates a report of all taxa found in the sample, we wont be looking at this report in detail but we will use it as input for `bracken` in step 3.2.  
+`kraken2` generates a report of all taxa found in the sample, we wont be looking at this report in detail but we will use it as input for `bracken` in step 4 below.  
 
 
 # **4. Species classification using Bracken**
 
-`bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to `kraken2` that improves species or genus-level abundance estimates.
+`bracken` (Bayesian Re-estimation of Abundance with Classification KrakEN) is a companion tool to `kraken2` that improves species or genus-level abundance estimates.
 
 Why do we need to use `bracken`?
 - `kraken2` classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `kraken2` species assignments can underestimate the abundance of some species in a sample.
@@ -164,7 +165,7 @@ View the options for running `bracken`
 bracken -h
 ```
 
-We will run `bracken` with the following command: 
+Run `bracken` with the following command: 
 
 ```bash
 bracken -d db/std_8g -r 150 -i kraken/ERR10479037.report -o kraken/ERR10479037.bracken
@@ -187,9 +188,9 @@ Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal (
   
 # **5 Run Kraken2 and Bracken over all samples** 
 
-You have run `kraken2` and `bracken` over one sample, we now need to run the tools over the remaining samples so that we can confirm what bacteiral species is present. 
+You have run `kraken2` and `bracken` over one sample, we now need to run the tools over the remaining samples so that we can confirm what bacterial species is present. 
 
-Since we have 8 samples to process, it will make our code much simpler if we use a for loop. The script below uses steps that you may have learned about if you have completed a bioinformatics course at Adelaide Uni. Make sure you understand what each step is doing and ask for help if you dont understand. It is important that you understand both the setup and the contents of this script, this is because you will need to submit scripts as appart of the assignments for this course. 
+Since we have 8 samples to process, it will make our code much simpler if we use a for loop. The script below uses steps that you may have learned about if you have completed a bioinformatics course at Adelaide Uni. Make sure you understand what each step is doing and ask for help if you don't understand. It is important that you understand both the setup and the contents of this script, this is because you will need to submit scripts following this format in the assignments for this course. 
 
 In order to run the script:
 - Open a file called species.sh by typing nano species.sh
@@ -235,7 +236,7 @@ Have a look at the `bracken` output files on the terminal
 
 # **6. Species classification using `fastANI`**
 
-You have now had a play with identifying species in samples using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with `fastANI` for species classifiction.  
+You have now had a play with identifying species in samples using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with `fastANI` for species classification.  
 
 Above `kraken2` and `bracken` gave us an indication of "What species is there, and how much?", whilst `fastANI` answers "How genetically similar is this genome to another genome?".
 
