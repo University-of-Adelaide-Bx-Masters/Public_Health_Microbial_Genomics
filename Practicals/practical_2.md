@@ -267,6 +267,6 @@ chewBBACA.py AlleleCall -i assembly/ -g  db/salmonella_schema --gl cgmlst/cgmlst
 
 
 
-# **7. Visual comparison of MLST and core-genome MLST results**
+# **7. Comparison of MLST and core-genome MLST results**
 
 - combine results into a table - based on the two methods do the isolates belong to the same genotype/group? or has cgMLST split the samples into more groups? 
