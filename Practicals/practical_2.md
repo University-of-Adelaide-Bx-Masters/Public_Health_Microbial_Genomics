@@ -225,13 +225,12 @@ The main output is `results_alleles.tsv`, which is a tab delimited file with:
 - Columns:  schema loci
 - Values: allele identifiers or classification code
 
-In the next section you will input the `results_alleles.tsv` into the ExtractCgMLST module of `chewBBACA`. This is to determine the set of core loci, that is the loci identified in all or the majority of the genomes, based on the allele calling results to be able to perform allele calling at the cgMLST level.
 
 ### 4.5 Determine the set of loci that make up the core genome in our Salmonella enterica dataset
 
-Not all loci are present in all genomes
+In this section, you will use the `results_alleles.tsv` file generated in Step 4.4 as input to the `ExtractCgMLST` module in chewBBACA. The `ExtractCgMLST` module identifies the set of core genome loci, those present in all or most of the analysed genomes (in this case, the 9 Salmonella genomes). By default, ExtractCgMLST generates core genome schemes using locus presence thresholds of 95%, 99%, and 100% (for example present in 95% of samples), these thresholds are standard for defining the core genome. The resulting core genome locus list can then be used to perform allele calling at the cgMLST level, providing higher-resolution typing for strain discrimination. 
 
-To focus on the core genome (loci present in ≥95% or 100% of isolates) we will run `chewBBACA` as here:
+To determine the cgMLST loci from the allele calling results, run the following command:
 
 Please note that for the file path below "cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv" the  folder `results_20260713T071622` will be named different for you. Please make sure that you insert the correct name in to the below command. If you need help please ask. 
 
@@ -243,20 +242,15 @@ chewBBACA.py ExtractCgMLST -i cgmlst/allele_calling_results/results_20260713T071
 Parameters explained:
 -i: Input allele calling results file
 -o: Output directory
---t: Threshold (0.95 = loci present in ≥95% of genomes)
---r: File with repeated loci to exclude (optional)
 
-The main output of `chewBBACA.py` `ExtractCgMLST` is a cgMLST schema: a list of loci selected as the core genome MLST targets based on their presence across the input genome set (in our case the salmonella samples).
+ The `ExtractCgMLST` module creates a file with the list of core loci and the cgMLST allelic profiles for each threshold (95%, 99% and 100%)
 
-Outputs:
-- cgMLST.tsv: Allele profiles for core genome loci only
-- cgMLSTschema.txt: List of core genome loci
--  mdata_stats.tsv: Statistics on missing data per genome
+We will use the cgMLST determined at the 95% threshold for further analyses. The 95% allows to strike a balance between including a sufficient number of loci for high-resolution typing and accounting for potential missing data due to sequencing or assembly issues. The file `cgMLSTschema95.txt contains a list of the core loci identified at the 95% threshold. In step 4.6 you will pass this file to the --gl parameter of the AlleleCall module to perform allele calling at the cgMLST level.
 
 
 ### 4.6 AlleleCall module to perform allele calling at the cgMLST level
 
-In step 4.2 we ran AlleleCall using the complete Salmonella schema to identify all loci in our 9 Salmonella isolates. After defining the core genome above, a second AlleleCall is performed using only the core genome loci, producing allele profiles that are directly comparable between isolates that are included in our specific analysis. 
+In step 4.2 we ran AlleleCall using the complete Salmonella schema to identify **all** loci in our 9 Salmonella isolates. After defining the core genome above, a second AlleleCall is performed using only the core genome loci, producing allele profiles that are directly comparable between isolates that are included in our specific analysis. 
 
 Run 
 
