@@ -190,11 +190,11 @@ Remember that if multiple samples belong to the same ST they likely represent an
 # **4. Perform Core-genome MLST using `chewBBACA`**
 We have used `mlst` to assign a sequence type to our Salmonella enterica samples, which is an important tool for the initial quick screening of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
 
-`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particularly in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR) based allele calling algorithm to identify alleles across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
+`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particularly in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR) based allele calling algorithm to identify alleles across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are more closely related. 
 
 ### 4.1 Salmonella enterica core genome MLST schema
 
-cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is quiet a bit more genes compared to the seven genes included in mlst) 
+cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is many more genes compared to the seven genes included in mlst) 
 
 Before `chewbbaca` can be run on the samples the Salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky for you - I have already done this step.   
 
@@ -232,7 +232,7 @@ In this section, you will use the `results_alleles.tsv` file generated in Step 4
 
 To determine the cgMLST loci from the allele calling results, run the following command:
 
-Please note that for the file path below "cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv" the  folder `results_20260713T071622` will be named different for you. Please make sure that you insert the correct name in to the below command. If you need help please ask. 
+Please note that for the file path below "cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv" the folder `results_20260713T071622` will be named different for you. Please make sure that you insert the correct name into the below command. If you need help, please ask. 
 
 ```bash
 # Determine the core genome loci
@@ -291,7 +291,7 @@ How to interpret this image:
 It is important to remember that a Minimum Spanning Tree generated in PHYLOViZ is not a true phylogenetic tree. It does not infer a common ancestor or evolutionary direction. It is a network that connects isolates based on allele differences, making it particularly useful for outbreak investigations and comparing MLST to cgMLST. 
 
 In PHYLOViZ you can play around with the allelic difference thresholds and see how this changes how the isolates are connected:
-- Click on the tree modifiers tab in PHYLOViZ and adjust the Tree cut-off (this is the number of allelic difference). Typically for outbreak investigations we would use an allelic difference threhsold of 10 to define samples as belonging to a cluster/outbreak. 
+- Click on the tree modifiers tab in PHYLOViZ and adjust the Tree cut-off (this is the number of allelic difference). Typically for outbreak investigations we would use an allelic difference threshold of 10 to define samples as belonging to a cluster/outbreak. 
 - Try that and take note of what happens to the clusters
 
 You should see something like this:
@@ -308,7 +308,7 @@ However, as shown in the figure, five samples remain clustered together at this 
 
 The remaining four samples separate into smaller groups at a threshold of 10 allelic differences:
 - What does this indicate about the genetic relatedness of these samples?
-- Although these samples all belong to the same MLST sequence type (ST), cgMLST is able to distinguish them into separate groups at the 10 allelic difference threshold. This indicates that, despite sharing the same MLST ST, these samples are not genetically similar enough to be considered part of the same outbreak cluster. This example demonstrates the higher discriminatory power of cgMLST and highlights why it is commonly used alongside MLST in public health investigations to better resolve relationships between isolates.
+- Although these samples all belong to the same MLST sequence type (ST), cgMLST can distinguish them into separate groups at the 10 allelic difference threshold. This indicates that, despite sharing the same MLST ST, these samples are not genetically similar enough to be considered part of the same outbreak cluster. This example demonstrates the higher discriminatory power of cgMLST and highlights why it is commonly used alongside MLST in public health investigations to better resolve relationships between isolates.
 
  
 
