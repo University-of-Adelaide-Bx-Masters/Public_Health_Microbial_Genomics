@@ -258,11 +258,17 @@ Run `Allelecall` as follows:
 chewBBACA.py AlleleCall -i assembly/ -g  db/salmonella_schema --gl cgmlst/cgmlst_matrix/cgMLSTschema95.txt -o cgmlst/allele_calling_results_95_cgMLST
 ```
 
-The structure of the command is similar to the one used to perform allele calling in step 4.2, with the addition of the --gl parameter to specify the list of core loci `cgmlstschema95.txt`. The output folder will also have the same structure, but the files include results at the core genome MLST level. 
+The structure of the command is similar to the one used to perform allele calling in step 4.2, with the addition of the --gl parameter to specify the list of core loci `cgmlstschema95.txt`. The output folder will also have the same structure, but the files include results at the core genome MLST level. The file that we care most about is the `results_alleles.tsv` which can be found here cgmlst/allele_calling_results_95_cgMLST. 
 
 ### 4.7 View the chewBBACA output
 
-View `chewBBACA` cPHYLOViZ Online to visualize Minimum Spanning Trees (MSTs)
+The `chewBBACA` `AlleleCall` (the one you ran in step 4.6) output file `results_alleles.tsv` can be input in to the online tool known as PHYLOViZ (https://online2.phyloviz.net), whereby PHYLOViZ generates a Minimum Spanning Tree from the allelic profiles. 
+
+The tree shows genetic relatedness based on allele differences. 
+
+To do this: 
+- Download `results_alleles.tsv` file from the VM.
+- 
 
 
 
