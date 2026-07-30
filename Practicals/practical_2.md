@@ -270,9 +270,12 @@ To upload to PHYLOViZ follow this:
 - Download `results_alleles.tsv` file from the VM
 - Open a web browser and go to the PHYLOViZ website (https://online2.phyloviz.net)
   Sscroll down to Test PHYLOViZ online and click login-free
-- Then
-- Then click nodes and select node labels
-- Then click Links and select add link labels 
+- Then click profile data and then changes analysis method to pairwise comparison
+- Click browse and select the `results_alleles.tsv`
+- Give the dataset a name (Salmonella) and a description (outbreak)
+- Click Launch Tree 
+- Then click graphic properties and click nodes and select node labels and click yes 
+- Then click Links and select add link labels and click yes
 
 You should see something like this:
 
@@ -288,14 +291,28 @@ How to interpret this image:
 It is important to remember that a Minimum Spanning Tree generated in PHYLOViZ is not a true phylogenetic tree. It does not infer a common ancestor or evolutionary direction. It is a network that connects isolates based on allele differences, making it particularly useful for outbreak investigations and comparing MLST to cgMLST. 
 
 In PHYLOViZ you can play around with the allelic difference thresholds and see how this changes how the isolates are connected:
-- Click on the tree modifiers tab in PHYLOViZ and adjust the Tree cut-off (this is the number of allelic difference). Typically for outbreak investigations we would use an allelic difference threhsold of 10.
+- Click on the tree modifiers tab in PHYLOViZ and adjust the Tree cut-off (this is the number of allelic difference). Typically for outbreak investigations we would use an allelic difference threhsold of 10 to define samples as belonging to a cluster/outbreak. 
 - Try that and take note of what happens to the clusters
 
 You should see something like this:
 
 <img width="1072" height="820" alt="image" src="https://github.com/user-attachments/assets/e27a9a4b-5f23-438d-8dcf-42c2857929b3" />
 
+**Questions:**
+At a threshold of 10 allelic differences, the samples separate into multiple groups. 
 
-# **7. Comparison of MLST and core-genome MLST results**
+However, as shown in the figure, five samples remain clustered together at this threshold: 
+- What does it mean that these five samples remain grouped together at a threshold of 10 allelic differences?
+- Does this confirm that these samples belong to an outbreak cluster? 
+- Are these samples all the same MLST sequence type (ST)? (You can verify this using your MLST results from the first part of this practical session.)
 
-- combine results into a table - based on the two methods do the isolates belong to the same genotype/group? or has cgMLST split the samples into more groups? 
+The remaining four samples separate into smaller groups at a threshold of 10 allelic differences:
+- What does this indicate about the genetic relatedness of these samples?
+- Although these samples all belong to the same MLST sequence type (ST), cgMLST is able to distinguish them into separate groups at the 10 allelic difference threshold. This indicates that, despite sharing the same MLST ST, these samples are not genetically similar enough to be considered part of the same outbreak cluster. This example demonstrates the higher discriminatory power of cgMLST and highlights why it is commonly used alongside MLST in public health investigations to better resolve relationships between isolates.
+
+ 
+
+
+
+
+
