@@ -8,15 +8,14 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
-In the previous practical (bacterial genotyping) you used MLST to identify that the Salmonella enterica samples belong to two sequence types and that cgMLST group the sequences together based on sequence types. You also identified that multiple isolates belonged to the same ST indicating that those isolates likely belong to a cluster. You will next construct a phylogenomic tree which is another method that we can use to confirm which of the Salmonella enterica isolates belong to a genomic cluster and are thus appart of an outbreak. 
-
-This practical will focus on variant calling, phylogenomic trees and interpretation of trees for public health. This will include the sections in the below figure indicated by a a star. Including sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
+In the previous practical (bacterial genotyping) you used MLST to identify that the Salmonella enterica samples belong to two sequence types and that cgMLST group the sequences together based on sequence types. You also identified that multiple isolates belonged to the same ST indicating that those isolates likely belong to a cluster. You will next construct a phylogenomic tree which is another method that we can use to confirm which of the Salmonella enterica isolates belong to a genomic cluster and are thus appart of an outbreak. This will include the sections in the below workflow figure indicated by a a star. 
+ 
 
 <img width="806" height="591" alt="image" src="https://github.com/user-attachments/assets/8ab7ea23-a1a3-416e-9a79-88757197144c" />
 
 
 ## 1.1 Practical Overview
-
+For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the previous practicals. You will be undertaking  sequence read mapping and variant calling for constructing phylogenomic trees and then visualise the tree alongside epidemiological data in microreact, this will provide you with an understanding of how to apply phylogenomics to public health settings. 
 
 ## 1.2 Learning Outcomes
 1.	Gain more in-depth knowledge and further practice on identifying variants 
