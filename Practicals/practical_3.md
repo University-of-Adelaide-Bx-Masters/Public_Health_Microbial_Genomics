@@ -9,7 +9,7 @@ By Dr Jessica Webb
 # **1. Introduction**
 Whole-genome sequencing (WGS) of bacterial pathogens has transformed public health microbiology. By comparing the genomes of bacterial isolates, we can determine how closely related they are, identify outbreaks, and track the spread of antimicrobial resistance. 
 
-The figure below is an example of a microbial genomics workflow that may be undertaken in a public health laboratory. In Practicals 1 and 2 you learned about species classification and microbial genotyping, this practical will focus on the steps highlighted in blue in the below figure. Which includes sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
+In Practicals 1 and 2 you learned about species classification and microbial genotyping, this practical will focus on variant calling, phylogenomic trees and interpretation of trees for public health. This will include the sections in the below figure indicated by a a star. Including sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
 
 <img width="806" height="591" alt="image" src="https://github.com/user-attachments/assets/8ab7ea23-a1a3-416e-9a79-88757197144c" />
 
