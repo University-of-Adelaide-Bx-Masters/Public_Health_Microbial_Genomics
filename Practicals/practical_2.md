@@ -264,12 +264,12 @@ The structure of the command is similar to the one used to perform allele callin
 
 The `chewBBACA` `AlleleCall` (the one you ran in step 4.6) output file `results_alleles.tsv` can be input in to the online tool known as PHYLOViZ (https://online2.phyloviz.net), whereby PHYLOViZ generates a Minimum Spanning Tree from the allelic profiles. 
 
-The tree shows genetic relatedness based on allele differences. 
+The tree shows genetic relatedness based on allele differences, remember the fewer allele differences between samples the more closely related they are. 
 
-To do this: 
+To upload to PHYLOViZ follow this: 
 - Download `results_alleles.tsv` file from the VM
 - Open a web browser and go to the PHYLOViZ website (https://online2.phyloviz.net)
-- scroll down to Test PHYLOViZ online and click login-free
+  Sscroll down to Test PHYLOViZ online and click login-free
 - Then
 - Then click nodes and select node labels
 - Then click Links and select add link labels 
@@ -278,6 +278,22 @@ You should see something like this:
 
 <img width="1474" height="802" alt="image" src="https://github.com/user-attachments/assets/721b210f-71fc-48e1-87e8-4daf13bee4ab" />
 
+How to interpret this image:
+- Each node represents a Salmonella enterica sample 
+- Each edge (line) connects isolates that are genetically most similar
+- Shorter connections indicate fewer allele differences
+- Clusters of nodes represent closely related isolates that may belong to the same outbreak or lineage
+- The number of allele differences between connected isolates is displayed on the branches
+
+It is important to remember that a Minimum Spanning Tree generated in PHYLOViZ is not a true phylogenetic tree. It does not infer a common ancestor or evolutionary direction. It is a network that connects isolates based on allele differences, making it particularly useful for outbreak investigations and comparing MLST to cgMLST. 
+
+In PHYLOViZ you can play around with the allelic difference thresholds and see how this changes how the isolates are connected:
+- Click on the tree modifiers tab in PHYLOViZ and adjust the Tree cut-off (this is the number of allelic difference). Typically for outbreak investigations we would use an allelic difference threhsold of 10.
+- Try that and take note of what happens to the clusters
+
+You should see something like this:
+
+<img width="1072" height="820" alt="image" src="https://github.com/user-attachments/assets/e27a9a4b-5f23-438d-8dcf-42c2857929b3" />
 
 
 # **7. Comparison of MLST and core-genome MLST results**
