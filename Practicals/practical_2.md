@@ -226,30 +226,6 @@ The main output is the `results_alleles.tsv`, which is a tab delimited file with
 - Columns, schema loci
 - Values, allele identifiers or classification code
 
-### 4.3 schema evaluator 
-
-build an interactive report for schema evaluation: 
-
-```bash
-chewBBACA.py SchemaEvaluator -g db/salmonella_schema -o cgmlst/schema_evaluator
-```
-This takes ~10 minutes to complete 
-
-Main output is the `schema_report.html` file 
-
-### 4.4 Allele call evaluator
-
-build an interactive report for allele calling schema evaluation 
-
-```bash
-chewBBACA.py AlleleCallEvaluator -i cgmlst/allele_calling_results/results_20260713T071622/ -g db/salmonella_schema -o cgmlst/AlleleCallEvaluator
-```
-
-This takes ~12 minutes to complete 
-
-This produces the following outputs:
-
-
 ### 4.5 Determine the set of loci that make up the core genome 
 
 Not all loci are present in all genomes.
@@ -257,7 +233,7 @@ Not all loci are present in all genomes.
 To focus on the core genome (loci present in ≥95% or 100% of isolates) we will run `chewBBACA` as here:
 
 ```bash
-# Extract core genome loci
+# Determine the core genome loci
 chewBBACA.py ExtractCgMLST -i cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv -o cgmlst/cgmlst_matrix 
                             #--t 0.95 \
                            #(OPTIONAL) --r allele_calling_results/RepeatedLoci.txt
@@ -275,6 +251,18 @@ Outputs:
 - cgMLST.tsv: Allele profiles for core genome loci only
 - cgMLSTschema.txt: List of core genome loci
 -  mdata_stats.tsv: Statistics on missing data per genome
+
+### 4.6 AlleleCall module to perform allele calling at the cgMLST level
+
+
+chewBBACA.py AlleleCall -i assembly/ -g  db/salmonella_schema --gl results32_wgMLST/cgMLST/cgMLSTschema95.txt -o cgmlst/allele_calling_results_95_cgMLST 
+
+
+chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
+
+
+### 4.7 View the chewBBACA output
+
 
 # **5. Calculate distance matrix from cgMLST allele call tables of `ChewBBACA`**
 
