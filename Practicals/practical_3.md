@@ -8,7 +8,9 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
-In the previous practical (bacterial genotyping) you used MLST to identify that the Salmonella enterica samples belong to two sequence types and that cgMLST group the sequences together based on sequence types. You also identified that multiple isolates belonged to the same ST indicating that those isolates likely belong to a cluster. You will next construct a phylogenomic tree which is another method that we can use to confirm which of the Salmonella enterica isolates belong to a genomic cluster and are thus appart of an outbreak. This will include the sections in the below workflow figure indicated by a a star. 
+In the previous practical on bacterial genotyping, you used MLST to determine that the Salmonella enterica isolates belonged to two different sequence types (STs). You also used cgMLST to show that the isolates clustered according to their sequence types. Several isolates shared the same ST, suggesting that they may belong to the same genomic cluster.
+
+In this practical, you will construct a phylogenomic tree to further investigate the relationships among the Salmonella enterica isolates. Phylogenomic analysis provides higher resolution than MLST and can be used to confirm which isolates belong to the same genomic cluster and are therefore likely to be part of the same outbreak. This practical covers the steps highlighted with a star in the workflow figure below.
  
 
 <img width="806" height="591" alt="image" src="https://github.com/user-attachments/assets/8ab7ea23-a1a3-416e-9a79-88757197144c" />
