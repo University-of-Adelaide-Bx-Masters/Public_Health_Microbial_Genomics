@@ -245,19 +245,20 @@ Parameters explained:
 
  The `ExtractCgMLST` module creates a file with the list of core loci and the cgMLST allelic profiles for each threshold (95%, 99% and 100%)
 
-We will use the cgMLST determined at the 95% threshold for further analyses. The 95% allows to strike a balance between including a sufficient number of loci for high-resolution typing and accounting for potential missing data due to sequencing or assembly issues. The file `cgMLSTschema95.txt contains a list of the core loci identified at the 95% threshold. In step 4.6 you will pass this file to the --gl parameter of the AlleleCall module to perform allele calling at the cgMLST level.
+We will use the cgMLST determined at the 95% threshold for further analyses. The 95% allows to strike a balance between including a sufficient number of loci for high-resolution typing and accounting for potential missing data due to sequencing or assembly issues. The file `cgMLSTschema95.txt` contains a list of the core loci identified at the 95% threshold. In step 4.6 you will pass this file to the --gl parameter of the AlleleCall module to perform allele calling at the core genome MLST level.
 
 
 ### 4.6 AlleleCall module to perform allele calling at the cgMLST level
 
-In step 4.2 we ran AlleleCall using the complete Salmonella schema to identify **all** loci in our 9 Salmonella isolates. After defining the core genome above, a second AlleleCall is performed using only the core genome loci, producing allele profiles that are directly comparable between isolates that are included in our specific analysis. 
+In step 4.2 we ran AlleleCall using the complete Salmonella schema to identify **all** loci in our 9 Salmonella isolates. After defining the core genome above, a second AlleleCall is performed using only the **core genome loci**, producing allele profiles that are directly specific to our analysis. 
 
-Run 
+Run `Allelecall` as follows: 
 
 ```bash
 chewBBACA.py AlleleCall -i assembly/ -g  db/salmonella_schema --gl cgmlst/cgmlst_matrix/cgMLSTschema95.txt -o cgmlst/allele_calling_results_95_cgMLST
 ```
 
+The structure of the command is similar to the one used to perform allele calling in step 4.2, with the addition of the --gl parameter to specify the list of core loci `cgmlstschema95.txt`. The output folder will also have the same structure, but the files include results at the core genome MLST level. 
 
 ### 4.7 View the chewBBACA output
 
