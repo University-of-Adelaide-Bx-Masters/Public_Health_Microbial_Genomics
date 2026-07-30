@@ -207,9 +207,18 @@ chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial
 
 ### 4.2 Perform allele calling on the Salmonella enterica genome assemblies
 
+Now that the Salmonella cgMLST schema has been adapted we can perform allele calling on the Salmonella enterica samples (we will use the genome assemblies as input, FASTA), you will do this using the `AlleleCall` module in `chewBACCA`. 
+
 To run `chewBACCA` `AlleleCall` you need:
 - Genome assemblies (FASTA) as input files
 - A cgMLST schema (includes gene loci and alleles)
+
+Understanding Allele Calling, the AlleleCall module:
+- Extracts coding sequences from each genome assembly
+- Compares sequences to the schema loci using BLAST
+- Assigns allele numbers based on sequence identity
+- Identifies new alleles not in the schema
+- Classifies loci as exact match, new allele, or problematic
 
 Now the fun part - lets go ahead and run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes: 
 
