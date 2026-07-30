@@ -8,7 +8,7 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
-Firstly, congratulations, in the previous practical (species classification) you identified that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia Salmonella makes up a large proportion of infectious disease cases that are notified to the Australian government. We get ~20,000 cases of Salmonella in Australia each year. That is alot of cases and you can imagine how busy the Public health laboratories are with sequencing and analysing all of the Salmonella cases. 
+Firstly, congratulations, in the previous practical (species classification) you identified that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia Salmonella makes up a large proportion of infectious disease cases that are notified to the Australian government. We get ~20,000 cases of Salmonella in Australia each year. That is alot of cases and you can imagine how busy the public health laboratories are with sequencing and analysing samples from Salmonella cases. 
 
 Now that we know that we are working with Salmonella enterica, we can now move on to the next step of the genomics workflow (indicated by a yellow start in the workflow figure below), which is to genotype the 9 Salmonella enterica sequences. 
 
@@ -35,7 +35,7 @@ source activate bioinf
 ```
 
 ## 2.2 Create directory structure
-Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
+Let's create a new directory for today's practical and create sub directories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
 mkdir --parents ~/Practical_bacterial_genotyping/{assembly,cgmlst,db,mlst}
@@ -75,7 +75,7 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 # **3. Assigning strains an MLST using the `mlst` tool**
 
-The `mlst` tool written by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against an online database (known as PubMLST, we wont discuss this database in detail today) that houses the MLST typing schemes and reports the sequence type.
+The `mlst` tool written by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against an online database (known as PubMLST, we won't be looking at this database in detail today) that houses the MLST typing schemes and reports the sequence type.
 
 Lets get started, 
 
@@ -169,7 +169,7 @@ Now lets look at if you were to specify the wrong scheme for the organism in you
 mlst --scheme mycobacteria_2 --quiet assembly/ERR10479021.fasta
 ```
 
-On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` scheme that we specified have not been detected in out salmonella sample. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with ensuring that you are running the correct downstream analysis - and as we have just seen this is important to get a sequence type. 
+On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` scheme that we specified have not been detected in the Salmonella samples. What this shows is that it is important to first determine what species your samples belong to, as this helps with ensuring that you are running the correct downstream analysis, and as we have just seen this is important to get a sequence type. 
 
 ### 3.2 Run `mlst` over all samples
 
@@ -183,19 +183,18 @@ mlst --scheme salmonella --quiet assembly/E*.fasta > mlst/salmonella_mlst_result
 
 **Questions:** 
 Remember that if multiple samples belong to the same ST they likely represent an outbreak. View the output results(`salmonella_mlst_results.tsv`) on the terminal and answer the following questions: 
+- What are the STs present? 
 - How many STs are present in the salmonella samples?
-- Do you observe any outbreaks?
-- How many outbreaks could be present?
-  
+- How many samples belong to each ST?
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
 We have used `mlst` to assign a sequence type to our Salmonella enterica samples, which is an important tool for the initial quick screening of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
 
-`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particularly in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR)- based allele calling alogarithm to identify alleles across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
+`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particularly in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR) based allele calling algorithm to identify alleles across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
 
 ### 4.1 Salmonella enterica core genome MLST schema
 
-cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is quiet alot more genes compared to the seven genes included in the mlst) 
+cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is quiet a bit more genes compared to the seven genes included in mlst) 
 
 Before `chewbbaca` can be run on the samples the Salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky for you - I have already done this step.   
 
@@ -208,6 +207,7 @@ chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial
 ### 4.2 Perform allele calling on the Salmonella enterica genome assemblies
 
 Now that the Salmonella cgMLST schema has been adapted we can perform allele calling on the 9 Salmonella enterica samples (we will use the genome assemblies as input, FASTA). You will do this using the `AlleleCall` module in `chewBACCA`. The AlleleCall module analyses each genome assembly, identifies loci from the Salmonella cgMLST schema, and assigns an allele identifier for each locus. Novel alleles identified in the analysed genomes are added to the schema. 
+
 To run `chewBACCA` `AlleleCall` you need:
 - Genome assemblies (FASTA) as input files
 - A cgMLST schema (includes gene loci and alleles)
@@ -220,14 +220,16 @@ This will take ~15 minutes to run - you will see stuff happening in the terminal
 chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
 ```
 
-The main output is the `results_alleles.tsv`, which is a tab delimited file with:
-- Rows, genome assemblies
-- Columns, schema loci
-- Values, allele identifiers or classification code
+The main output is `results_alleles.tsv`, which is a tab delimited file with:
+- Rows: genome assemblies
+- Columns:  schema loci
+- Values: allele identifiers or classification code
+
+In the next section you will input the `results_alleles.tsv` into the ExtractCgMLST module of `chewBBACA`. This is to determine the set of core loci, that is the loci identified in all or the majority of the genomes, based on the allele calling results to be able to perform allele calling at the cgMLST level.
 
 ### 4.5 Determine the set of loci that make up the core genome in our Salmonella enterica dataset
 
-Not all loci are present in all genomes.
+Not all loci are present in all genomes
 
 To focus on the core genome (loci present in ≥95% or 100% of isolates) we will run `chewBBACA` as here:
 
