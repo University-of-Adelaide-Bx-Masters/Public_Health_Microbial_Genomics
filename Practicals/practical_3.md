@@ -7,9 +7,10 @@ By Dr Jessica Webb
 {:toc}
 
 # **1. Introduction**
-Whole-genome sequencing (WGS) of bacterial pathogens has transformed public health microbiology. By comparing the genomes of bacterial isolates, we can determine how closely related they are, identify outbreaks, and track the spread of antimicrobial resistance. 
 
-In Practicals 1 and 2 you learned about species classification and microbial genotyping, this practical will focus on variant calling, phylogenomic trees and interpretation of trees for public health. This will include the sections in the below figure indicated by a a star. Including sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
+In the previous practical (bacterial genotyping) you used MLST to identify that the Salmonella enterica samples belong to two sequence types and that cgMLST group the sequences together based on sequence types. You also identified that multiple isolates belonged to the same ST indicating that those isolates likely belong to a cluster. You will next construct a phylogenomic tree which is another method that we can use to confirm which of the Salmonella enterica isolates belong to a genomic cluster and are thus appart of an outbreak. 
+
+This practical will focus on variant calling, phylogenomic trees and interpretation of trees for public health. This will include the sections in the below figure indicated by a a star. Including sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
 
 <img width="806" height="591" alt="image" src="https://github.com/user-attachments/assets/8ab7ea23-a1a3-416e-9a79-88757197144c" />
 
