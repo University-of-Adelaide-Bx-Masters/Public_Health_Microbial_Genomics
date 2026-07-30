@@ -17,7 +17,7 @@ In this practical, you will construct a phylogenomic tree to further investigate
 
 
 ## 1.1 Practical Overview
-For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the previous practicals. You will be undertaking  sequence read mapping and variant calling for constructing phylogenomic trees and then visualise the tree alongside epidemiological data in microreact, this will provide you with an understanding of how to apply phylogenomics to public health settings. 
+For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the previous practicals. You will be undertaking  sequence read mapping and variant calling for constructing phylogenomic trees and then visualise the tree alongside epidemiological data in microreact. This will provide you with an understanding of how to apply phylogenomics to public health settings. 
 
 ## 1.2 Learning Outcomes
 1.	Gain more in-depth knowledge and further practice on identifying variants 
