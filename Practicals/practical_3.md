@@ -195,28 +195,28 @@ Some of the important output files are:
 - A simple tab-separated summary of all variants (`.tab`) 
 - A version of the reference genome with all variants instantiated ('consensus.fa`)  
 
-To look at `snps.bam`:
+To look at the alignment in BAM format:
 
 ```bash
  samtools view -H snippy/ERR10479021/snps.bam | head -30
 ```
 
-To look at `snps.vcf`: 
+To look at final annotated variants: 
 
 ```bash 
- head -35 new-sample-1/snps.vcf 
+ head -35  snippy/ERR10479021/snps.vcf 
 `````
 
-  To look at the table of variants 
+ To look at the table of variants: 
 
   ```bash
- head -5 new-sample-1/snps.tab
+ head -5  snippy/ERR10479021/snps.tab
  `````
 
 To look at the consensus genome sequence:
 
 ```bash
-head new-sample-1/snps.consensus.fa
+head snippy/ERR10479021/snps.consensus.fa
 `````
 
    
