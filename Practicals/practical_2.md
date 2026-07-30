@@ -207,18 +207,11 @@ chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial
 
 ### 4.2 Perform allele calling on the Salmonella enterica genome assemblies
 
-Now that the Salmonella cgMLST schema has been adapted we can perform allele calling on the Salmonella enterica samples (we will use the genome assemblies as input, FASTA), you will do this using the `AlleleCall` module in `chewBACCA`. 
+Now that the Salmonella cgMLST schema has been adapted we can perform allele calling on the 9 Salmonella enterica samples (we will use the genome assemblies as input, FASTA). You will do this using the `AlleleCall` module in `chewBACCA`. The AlleleCall module will analyse the 9 genomes to identify the loci included in the Salmonella schema and determine the allelic profile for each genome. New alleles identified in the analysed genomes will be added to the schema to expand it. 
 
 To run `chewBACCA` `AlleleCall` you need:
 - Genome assemblies (FASTA) as input files
 - A cgMLST schema (includes gene loci and alleles)
-
-Understanding Allele Calling, the AlleleCall module:
-- Extracts coding sequences from each genome assembly
-- Compares sequences to the schema loci using BLAST
-- Assigns allele numbers based on sequence identity
-- Identifies new alleles not in the schema
-- Classifies loci as exact match, new allele, or problematic
 
 Now the fun part - lets go ahead and run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes: 
 
@@ -228,7 +221,7 @@ This will take ~15 minutes to run - you will see stuff happening in the terminal
 chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
 ```
 
-The main output file is the `results_alleles.tsv`, which is a tab delimited file with:
+The main output is the `results_alleles.tsv`, which is a tab delimited file with:
 - Rows, genome assemblies
 - Columns, schema loci
 - Values, allele identifiers or classification code
