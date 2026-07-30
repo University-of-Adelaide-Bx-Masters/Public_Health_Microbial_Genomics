@@ -17,7 +17,7 @@ In this practical, you will construct a phylogenomic tree to further investigate
 
 
 ## 1.1 Practical Overview
-For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the previous practicals. You will be undertaking  sequence read mapping and variant calling for constructing phylogenomic trees and then visualise the tree alongside epidemiological data in microreact. This will provide you with an understanding of how to apply phylogenomics to public health settings. 
+For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the previous practicals. You will be undertaking sequence read mapping and variant calling for constructing phylogenomic trees and then visualise the tree alongside epidemiological data in microreact. This will provide you with an understanding of how to apply phylogenomics to public health settings. 
 
 ## 1.2 Learning Outcomes
 1.	Gain more in-depth knowledge and further practice on identifying variants 
@@ -154,7 +154,7 @@ You should see the `bwa mem` command on the terminal - looks something like this
 bwa mem  -Y -M -R '@RG\tID:ERR10479021\tSM:ERR10479021' -t 8 reference/ref.fa /shared/data/public_health_genomics/microbial_genomics/ERR10479021_1.fastq.gz /shared/data/public_health_genomics/microbial_genomics/ERR10479021_2.fastq.gz | samclip --max 10 --ref reference/ref.fa.fai | samtools sort -n -l 0 -T /tmp --threads 3 -m 2000M | samtools fixmate -m --threads 3 - - | samtools sort -l 0 -T /tmp --threads 3 -m 2000M | samtools markdup -T /tmp --threads 3 -r -s - - > snps.bam
 ```
 
-`snippy` then  run the below to see the `samtools`command: 
+Then run the below to see the `samtools`command: 
 
 ```bash
 grep "COMMAND: samtools" snippy/ERR10479021/snps.log
@@ -282,7 +282,7 @@ This creates a phylogenomic tree in newick format - its the 'core_genome.full.al
 
 # **6. Visualise the phylogenomic tree using Microreact**
 
-For this practical we will use Microreact to visulise the phylogenomic tree (`core_genome.full.aln.treefile`). Microreact (https://microreact.org) is a free, web-based tool developed by the Center for Genomic Pathogen Surveillance (CGPS) that allows you to interactively visualise phylogenomic trees alongside epidemiological metadata. It is widely used in public health genomics for outbreak investigation and surveillance.
+For this practical we will use Microreact to visulise the phylogenomic tree (`core_genome.full.aln.treefile`). Microreact (https://microreact.org) is a free, web-based tool developed by the Centre for Genomic Pathogen Surveillance (CGPS) that allows you to interactively visualise phylogenomic trees alongside epidemiological metadata. It is widely used in public health genomics for outbreak investigation and surveillance.
 
 It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
 
