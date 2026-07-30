@@ -267,8 +267,16 @@ The `chewBBACA` `AlleleCall` (the one you ran in step 4.6) output file `results_
 The tree shows genetic relatedness based on allele differences. 
 
 To do this: 
-- Download `results_alleles.tsv` file from the VM.
-- 
+- Download `results_alleles.tsv` file from the VM
+- Open a web browser and go to the PHYLOViZ website (https://online2.phyloviz.net)
+- scroll down to Test PHYLOViZ online and click login-free
+- Then
+- Then click nodes and select node labels
+- Then click Links and select add link labels 
+
+You should see something like this:
+
+<img width="1474" height="802" alt="image" src="https://github.com/user-attachments/assets/721b210f-71fc-48e1-87e8-4daf13bee4ab" />
 
 
 
