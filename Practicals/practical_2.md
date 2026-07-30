@@ -262,6 +262,8 @@ The structure of the command is similar to the one used to perform allele callin
 
 ### 4.7 View the chewBBACA output
 
+View `chewBBACA` cPHYLOViZ Online to visualize Minimum Spanning Trees (MSTs)
+
 
 
 # **7. Comparison of MLST and core-genome MLST results**
