@@ -21,13 +21,12 @@ Previous genomic analyses were unable to identify the genetic mechanism responsi
 
 In this practical, you will:
 
-* Annotate a reference bacterial genome to identify genes and their predicted functions.
-* Align sequencing reads from a resistant isolate to the annotated reference genome.
-* Identify genetic variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (indels), that differ between the isolate and the reference genome.
+* Annotate the reference bacterial genome to identify genes and their predicted functions
+* Align sequencing reads from a resistant isolate to the annotated reference genome and identify genetic variants that differ between the isolate and the reference genome
 * Annotate detected variants to predict their potential functional effects, including synonymous, missense, nonsense, and frameshift mutations.
-* Visualise variants within their genomic context to evaluate data quality and assess their potential biological relevance.
+* Visualise variants within their genomic context 
 
-**The data that we will be working with today inludes a primary isolate and secondary isolate from three patients:**
+**The data that we will be working with today includes a primary isolate and secondary isolate from three patients:**
 
 Patient 1:
 - MSHR3763 (primary isolate)
@@ -68,7 +67,7 @@ The data for today's practical is located in `~/data/amr_variants`. As in previo
 cd ~/Practical_amr_variants
 # create symlinks for all fastq files
 ln -s ~/data/public_health_genomics/amr_variants/burk_reads/*.fastq.gz reads/
-# create symlink for reference genome
+# create symlinks for the reference genomes
 ln -s ~/data/public_health_genomics/amr_variants/burk_references/*.fasta assembly/
 # we can confirm where we are 
 pwd
