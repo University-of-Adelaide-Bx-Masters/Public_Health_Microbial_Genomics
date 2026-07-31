@@ -193,9 +193,9 @@ When you ran `snippy` above (in section 3.1) it created two versions of the pseu
 
 Some of the important output files are:
 - The alignments in BAM format. Includes unmapped, multimapping reads (`snps.bam`)
-- The final annotated variants in VCF format (`snps.vcf')
+- The final annotated variants in VCF format (`snps.vcf`)
 - A simple tab-separated summary of all variants (`.tab`) 
-- A version of the reference genome with all variants instantiated ('consensus.fa`)  
+- A version of the reference genome with all variants instantiated (`consensus.fa`)  
 
 To look at the alignment in BAM format:
 
