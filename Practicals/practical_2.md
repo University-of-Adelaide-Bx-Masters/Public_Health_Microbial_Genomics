@@ -8,26 +8,22 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
-Firstly, congratulations, in the previous practical (species classification) you idenitifed that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia Salmonella makes up a large portion of disease cases that are notified to the Australian government. We get ~20,000 cases of Salmonella in Australia each year. That is alot of cases and you can imagine how busy the Public health labs are with sequencing and analysing all of the Salmonella cases. 
+Firstly, congratulations, in the previous practical (species classification) you identified that the 9 isolates belong to Salmonella enterica. Before we move on, I wanted to say that in Australia Salmonella makes up a large proportion of infectious disease cases that are notified to the Australian government. We get ~20,000 cases of Salmonella in Australia each year. That is alot of cases and you can imagine how busy the public health laboratories are with sequencing and analysing samples from Salmonella cases. 
 
 Now that we know that we are working with Salmonella enterica, we can now move on to the next step of the genomics workflow (indicated by a yellow start in the workflow figure below), which is to genotype the 9 Salmonella enterica sequences. 
 
 <img width="808" height="588" alt="image" src="https://github.com/user-attachments/assets/a0719c5b-af60-4605-ad0c-a00da9f892e2" />
 
-
-Bacterial genotyping......Multilocus Sequence Typing (MLST) is widely used globally and is standardised across hundreads of bacterial species which allows for global comparisons. This is particulalry important for comparing strains across different georaphical areas that might be implicated in an outbreak.
-
 ## 1.1 Practical Overview
-
+For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the species classification practical, for this practical we will be working with their genome assemblies (FASTA). Remember that in the species classification practical you identified the 9 isolates as salmonella enterica and the next step in the microbial genomics workflow is to genotype the 9 samples. You will be testing different genotyping approaches that are commonly used for bacterial genotyping, they include MLST (genotyping of bacteria based on seven house keeping genes) and cgMLST (genotyping of bacteria based on thousands of core genome genes). Remember that bacterial samples belonging to the same MLST sequence type are likely to be associated with the same outbreak.
 
 In practice, MLST and cgMLST are often used together:
-   -  MLST first: Quick screening to identify strain types and potential outbreaks
-   - cgMLST second: High-resolution analysis of isolates of interest
-   - Combined interpretation: MLST for context, cgMLST for detail
-
-
+   -  MLST is used first to quickly screen bacterial isolates to identify any potential outbreaks
+   - cgMLST is then used as a higher genetic resolution approach to confirm outbreaks 
+ 
 ## 1.2 Learning Outcomes
-
+1. Gain practice in performing bacterial genotyping 
+2. Learn how to interoperate results and relevance to public health surveillance of bacteria 
 
 # **2. Setup**
 
@@ -39,7 +35,7 @@ source activate bioinf
 ```
 
 ## 2.2 Create directory structure
-Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
+Let's create a new directory for today's practical and create sub directories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
 mkdir --parents ~/Practical_bacterial_genotyping/{assembly,cgmlst,db,mlst}
@@ -60,18 +56,36 @@ pwd
 
 If you run the `tree` command, you can see the structure of all the directories and symlinks you've created. It should look something like this:
 ```
-TO ADD IN
+.
+├── assembly
+│   ├── ERR10479021.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479021.fasta
+│   ├── ERR10479025.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479025.fasta
+│   ├── ERR10479028.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479028.fasta
+│   ├── ERR10479029.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479029.fasta
+│   ├── ERR10479032.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479032.fasta
+│   ├── ERR10479034.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479034.fasta
+│   ├── ERR10479035.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479035.fasta
+│   ├── ERR10479037.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479037.fasta
+│   └── ERR10479039.fasta -> /shared//a1237649/data/public_health_genomics/microbial_genomics/assemblies/ERR10479039.fasta
+├── cgmlst
+├── db
+│   └── salmonella_schema -> /shared//a1237649/data/public_health_genomics/microbial_genomics/salmonella_schema
+└── mlst
 ```
 
 # **3. Assigning strains an MLST using the `mlst` tool**
 
-The `mlst` tool by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against PubMLST typing schemes and reports the sequence type.
+The `mlst` tool written by Torsten Seemann scans bacterial genome assemblies (in FASTA format) against an online database (known as PubMLST, we won't be looking at this database in detail today) that houses the MLST typing schemes and reports the sequence type.
 
-Run this to get the help information for mlst
+Lets get started, 
+
+First run this to get the help information for `mlst`
 
 ```bash
 mlst -h
 ```
+
+You can see a whole bunch of stuff on the terminal - feel free to read over this if you like. 
 
 ### 3.1 Before running `mlst` we can check what schemes are available
 
@@ -123,7 +137,7 @@ Now try this and take note of what is printed on the terminal
 mlst --quiet assembly/ERR10479021.fasta
 ```
 
-On the terminal you should see the `mlst` command returned a tab-seperated line (this is the line that we are most interested in) containing:
+On the terminal you should see the `mlst` command returned a tab-separated line (this is the line that we are most interested in) containing:
 - The filename
 - The macthing PubMLST schema name
 - The Sequence Type (ST)
@@ -132,34 +146,34 @@ On the terminal you should see the `mlst` command returned a tab-seperated line 
 <img width="1265" height="342" alt="image" src="https://github.com/user-attachments/assets/663749fc-2dad-4df5-80a6-0cfb8ecc15a0" />
 
 
-The command we ran above generally autodetects an appropriate bacterial scheme to use. However their may be times where an incorrect scheme is selected by the `mlst` tool. This can happen for example between closeley related bacterial species (e.g. shigella and e.coli), where the house keeping genes are genetically similar. To overcome this, you can force `mlst` to use a specific scheme by adding the option `--schema` followed by the name of the scheme - in our case we are working with salmonella samples so we will use the `salmonella` scheme: 
+The command we ran above generally auto detects an appropriate bacterial scheme to use. However their may be times where an incorrect scheme is selected by the `mlst` tool. This can happen for example between closely related bacterial species (e.g. shigella and e.coli), where the house keeping genes are genetically similar. To overcome this, you can force `mlst` to use a specific scheme by adding the option `--schema` followed by the name of the scheme - in our case we are working with salmonella samples so we will use the `salmonella` scheme: 
 
 ```bash
 mlst --scheme salmonella --quiet assembly/ERR10479021.fasta
 ```
-Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the scheme campared to when we didnt force the scheme - lucky! 
+Looking at the results you can see that we get the same ST, genes and allele IDs when we forced the scheme compared to when we didn't force the scheme - lucky! 
 
 However, because we used the `--quiet` setting we did not get all of the information printed on the terminal - if we run without `--quiet` 
 
 ```bash
 mlst --scheme salmonella assembly/ERR10479021.fasta
 ```
-You can actually see that the results are different to the results from when we didnt specify a scheme. 
+You can actually see that the results are different to the results from when we didn't specify a scheme. 
 
 **Question:** 
 - can you see which result is different? hint its not to do with the ST or allele IDs. 
 
-Now lets look at if you were to specificy the wrong scheme for the organism in your sample. The command will run but you will not get any results. For example lets run the Mycobacterium tuberculosis scheme over a salmonella sample:
+Now lets look at if you were to specify the wrong scheme for the organism in your sample. The command will run but you will not get any results. For example lets run the Mycobacterium tuberculosis scheme over a salmonella sample:
 
 ```bash
 mlst --scheme mycobacteria_2 --quiet assembly/ERR10479021.fasta
 ```
 
-On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` scheme that we specified have not been detected in out salmonella sample. What this shows you is that it is so important to first determine what species your samples belongs to as this helps with ensuring thet you are running the correct downstream analysis - and as we have just seen this is important to get a sequence type. 
+On the terminal you can see that a `-` is present for the ST and allele IDs. This is because the genes used for the `mlst` scheme that we specified have not been detected in the Salmonella samples. What this shows is that it is important to first determine what species your samples belong to, as this helps with ensuring that you are running the correct downstream analysis, and as we have just seen this is important to get a sequence type. 
 
 ### 3.2 Run `mlst` over all samples
 
-Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping samples. We can now go ahead and genotype the remaining salmonella samples. All of our salmonella assemblies begin with the letter "E". So the easiest way to run `mlst` over all our samples is to use a wild card to call all the .fasta samples begining with E and run the `mlst` tool on each of the assembly files. 
+Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping samples. We can now go ahead and genotype the remaining salmonella samples. All of our salmonella assemblies begin with the letter "E". So the easiest way to run `mlst` over all our samples is to use a wild card to call all the .fasta samples beginning with E and run the `mlst` tool on each of the assembly files. 
 
 You can do this using the following command, at the same time we will direct the results to an output file named (`salmonella_mlstresults.tsv`):
 
@@ -169,21 +183,20 @@ mlst --scheme salmonella --quiet assembly/E*.fasta > mlst/salmonella_mlst_result
 
 **Questions:** 
 Remember that if multiple samples belong to the same ST they likely represent an outbreak. View the output results(`salmonella_mlst_results.tsv`) on the terminal and answer the following questions: 
+- What are the STs present? 
 - How many STs are present in the salmonella samples?
-- Do you observe any outbreaks?
-- How many outbreaks could be present?
-  
+- How many samples belong to each ST?
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
-We have used `mlst` to assign a sequence type to our salmonella samples, which is an important tool for the initual quick screaning of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
+We have used `mlst` to assign a sequence type to our Salmonella enterica samples, which is an important tool for the initial quick screening of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
 
-`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particulalry in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR)- based allele calling alogarithm to identify allels across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are considered to be more closely related. 
+`chewBBACA` is a commonly used tool for undertaking cgMLST on bacterial genomes, particularly in public health settings for outbreak investigations. `chewBBACA` uses a BLAST score ratio (BCR) based allele calling algorithm to identify alleles across genome assemblies, producing allelic profiles that can be compared between bacterial samples. Generally, samples with fewer allele differences are more closely related. 
 
 ### 4.1 Salmonella enterica core genome MLST schema
 
-cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is quiet alot more genes compared to the seven genes included in the mlst) 
+cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is many more genes compared to the seven genes included in mlst) 
 
-Before `chewbbaca` can be run on the samples the salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky for you - I have already done this step.   
+Before `chewbbaca` can be run on the samples the Salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky for you - I have already done this step.   
 
 YOU DO NOT NEED TO RUN THIS COMMAND I HAVE ALREADY DONE THIS FOR YOU - THIS IS TO SHOW YOU HOW THE COMMAND LOOKS FOR CONVERTING cgMLST SCHEMA FOR INPUT INTO `chewbacca`. 
 
@@ -193,119 +206,113 @@ chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial
 
 ### 4.2 Perform allele calling on the Salmonella enterica genome assemblies
 
+Now that the Salmonella cgMLST schema has been adapted we can perform allele calling on the 9 Salmonella enterica samples (we will use the genome assemblies as input, FASTA). You will do this using the `AlleleCall` module in `chewBACCA`. The AlleleCall module analyses each genome assembly, identifies loci from the Salmonella cgMLST schema, and assigns an allele identifier for each locus. Novel alleles identified in the analysed genomes are added to the schema. 
+
 To run `chewBACCA` `AlleleCall` you need:
 - Genome assemblies (FASTA) as input files
 - A cgMLST schema (includes gene loci and alleles)
 
 Now the fun part - lets go ahead and run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes: 
 
-This will take ~15 minutes to run - you will see stuff happening in the terminal and it will stop once finihsed. 
+This will take ~15 minutes to run - you will see stuff happening in the terminal and it will stop once finished. 
 
 ```bash
 chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
 ```
 
-The main output file is the `results_alleles.tsv`, which is a tab delimited file with:
-- Rows, genome assemblies
-- Columns, schema loci
-- Values, allele identifiers or classification code
+The main output is `results_alleles.tsv`, which is a tab delimited file with:
+- Rows: genome assemblies
+- Columns:  schema loci
+- Values: allele identifiers or classification code
 
-### 4.3 schema evaluator 
 
-build an interactive report for schema evaluation: 
+### 4.5 Determine the set of loci that make up the core genome in our Salmonella enterica dataset
 
-```bash
-chewBBACA.py SchemaEvaluator -g db/salmonella_schema -o cgmlst/schema_evaluator
-```
-This takes ~10 minutes to complete 
+In this section, you will use the `results_alleles.tsv` file generated in Step 4.4 as input to the `ExtractCgMLST` module in chewBBACA. The `ExtractCgMLST` module identifies the set of core genome loci, those present in all or most of the analysed genomes (in this case, the 9 Salmonella genomes). By default, ExtractCgMLST generates core genome schemes using locus presence thresholds of 95%, 99%, and 100% (for example present in 95% of samples), these thresholds are standard for defining the core genome. The resulting core genome locus list can then be used to perform allele calling at the cgMLST level, providing higher-resolution typing for strain discrimination. 
 
-Main output is the `schema_report.html` file 
+To determine the cgMLST loci from the allele calling results, run the following command:
 
-### 4.4 Allele call evaluator
-
-build an interactive report for allele calling schema evaluation 
+Please note that for the file path below "cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv" the folder `results_20260713T071622` will be named different for you. Please make sure that you insert the correct name into the below command. If you need help, please ask. 
 
 ```bash
-chewBBACA.py AlleleCallEvaluator -i cgmlst/allele_calling_results/results_20260713T071622/ -g db/salmonella_schema -o cgmlst/AlleleCallEvaluator
-```
-
-This takes ~12 minutes to complete 
-
-This produces the following outputs:
-
-
-### 4.5 Determine the set of loci that make up the core genome 
-
-Not all loci are present in all genomes.
-
-To focus on the core genome (loci present in ≥95% or 100% of isolates) we will run `chewBBACA` as here:
-
-```bash
-# Extract core genome loci
+# Determine the core genome loci
 chewBBACA.py ExtractCgMLST -i cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv -o cgmlst/cgmlst_matrix 
-                            #--t 0.95 \
-                           #(OPTIONAL) --r allele_calling_results/RepeatedLoci.txt
 ```
 
 Parameters explained:
 -i: Input allele calling results file
 -o: Output directory
---t: Threshold (0.95 = loci present in ≥95% of genomes)
---r: File with repeated loci to exclude (optional)
 
-The main output of `chewBBACA.py` `ExtractCgMLST` is a cgMLST schema: a list of loci selected as the core genome MLST targets based on their presence across the input genome set (in our case the salmonella samples).
+ The `ExtractCgMLST` module creates a file with the list of core loci and the cgMLST allelic profiles for each threshold (95%, 99% and 100%)
 
-Outputs:
-- cgMLST.tsv: Allele profiles for core genome loci only
-- cgMLSTschema.txt: List of core genome loci
--  mdata_stats.tsv: Statistics on missing data per genome
+We will use the cgMLST determined at the 95% threshold for further analyses. The 95% allows to strike a balance between including a sufficient number of loci for high-resolution typing and accounting for potential missing data due to sequencing or assembly issues. The file `cgMLSTschema95.txt` contains a list of the core loci identified at the 95% threshold. In step 4.6 you will pass this file to the --gl parameter of the AlleleCall module to perform allele calling at the core genome MLST level.
 
-# **5. Calculate distance matrix from cgMLST allele call tables of `ChewBBACA`**
 
-Calculate pairwise allelic differences
+### 4.6 AlleleCall module to perform allele calling at the cgMLST level
 
-Run `cgmlst-dists` to calculate distance matrix from cgMLST allele call table  that was generated by `chewbBACA` (step 4.2)
+In step 4.2 we ran AlleleCall using the complete Salmonella schema to identify **all** loci in our 9 Salmonella isolates. After defining the core genome above, a second AlleleCall is performed using only the **core genome loci**, producing allele profiles that are directly specific to our analysis. 
 
-``` bash
-cgmlst-dists cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv > cgmlst/distance.tab
-```
-This command calculates the number of allele differences between every pair of isolates and writes the results to `distance.tab` 
-
-look at the output 
+Run `Allelecall` as follows: 
 
 ```bash
-cat cgmlst/distance.tab
+chewBBACA.py AlleleCall -i assembly/ -g  db/salmonella_schema --gl cgmlst/cgmlst_matrix/cgMLSTschema95.txt -o cgmlst/allele_calling_results_95_cgMLST
 ```
 
-```bash
-cgmlst-dists    ERR10479021     ERR10479025     ERR10479028     ERR10479029     ERR10479032     ERR10479034     ERR10479035     ERR10479037 ERR10479039
-ERR10479021     0       77      77      79      57      0       4       2       3
-ERR10479025     77      0       17      19      77      77      78      77      78
-ERR10479028     77      17      0       4       72      77      76      75      76
-ERR10479029     79      19      4       0       76      79      78      77      76
-ERR10479032     57      77      72      76      0       57      57      57      58
-ERR10479034     0       77      77      79      57      0       4       2       3
-ERR10479035     4       78      76      78      57      4       0       2       3
-ERR10479037     2       77      75      77      57      2       2       0       1
-ERR10479039     3       78      76      76      58      3       3       1       0
-```
+The structure of the command is similar to the one used to perform allele calling in step 4.2, with the addition of the --gl parameter to specify the list of core loci `cgmlstschema95.txt`. The output folder will also have the same structure, but the files include results at the core genome MLST level. The file that we care most about is the `results_alleles.tsv` which can be found here cgmlst/allele_calling_results_95_cgMLST. 
 
-Here you can see (for example):
-- 0 = identical allelic profiles
-- 4 = four allele differences
-- 77 = twenty-five allele differences
-  and so on 
+### 5. View the chewBBACA output
 
-The fewer allele differences between two isolates, the more closely related they are.
+The `chewBBACA` `AlleleCall` (the one you ran in step 4.6) output file `results_alleles.tsv` can be input in to the online tool known as PHYLOViZ (https://online2.phyloviz.net), whereby PHYLOViZ generates a Minimum Spanning Tree from the allelic profiles. 
 
-# **6. Cluster isolates using various (5, 10, 20) allelic differences thresholds**
+The tree shows genetic relatedness based on allele differences, remember the fewer allele differences between samples the more closely related they are. 
 
-single linkage clustering 
+To upload to PHYLOViZ follow this: 
+- Download `results_alleles.tsv` file from the VM
+- Open a web browser and go to the PHYLOViZ website (https://online2.phyloviz.net)
+  Sscroll down to Test PHYLOViZ online and click login-free
+- Then click profile data and then changes analysis method to pairwise comparison
+- Click browse and select the `results_alleles.tsv`
+- Give the dataset a name (Salmonella) and a description (outbreak)
+- Click Launch Tree 
+- Then click graphic properties and click nodes and select node labels and click yes 
+- Then click Links and select add link labels and click yes
 
-``` bash
-to do custom script 
-```
+You should see something like this:
 
-# **7. Visual comparison of MLST and core-genome MLST results**
+<img width="1474" height="802" alt="image" src="https://github.com/user-attachments/assets/721b210f-71fc-48e1-87e8-4daf13bee4ab" />
 
-- combine results into a table - based on the two methods do the isolates belong to the same genotype/group? or has cgMLST split the samples into more groups? 
+How to interpret this image:
+- Each node represents a Salmonella enterica sample 
+- Each edge (line) connects isolates that are genetically most similar
+- Shorter connections indicate fewer allele differences
+- Clusters of nodes represent closely related isolates that may belong to the same outbreak or lineage
+- The number of allele differences between connected isolates is displayed on the branches
+
+It is important to remember that a Minimum Spanning Tree generated in PHYLOViZ is not a true phylogenetic tree. It does not infer a common ancestor or evolutionary direction. It is a network that connects isolates based on allele differences, making it particularly useful for outbreak investigations and comparing MLST to cgMLST. 
+
+In PHYLOViZ you can play around with the allelic difference thresholds and see how this changes how the isolates are connected:
+- Click on the tree modifiers tab in PHYLOViZ and adjust the Tree cut-off (this is the number of allelic difference). Typically for outbreak investigations we would use an allelic difference threshold of 10 to define samples as belonging to a cluster/outbreak. 
+- Try that and take note of what happens to the clusters
+
+You should see something like this:
+
+<img width="1072" height="820" alt="image" src="https://github.com/user-attachments/assets/e27a9a4b-5f23-438d-8dcf-42c2857929b3" />
+
+**Questions:**
+At a threshold of 10 allelic differences, the samples separate into multiple groups. 
+
+However, as shown in the figure, five samples remain clustered together at this threshold: 
+- What does it mean that these five samples remain grouped together at a threshold of 10 allelic differences?
+- Does this confirm that these samples belong to an outbreak cluster? 
+- Are these samples all the same MLST sequence type (ST)? (You can verify this using your MLST results from the first part of this practical session.)
+
+The remaining four samples separate into smaller groups at a threshold of 10 allelic differences:
+- What does this indicate about the genetic relatedness of these samples?
+- Although these samples all belong to the same MLST sequence type (ST), cgMLST can distinguish them into separate groups at the 10 allelic difference threshold. This indicates that, despite sharing the same MLST ST, these samples are not genetically similar enough to be considered part of the same outbreak cluster. This example demonstrates the higher discriminatory power of cgMLST and highlights why it is commonly used alongside MLST in public health investigations to better resolve relationships between isolates.
+
+ 
+
+
+
+
+

@@ -7,15 +7,17 @@ By Dr Jessica Webb
 {:toc}
 
 # **1. Introduction**
-Whole-genome sequencing (WGS) of bacterial pathogens has transformed public health microbiology. By comparing the genomes of bacterial isolates, we can determine how closely related they are, identify outbreaks, and track the spread of antimicrobial resistance. 
 
-The figure below is an example of a microbial genomics workflow that may be undertaken in a public health laboratory. In Practicals 1 and 2 you learned about species classification and microbial genotyping, this pratcial will focus on the steps highlighted in blue in the below figure. Which includes sequence read mapping and variant calling for constructing phylogenomic trees and visualise the tree in microreact with epidemiological data.  
+In the previous practical on bacterial genotyping, you used MLST to determine that the Salmonella enterica isolates belonged to two different sequence types (STs). You also used cgMLST to show that the isolates clustered according to their sequence types. Several isolates shared the same ST, suggesting that they may belong to the same genomic cluster.
+
+In this practical, you will construct a phylogenomic tree to further investigate the relationships among the Salmonella enterica isolates. Phylogenomic analysis provides higher resolution than MLST and can be used to confirm which isolates belong to the same genomic cluster and are therefore likely to be part of the same outbreak. This practical covers the steps highlighted with a star in the workflow figure below.
+ 
 
 <img width="806" height="591" alt="image" src="https://github.com/user-attachments/assets/8ab7ea23-a1a3-416e-9a79-88757197144c" />
 
 
 ## 1.1 Practical Overview
-
+For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the previous practicals. You will be undertaking sequence read mapping and variant calling for constructing phylogenomic trees and then visualise the tree alongside epidemiological data in microreact. This will provide you with an understanding of how to apply phylogenomics to public health settings. 
 
 ## 1.2 Learning Outcomes
 1.	Gain more in-depth knowledge and further practice on identifying variants 
@@ -50,6 +52,8 @@ cd ~/Practical_variants_trees
 ln -s ~/data/public_health_genomics/microbial_genomics/*.fastq.gz reads/
 # create symlink for reference genome
 ln -s ~/data/public_health_genomics/microbial_genomics/GCA_000009505.1_ASM950v1_genomic.fasta assembly/
+# create symlink for metadata
+ln -s ~/data/public_health_genomics/microbial_genomics/metadata.csv metadata/
 # we can confirm where we are 
 pwd
 ```
@@ -117,7 +121,6 @@ Parameter	Description
 Now the fun part, run snippy for each sample. Example command for one sample:
 
 ```bash
-#Note: This is one long command
 snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta --R1 reads/ERR10479021_1.fastq.gz --R2 reads/ERR10479021_2.fastq.gz 
 ```
 Now we wait for snippy to finish this should take ~2 minutes for one sample 
@@ -125,19 +128,103 @@ Now we wait for snippy to finish this should take ~2 minutes for one sample
 ## 3.2 Examine snippy logs 
 To better understand how Snippy processes sequencing reads and generates variant calls, we will inspect the snp.log output file. The log records the commands executed during the analysis, allowing you to trace each stage of the snippy pipeline, including read alignment, BAM processing, variant calling and variant filtering. If you run a tool and it fails – information on why the tool failed to run will often be in the .log file – so this is an important file. 
 
-We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. 
+We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by snippy are executed. Note that for this section you do not need to understand all of the commands that snippy uses at each step (that would be alot of information), this is more so to understand the overall steps. 
 
-#### 3.2.1 View the snippy command and parameters used when we ran snippy: 
+First view the snippy command and parameters used when we you ran snippy: 
 
 ```bash
 grep "outdir" snippy/ERR10479021/snps.log
 ```
-This shows you the exact Snippy command that was run, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
+You should see something like this on the terminal:
+
+```bash
+/apps/conda3/singularity/envs/bioinf/bin/snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta --R1 reads/ERR10479021_1.fastq.gz --R2 reads/ERR10479021_2.fastq.gz
+```
+This shows you the exact `snippy` command that you ran above, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
+
+`snippy` then maps the sequencing reads to the reference genome using `bwa mem`, run the below to see the `bwa mem`command: 
+
+```bash
+grep "bwa mem" snippy/ERR10479021/snps.log
+```
+
+You should see the `bwa mem` command on the terminal - looks something like this: 
+
+```bash
+bwa mem  -Y -M -R '@RG\tID:ERR10479021\tSM:ERR10479021' -t 8 reference/ref.fa /shared/data/public_health_genomics/microbial_genomics/ERR10479021_1.fastq.gz /shared/data/public_health_genomics/microbial_genomics/ERR10479021_2.fastq.gz | samclip --max 10 --ref reference/ref.fa.fai | samtools sort -n -l 0 -T /tmp --threads 3 -m 2000M | samtools fixmate -m --threads 3 - - | samtools sort -l 0 -T /tmp --threads 3 -m 2000M | samtools markdup -T /tmp --threads 3 -r -s - - > snps.bam
+```
+
+Then run the below to see the `samtools`command: 
+
+```bash
+grep "COMMAND: samtools" snippy/ERR10479021/snps.log
+```
+
+You should see the `samtools` command on the terminal - looks something like this: 
+
+```bash
+ samtools markdup -T /tmp --threads 3 -r -s - -
+```
+
+`snippy` then uses `freebays` to call variants in your sample against the reference genome, producing a variant call file (snps.raw.vcf), run:  
+
+```bash
+grep "freebayes" snippy/ERR10479021/snps.log
+```
+
+You should see something like this on the terminal:
+
+```bash
+freebayes-parallel reference/ref.txt 8 -p 2 -P 0 -C 2 -F 0.05 --min-coverage 10 --min-repeat-entropy 1.0 -q 13 -m 60 --strict-vcf   -f reference/ref.fa snps.bam > snps.raw.vcf
+```
+
+`Snippy` then applies some filters to assess the quality of those variants - retaining only high confidence variants. It then applies the high quality variants to the reference genome sequence to create a ‘pseudosequence consensus’ -  a version of the reference genome with the samples variants substituted in, run: 
+
+```bash
+grep "bcftools consensus" snippy/ERR10479021/snps.log
+```
+
+When you ran `snippy` above (in section 3.1) it created two versions of the pseudosequence consensus:
+- snps.consensus.fa, contains all high-quality variants (SNPs and INDELs)
+- snps.consensus.subs.fa, contains only high-quality SNPs (no INDELs)
+
 
 ## 3.3 Now let’s look at some of the snippy output files 
-Snippy 
 
+Some of the important output files are:
+- The alignments in BAM format. Includes unmapped, multimapping reads (`snps.bam`)
+- The final annotated variants in VCF format (`snps.vcf`)
+- A simple tab-separated summary of all variants (`.tab`) 
+- A version of the reference genome with all variants instantiated (`consensus.fa`)  
+
+To look at the alignment in BAM format:
+
+```bash
+ samtools view -H snippy/ERR10479021/snps.bam | head -30
+```
+
+To look at final annotated variants: 
+
+```bash 
+ head -35  snippy/ERR10479021/snps.vcf 
+`````
+
+ To look at the table of variants: 
+
+  ```bash
+ head -5  snippy/ERR10479021/snps.tab
+ `````
+
+To look at the consensus genome sequence:
+
+```bash
+head snippy/ERR10479021/snps.consensus.fa
+`````
+
+   
 ## 3.4 Run snippy over all samples 
+
+You now need to run `snippy` over the remaining samples using the below. You need to create a script called snippy.sh and copy the contents below into it and complete the # Run snippy over the samples section of the script. Then save and run the script. You learnt how to do this in previous practicals. Please let us know if you need help :)
 
 This will take ~30 minutes to finish 
 
@@ -154,12 +241,10 @@ SAMPLES=(ERR10479025 ERR10479028 ERR10479029 ERR10479032 ERR10479034 ERR10479035
 for SAMPLE in "${SAMPLES[@]}";
 do
 
-# Run snippy over the remaning samples
-snippy \
-        --outdir snippy/${SAMPLE} \
-        --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta \
-        --R1 reads/${SAMPLE}_1.fastq.gz \
-        --R2 reads/${SAMPLE}_2.fastq.gz
+# Run snippy over the remaining samples
+
+
+
 done
 ```
 
@@ -197,28 +282,68 @@ This creates a phylogenomic tree in newick format - its the 'core_genome.full.al
 
 # **6. Visualise the phylogenomic tree using Microreact**
 
-For this practical we will use Microreact to visulise the phylogenomic tree. It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
+For this practical we will use Microreact to visulise the phylogenomic tree (`core_genome.full.aln.treefile`). Microreact (https://microreact.org) is a free, web-based tool developed by the Centre for Genomic Pathogen Surveillance (CGPS) that allows you to interactively visualise phylogenomic trees alongside epidemiological metadata. It is widely used in public health genomics for outbreak investigation and surveillance.
+
+It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
 
 Download tree file for Microreact: 
-- A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `todo.nwk` file from the VM. This can be found in your `Practical_phylogenetic_trees_surveillance/results` folder.
+- A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `core_genome.full.aln.treefile`file from the VM. This can be found in your `Practical_variants_trees/tree` folder.
+- Open a web browser and go to the Microreact website (https://microreact.org)
+- Click on "UPLOAD" to create a new project
+- Then drag and drop the `core_genome.full.aln.treefile`file in to the browser
+- Click `continue` to visualise and explore the tree.
+
+We want to first add labels to the tree do this: 
+Click on the ‘Show controls’ button <img width="43" height="42" alt="image" src="https://github.com/user-attachments/assets/3da64599-ad7d-4137-839e-8c60baeff42e" /> and then click nodes & Labels and select leaf labels. 
+
+You should now see a tree in Microreact that looks something like this: 
+
+<img width="1840" height="726" alt="image" src="https://github.com/user-attachments/assets/e19ebeab-2639-432a-a1df-139f70edc27b" />
+
+
+Note this tree is unrooted, which means that it does not have a defined direction in time.
+
+Now midpoint root the tree: 
+- In the Microreact tree panel, right click and select midpoint root
+- The tree will be re-drawn with the reference genome at the base, giving the tree a temporal direction.
+
+The rooted tree should look something like this: 
+
+<img width="1836" height="620" alt="image" src="https://github.com/user-attachments/assets/28a0b067-3555-4ded-9847-fa12ec4a1a53" />
 
 
 
-<img width="1821" height="658" alt="image" src="https://github.com/user-attachments/assets/2d7e8ec5-947a-40d5-be09-171c0ef42b56" />
-
-now lets midpoint root the tree 
-
-<img width="1873" height="733" alt="image" src="https://github.com/user-attachments/assets/40a7cb6f-66db-45ef-a69d-c7b244f0bb18" />
-
-
-
-# **7. Overlay genotyping data onto the tree in Microreact**
-
-# **8. Overlay epidemiological metadata onto the tree in Microreact**
+# **7. Overlay genotyping and epidemiological data onto the tree in Microreact**
 
 One of the most powerful aspects of microbial genomics is the ability to integrate genomic data with epidemiological metadata to investigate outbreak dynamics. 
 
 Download metadata file for Microreact: 
-- A metdata `.CSV` file with a column named `id` matching the sample names in the tree: Download the metadata file from the VM. Note in a real surveillance scenario, your metadata CSV could include columns such as: `collection_date`, `country`, `hospital`, `patient_id`, `MLST_ST`, `resistance_profile`, etc. For this practical this file has been generated for you and can be found in your`Practical_phylogenetic_trees_surveillance/results` folder. 
+- A metdata `.CSV` file with a column named `id` matching the sample names in the tree is needed: Download the metadata file from the VM. (Note in a real surveillance scenario, your metadata CSV could include columns such as: `collection_date`, `country`, `hospital`, `patient_id`, `MLST_ST`, `resistance_profile`, etc).
+- For this practical `metadata.csv` file has been generated for you and can be found in your `Practical_variants_trees/metadata` folder.
+- In this file you can see 4 rows: `id` (matching the sample names in the tree), source (source of samples linked to the outbreak), species (bacterial species as designated in the species classification practical) and mlst ST (mlst ST from genotyping practical). 
+
+Now upload the metadata file to Microreact and explore the tree:
+- Drag and drop the `metadata.csv` into the Microreact browser containing tree
+- Click continue
+- Click on column in tree-labels and select "id"
+- Click on column in metdata.csv and select "id"
+- Click continue
+- Then click the Tree tab - top left hand side (ask me if you cant find this)
+- Then click Metadata blocks top right and under the "select all" select "source", "species" and "ST"
+- Then click legend on the right hand side
+
+  You should see something like this:
+
+  <img width="1847" height="883" alt="image" src="https://github.com/user-attachments/assets/84d6c7ad-6ac2-413c-a9fb-05d51aa92892" />
+
+You can now see the metadata has been overlaid next to the phylogenomic tree. 
+
+It is a little hard to tell but the tree is showing some important information: 
+- Two main groups exist on the tree, one group has four isolates these are the ones that belong to the ST1972 (green square under ST) and the second group consists of five isolates these isolates belong to ST 5438 (yellow square under ST)
+- You would expect to see isolates belonging to the same ST grouping together and that is what we see 
+- You can see that the isolates in group two consist of a closely related cluster of one water isolate and four human isolates.
+- Group two isolates are the isolates that are linked to the Northern territory outbreak and these results indicate that the humans were infected from water contaminated with Salmonella.
+- The group one isolates do not form an outbreak (it is hard to see this, you would see this better if we removed the reference genome from the tree) and you can see that the branch lengths are slightly longer compared to the branch lengths within the group 2 cluster. 
+
 
 

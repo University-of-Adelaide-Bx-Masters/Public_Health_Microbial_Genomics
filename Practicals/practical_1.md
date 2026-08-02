@@ -14,17 +14,17 @@ Australia is divided into states and territories, known collectively as jurisdic
 
 Many infectious diseases in Australia are classified as notifiable diseases. This means that when a laboratory or healthcare provider identifies a case of one of these diseases, they are legally required to notify the relevant state or territory public health authority. These notifications enable public health teams to monitor disease trends, rapidly detect outbreaks, implement control measures, and coordinate responses to protect the community.
 
-As part of the public health response, selected pathogens are referred to the jurisdictional public health laboratory for whole-genome sequencing. Every year a public health laboratory may recieve 100s of thousands of pathogens for sequencing and so a streamlined genomic workflow is required to promptly identify and characterise isolates. The resulting genomic data are analysed using pathogen genomics workflows to determine characteristics such as species identification, genotyping, genetic relatedness, phylogenomics and antimicrobial resistance gene and variants. Genomic information can then be combined with epidemiological data, we can then identify transmission links, detect outbreaks, monitor the emergence of new variants or resistant strains, and inform public health interventions.
+As part of the public health response, selected pathogens are referred to the jurisdictional public health laboratory for whole-genome sequencing. Every year a public health laboratory may receive 100s of thousands of pathogens for sequencing and so a streamlined genomic workflow is required to promptly identify and characterise bacterial isolates. The resulting genomic data are analysed using pathogen genomics workflows to determine characteristics such as species identification, genotyping, genetic relatedness, phylogenomics and detecting antimicrobial resistance gene and variants. Genomic information can then be combined with epidemiological data, we can then identify transmission links, detect outbreaks, monitor the emergence of new variants or resistant strains, and inform public health interventions.
 
-The public helath microbial genomics workflow can look a bit like the below workflow figure, and for the Public Health Genomics module we will work through a number of the workflow steps during the practical sessions. One of the very first steps is to identfy what bacterial species the corresponding sample is, this confirms what pathogen is present and once this is known we can then perform downstream analysis (e.g. genotyping, phylogenomics, antimicrobial resistance investigations). 
+The public health microbial genomics genomics workflow can look a bit like the workflow in the below figure, and for the Public Health Microbial Genomics module we will work through a number of the steps in the workflow during the practical sessions. One of the very first steps is to identify what bacterial species the corresponding sample is, this confirms what pathogen is present and once this is known we can then perform downstream analysis (e.g. genotyping, phylogenomics, antimicrobial resistance investigations). 
 
 <img width="804" height="583" alt="image" src="https://github.com/user-attachments/assets/9adc05b6-a0ff-4e59-9a03-e8d57d3fc899" />
 
 
 ## 1.1 Practical Overview
-For this practcial you will be working with paired-end illumina sequencing data (FASTQ) and their corrsponding genome assemblies (FASTA) from 9 bacterial isolates. The sequencing data are from 9 isolates that have actually been implicated in an outbreak in the Northern Queensland, Australia. Imagine that you work in the Queensland state public health reference laboratory, your first task is to idenifty the bacterial species that is present in the 9 isolates. 
+For this practical you will be working with paired-end illumina sequencing data (FASTQ) and their corresponding genome assemblies (FASTA) from 9 bacterial isolates. The sequencing data are from 9 isolates that have been involved in an outbreak in the Northern Queensland, Australia. Imagine that you work in the Queensland state public health reference laboratory, your first task is to identify the bacterial species that is present in the 9 isolates. 
 
-In this practical you will be testing different tools for bacterial species classification including `kraken2`, `bracken` and `FastANI`. These three tools complement one another and are core tools used together in publci health and research settings. 
+In this practical you will be testing different tools for bacterial species classification including `kraken2`, `bracken` and `FastANI`. These three tools complement one another and are core tools used together in public health and research settings. 
 
 `kraken2` classifies sequencing reads by comparing short k-mers to a reference database. It tells you which organisms/organism are present in a sample.
 `bracken` builds on Kraken's results to provide more accurate estimates of species abundance, correcting for reads that are shared between closely related organisms.
@@ -34,7 +34,7 @@ In this practical you will be testing different tools for bacterial species clas
 ## 1.2 Learning Outcomes
 1. Gain additional practice in performing species classification
 2. Learn how to perform species classification with additional tools
-3. Intergarte multiple species classification methods to make robust taxonomic assignment in real-world scenarios
+3. Integrate multiple species classification methods to make robust taxonomic assignment in real-world scenarios
 
 # **2. Setup**
 
@@ -46,7 +46,7 @@ source activate bioinf
 ```
 
 ## 2.2 Create directory structure
-Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
+Let's create a new directory for today's practical and create sub-directories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
 mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,reference,db,assembly}
@@ -116,7 +116,7 @@ We need to determine the species present in a sample, and `Kraken2` is a very us
 
 ### 3.1 Run Kraken2 
 
-The input files for `kraken2` are assumed to be genome assemblies (FASTA) by default, but `kraken2` can also take other files as input including sequencing reads (FASTQ). For today we will run `kraken2` over sequencing reads.  
+The input files for `kraken2` are assumed to be genome assemblies (FASTA) by default, but `kraken2` can also take other files as input including sequencing reads (FASTQ). For today you will run `kraken2` over sequencing reads.  
 
 To investigate the general command structure of `Kraken2` type:
 
@@ -126,6 +126,7 @@ kraken2
 On your terminal you should see the options for running `kraken2` 
 
 We will run `kraken2` using the following options:
+
 ```bash
 Options:
   --threads NUM           Number of threads (default: 1)
@@ -133,7 +134,7 @@ Options:
                           (default: none)
   --output FILENAME       Print output to filename (default: stdout); "-" will
                           suppress normal output
-  --report FILENAME       Print a report with aggregrate counts/clade to file
+  --report FILENAME       Print a report with aggregate counts/clade to file
   --paired                The filenames provided have paired-end reads
  ```
 
@@ -143,15 +144,48 @@ Now run `kraken2` on one isolate using the following command:
 kraken2 --threads 2 --db db/std_8g --output -  --report kraken/ERR10479037.report --paired reads/ERR10479037_1.fastq.gz reads/ERR10479037_2.fastq.gz
 ```
 
-`kraken2` generates a report of all taxa found in the sample, we wont be looking at this report in detail but we will use it as input for `bracken` in step 3.2.  
+`kraken2` generates a report (found here `kraken/ERR10479037.report`) of all taxa found in the sample. The first few lines of the report are shown here, if you want to bring this up on your terminal just `head` the file:
 
+```bash
+  4.50  38361   38361   U       0       unclassified
+ 95.50  814199  2678    R       1       root
+ 95.19  811520  9       R1      131567    cellular organisms
+ 95.18  811498  4174    R2      2           Bacteria
+ 94.69  807315  291     K       3379134       Pseudomonadati
+ 94.66  807024  1137    P       1224            Pseudomonadota
+ 94.52  805855  4390    C       1236              Gammaproteobacteria
+ 94.00  801426  10149   O       91347               Enterobacterales
+ 92.81  791235  44195   F       543                   Enterobacteriaceae
+ 87.57  746581  671921  G       590                     Salmonella
+```
+
+The kraken-report is tab-delimited, with one line per taxon, with fields from left-to-right, as follows:
+1. Percentage of all reads that belong to this taxon 
+2. Number of reads covered by the clade rooted at this taxon
+3. Number of reads assigned to this taxon
+4. A rank code, indicating (U)nclassified, (D)omain, (K)ingdom, (P)hylum, (C)lass, (O)rder, (F)amily, (G)enus, or (S)pecies. All other ranks are simply “-“.
+5. NCBI Taxonomy ID
+6. The indented scientific name
+
+This is the most informative line in the Kraken-report:
+
+```bash
+87.57  746581  671921  G       590                     Salmonella
+```
+- 87.57% of all reads belong somewhere within the genus Salmonella.
+- 746,581 reads are assigned to the genus or one of its species.
+- 671,921 reads are assigned directly to the genus, meaning Kraken2 could not confidently place them into a specific Salmonella species.
+
+These results indicate that the sample is strongly dominated by the bacteria Salmonella. However Kraken2 was not able to identify down to species level from these reads. This is likely because Kraken2 assigns taxonomy based on exact k-mer matches and so if a k-mer appears in multiple species it will only classify to genus level. 
+ 
+You will now use the Kraken2 report as input to run the `bracken` tool in step 4 below. 
 
 # **4. Species classification using Bracken**
 
 `bracken` (Bayesian Reestimation of Abundance with Classification KrakEN) is a companion tool to `kraken2` that improves species or genus-level abundance estimates.
 
 Why do we need to use `bracken`?
-- `kraken2` classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `kraken2` species assignments can underestimate the abundance of some species in a sample.
+- `kraken2` classifies each read to the lowest taxonomic level it can confidently assign. Because many species share identical genomic regions, some reads are assigned only to a higher taxonomic rank (e.g., genus instead of species). This means simply counting `kraken2` species assignments can underestimate the abundance of some species in a sample or is not able to identify the species. 
 
 `bracken` requires: 
 - The `kraken2` report (This can be found here, kraken/ERR10479037.report)
@@ -164,7 +198,7 @@ View the options for running `bracken`
 bracken -h
 ```
 
-We will run `bracken` with the following command: 
+Run `bracken` with the following command: 
 
 ```bash
 bracken -d db/std_8g -r 150 -i kraken/ERR10479037.report -o kraken/ERR10479037.bracken
@@ -178,18 +212,23 @@ Where:
 
 Important to note that we are running with the -r option, as the read length of our sequencing reads are 150bp and not the default which is 100bp. 
 
-The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037.bracken). Important columns are the `name`, `new_est_reads` and `fraction_total_reads`. 
+The important result from `bracken` is the species focused results table (found here: kraken/ERR10479037.bracken). 
+
+Important columns in the `bracken` output (`ERR10479037.bracken`) are:
+- `name`, identified organism 
+- `new_est_reads` newly estimated reads 
+- `fraction_total_reads` proportion of all sequencing reads assigned to the organism 
 
 ### QUESTIONS
-Have a look at the `bracken` output file (ERR10479037_bracken) on the terminal (you can use the `head` command for this)
+Have a look at the `bracken` output file (ERR10479037.bracken) on the terminal (you can use the `head` command for this)
 - Can you confirm what species of bacteria is present in our sample? 
 - What is the percentage of reads in our sample that belong to this species?  
   
 # **5 Run Kraken2 and Bracken over all samples** 
 
-You have run `kraken2` and `bracken` over one sample, we now need to run the tools over the remaining samples so that we can confirm what bacteiral species is present. 
+You have run `kraken2` and `bracken` over one sample, we now need to run the tools over the remaining samples so that we can confirm what bacterial species is present. 
 
-Since we have 8 samples to process, it will make our code much simpler if we use a for loop. The script below uses steps that you may have learned about if you have completed a bioinformatics course at Adelaide Uni. Make sure you understand what each step is doing and ask for help if you dont understand. It is important that you understand both the setup and the contents of this script, this is because you will need to submit scripts as appart of the assignments for this course. 
+Since we have 8 samples to process, it will make our code much simpler if we use a for loop. The script below uses steps that you may have learned about if you have completed a bioinformatics course at Adelaide Uni. Make sure you understand what each step is doing and ask for help if you don't understand. It is important that you understand both the setup and the contents of this script, this is because you will need to submit scripts following this format in the assignments for this course. 
 
 In order to run the script:
 - Open a file called species.sh by typing nano species.sh
@@ -235,7 +274,7 @@ Have a look at the `bracken` output files on the terminal
 
 # **6. Species classification using `fastANI`**
 
-You have now had a play with identifying species in samples using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with `fastANI` for species classifiction.  
+You have now had a play with identifying species in samples using `kraken2` and `bracken`. In this section of the practical we will use and become familiar with `fastANI` for species classification.  
 
 Above `kraken2` and `bracken` gave us an indication of "What species is there, and how much?", whilst `fastANI` answers "How genetically similar is this genome to another genome?".
 
@@ -282,7 +321,7 @@ Column descriptions:
 - 1483 out of 1529 fragments mapped. Is this a good number?
 
 ### 6.2 Run `fastANI` over the remaning samples 
-Now run `fastANI` over the remaining samples using the below. You need to create a script and copy the contents below into it and then save and run. You learnt how to do this earlier in the practical.  
+Now run `fastANI` over the remaining samples using the below. You need to create a script called fastani.sh and copy the contents below into it and complete the `# Run fastANI over the samples` section of the script. Then save and run. You learnt how to do this earlier in the practical. Please let us know if you need help :) 
 
 ```bash
 #!/bin/bash
@@ -298,10 +337,8 @@ for SAMPLE in "${SAMPLES[@]}";
 do
 
         # Run fastANI over the samples
-        fastANI \
-        -q assembly/${SAMPLE}.fasta \
-        -r reference/GCA_000009505.1_ASM950v1_genomic.fasta \
-        -o fastani/${SAMPLE}
+
+
 done
 ```
 Then use `cat` command and wildcard `*` to print the results for each sample to the terminal: 
@@ -328,13 +365,13 @@ assembly/ERR10479039.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta
 
 # **7.`kraken2`, `bracken` and `fastANI` results**
 
-In our samples `kraken2` identified reads as Salmonella enterica and `bracken` estimated that Salmonella enterica makes up ~99% of reads in all our samples. Those tools tell you what is present and in what abundance.
+In our samples `kraken2` identified reads belonging to Salmonella and `bracken` estimated that it was the Salmonella enterica species that made up ~99% of reads in all our samples. Those tools tell you what is present and in what abundance.
 
-We then took the Salmonella enterica genome assemblies and compared them with a reference genome (that we already know is Salmonella enterica) using `fastANI`, we found that:
+We then took the Salmonella enterica genome assemblies and compared them with a reference genome (that we already know is Salmonella enterica) using `fastANI`, to confirm that the species present is Salmonella enterica. We found that:
 
-Across all our samples when compared to the reference, ANI = ~99% → all genomes are nearly identical to the reference genome. 
+Across all our samples when compared to the reference, ANI = ~99% → all genomes were nearly identical to the reference genome. 
 
-This is a further confirmation that our samples belong to Salmonella enterica - well done. We can also have instances whereby `kraken2`, `bracken` are not able to deliniate the species present in a sample and in that case `fastANI` can be used to determine the species. 
+This is a further confirmation that our samples belong to Salmonella enterica - well done. We can also have instances whereby `kraken2`, `bracken` are not able to delineate the species present in a sample and in that case `fastANI` can be used to determine the species. 
 
 
 

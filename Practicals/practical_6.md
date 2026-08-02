@@ -21,17 +21,16 @@ Previous genomic analyses were unable to identify the genetic mechanism responsi
 
 In this practical, you will:
 
-* Annotate a reference bacterial genome to identify genes and their predicted functions.
-* Align sequencing reads from a resistant isolate to the annotated reference genome.
-* Identify genetic variants, including single nucleotide polymorphisms (SNPs) and insertions/deletions (indels), that differ between the isolate and the reference genome.
+* Annotate the reference bacterial genome to identify genes and their predicted functions
+* Align sequencing reads from a resistant isolate to the annotated reference genome and identify genetic variants that differ between the isolate and the reference genome
 * Annotate detected variants to predict their potential functional effects, including synonymous, missense, nonsense, and frameshift mutations.
-* Visualise variants within their genomic context to evaluate data quality and assess their potential biological relevance.
+* Visualise variants within their genomic context 
 
-**The data that we will be working with today inludes a primary isolate and secondary isolate from three patients:**
+**The data that we will be working with today includes a primary isolate and secondary isolate from three patients:**
 
 Patient 1:
 - MSHR3763 (primary isolate)
-- MSHR4083 (secondary isolate):
+- MSHR4083 (secondary isolate)
 
 Patient 2:
 - MSHR5864 (primary isolate)
@@ -68,7 +67,7 @@ The data for today's practical is located in `~/data/amr_variants`. As in previo
 cd ~/Practical_amr_variants
 # create symlinks for all fastq files
 ln -s ~/data/public_health_genomics/amr_variants/burk_reads/*.fastq.gz reads/
-# create symlink for reference genome
+# create symlinks for the reference genomes
 ln -s ~/data/public_health_genomics/amr_variants/burk_references/*.fasta assembly/
 # we can confirm where we are 
 pwd
@@ -95,7 +94,7 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 ## 3.1 Reference genome annotation 
 
-You may be thinking - what does it mean to annotate a genome? 
+`prokka` is bla bla bla 
 
 Run `prokka` over one reference genome: 
 
@@ -114,32 +113,34 @@ prokka \
 ```
 
 **Paramater explinations:**
-  - outdir prokka/MSHR3763_annotation: Specifies the output directory where all Prokka results will be saved. If the directory exists, use --force to overwrite.
-  - prefix  MSHR3763_annotated: Sets the prefix for all output files (e.g., reference_annotated.gff, reference_annotated.gbk). This helps organize results when annotating multiple genomes.
-  - genus burkholderia: Specifies the genus of the organism. Prokka uses this information to search genus-specific databases for more accurate functional annotations.
-  - species pseudomallei: Specifies the species. Combined with --genus, this improves annotation accuracy by prioritizing species-specific gene names and functions.
-  - strain MSHR3763: Optional strain identifier included in the output metadata. Useful for record-keeping and reproducibility.
-  - kingdom Bacteria: Indicates the organism is bacterial (as opposed to Archaea or Viruses). This determines which gene prediction models and databases Prokka will use.
-  - force: Overwrites the output directory if it already exists. Without this flag, Prokka will exit with an error if the directory is present.
-  - compliant: Ensures output files comply with NCBI submission standards (e.g., GenBank format). Useful if you plan to submit annotations to public databases.
-  - locustag BPS: Locus tag prefix for gene identifiers (e.g., SAUR_00001, SAUR_00002). This creates systematic, unique gene IDs.
-  - assembly/MSHR3763_genomic.fasta: Path to the input reference genome in FASTA format.
+  - outdir prokka/MSHR3763_annotation: Specifies the output directory where all Prokka results will be saved. If the directory exists, use --force to overwrite
+  - prefix  MSHR3763_annotated: Sets the prefix for all output files (e.g., reference_annotated.gff, reference_annotated.gbk). This helps organise results when annotating multiple genomes
+  - genus burkholderia: Specifies the genus of the organism. Prokka uses this information to search genus-specific databases for more accurate functional annotations
+  - species pseudomallei: Specifies the species. Combined with --genus, this improves annotation accuracy by prioritising species-specific gene names and functions
+  - strain MSHR3763: Optional strain identifier included in the output metadata. Useful for record-keeping and reproducibility
+  - kingdom Bacteria: Indicates the organism is bacterial (as opposed to Archaea or Viruses). This determines which gene prediction models and databases Prokka will use
+  - force: Overwrites the output directory if it already exists. Without this flag, Prokka will exit with an error if the directory is present
+  - compliant: Ensures output files comply with NCBI submission standards (e.g., GenBank format). Useful if you plan to submit annotations to public databases
+  - locustag BPS: Locus tag prefix for gene identifiers (e.g., BPS_00001, BPS_00002). This creates systematic, unique gene IDs
+  - assembly/MSHR3763_genomic.fasta: Path to the input reference genome in FASTA format
 
 **Expected Runtime: 15 minutes (~8 Mb bacterial genome).**
 
-
-
+`prokka` generates xx files and the most relevant outputs are:
+- mmm
+- bbbbb
+- 
 ``` bash
 look at .gbk file
 ```
 
-Lucky for you we already ahve the genome annotations, annoatted the first isolate from the patient becuase we will use this as our reference genome to call variants in the next step. 
+we will use this as our reference genome to call variants in the next step. 
 
 ## 3.2 Identify variants 
 
-Now that we have an genome annotation file we can use this do with snippy using .gbk annotation as reference 
+Now that we have an genome annotation file we can use this as an input into snippy using .gbk annotation as reference 
 
-we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the follow up isolate back to the primary) at a time, 
+we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary) at a time, 
 
 ``` bash
 snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz
@@ -151,6 +152,10 @@ name of the gene - .tsv from prokka
 ## 3.4 Visualise AMR variants 
 
 --> use IGV
+
+
+# **4. Repeat the above steps for the remaining patient pairs**
+
 
 
 
