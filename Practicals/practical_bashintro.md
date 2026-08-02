@@ -19,6 +19,16 @@ It has three parts:
 
 While we some parts will use common Bioinformatics files and the BASH scripting section builds a very simple bioinformatics workflow, the emphasis is on BASH scripting and not on interpretation of results. 
 
+Links to the Fundamentals of Bioinformatics practicals are provided below as an additional/supporting resource:
+- [Intro to BASH 1](http://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Practicals/prac_1_introtobash1.html)
+- [Intro to BASH 2](http://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Practicals/prac_2_introtobash_2.html)
+- [Intro to BASH 3](http://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Practicals/prac_3_introtobash3.html)
+- [Read QC](http://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Practicals/prac_4_readqc.html)
+- [Read QC Pt2 and Scripting](http://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Practicals/prac_5_readqc_part2.html)
+- [Read Alignment](http://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Practicals/prac_6_alignment.html)
+- [Variant Calling](http://university-of-adelaide-bx-masters.github.io/Fundamentals_of_Bioinformatics/Practicals/prac_7_variantcall.html)
+
+
 ## 1.2 Learning Outcomes
 
 1. Re-familiarise yourself with navigating the terminal and using common BASH commands
@@ -457,11 +467,13 @@ rm -r 0_data/ 1_trimmed/ 2_aligned/ 3_stats/
 ls 
 ```
 
-Make sure you don't delete the `script.sh` that you've been working on!
-If you have been working in a text file, you'll need to create your `script.sh` using `nano`. 
+The only file remaining should be your `script.sh`. 
 
+Run your script with:
+```bash
+bash script.sh
+```
 
-Now, run your script with `bash script.sh`. 
 It will probably take about a minute to complete and you should see some output to the terminal while its running. 
 
 
@@ -536,6 +548,7 @@ bash script_loop.sh
 ```
 
 - How can you tell that all three samples were processed successfully? 
+
 
 [Example code here](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/bashintro_code2.html)
 
