@@ -112,7 +112,7 @@ prokka \
   assembly/MSHR3763_genomic.fasta
 ```
 
-**Paramater explinations:**
+**Parameter explanations:**
   - outdir prokka/MSHR3763_annotation: Specifies the output directory where all Prokka results will be saved. If the directory exists, use --force to overwrite
   - prefix  MSHR3763_annotated: Sets the prefix for all output files (e.g., reference_annotated.gff, reference_annotated.gbk). This helps organise results when annotating multiple genomes
   - genus burkholderia: Specifies the genus of the organism. Prokka uses this information to search genus-specific databases for more accurate functional annotations
@@ -126,15 +126,20 @@ prokka \
 
 **Expected Runtime: 15 minutes (~8 Mb bacterial genome).**
 
+Whilst we wait - something on genome annotation 
+
+
+
 `prokka` generates xx files and the most relevant outputs are:
 - mmm
 - bbbbb
-- 
+
+  
 ``` bash
 look at .gbk file
 ```
 
-we will use this as our reference genome to call variants in the next step. 
+We will use this as our reference genome to call variants in the next step. 
 
 ## 3.2 Identify variants 
 
