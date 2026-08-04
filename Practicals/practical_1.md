@@ -54,6 +54,7 @@ mkdir --parents ~/Practical_species_classification/{kraken,fastani,reads,referen
 
 ## 2.3 Get data
 The data for today's practical is located in `~/data/microbial_genomics`. As in previous practicals, we will use symlinks instead of copying large data files.
+Run the code below one line at a time. 
 
 ```bash
 cd ~/Practical_species_classification
@@ -231,10 +232,10 @@ You have run `kraken2` and `bracken` over one sample, we now need to run the too
 Since we have 8 samples to process, it will make our code much simpler if we use a for loop. The script below uses steps that you may have learned about if you have completed a bioinformatics course at Adelaide Uni. Make sure you understand what each step is doing and ask for help if you don't understand. It is important that you understand both the setup and the contents of this script, this is because you will need to submit scripts following this format in the assignments for this course. 
 
 In order to run the script:
-- Open a file called species.sh by typing nano species.sh
+- Open a file called `species.sh` by typing `nano species.sh`
 - Copy the text from the code block below into the nano editor
-- Save the file and close nano by holding down Ctrl and typing x, then type y, then press Enter
-- To run the script, type bash species.sh. It should take around 5 minutes to run.
+- Save the file and close nano by holding down Ctrl and typing `x`, then type `y`, then press Enter
+- To run the script, type `bash species.sh`. It should take around 5 minutes to run.
 
 ```bash
 #!/bin/bash
@@ -317,11 +318,11 @@ Column descriptions:
 - Total fragments: Total number of query fragments
 
 ### QUESTIONS
-- What does an ANI % of 99.0338% indicate? does this indicate that the sample and reference are the same species? 
+- What does an ANI % of 99.0338% indicate? Does this indicate that the sample and reference are the same species? 
 - 1483 out of 1529 fragments mapped. Is this a good number?
 
 ### 6.2 Run `fastANI` over the remaning samples 
-Now run `fastANI` over the remaining samples using the below. You need to create a script called fastani.sh and copy the contents below into it and complete the `# Run fastANI over the samples` section of the script. Then save and run. You learnt how to do this earlier in the practical. Please let us know if you need help :) 
+Now run `fastANI` over the remaining samples using the below. You need to create a script called `fastani.sh` and copy the contents below into it and complete the `# Run fastANI over the samples` section of the script. Then save and run. You learnt how to do this earlier in the practical. Please let us know if you need help :) 
 
 ```bash
 #!/bin/bash
@@ -361,7 +362,7 @@ assembly/ERR10479039.fasta      reference/GCA_000009505.1_ASM950v1_genomic.fasta
 ```
 ### Question 
 - What do the ANI % indicate? are the sample and reference the same species? 
-- are all of the samples the same species? 
+- Are all of the samples the same species? 
 
 # **7.`kraken2`, `bracken` and `fastANI` results**
 
