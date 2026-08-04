@@ -165,7 +165,7 @@ name of the gene - .tsv from prokka
  BAM visualisation??
 
 
-# **4. Repeat the above steps for the remaining patient pairs**
+# **4. Repeat the above steps for the remaining 2 patients**
 
 1. Run `prokka` to annotate the genome assembly 
 2. Run 'snippy' to identify variants
