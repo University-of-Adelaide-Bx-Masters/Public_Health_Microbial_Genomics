@@ -146,7 +146,7 @@ Now that we have an genome annotation file we can use this as the refrence gene 
 
 we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary) at a time.
 
-This will take 6 minutes to run: 
+**Expected run time: 6 minutes**
 
 ``` bash
 snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz --report 
