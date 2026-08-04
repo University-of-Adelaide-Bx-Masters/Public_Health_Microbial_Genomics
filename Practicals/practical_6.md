@@ -162,6 +162,8 @@ name of the gene - .tsv from prokka
 
  snps.report.txt 
 
+ BAM visualisation??
+
 
 # **4. Repeat the above steps for the remaining patient pairs**
 
