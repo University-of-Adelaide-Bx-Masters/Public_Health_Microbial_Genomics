@@ -126,7 +126,7 @@ prokka \
 
 **Expected Runtime: 15 minutes (~8 Mb bacterial genome).**
 
-Whilst we wait - something on genome annotation 
+Whilst we wait for `prokka` to complete, here is some information on genome annotation. 
 
 
 
@@ -134,7 +134,7 @@ Whilst we wait - something on genome annotation
 - mmm
 - bbbbb
 
-  
+To look at the files on the terminal:   
 ``` bash
 look at .gbk file
 ```
@@ -143,7 +143,7 @@ We will use this as our reference genome to call variants in the next step.
 
 ## 3.2 Identify variants 
 
-Now that we have an genome annotation file we can use this as an input into snippy using .gbk annotation as reference 
+Now that we have an genome annotation file we can use this as the refrence gene for input into snippy using .gbk annotation as reference 
 
 we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary) at a time, 
 
