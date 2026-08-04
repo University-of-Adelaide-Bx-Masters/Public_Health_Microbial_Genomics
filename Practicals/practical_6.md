@@ -130,34 +130,41 @@ Whilst we wait for `prokka` to complete, here is some information on genome anno
 
 
 
-`prokka` generates xx files and the most relevant outputs are:
-- mmm
-- bbbbb
+`prokka` generates a number of files but the one we care most about for this practical is the `MSHR3763.annotated.gbk` file. This file has the extension `.gbk` ...... 
+
 
 To look at the files on the terminal:   
 ``` bash
 look at .gbk file
 ```
 
-We will use this as our reference genome to call variants in the next step. 
+We will use this as our reference genome to call and annotate variants in the next step. 
 
 ## 3.2 Identify variants 
 
 Now that we have an genome annotation file we can use this as the refrence gene for input into snippy using .gbk annotation as reference 
 
-we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary) at a time, 
+we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary) at a time.
+
+This will take 6 minutes to run: 
 
 ``` bash
-snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz
+snippy --outdir snippy/MSHR4083_test --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz --report 
 ```
 
 ## 3.3 AMR variants of interest 
+
+Gene of interest ttrR-2 (mutations within these gene lead to meropenem resistance in the bacteria burkholderia) 
+
 name of the gene - .tsv from prokka
 
-## 3.4 Visualise AMR variants 
+## 3.4 Visualise AMR variant 
 
---> use IGV
+When you ran snippy above it generated use snippy interactive report to view the variant 
 
+```bash
+snippy-vcf_report --vcf snps.vcf --bam aln.bam --ref ref.fa --html > MSHR4083_snps.html 
+```
 
 # **4. Repeat the above steps for the remaining patient pairs**
 
