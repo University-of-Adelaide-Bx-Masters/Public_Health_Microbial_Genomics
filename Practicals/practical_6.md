@@ -124,7 +124,7 @@ prokka \
   - locustag BPS: Locus tag prefix for gene identifiers (e.g., BPS_00001, BPS_00002). This creates systematic, unique gene IDs
   - assembly/MSHR3763_genomic.fasta: Path to the input reference genome in FASTA format
 
-**Expected Runtime: 15 minutes (~8 Mb bacterial genome).**
+**Expected Runtime: 15 minutes (~8 Mb bacterial genome)**
 
 Whilst we wait for `prokka` to complete, here is some information on genome annotation. 
 
@@ -149,24 +149,25 @@ we will run snippy for one patient pair (primary isolate as the reference genome
 This will take 6 minutes to run: 
 
 ``` bash
-snippy --outdir snippy/MSHR4083_test --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz --report 
+snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz --report 
 ```
 
 ## 3.3 AMR variants of interest 
 
-Gene of interest ttrR-2 (mutations within these gene lead to meropenem resistance in the bacteria burkholderia) 
+Gene of interest is ttrR-2 (mutations within these gene lead to meropenem resistance in the bacteria burkholderia) 
 
 name of the gene - .tsv from prokka
 
-## 3.4 Visualise AMR variant 
+**You can visualise the AMR variant**
 
-When you ran snippy above it generated use snippy interactive report to view the variant 
+ snps.report.txt 
 
-```bash
-snippy-vcf_report --vcf snps.vcf --bam aln.bam --ref ref.fa --html > MSHR4083_snps.html 
-```
 
 # **4. Repeat the above steps for the remaining patient pairs**
+
+1. Run `prokka` to annotate the genome assembly 
+2. Run 'snippy' to identify variants
+3. View `snippy` results to identify AMR mutations 
 
 
 
