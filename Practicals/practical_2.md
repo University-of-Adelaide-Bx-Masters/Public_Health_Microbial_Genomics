@@ -196,13 +196,8 @@ We have used `mlst` to assign a sequence type to our Salmonella enterica samples
 
 cgMLST schemes are specific to each bacteria, and for Salmonella enterica a cgMLST schema has already been developed and contains 3,002 genes (you can see that this is many more genes compared to the seven genes included in mlst) 
 
-Before `chewbbaca` can be run on the samples the Salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. Lucky for you - I have already done this step.   
+Before `chewbbaca` can be run on the samples the Salmonella enterica cgMLST schema (file containing all schema genes in FASTA format) needs to be downloaded from ridom seqsphere and adapted so that it is in the correct format for input into `chewbacca`. I have already done this step for you, the Salmonella enterica schema is large so we don't want everyone downloading it.  
 
-YOU DO NOT NEED TO RUN THIS COMMAND I HAVE ALREADY DONE THIS FOR YOU - THIS IS TO SHOW YOU HOW THE COMMAND LOOKS FOR CONVERTING cgMLST SCHEMA FOR INPUT INTO `chewbacca`. 
-
-```bash
-chewBBACA.py PrepExternalSchema -g /shared/data/public_health_genomics/microbial_genomics/salmonella_cgMLST/ -o salmonella_schema
-```
 
 ### 4.2 Perform allele calling on the Salmonella enterica genome assemblies
 
@@ -232,11 +227,10 @@ In this section, you will use the `results_alleles.tsv` file generated in Step 4
 
 To determine the cgMLST loci from the allele calling results, run the following command:
 
-Please note that for the file path below "cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv" the folder `results_20260713T071622` will be named different for you. Please make sure that you insert the correct name into the below command. If you need help, please ask. 
 
 ```bash
 # Determine the core genome loci
-chewBBACA.py ExtractCgMLST -i cgmlst/allele_calling_results/results_20260713T071622/results_alleles.tsv -o cgmlst/cgmlst_matrix 
+chewBBACA.py ExtractCgMLST -i cgmlst/allele_calling_results/results_alleles.tsv -o cgmlst/cgmlst_matrix 
 ```
 
 Parameters explained:
