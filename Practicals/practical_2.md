@@ -333,7 +333,7 @@ Complete the below table:
 | ERR                   |              |                    |                    |
 | ERR                   |              |                    |                    |
 
-**Now answer the following questions:**
+**Answer the following questions:**
 - Based on the MLST and cgMLST results how many outbreaks are present?
 - Which samples belong to an outbreak?
 - Which isolates would have been incorrectly grouped together if only MLST had been used?
