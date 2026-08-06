@@ -143,13 +143,42 @@ Whilst we wait for `prokka` to complete, here is some information on genome anno
 The `.gbk` file is the complete annotated genome, it contains DNA or protein sequences alongside biological annotations. Look at the .gbk file to understand its contents: 
 
 ``` bash
-less MSHR3763.annotated.gbk
+less prokka/MSHR3763_annotation/MSHR3763.annotated.gbk
 ```
 
 You should see something like this on your terminal:
 
 ```bash
-sss
+LOCUS       BPS_1                4056707 bp    DNA     linear       24-JUL-2026
+DEFINITION  Burkholderia pseudomallei strain MSHR3763.
+ACCESSION   
+VERSION
+KEYWORDS    .
+SOURCE      Burkholderia pseudomallei
+  ORGANISM  Burkholderia pseudomallei
+            Unclassified.
+COMMENT     Annotated using prokka 1.15.6 from
+            https://github.com/tseemann/prokka.
+FEATURES             Location/Qualifiers
+     source          1..4056707
+                     /organism="Burkholderia pseudomallei"
+                     /mol_type="genomic DNA"
+                     /strain="MSHR3763"
+     gene            633..1574
+                     /locus_tag="BPS_00001"
+     CDS             633..1574
+                     /locus_tag="BPS_00001"
+                     /inference="ab initio prediction:Prodigal:v2.6"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="hypothetical protein"
+                     /protein_id="Prokka:BPS_00001"
+                     /translation="MRVHREHRAHAVDELAHVDTRLLDRELPRLDARVIENVVQHPRE
+                     RLPRVLHEPEQPLLLRREQPLPHQLDEREHAVHRRAQFVARGRERAPARSERRLQPLQ
+                     VAVRPSVAQQRDEHVAAPQHRVHMRPLAGLSRDQHALLHPVGQLRQRQERERRCAETY
+                     EYASTEFASAKAVAFHTFIPYGTSPEYASLPFPEKTRTSFFCGVPLMGTVVYPIARAL
+                     SPIPRFDGAQSRAAASALEPPRVRAGRPASESRRSTHAHRDILAPDLAISGFAPRQIY
+                     ASSENEKTDSAFPFTSVSAVRFGSHARNDCRIAPIFG"
 
 ````
 
@@ -163,7 +192,7 @@ Interpretation:
 
 Now that we have a genome annotation file we can use this as the reference genome for input into `snippy`
 
-Here you will run snippy for patient 1  (annotated primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary) at a time.
+Here you will run snippy for patient 1  (annotated primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary): 
 
 **Expected run time: 6 minutes**
 
