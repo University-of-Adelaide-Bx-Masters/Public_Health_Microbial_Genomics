@@ -217,12 +217,13 @@ name of the gene - .tsv from prokka
 
 **You can visualise the AMR variant**
 
-You can grab the position from the `snps.html` file: 
+Visualise the variants by inspecting the snps.report.txt file.
+
+To identify which variant is in the ttgR_2 gene, you will need to determine the genomic position of ttgR_2. You can find this information in the snps.html report, which lists the affected genes and their corresponding genome coordinates.
 
 ``` bash
 less ~/snippy/MSHR4083/snps.report.txt 
 ```
-
 
 # **4. Repeat the above steps for the remaining 2 patients**
 
