@@ -96,9 +96,9 @@ If you run the `tree` command, you can see the structure of all the directories 
 # **3. AMR variant detection**
 
 ## 3.1 Reference genome annotation 
-`prokka` is bla bla bla 
+Whole genome annotation is the process of identifying features of interest in genomic DNA sequences and labelling them with useful information. `prokka`  (https://github.com/tseemann/prokka) is a software tool to annotate bacterial, archaeal and viral genomes, and was written by an amazing bioinformatician, Torsten Seemann. 
 
-Run `prokka` over one reference genome: 
+You will first work with the isolates associated with patient 1. Run `prokka` to annotate the primary isolate from patient 1: 
 
 ```bash
 prokka \
