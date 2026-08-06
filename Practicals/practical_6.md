@@ -221,16 +221,22 @@ click on the file and open it, you should see something like this:
 - `GENE`	Gene name
 - `PRODUCT`	Protein encoded by the gene
 
-**AMR variants of interest** 
-
-Remember we are interested in ttrR-2 (mutations within these gene lead to meropenem resistance in the bacteria Burkholderia pseudomallei)
-
 **Questions:**
-- Are any mutations present in ttgR_2? 
-- ddd
-- dd 
+Previous work suggests mutations in ttgR_2 may contribute to meropenem resistance.
 
-**You can visualise the AMR variant**
+Use the Snippy report to answer the following:
+- Is **ttgR_2** mutated?
+- What type of mutation has occurred?
+- Is the mutation predicted to alter the protein sequence?
+- Would you predict this mutation increases, decreases or abolishes protein function?
+- Is this a strong candidate resistance mutation?
+- What chromosome is it located on?
+
+**Explore the variant calls**
+
+The snps.html report provides a summary of every variant detected by Snippy. However, the snps.report.txt file contains the variants in a simple tabular format that is useful for searching and comparing genomic positions.
+
+Inspect the report:
 
 Visualise the variants by inspecting the snps.report.txt file.
 
