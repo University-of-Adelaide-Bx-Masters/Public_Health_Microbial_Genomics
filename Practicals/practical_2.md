@@ -305,21 +305,14 @@ You should see a result similar to the figure below:
 - At a threshold of 10 allelic differences, how many distinct clusters are present?
 - Which isolates belong to each cluster?
 
+**cgMLST reflection question:**
+Suppose two isolates differ by: 
+- 0 cgMLST alleles
+- 3 cgMLST alleles
+- 12 cgMLST alleles
+- 150 cgMLST alleles
 
-
-
-
-
-- what At a threshold of 10 allelic differences, the isolates separate into multiple groups. 
-
-However, as shown in the figure, five samples remain clustered together at this threshold: 
-- What does it mean that these five samples remain grouped together at a threshold of 10 allelic differences?
-- Does this confirm that these samples belong to an outbreak cluster? 
-- Are these samples all the same MLST sequence type (ST)? (You can verify this using your MLST results from the first part of this practical session.)
-
-The remaining four samples separate into smaller groups at a threshold of 10 allelic differences:
-- What does this indicate about the genetic relatedness of these samples?
-- Although these samples all belong to the same MLST sequence type (ST), cgMLST can distinguish them into separate groups at the 10 allelic difference threshold. This indicates that, despite sharing the same MLST ST, these samples are not genetically similar enough to be considered part of the same outbreak cluster. This example demonstrates the higher discriminatory power of cgMLST and highlights why it is commonly used alongside MLST in public health investigations to better resolve relationships between isolates.
+Rank these pairs from most likely to least likely to belong to the same outbreak.
 
  
 ### 5. Compare the MLST and cgMLST results 
@@ -347,14 +340,7 @@ Complete the below table:
 - Does sharing a MLST ST alone provide sufficient evidence that isolates belong to the same outbreak? Why or why not?
 - Imagine these nine isolates were received by a public health laboratory investigating a suspected outbreak. Based on your analyses, Which isolates would you prioritise for epidemiological follow-up?
 
-**cgMLST reflection question:**
-Suppose two isolates differ by: 
-- 0 cgMLST alleles
-- 3 cgMLST alleles
-- 12 cgMLST alleles
-- 150 cgMLST alleles
 
-Rank these pairs from most likely to least likely to belong to the same outbreak.
 
 
 
