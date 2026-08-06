@@ -184,10 +184,9 @@ FEATURES             Location/Qualifiers
 
 
 ## 3.2 Identify variants 
+The annotated primary isolate genome (`MSHR3763_annotated.gbk`) will now be used as the reference genome for `snippy`. `snippy` compares the secondary isolate to the primary isolate by aligning sequencing reads to the reference genome, identifying genetic variants, and predicting their potential effects using the genome annotation.
 
-Now that we have a genome annotation file we can use this as the reference genome for input into `snippy`
-
-Here you will run snippy for patient 1  (annotated primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary): 
+Run `snippy` for Patient 1 using the annotated primary isolate genome as the reference and the sequencing reads from the secondary isolate as input:
 
 **Expected run time: 6 minutes**
 
