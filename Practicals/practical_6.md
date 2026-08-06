@@ -13,18 +13,20 @@ By Dr Jessica Webb
 
 ## 1.1 Practical Overview 
 
-Consider the following scenario: Three patients (Table 1) have developed serious bloodstream infections caused by the bacterium *Burkholderia pseudomallei* (a soil bacterium that is found in the north of Australia that causes the serious infectious disease melioidosis). Despite receiving first-line antibiotic therapy with meropenem, all patients have failed to respond to treatment.
+Consider the following scenario: Three patients (listed below) admitted to hospitals in northern Australia developed serious bloodstream infections caused by the bacterium *Burkholderia pseudomallei* (a soil bacterium that is found in the north of Australia that causes the serious infectious disease melioidosis). Each patient initially responded poorly to treatment with the antibiotic meropenem, before relapsing with an antibiotic resistant infection. 
 
-Whole-genome sequencing (WGS) was performed on the initial bacterial isolates (we often call this the primary isolate) collected from each patient prior to antibiotic exposure, as well as on subsequent isolates (we call this a secondary isolate) obtained after treatment had commenced. These secondary isolates were found to be resistant to meropenem, indicating the emergence of antibiotic resistance during therapy.
+Whole-genome sequencing (WGS) was performed on isolates collected before treatment (primary isolates, susceptible to meropenem antibiotic) and after treatment failure (secondary isolates, resistant to meropenem antibiotic). 
 
-Previous genomic analyses were unable to identify the genetic mechanism responsible for resistance in the secondary isolates, suggesting that a previously uncharacterised mutation or novel genetic variant may be contributing to treatment failure. Your task is to identify the genetic variant(s) present in the secondary isolates that could explain the observed meropenem resistance.
+Previous genomic analyses were unable to identify the genetic mechanism responsible for resistance in the secondary isolates, suggesting that a previously uncharacterised mutation or novel genetic variant may be contributing to treatment failure. 
+
+You have been asked by the hospital microbiology laboratory to determine the genetic variant(s) present in the secondary isolates that could explain the observed drug resistance.
 
 In this practical, you will:
-
-* Annotate the reference bacterial genome to identify genes and their predicted functions
-* Align sequencing reads from a resistant isolate to the annotated reference genome and identify genetic variants that differ between the isolate and the reference genome
-* Annotate detected variants to predict their potential functional effects, including synonymous, missense, nonsense, and frameshift mutations.
-* Visualise variants within their genomic context 
+- Annotate the primary isolate genome and use it as the reference genome for downstream analyses
+- Align sequencing reads from the secondary resistant isolate to the corresponding annotated reference genome
+- Identify genetic variants that distinguish the secondary resistant isolate from the reference genome
+- Annotate identified variants to predict their potential functional impacts, including synonymous, missense, nonsense, and frameshift mutations
+- Visualise genomic variants 
 
 **The data that we will be working with today includes a primary isolate and secondary isolate from three patients:**
 
@@ -93,6 +95,9 @@ If you run the `tree` command, you can see the structure of all the directories 
 # **3. AMR variant detection**
 
 ## 3.1 Reference genome annotation 
+
+What is a genome annotation?
+
 
 `prokka` is bla bla bla 
 
