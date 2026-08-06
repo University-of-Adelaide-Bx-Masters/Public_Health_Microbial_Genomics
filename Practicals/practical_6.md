@@ -19,9 +19,9 @@ Whole-genome sequencing (WGS) was performed on isolates collected before treatme
 
 Previous genomic analyses were unable to identify the genetic mechanism responsible for resistance in the secondary isolates, suggesting that a previously uncharacterised mutation or novel genetic variant may be contributing to treatment failure. 
 
-You have been asked by the hospital microbiology laboratory to determine the genetic variant(s) present in the secondary isolates that could explain the observed drug resistance.
+You have been asked by the hospital microbiology laboratory to determine the genetic variant(s) present in the secondary isolates that could explain the observed drug resistance. Hint, we suspect that the resistance might be due to mutations in a **gene called ttR-2.** 
 
-In this practical, you will:
+**In this practical, you will:**
 - Annotate the primary isolate genome and use it as the reference genome for downstream analyses
 - Align sequencing reads from the secondary resistant isolate to the corresponding annotated reference genome
 - Identify genetic variants that distinguish the secondary resistant isolate from the reference genome
