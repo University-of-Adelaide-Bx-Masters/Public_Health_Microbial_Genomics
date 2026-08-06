@@ -200,22 +200,21 @@ click on the file and open it, you should see something like this:
 
 <img width="1864" height="189" alt="image" src="https://github.com/user-attachments/assets/1c3f2d4e-ba43-4663-be04-689d62a097f5" />
 
-Here's what each column means:
-- CHROM	Chromosome or contig where the variant occurs. (BPS_1, BPS_2)
-- POS	Position of the variant on the reference genome.
-- TYPE	Type of mutation: snp (single nucleotide polymorphism), ins (insertion), del (deletion).
-- REF	Reference sequence.
-- ALT	Sequence observed in your sample.
-- EVIDENCE	Number of sequencing reads supporting each allele.
-- FTYPE	Feature type where the mutation occurs (e.g. CDS = coding sequence). Blank usually means the variant is outside annotated genes.
-- STRAND	Gene orientation (+ or -).
-- NT_POS	Nucleotide position within the coding sequence.
-- AA_POS	Amino acid position within the protein.
-- EFFECT	Predicted effect on the protein.
-- LOCUS_TAG	Gene identifier in the annotation.
-- GENE	Gene name.
-- PRODUCT	Protein encoded by the gene.
-
+**Here's what each column means:**
+- `CHROM`	Chromosome or contig where the variant occurs. (BPS_1, BPS_2)
+- `POS`	Position of the variant on the reference genome
+- `TYPE`	Type of mutation: snp (single nucleotide polymorphism), ins (insertion), del (deletion)
+- `REF`	Reference sequence
+- `ALT`	Sequence observed in your sample
+- `EVIDENCE'	Number of sequencing reads supporting each allele
+- `FTYPE`	Feature type where the mutation occurs (e.g. CDS = coding sequence). Blank usually means the variant is outside annotated genes
+- `STRAND`	Gene orientation (+ or -)
+- `NT_POS`	Nucleotide position within the coding sequence
+- `AA_POS`	Amino acid position within the protein
+- `EFFECT`	Predicted effect on the protein
+- `LOCUS_TAG`	Gene identifier in the annotation
+- `GENE`	Gene name
+- `PRODUCT`	Protein encoded by the gene
 
 **AMR variants of interest** 
 
@@ -230,7 +229,7 @@ Remember we are interested in ttrR-2 (mutations within these gene lead to merope
 
 Visualise the variants by inspecting the snps.report.txt file.
 
-To identify which variant is in the ttgR_2 gene, you will need to determine the genomic position of ttgR_2. You can find this information in the snps.html report, which lists the affected genes and their corresponding genome coordinates.
+To identify which variant is in the ttgR_2 gene, you will need to determine the genomic position of ttgR_2. You can find this information in the `snps.html` report, which lists the affected genes and their corresponding genome coordinates.
 
 ``` bash
 less ~/snippy/MSHR4083/snps.report.txt 
