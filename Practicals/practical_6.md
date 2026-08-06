@@ -96,7 +96,7 @@ If you run the `tree` command, you can see the structure of all the directories 
 # **3. AMR variant detection**
 
 ## 3.1 Reference genome annotation 
-Whole genome annotation is the process of identifying features of interest in genomic DNA sequences and labeling them with useful information. `prokka` (https://github.com/tseemann/prokka) is a software tool to rapidly annotate bacterial, archaeal and viral genomes, and was written by an amazing bioinformatician, Torsten Seemann. 
+Whole genome annotation is the process of identifying features of interest in genomic DNA sequences and labeling them with useful information. `prokka` (https://github.com/tseemann/prokka) is a software tool to rapidly annotate bacterial, archaeal and viral genomes, and was written by a world leading bioinformatician, Torsten Seemann. 
 
 You will first work with the isolates associated with patient 1. 
 
@@ -136,8 +136,9 @@ Whilst we wait for `prokka` to complete, here is some information on genome anno
 
 
 
+`prokka` generates multiple output files - the file we care most about for this practical is the `MSHR3763.annotated.gbk` file as you will use this file as the reference genome in section 3.2.
 
-`prokka` generates a number of files but the one we care most about for this practical is the `MSHR3763.annotated.gbk` file. This file has the extension `.gbk` ...... 
+This file has the extension `.gbk` 
 
 
 To look at the files on the terminal:   
@@ -145,7 +146,7 @@ To look at the files on the terminal:
 look at .gbk file
 ```
 
-We will use this as our reference genome to call and annotate variants in the next step. 
+
 
 ## 3.2 Identify variants 
 
@@ -179,9 +180,17 @@ name of the gene - .tsv from prokka
 3. View `snippy` results to identify AMR mutations 
 
 
-**Questions:**
-- xxx
-- ccccc
-- xxxx
-- 
+Complete the below table:
+
+| **Patient**            | **Gene, ttR-2**  | **Variant** | **Effect** | 
+|:----------             |:---------------- |:----------- |:-----------|
+| Patient 1              |                  |             |            |
+| Patient 2              |                  |             |            |
+| Patient 3              |                  |             |            |
+
+**Answer the following questions:**
+- Did all patients acquire the same mutation? 
+- Did resistance involve independently across the patients?
+- Would you need to experimentally validate that these variants confer the meropenem resistance? yes or no? explain your answer
+
 
