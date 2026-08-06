@@ -189,8 +189,8 @@ Once ran above for all patients, complete the below table:
 | Patient 3              |                  |             |            |
 
 **Answer the following questions:**
-- Did all patients acquire the same mutation? 
-- Did resistance involve independently across the patients?
-- Would you need to experimentally validate that these variants confer the meropenem resistance? yes or no? explain your answer
+- Did all patients acquire the same mutation associated with meropenem resistance? 
+- Does the genomic evidence support independent evolution of meropenem resistance in each patient?
+- Would experimental validation be required to confirm that these variants contribute to meropenem resistance? yes or no? 
 
 
