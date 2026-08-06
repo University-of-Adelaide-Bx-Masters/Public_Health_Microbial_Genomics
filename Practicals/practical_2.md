@@ -317,7 +317,7 @@ Suppose two isolates differ by:
 Rank these pairs from most likely to least likely to belong to the same outbreak.
 
  
-### 5. Compare the MLST and cgMLST results 
+# **5. Compare the MLST and cgMLST results** 
 
 Complete the below table:
 
