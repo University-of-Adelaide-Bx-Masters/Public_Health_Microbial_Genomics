@@ -133,26 +133,37 @@ prokka \
 Whilst we wait for `prokka` to complete, here is some information on genome annotation. 
 
 **What is a genome annotation?**
+- bla bla 
 
 
 
-`prokka` generates multiple output files - the file we care most about for this practical is the `MSHR3763.annotated.gbk` file as you will use this file as the reference genome in section 3.2.
 
-This file has the extension `.gbk` 
+`prokka` generates multiple output files - the file we care most about for this practical is the `MSHR3763.annotated.gbk` file, you will use this file as the reference genome in section 3.2.
 
+The `.gbk` file is the complete annotated genome, it contains DNA or protein sequences alongside biological annotations. Look at the .gbk file to understand its contents: 
 
-To look at the files on the terminal:   
 ``` bash
-look at .gbk file
+less MSHR3763.annotated.gbk
 ```
 
+You should see something like this on your terminal:
 
+```bash
+sss
 
+````
+
+Interpretation:
+-  aaa
+-  aaa
+-  aa
+
+-  
 ## 3.2 Identify variants 
 
-Now that we have an genome annotation file we can use this as the refrence gene for input into snippy using .gbk annotation as reference 
+Now that we have a genome annotation file we can use this as the reference genome for input into `snippy`
 
-we will run snippy for one patient pair (primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary) at a time.
+Here you will run snippy for patient 1  (annotated primary isolate as the reference genome, and map the reads back from the secondary isolate back to the primary) at a time.
 
 **Expected run time: 6 minutes**
 
