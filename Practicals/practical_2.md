@@ -303,7 +303,15 @@ You should see a result similar to the figure below:
 <img width="1072" height="820" alt="image" src="https://github.com/user-attachments/assets/e27a9a4b-5f23-438d-8dcf-42c2857929b3" />
 
 **Questions:**
-At a threshold of 10 allelic differences, the isolates separate into multiple groups. 
+- At a threshold of 10 allelic differences, how many distinct clusters are present?
+- Which isolates belong to each cluster?
+
+
+
+
+
+
+- what At a threshold of 10 allelic differences, the isolates separate into multiple groups. 
 
 However, as shown in the figure, five samples remain clustered together at this threshold: 
 - What does it mean that these five samples remain grouped together at a threshold of 10 allelic differences?
@@ -331,11 +339,13 @@ Complete the below table:
 | ERR                   |              |                    |                    |
 | ERR                   |              |                    |                    |
 
-**Questions:**
+**Now answer the following questions:**
 - Which isolates would have been incorrectly grouped together if only MLST had been used?
+- Why was cgMLST able to break down the samples into further groups? 
+- Does sharing a MLST ST alone provide sufficient evidence that isolates belong to the same outbreak? Why or why not?
 - Based on the MLST and cgMLST results how many outbreaks are present?
 - Which samples belong to an outbreak?
-- What further information/ investigations could be undertaken to understand the outbreak?
+- Imagine these nine isolates were received by a public health laboratory investigating a suspected outbreak. Based on your analyses, Which isolates would you prioritise for epidemiological follow-up?
 
 **cgMLST reflection question:**
 Suppose two isolates differ by: 
