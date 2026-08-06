@@ -196,19 +196,28 @@ snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annota
 
 `snippy` generates multiple output files - the relevant file for today's practical is the `snps.html` file 
 
-click on the file ans open it, you should see something like this: 
+click on the file and open it, you should see something like this: 
 
 <img width="1864" height="189" alt="image" src="https://github.com/user-attachments/assets/1c3f2d4e-ba43-4663-be04-689d62a097f5" />
 
+Interpretation: 
 
 
-## 3.3 AMR variants of interest 
+**AMR variants of interest** 
 
-Gene of interest is ttrR-2 (mutations within these gene lead to meropenem resistance in the bacteria burkholderia) 
+Remember we are interested in ttrR-2 (mutations within these gene lead to meropenem resistance in the bacteria Burkholderia pseudomallei)
+
+**Questions:**
+- ddd
+- ddd
+- dd 
+Gene of interest is ttrR-2 ) 
 
 name of the gene - .tsv from prokka
 
 **You can visualise the AMR variant**
+
+You can grab the position from the `snps.html` file: 
 
 ``` bash
 less ~/snippy/MSHR4083/snps.report.txt 
