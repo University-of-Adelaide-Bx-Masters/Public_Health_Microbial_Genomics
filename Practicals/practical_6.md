@@ -176,8 +176,8 @@ name of the gene - .tsv from prokka
 # **4. Repeat the above steps for the remaining 2 patients**
 
 1. Run `prokka` to annotate the genome assembly 
-2. Run 'snippy' to identify variants
-3. View `snippy` results to identify AMR mutations 
+2. Run `snippy` to identify variants
+3. View `snippy` results to identify variants in the gene ttR-2
 
 
 Once ran above for all patients, complete the below table:
