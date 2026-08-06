@@ -306,6 +306,7 @@ You should see a result similar to the figure below:
 - Which isolates belong to each cluster?
 
 **cgMLST reflection question:**
+
 Suppose two isolates differ by: 
 - 0 cgMLST alleles
 - 3 cgMLST alleles
