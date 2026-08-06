@@ -195,6 +195,9 @@ snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annota
 
 **Expected run time: 6 minutes**
 
+`snippy` generates multiple output files - the relevant file for today's practical is the ,
+
+
 ## 3.3 AMR variants of interest 
 
 Gene of interest is ttrR-2 (mutations within these gene lead to meropenem resistance in the bacteria burkholderia) 
