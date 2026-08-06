@@ -158,7 +158,7 @@ However, because we used the `--quiet` setting we did not get all of the informa
 ```bash
 mlst --scheme salmonella assembly/ERR10479021.fasta
 ```
-You can actually see that the results are different to the results from when we didn't specify a scheme. 
+You can see that the results are slightly different to the results from when we didn't specify a scheme. 
 
 **Question:** 
 - can you see which result is different? hint its not to do with the ST or allele IDs. 
@@ -173,12 +173,18 @@ On the terminal you can see that a `-` is present for the ST and allele IDs. Thi
 
 ### 3.2 Run `mlst` over all samples
 
-Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping samples. We can now go ahead and genotype the remaining salmonella samples. All of our salmonella assemblies begin with the letter "E". So the easiest way to run `mlst` over all our samples is to use a wild card to call all the .fasta samples beginning with E and run the `mlst` tool on each of the assembly files. 
-
-You can do this using the following command, at the same time we will direct the results to an output file named (`salmonella_mlstresults.tsv`):
+Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping bacterial samples. You can now go ahead and genotype the remaining salmonella samples. Create a file called `run_mlst.sh` by typing `nano run_snippy.sh` and pasting in the template below. Then fill in the missing gaps, save the file and close nano. Then run the script. 
 
 ```bash
-mlst --scheme salmonella --quiet assembly/E*.fasta > mlst/salmonella_mlst_results.tsv
+#!/bin/bash
+
+# Load software
+
+# List of samples with assemblies 
+
+# Loop over each sample
+
+        # Run mlst
 ```
 
 **Questions:** 
