@@ -30,15 +30,15 @@ You have been asked by the hospital microbiology laboratory to determine the gen
 
 **The data that we will be working with today includes a primary isolate and secondary isolate from three patients:**
 
-Patient 1:
+**Patient 1:**
 - MSHR3763 (primary isolate)
 - MSHR4083 (secondary isolate)
 
-Patient 2:
+**Patient 2:**
 - MSHR5864 (primary isolate)
 - MSHR6755 (secondary isolate)
 
-Patient 3: 
+**Patient 3:**
 - MSHR6522 (primary isolate)
 - MSHR7929 (secondary isolate)
 
