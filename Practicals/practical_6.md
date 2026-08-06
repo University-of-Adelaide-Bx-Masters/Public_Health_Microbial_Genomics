@@ -188,11 +188,12 @@ The annotated primary isolate genome (`MSHR3763_annotated.gbk`) will now be used
 
 Run `snippy` for Patient 1 using the annotated primary isolate genome as the reference and the sequencing reads from the secondary isolate as input:
 
-**Expected run time: 6 minutes**
 
 ``` bash
 snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz --report 
 ```
+
+**Expected run time: 6 minutes**
 
 ## 3.3 AMR variants of interest 
 
