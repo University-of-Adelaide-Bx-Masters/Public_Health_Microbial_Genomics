@@ -128,7 +128,7 @@ prokka \
   - locustag BPS: Locus tag prefix for gene identifiers (e.g., BPS_00001, BPS_00002). This creates systematic, unique gene IDs
   - assembly/MSHR3763_genomic.fasta: Path to the input reference genome in FASTA format
 
-**Expected Runtime: 15 minutes (~8 Mb bacterial genome)**
+**Expected Runtime: 15 minutes**
 
 Whilst we wait for `prokka` to complete, here is some information on genome annotation. 
 
@@ -182,10 +182,14 @@ FEATURES             Location/Qualifiers
 
 ````
 
-Interpretation:
--  aaa
--  aaa
--  aa
+The bit that is most important in the `FEATURES`(`source`, `gene` and `CDS`) section: 
+
+`source`: 
+- Describes the entire genome sequence. Starts base 1 and ends base 4,056,707
+- 
+- CDC
+- 
+
 
 -  
 ## 3.2 Identify variants 
