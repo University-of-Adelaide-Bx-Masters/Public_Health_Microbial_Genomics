@@ -194,13 +194,27 @@ snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annota
 
 **Expected run time: 6 minutes**
 
-`snippy` generates multiple output files - the relevant file for today's practical is the `snps.html` file 
+`snippy` generates multiple output files - the relevant file for today's practical is the `snps.html` file. This file contains the differences between the secondary isolate and the reference genome. Each row is one detected variant.
 
 click on the file and open it, you should see something like this: 
 
 <img width="1864" height="189" alt="image" src="https://github.com/user-attachments/assets/1c3f2d4e-ba43-4663-be04-689d62a097f5" />
 
-Interpretation: 
+Here's what each column means:
+- CHROM	Chromosome or contig where the variant occurs. (BPS_1, BPS_2)
+- POS	Position of the variant on the reference genome.
+- TYPE	Type of mutation: snp (single nucleotide polymorphism), ins (insertion), del (deletion).
+- REF	Reference sequence.
+- ALT	Sequence observed in your sample.
+- EVIDENCE	Number of sequencing reads supporting each allele.
+- FTYPE	Feature type where the mutation occurs (e.g. CDS = coding sequence). Blank usually means the variant is outside annotated genes.
+- STRAND	Gene orientation (+ or -).
+- NT_POS	Nucleotide position within the coding sequence.
+- AA_POS	Amino acid position within the protein.
+- EFFECT	Predicted effect on the protein.
+- LOCUS_TAG	Gene identifier in the annotation.
+- GENE	Gene name.
+- PRODUCT	Protein encoded by the gene.
 
 
 **AMR variants of interest** 
@@ -208,12 +222,9 @@ Interpretation:
 Remember we are interested in ttrR-2 (mutations within these gene lead to meropenem resistance in the bacteria Burkholderia pseudomallei)
 
 **Questions:**
-- ddd
+- Are any mutations present in ttgR_2? 
 - ddd
 - dd 
-Gene of interest is ttrR-2 ) 
-
-name of the gene - .tsv from prokka
 
 **You can visualise the AMR variant**
 
