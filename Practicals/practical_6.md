@@ -220,11 +220,11 @@ name of the gene - .tsv from prokka
 
 **Once ran above for all patients, complete the below table:**
 
-| **Patient**            | **Gene, ttR-2**  | **Variant** | **Effect** | 
-|:----------             |:---------------- |:----------- |:-----------|
-| Patient 1              |                  |             |            |
-| Patient 2              |                  |             |            |
-| Patient 3              |                  |             |            |
+| **Patient**            | **Gene**  | **Variant** | **Effect** | 
+|:----------             |:----------|:----------- |:-----------|
+| Patient 1              |    ttR-2  |             |            |
+| Patient 2              |    ttR-2  |             |            |
+| Patient 3              |    ttR-2  |             |            |
 
 **Answer the following questions:**
 - Did all patients acquire the same mutation associated with meropenem resistance? 
