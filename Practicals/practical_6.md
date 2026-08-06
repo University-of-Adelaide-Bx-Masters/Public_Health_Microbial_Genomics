@@ -185,7 +185,7 @@ FEATURES             Location/Qualifiers
 **Questions:**
 - Approximately how many genes were predicted?
 - What information is stored for each coding sequence?
-- why is genome annotation necessary before variant effect prediction?
+- Why is genome annotation necessary before variant effect prediction?
 - What does the locus tag represent? 
 
 ## 3.2 Identify variants 
@@ -258,6 +258,8 @@ less ~/snippy/MSHR4083/snps.report.txt
 **Answer the following questions:**
 - Did all patients acquire the same mutation associated with meropenem resistance? 
 - Does the genomic evidence support independent evolution of meropenem resistance in each patient?
-- Would experimental validation be required to confirm that these variants contribute to meropenem resistance? yes or no? 
+- Would experimental validation be required to confirm that these variants contribute to meropenem resistance? yes or no?
+- Why do we compare the resistant isolate against the susceptible isolate from the same patient rather than against a public reference genome?
+
 
 
