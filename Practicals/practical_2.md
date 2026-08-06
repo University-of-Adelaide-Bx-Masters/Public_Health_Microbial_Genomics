@@ -308,10 +308,11 @@ You should see a result similar to the figure below:
 **cgMLST reflection question:**
 
 Suppose two isolates differ by: 
-- 0 cgMLST alleles
-- 3 cgMLST alleles
 - 12 cgMLST alleles
 - 150 cgMLST alleles
+- 0 cgMLST alleles
+- 3 cgMLST alleles
+
 
 Rank these pairs from most likely to least likely to belong to the same outbreak.
 
