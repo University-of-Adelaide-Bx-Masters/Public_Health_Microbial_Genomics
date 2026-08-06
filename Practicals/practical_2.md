@@ -319,15 +319,34 @@ The remaining four samples separate into smaller groups at a threshold of 10 all
 
 Complete the below table:
 
-| **Sample**     | **MLST ST**  | **cgMLST cluster** | **Interpretation** |
-|:----------     |:------------ |:------------------ |:-------------------|
-| ERR            |              |                    |                    |
-| ERR            |              |                    |                    |
-| ERR            |              |                    |                    |
-| ERR            |              |                    |                    |
-| ERR            |              |                    |                    |
-| ERR            |              |                    |                    |
-| ERR            |              |                    |                    |
-| ERR            |              |                    |                    |
-| ERR            |              |                    |                    |
+| **Sample**            | **MLST ST**  | **cgMLST cluster** | **Interpretation** |
+|:----------            |:------------ |:------------------ |:-------------------|
+| ERR                   |              |                    |                    |
+| ERR                   |              |                    |                    |
+| ERR                   |              |                    |                    |
+| ERR                   |              |                    |                    |
+| ERR                   |              |                    |                    |
+| ERR                   |              |                    |                    |
+| ERR                   |              |                    |                    |
+| ERR                   |              |                    |                    |
+| ERR                   |              |                    |                    |
+
+**Questions:**
+- Which isolates would have been incorrectly grouped together if only MLST had been used?
+- Based on the MLST and cgMLST results how many outbreaks are present?
+- Which samples belong to an outbreak?
+- What further information/ investigations could be undertaken to understand the outbreak?
+
+**cgMLST reflection question:**
+Suppose two isolates differ by: 
+- 0 cgMLST alleles
+- 3 cgMLST alleles
+- 12 cgMLST alleles
+- 150 cgMLST alleles
+
+Rank these pairs from most likely to least likely to belong to the same outbreak.
+
+
+
+
 
