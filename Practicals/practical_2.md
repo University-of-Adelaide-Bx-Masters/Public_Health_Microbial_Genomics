@@ -317,6 +317,17 @@ The remaining four samples separate into smaller groups at a threshold of 10 all
  
 ### 5. Compare the MLST and cgMLST results 
 
+Complete the below table:
 
-
+| **Sample**     | **MLST ST**  | **cgMLST cluster** | **Interpretation** |
+|:----------     |:------------ |:------------------ |:-------------------|
+| ERR            |              |                    |                    |
+| ERR            |              |                    |                    |
+| ERR            |              |                    |                    |
+| ERR            |              |                    |                    |
+| ERR            |              |                    |                    |
+| ERR            |              |                    |                    |
+| ERR            |              |                    |                    |
+| ERR            |              |                    |                    |
+| ERR            |              |                    |                    |
 
