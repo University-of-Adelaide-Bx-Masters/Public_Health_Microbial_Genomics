@@ -193,7 +193,6 @@ Remember that if multiple samples belong to the same ST they could represent an 
 - What are the STs present? 
 - How many samples belong to each ST?
 - Do you think any outbreaks are present? 
-- Why is MLST still used despite cgMLST providing higher resolution?
 - Why are housekeeping genes suitable for MLST?
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
@@ -243,8 +242,8 @@ chewBBACA.py ExtractCgMLST -i cgmlst/allele_calling_results/results_alleles.tsv 
 ```
 
 Parameters explained:
--i: Input allele calling results file
--o: Output directory
+- `- i`: Input allele calling results file
+- `- o`: Output directory
 
  The `ExtractCgMLST` module creates a file with the list of core loci and the cgMLST allelic profiles for each threshold (95%, 99% and 100%)
 
@@ -340,11 +339,12 @@ Complete the below table:
 | ERR                   |              |                    |                    |
 
 **Now answer the following questions:**
-- Which isolates would have been incorrectly grouped together if only MLST had been used?
-- Why was cgMLST able to break down the samples into further groups? 
-- Does sharing a MLST ST alone provide sufficient evidence that isolates belong to the same outbreak? Why or why not?
 - Based on the MLST and cgMLST results how many outbreaks are present?
 - Which samples belong to an outbreak?
+- Which isolates would have been incorrectly grouped together if only MLST had been used?
+- Why was cgMLST able to break down the samples into further groups?
+- Why is MLST still used despite cgMLST providing higher genetic resolution?
+- Does sharing a MLST ST alone provide sufficient evidence that isolates belong to the same outbreak? Why or why not?
 - Imagine these nine isolates were received by a public health laboratory investigating a suspected outbreak. Based on your analyses, Which isolates would you prioritise for epidemiological follow-up?
 
 **cgMLST reflection question:**
