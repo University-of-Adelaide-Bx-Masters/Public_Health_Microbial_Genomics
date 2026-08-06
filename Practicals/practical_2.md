@@ -340,7 +340,7 @@ Complete the below table:
 - Why was cgMLST able to break down the samples into further groups?
 - Why is MLST still used despite cgMLST providing higher genetic resolution?
 - Does sharing a MLST ST alone provide sufficient evidence that isolates belong to the same outbreak? Why or why not?
-- Imagine these nine isolates were received by a public health laboratory investigating a suspected outbreak. Based on your analyses, Which isolates would you prioritise for epidemiological follow-up?
+- Imagine these nine isolates were received by a public health laboratory investigating a suspected outbreak. Based on your analyses, which isolates would you prioritise for epidemiological follow-up?
 
 
 
