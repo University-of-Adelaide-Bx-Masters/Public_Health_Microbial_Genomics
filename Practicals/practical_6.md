@@ -182,6 +182,11 @@ FEATURES             Location/Qualifiers
 
 ````
 
+**Questions:**
+- Approximately how many genes were predicted?
+- What information is stored for each coding sequence?
+- why is genome annotation necessary before variant effect prediction?
+- What does the locus tag represent? 
 
 ## 3.2 Identify variants 
 The annotated primary isolate genome (`MSHR3763_annotated.gbk`) will now be used as the reference genome for `snippy`. `snippy` compares the secondary isolate to the primary isolate by aligning sequencing reads to the reference genome, identifying genetic variants, and predicting their potential effects using the genome annotation.
