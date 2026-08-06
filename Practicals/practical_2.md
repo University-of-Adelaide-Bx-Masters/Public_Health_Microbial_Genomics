@@ -188,10 +188,13 @@ Now you have genotyped one sample! well done - you can see how simple `mlst` is 
 ```
 
 **Questions:** 
-Remember that if multiple samples belong to the same ST they likely represent an outbreak. View the output results(`salmonella_mlst_results.tsv`) on the terminal and answer the following questions: 
+Remember that if multiple samples belong to the same ST they could represent an outbreak. View the output results for each sample on the terminal and answer the following questions: 
+- How many STs are present?
 - What are the STs present? 
-- How many STs are present in the salmonella samples?
 - How many samples belong to each ST?
+- Do you think any outbreaks are present? 
+- Why is MLST still used despite cgMLST providing higher resolution?
+- Why are housekeeping genes suitable for MLST?
 
 # **4. Perform Core-genome MLST using `chewBBACA`**
 We have used `mlst` to assign a sequence type to our Salmonella enterica samples, which is an important tool for the initial quick screening of samples to identify potential bacterial outbreaks. The next step would be to then undertake core genome MLST (cgMLST) analysis on the samples. cgMLST is based on thousands of core genes (genes present in >95% of strains) and thus compared to mlst it provides much higher genetic resolution needed for confirming outbreaks. For this part of the practical we will undertake cgMLST on the salmonella samples. 
@@ -215,7 +218,7 @@ To run `chewBACCA` `AlleleCall` you need:
 
 Now the fun part - lets go ahead and run `chewBACCA` to determine the allelic profiles of the Salmonella enterica genomes: 
 
-This will take ~15 minutes to run - you will see stuff happening in the terminal and it will stop once finished. 
+This will take ~5 minutes to run - you will see stuff happening in the terminal and it will stop once finished. 
 
 ```bash
 chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
@@ -245,7 +248,7 @@ Parameters explained:
 
  The `ExtractCgMLST` module creates a file with the list of core loci and the cgMLST allelic profiles for each threshold (95%, 99% and 100%)
 
-We will use the cgMLST determined at the 95% threshold for further analyses. The 95% allows to strike a balance between including a sufficient number of loci for high-resolution typing and accounting for potential missing data due to sequencing or assembly issues. The file `cgMLSTschema95.txt` contains a list of the core loci identified at the 95% threshold. In step 4.6 you will pass this file to the --gl parameter of the AlleleCall module to perform allele calling at the core genome MLST level.
+We will use the cgMLST determined at the 95% threshold for further analyses. The 95% allows a balance between including a sufficient number of loci for high-resolution typing and accounting for potential missing data due to sequencing or assembly issues. The file `cgMLSTschema95.txt` contains a list of the core loci identified at the 95% threshold. In step 4.6 you will pass this file to the --gl parameter of the AlleleCall module to perform allele calling at the core genome MLST level.
 
 
 ### 4.6 AlleleCall module to perform allele calling at the cgMLST level
@@ -284,22 +287,23 @@ You should see something like this:
 How to interpret this image:
 - Each node represents a Salmonella enterica sample 
 - Each edge (line) connects isolates that are genetically most similar
-- Shorter connections indicate fewer allele differences
 - Clusters of nodes represent closely related isolates that may belong to the same outbreak or lineage
 - The number of allele differences between connected isolates is displayed on the branches
 
 It is important to remember that a Minimum Spanning Tree generated in PHYLOViZ is not a true phylogenetic tree. It does not infer a common ancestor or evolutionary direction. It is a network that connects isolates based on allele differences, making it particularly useful for outbreak investigations and comparing MLST to cgMLST. 
 
-In PHYLOViZ you can play around with the allelic difference thresholds and see how this changes how the isolates are connected:
-- Click on the tree modifiers tab in PHYLOViZ and adjust the Tree cut-off (this is the number of allelic difference). Typically for outbreak investigations we would use an allelic difference threshold of 10 to define samples as belonging to a cluster/outbreak. 
-- Try that and take note of what happens to the clusters
+In PHYLOViZ, you can explore how changing the allelic difference threshold affects the clustering of isolates: 
+- Open the Tree Modifiers tab in PHYLOViZ
+- Adjust the Tree cut-off value, which represents the maximum number of allelic differences allowed for isolates to remain connected
+- In outbreak investigations, an allelic difference threshold of 10 is commonly used to define isolates as belonging to the same outbreak cluster
+- Set the tree cut-off to 10 and observe how the relationships between the isolates change
 
-You should see something like this:
+You should see a result similar to the figure below:
 
 <img width="1072" height="820" alt="image" src="https://github.com/user-attachments/assets/e27a9a4b-5f23-438d-8dcf-42c2857929b3" />
 
 **Questions:**
-At a threshold of 10 allelic differences, the samples separate into multiple groups. 
+At a threshold of 10 allelic differences, the isolates separate into multiple groups. 
 
 However, as shown in the figure, five samples remain clustered together at this threshold: 
 - What does it mean that these five samples remain grouped together at a threshold of 10 allelic differences?
@@ -311,7 +315,7 @@ The remaining four samples separate into smaller groups at a threshold of 10 all
 - Although these samples all belong to the same MLST sequence type (ST), cgMLST can distinguish them into separate groups at the 10 allelic difference threshold. This indicates that, despite sharing the same MLST ST, these samples are not genetically similar enough to be considered part of the same outbreak cluster. This example demonstrates the higher discriminatory power of cgMLST and highlights why it is commonly used alongside MLST in public health investigations to better resolve relationships between isolates.
 
  
-
+### 5. Compare the MLST and cgMLST results 
 
 
 
