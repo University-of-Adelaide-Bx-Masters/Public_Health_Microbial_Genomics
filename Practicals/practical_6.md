@@ -234,17 +234,14 @@ Use the Snippy report to answer the following:
 
 **Explore the variant calls**
 
-The snps.html report provides a summary of every variant detected by Snippy. However, the snps.report.txt file contains the variants in a simple tabular format that is useful for searching and comparing genomic positions.
+The `snps.html` report provides a summary of every variant detected by Snippy. However, the `snps.report.txt` file contains the variants in a simple tabular format that is useful for searching and comparing genomic positions.
 
 Inspect the report:
 
-Visualise the variants by inspecting the snps.report.txt file.
-
-To identify which variant is in the ttgR_2 gene, you will need to determine the genomic position of ttgR_2. You can find this information in the `snps.html` report, which lists the affected genes and their corresponding genome coordinates.
-
 ``` bash
-less ~/snippy/MSHR4083/snps.report.txt 
+less snippy/MSHR4083/snps.report.txt 
 ```
+To identify the mutation affecting **ttgR_2**, first determine the genomic coordinates of the gene from `snps.html`, then locate variants that fall within those coordinates in `snps.report.txt`.
 
 # **4. Repeat the above steps for the remaining 2 patients**
 
@@ -262,8 +259,11 @@ less ~/snippy/MSHR4083/snps.report.txt
 | Patient 3              |    ttR-2  |             |            |
 
 **Answer the following questions:**
-- Did all patients acquire the same mutation associated with meropenem resistance? 
-- Does the genomic evidence support independent evolution of meropenem resistance in each patient?
+- Were the ttR-2 mutations identical across all three patients?
+- Why might different mutations in the same gene produce a similar resistance phenotype?
+- Which mutation would you predict has the largest effect on protein function?
+- Does the genomic evidence suggest transmission of a resistant strain between patients?
+- Or does it suggest resistance evolved independently during treatment?
 - Would experimental validation be required to confirm that these variants contribute to meropenem resistance? yes or no?
 - Why do we compare the resistant isolate against the susceptible isolate from the same patient rather than against a public reference genome?
 
