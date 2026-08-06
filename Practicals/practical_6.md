@@ -43,7 +43,8 @@ Patient 3:
 - MSHR7929 (secondary isolate)
 
 ## 1.2 Learning Outcomes
-
+1. Learn how to annotate a genome
+2. Learn how to identify genetic variants that confer drug resistance 
 
 # **2. Setup**
 
@@ -95,10 +96,6 @@ If you run the `tree` command, you can see the structure of all the directories 
 # **3. AMR variant detection**
 
 ## 3.1 Reference genome annotation 
-
-What is a genome annotation?
-
-
 `prokka` is bla bla bla 
 
 Run `prokka` over one reference genome: 
@@ -132,6 +129,8 @@ prokka \
 **Expected Runtime: 15 minutes (~8 Mb bacterial genome)**
 
 Whilst we wait for `prokka` to complete, here is some information on genome annotation. 
+
+**What is a genome annotation?**
 
 
 
