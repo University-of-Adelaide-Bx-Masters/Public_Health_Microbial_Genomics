@@ -143,7 +143,7 @@ Whilst we wait for `prokka` to complete, here is some information on genome anno
 The `.gbk` file is the complete annotated genome, it contains DNA or protein sequences alongside biological annotations. Look at the .gbk file to understand its contents: 
 
 ``` bash
-less prokka/MSHR3763_annotation/MSHR3763.annotated.gbk
+less /prokka/MSHR3763_annotation/MSHR3763.annotated.gbk
 ```
 
 You should see something like this on your terminal, and I have added comments to explain what each section means. 
@@ -188,14 +188,18 @@ The annotated primary isolate genome (`MSHR3763_annotated.gbk`) will now be used
 
 Run `snippy` for Patient 1 using the annotated primary isolate genome as the reference and the sequencing reads from the secondary isolate as input:
 
-
 ``` bash
 snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz --report 
 ```
 
 **Expected run time: 6 minutes**
 
-`snippy` generates multiple output files - the relevant file for today's practical is the ,
+`snippy` generates multiple output files - the relevant file for today's practical is the `snps.html` file 
+
+click on the file ans open it, you should see something like this: 
+
+<img width="1864" height="189" alt="image" src="https://github.com/user-attachments/assets/1c3f2d4e-ba43-4663-be04-689d62a097f5" />
+
 
 
 ## 3.3 AMR variants of interest 
@@ -206,9 +210,9 @@ name of the gene - .tsv from prokka
 
 **You can visualise the AMR variant**
 
- snps.report.txt 
-
- BAM visualisation??
+``` bash
+less ~/snippy/MSHR4083/snps.report.txt 
+```
 
 
 # **4. Repeat the above steps for the remaining 2 patients**
