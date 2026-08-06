@@ -180,7 +180,7 @@ name of the gene - .tsv from prokka
 3. View `snippy` results to identify AMR mutations 
 
 
-Complete the below table:
+Once ran above for all patients, complete the below table:
 
 | **Patient**            | **Gene, ttR-2**  | **Variant** | **Effect** | 
 |:----------             |:---------------- |:----------- |:-----------|
