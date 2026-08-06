@@ -206,7 +206,7 @@ click on the file and open it, you should see something like this:
 - `TYPE`	Type of mutation: snp (single nucleotide polymorphism), ins (insertion), del (deletion)
 - `REF`	Reference sequence
 - `ALT`	Sequence observed in your sample
-- `EVIDENCE'	Number of sequencing reads supporting each allele
+- `EVIDENCE`	Number of sequencing reads supporting each allele
 - `FTYPE`	Feature type where the mutation occurs (e.g. CDS = coding sequence). Blank usually means the variant is outside annotated genes
 - `STRAND`	Gene orientation (+ or -)
 - `NT_POS`	Nucleotide position within the coding sequence
