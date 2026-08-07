@@ -173,7 +173,7 @@ On the terminal you can see that a `-` is present for the ST and allele IDs. Thi
 
 ### 3.2 Run `mlst` over all samples
 
-Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping bacterial samples. You can now go ahead and genotype the remaining salmonella samples. Create a file called `run_mlst.sh` by typing `nano run_snippy.sh` and pasting in the template below. Then fill in the missing gaps, save the file and close nano. Then run the script. 
+Now you have genotyped one sample! well done - you can see how simple `mlst` is to run for genotyping bacterial samples. You can now go ahead and genotype the remaining salmonella samples. Create a file called `run_mlst.sh` by typing `nano run_mlst.sh` and pasting in the template below. Then fill in the missing gaps, save the file and close nano. Then run the script. 
 
 ```bash
 #!/bin/bash
