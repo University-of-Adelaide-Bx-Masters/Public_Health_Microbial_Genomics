@@ -220,7 +220,7 @@ Now the fun part - lets go ahead and run `chewBACCA` to determine the allelic pr
 This will take ~5 minutes to run - you will see stuff happening in the terminal and it will stop once finished. 
 
 ```bash
-chewBBACA.py AlleleCall -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
+chewBBACA.py AlleleCall --no-inferred -i assembly/ -g db/salmonella_schema -o cgmlst/allele_calling_results 
 ```
 
 The main output is `results_alleles.tsv`, which is a tab delimited file with:
@@ -257,7 +257,7 @@ In step 4.2 we ran AlleleCall using the complete Salmonella schema to identify *
 Run `Allelecall` as follows: 
 
 ```bash
-chewBBACA.py AlleleCall -i assembly/ -g  db/salmonella_schema --gl cgmlst/cgmlst_matrix/cgMLSTschema95.txt -o cgmlst/allele_calling_results_95_cgMLST
+chewBBACA.py AlleleCall --no-inferred -i assembly/ -g  db/salmonella_schema --gl cgmlst/cgmlst_matrix/cgMLSTschema95.txt -o cgmlst/allele_calling_results_95_cgMLST
 ```
 
 The structure of the command is similar to the one used to perform allele calling in step 4.2, with the addition of the --gl parameter to specify the list of core loci `cgmlstschema95.txt`. The output folder will also have the same structure, but the files include results at the core genome MLST level. The file that we care most about is the `results_alleles.tsv` which can be found here cgmlst/allele_calling_results_95_cgMLST. 
