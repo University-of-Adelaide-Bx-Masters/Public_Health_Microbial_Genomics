@@ -307,11 +307,11 @@ Download tree file for Microreact:
 - Click `continue` to visualise and explore the tree.
 
 We want to first add labels to the tree do this: 
-Click on the ‘Show controls’ button <img width="43" height="42" alt="image" src="https://github.com/user-attachments/assets/3da64599-ad7d-4137-839e-8c60baeff42e" /> and then click nodes & Labels and select leaf labels. 
+Click on the ‘Show controls’ button <img alt="image" src="https://github.com/user-attachments/assets/3da64599-ad7d-4137-839e-8c60baeff42e" /> and then click nodes & Labels and select leaf labels. 
 
 You should now see a tree in Microreact that looks something like this: 
 
-<img width="1840" height="726" alt="image" src="https://github.com/user-attachments/assets/e19ebeab-2639-432a-a1df-139f70edc27b" />
+<img alt="image" src="https://github.com/user-attachments/assets/e19ebeab-2639-432a-a1df-139f70edc27b" />
 
 
 Note this tree is unrooted, which means that it does not have a defined direction in time.
@@ -322,7 +322,7 @@ Now midpoint root the tree:
 
 The rooted tree should look something like this: 
 
-<img width="1836" height="620" alt="image" src="https://github.com/user-attachments/assets/28a0b067-3555-4ded-9847-fa12ec4a1a53" />
+<img alt="image" src="https://github.com/user-attachments/assets/28a0b067-3555-4ded-9847-fa12ec4a1a53" />
 
 
 
