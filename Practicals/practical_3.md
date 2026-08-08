@@ -247,7 +247,7 @@ done
 
 # **4. Run snippy core to create input for building a tree** 
  
-We now need to created a core genome SNP alignment to input into our tree building tool, to do this we use snippy-core. 
+We now need to create a core genome SNP alignment to input into our tree building tool, to do this we use snippy-core. 
 
 Now run snippy-core to generate the core genome SNP alignment files across all samples: 
 
@@ -284,10 +284,10 @@ For this practical we will use Microreact to visulise the phylogenomic tree (`co
 It is important to understand that many other tools exist to visualise trees such as FigTree and iTOL. 
 
 Download tree file for Microreact: 
-- A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `core_genome.full.aln.treefile`file from the VM. This can be found in your `Practical_variants_trees/tree` folder.
+- A phylogenomic tree in Newick format (`.nwk` or `.tre`): Download the `core_genome.full.aln.treefile`file from the VM. This can be found in your `Practical_variants_trees/tree` folder
 - Open a web browser and go to the Microreact website (https://microreact.org)
 - Click on "UPLOAD" to create a new project
-- Then drag and drop the `core_genome.full.aln.treefile`file in to the browser
+- Then drag and drop the `core_genome.full.aln.treefile` file in to the browser
 - Click `continue` to visualise and explore the tree.
 
 We want to first add labels to the tree do this: 
@@ -317,7 +317,7 @@ One of the most powerful aspects of microbial genomics is the ability to integra
 Download metadata file for Microreact: 
 - A metdata `.CSV` file with a column named `id` matching the sample names in the tree is needed: Download the metadata file from the VM. (Note in a real surveillance scenario, your metadata CSV could include columns such as: `collection_date`, `country`, `hospital`, `patient_id`, `MLST_ST`, `resistance_profile`, etc).
 - For this practical `metadata.csv` file has been generated for you and can be found in your `Practical_variants_trees/metadata` folder.
-- In this file you can see 4 rows: `id` (matching the sample names in the tree), source (source of samples linked to the outbreak), species (bacterial species as designated in the species classification practical) and mlst ST (mlst ST from genotyping practical). 
+- In this file you can see 6 rows: `id` (matching the sample names in the tree), source (source of samples linked to the outbreak), species (bacterial species as designated in the species classification practical), mlst ST (mlst ST from genotyping practical) and cgMLST group (from the genotyping practical) and geographic location. 
 
 Now upload the metadata file to Microreact and explore the tree:
 - Drag and drop the `metadata.csv` into the Microreact browser containing tree
@@ -334,6 +334,40 @@ Now upload the metadata file to Microreact and explore the tree:
   <img width="1847" height="883" alt="image" src="https://github.com/user-attachments/assets/84d6c7ad-6ac2-413c-a9fb-05d51aa92892" />
 
 You can now see the metadata has been overlaid next to the phylogenomic tree. 
+
+
+# **6. Now compare the MLST, cgMLST and phylogenomics results** 
+
+Complete the below table:
+
+| **Sample**            | **MLST ST**  | **cgMLST cluster** | **Phylogenomic cluster** | **Geography** | **Interpretation** |
+|:----------            |:------------ |:------------------ |:-------------------------|:--------------|:-------------------|
+| ERR                   |              |                    |                          |               |                    |
+| ERR                   |              |                    |                          |               |                    |
+| ERR                   |              |                    |                          |               |                    |
+| ERR                   |              |                    |                          |               |                    |
+| ERR                   |              |                    |                          |               |                    |
+| ERR                   |              |                    |                          |               |                    |
+| ERR                   |              |                    |                          |               |                    |
+| ERR                   |              |                    |                          |               |                    |
+| ERR                   |              |                    |                          |               |                    |
+
+
+**Answer the following questions:**
+- Which isolates appear to represent an outbreak? and do they belong to the same STs and cgMLST group?
+- What does the close clustering of the ST5438 water and human isolates indicate about the likely source of the Northern Territory Salmonella outbreak?
+- Which isolate is the closest to the water isolate?
+- What does the geographical information tell us about the outbreak? 
+- What do the longer branches of the ST1972 isolates indicate?
+- Can isolates with the same ST differ genetically? 
+  
+
+
+
+- Do the four ST1972 isolates show evidence of belonging to a single outbreak cluster, or do their longer branch lengths indicate greater genetic diversity?
+- How does the genetic relatedness of the ST1972 isolates compare with the closely related ST5438 outbreak cluster?
+- Would removing the reference genome from the phylogenetic tree make the distinction between the ST1972 isolates and the ST5438 outbreak cluster clearer?
+
 
 It is a little hard to tell but the tree is showing some important information: 
 - Two main groups exist on the tree, one group has four isolates these are the ones that belong to the ST1972 (green square under ST) and the second group consists of five isolates these isolates belong to ST 5438 (yellow square under ST)
