@@ -336,7 +336,7 @@ Now upload the metadata file to Microreact and explore the tree:
 You can now see the metadata has been overlaid next to the phylogenomic tree. 
 
 
-# **6. Now compare the MLST, cgMLST and phylogenomics results** 
+# **8. Now compare the MLST, cgMLST and phylogenomics results** 
 
 Complete the below table:
 
@@ -353,28 +353,12 @@ Complete the below table:
 | ERR                   |              |                    |                          |               |                    |
 
 
-**Answer the following questions:**
-- Which isolates appear to represent an outbreak? and do they belong to the same STs and cgMLST group?
-- What does the close clustering of the ST5438 water and human isolates indicate about the likely source of the Northern Territory Salmonella outbreak?
+**Using the final Phylogenomic tree image and the table answer the following questions:**
+- Which isolates appear to represent an outbreak? and do they belong to the same STs, cgMLST group and phylogenomic group?
+- What does the close clustering of the ST5438 water and human isolates on the phylogenomic tree indicate about the likely source of the Northern Territory Salmonella outbreak?
 - Which isolate is the closest to the water isolate?
 - What does the geographical information tell us about the outbreak? 
 - What do the longer branches of the ST1972 isolates indicate?
 - Can isolates with the same ST differ genetically? 
   
-
-
-
-- Do the four ST1972 isolates show evidence of belonging to a single outbreak cluster, or do their longer branch lengths indicate greater genetic diversity?
-- How does the genetic relatedness of the ST1972 isolates compare with the closely related ST5438 outbreak cluster?
-- Would removing the reference genome from the phylogenetic tree make the distinction between the ST1972 isolates and the ST5438 outbreak cluster clearer?
-
-
-It is a little hard to tell but the tree is showing some important information: 
-- Two main groups exist on the tree, one group has four isolates these are the ones that belong to the ST1972 (green square under ST) and the second group consists of five isolates these isolates belong to ST 5438 (yellow square under ST)
-- You would expect to see isolates belonging to the same ST grouping together and that is what we see 
-- You can see that the isolates in group two consist of a closely related cluster of one water isolate and four human isolates.
-- Group two isolates are the isolates that are linked to the Northern territory outbreak and these results indicate that the humans were infected from water contaminated with Salmonella.
-- The group one isolates do not form an outbreak (it is hard to see this, you would see this better if we removed the reference genome from the tree) and you can see that the branch lengths are slightly longer compared to the branch lengths within the group 2 cluster. 
-
-
 
