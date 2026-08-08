@@ -342,12 +342,12 @@ Now upload the metadata file to Microreact and explore the tree:
 - Click on column in metdata.csv and select "id"
 - Click continue
 - Then click the Tree tab - top left hand side (ask me if you cant find this)
-- Then click Metadata blocks top right and under the "select all" select "source", "species" and "ST"
+- Then click Metadata blocks top right and under the "select all" select "source", "species" and "mlst_ST", "cg_mlst_group", "geography"
 - Then click legend on the right hand side
 
   You should see something like this:
 
-  <img alt="image" src="https://github.com/user-attachments/assets/84d6c7ad-6ac2-413c-a9fb-05d51aa92892" />
+  <img alt="image" src="https://github.com/user-attachments/assets/d7dc0ca7-b107-4686-9aab-f87832fa82f4" />
 
 
 You can now see the metadata has been overlaid next to the phylogenomic tree. 
