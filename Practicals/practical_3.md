@@ -224,9 +224,9 @@ head snippy/ERR10479021/snps.consensus.fa
    
 ## 3.4 Run snippy over all samples 
 
-You now need to run `snippy` over the remaining samples using the below. You need to create a script called run_snippy.sh by typing nano run_snippy.sh and pasting in the template below. Then fill in the missing gaps, save the file and close nano. Then run the script.
+You now need to run `snippy` over the remaining samples using the below. You need to create a script called `run_snippy.sh` by typing `nano run_snippy.sh` and pasting in the template below. Then fill in the missing gaps, save the file and close nano. Then run the script.
 
-**This script will take ~30 minutes to finish **
+**This script will take ~30 minutes to finish**
 
 ```bash
 #!/bin/bash
@@ -354,10 +354,10 @@ Complete the below table:
 
 
 **Using the final Phylogenomic tree image and the table answer the following questions:**
-- Which isolates appear to represent an outbreak? and do they belong to the same STs, cgMLST group and phylogenomic group?
-- What does the close clustering of the ST5438 water and human isolates on the phylogenomic tree indicate about the likely source of the Northern Territory Salmonella outbreak?
+- Which isolates appear to represent an outbreak? and do they belong to the same ST, cgMLST group and phylogenomic group?
+- What does the close clustering of the ST5438 water and human isolates on the phylogenomic tree indicate about the likely source of the Salmonella outbreak?
 - Which isolate is the closest to the water isolate?
-- What does the geographical information tell us about the outbreak? 
+- What does the geographical information tell us about the outbreak? and does this further support the genomics results? 
 - What do the longer branches of the ST1972 isolates indicate?
 - Can isolates with the same ST differ genetically? 
   
