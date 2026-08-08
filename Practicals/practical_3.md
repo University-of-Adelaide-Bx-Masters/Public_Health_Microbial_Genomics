@@ -347,10 +347,8 @@ Now upload the metadata file to Microreact and explore the tree:
 
   You should see something like this:
 
-  <img width="1847" height="883" alt="image" src="https://github.com/user-attachments/assets/84d6c7ad-6ac2-413c-a9fb-05d51aa92892" />
+  <img alt="image" src="https://github.com/user-attachments/assets/84d6c7ad-6ac2-413c-a9fb-05d51aa92892" />
 
-  
-![image](https://github.com/user-attachments/assets/84d6c7ad-6ac2-413c-a9fb-05d51aa92892)
 
 You can now see the metadata has been overlaid next to the phylogenomic tree. 
 
