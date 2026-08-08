@@ -377,5 +377,6 @@ Complete the below table:
 - What does the geographical information tell us about the outbreak? and does this further support the genomics results? 
 - What do the longer branches of the ST1972 isolates indicate?
 - Can isolates with the same ST differ genetically? 
-  
+
+# **9. Bonus exercise** 
 
