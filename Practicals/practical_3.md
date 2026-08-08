@@ -333,7 +333,7 @@ One of the most powerful aspects of microbial genomics is the ability to integra
 Download metadata file for Microreact: 
 - A metdata `.CSV` file with a column named `id` matching the sample names in the tree is needed: Download the metadata file from the VM. (Note in a real surveillance scenario, your metadata CSV could include columns such as: `collection_date`, `country`, `hospital`, `patient_id`, `MLST_ST`, `resistance_profile`, etc).
 - For this practical `metadata.csv` file has been generated for you and can be found in your `Practical_variants_trees/metadata` folder.
-- In this file you can see 6 rows: `id` (matching the sample names in the tree), source (source of samples linked to the outbreak), species (bacterial species as designated in the species classification practical), mlst ST (mlst ST from genotyping practical) and cgMLST group (from the genotyping practical) and geographic location. 
+- In this file you can see 6 rows: `id` (matching the sample names in the tree), `source` (source of samples linked to the outbreak), `species` (bacterial species as designated in the species classification practical), `mlst_ST` (mlst ST from genotyping practical) and `cgMLST_mlst_group` (from the genotyping practical) and `geography`.  
 
 Now upload the metadata file to Microreact and explore the tree:
 - Drag and drop the `metadata.csv` into the Microreact browser containing tree
