@@ -345,12 +345,11 @@ Now upload the metadata file to Microreact and explore the tree:
 - Then click Metadata blocks top right and under the "select all" select "source", "species", "mlst_ST", "cg_mlst_group" and "geography"
 - Then click legend on the right hand side
 
-  You should see something like this, now with the metadata presented alongside the phylogenomic tree:
+  You should see something like this, now with the metadata overlaid next to the phylogenomic tree. 
 
   <img alt="image" src="https://github.com/user-attachments/assets/d7dc0ca7-b107-4686-9aab-f87832fa82f4" />
 
 
-You can now see the metadata has been overlaid next to the phylogenomic tree. 
 
 
 # **8. Now compare the MLST, cgMLST and phylogenomics results** 
