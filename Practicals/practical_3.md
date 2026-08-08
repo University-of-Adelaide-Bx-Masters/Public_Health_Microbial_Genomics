@@ -224,25 +224,22 @@ head snippy/ERR10479021/snps.consensus.fa
    
 ## 3.4 Run snippy over all samples 
 
-You now need to run `snippy` over the remaining samples using the below. You need to create a script called snippy.sh and copy the contents below into it and complete the # Run snippy over the samples section of the script. Then save and run the script. You learnt how to do this in previous practicals. Please let us know if you need help :)
+You now need to run `snippy` over the remaining samples using the below. You need to create a script called run_snippy.sh by typing nano run_snippy.sh and pasting in the template below. Then fill in the missing gaps, save the file and close nano. Then run the script.
 
-This will take ~30 minutes to finish 
+**This script will take ~30 minutes to finish **
 
 ```bash
 #!/bin/bash
 
 # Load software
-source activate bioinf
+
 
 # List of samples with Illumina data
-SAMPLES=(ERR10479025 ERR10479028 ERR10479029 ERR10479032 ERR10479034 ERR10479035 ERR10479037 ERR10479039)
 
 # Loop over each sample
-for SAMPLE in "${SAMPLES[@]}";
-do
+
 
 # Run snippy over the remaining samples
-
 
 
 done
