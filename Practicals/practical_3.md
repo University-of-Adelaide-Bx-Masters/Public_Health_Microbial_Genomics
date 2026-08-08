@@ -353,7 +353,7 @@ Complete the below table:
 | ERR                   |              |                    |                          |               |                    |
 
 
-**Using the final Phylogenomic tree image and the table answer the following questions:**
+**Using the final Phylogenomic tree image and the table to answer the following questions:**
 - Which isolates appear to represent an outbreak? and do they belong to the same ST, cgMLST group and phylogenomic group?
 - What does the close clustering of the ST5438 water and human isolates on the phylogenomic tree indicate about the likely source of the Salmonella outbreak?
 - Which isolate is the closest to the water isolate?
