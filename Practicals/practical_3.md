@@ -8,23 +8,22 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
-In the previous practical on bacterial genotyping, you used MLST to determine that the Salmonella enterica isolates belonged to two different sequence types (STs). You then used cgMLST to examine the isolates at higher resolution and identified a cluster of five closely related isolates that were associated with the outbreak. The remaining isolates were sufficiently genetically distinct to indicate that they were not part of the outbreak.
+In the previous practical on bacterial genotyping, you used MLST to determine that the Salmonella enterica isolates belonged to two different sequence types (STs). You then used cgMLST to examine the isolates at higher genetic resolution and identified a cluster of five closely related isolates that were associated with the outbreak. The remaining isolates were sufficiently genetically distinct to indicate that they were not part of the outbreak.
 
-So, if cgMLST has already identified the outbreak-associated isolates, why do we need to perform SNP phylogenomics?
+So, if cgMLST has already identified the outbreak-associated isolates, **why do we need to perform SNP phylogenomics?**
 
-In this practical, you will use core-genome SNP phylogenomics to examine the genetic relationships between the isolates in greater detail. Unlike cgMLST, which describes isolates according to differences in the alleles assigned to a defined set of core genes, SNP analysis compares the actual nucleotide differences across the core genome. This allows the genetic distance between isolates to be examined at the individual nucleotide level and represented in a phylogenetic tree.
+In this practical, you will use core-genome SNP phylogenomics to examine the genetic relationships between the isolates in greater detail. Unlike cgMLST, which describes isolates according to differences in the alleles assigned to a defined set of core genes, SNP analysis compares the actual nucleotide differences across the core genome. This allows the genetic distance between isolates to be examined at the individual nucleotide level and represented in a phylogenomic tree.
 
-SNP analysis therefore provides a complementary approach to cgMLST rather than simply repeating the same analysis. In this practical, the purpose is not to re-establish which isolates belong to the outbreak—the cgMLST analysis has already provided this evidence—but to investigate the genetic relationships within the outbreak cluster and to visualise how the outbreak-associated isolates relate to the other isolates.
+**SNP analysis therefore provides a complementary approach to cgMLST rather than simply repeating the same analysis**. In this practical, the purpose is not to re-establish which isolates belong to the outbreak - the cgMLST analysis has already provided this evidence— but to investigate the genetic relationships within the outbreak cluster and to visualise how the outbreak-associated isolates relate to the other isolates.
 
-Another important advantage of SNP-based analysis is that the results are based on individual nucleotide changes rather than a scheme-specific allele nomenclature. cgMLST relies on defined gene sets, allele databases and nomenclature schemes. Different cgMLST schemes or databases can therefore produce different allele assignments, which can make results more difficult to compare between laboratories if different schemes are used. SNP differences, by contrast, are based on the underlying genome sequence and can provide a more directly comparable measure of genetic difference when laboratories use the same reference genome and SNP-calling criteria.
+Another important advantage of SNP-based analysis is that the results are based on **individual nucleotide changes rather than a scheme-specific allele nomenclature.** cgMLST relies on defined gene sets, allele databases and nomenclature schemes. Different cgMLST schemes or databases can therefore produce different allele assignments, which can make results more difficult to compare between laboratories if different schemes are used. SNP differences, by contrast, are based on the underlying genome sequence and can provide a more directly comparable measure of genetic difference when laboratories use the same reference genome and SNP-calling criteria.
 
-This makes SNP phylogenomics particularly useful for high-resolution outbreak investigation and inter-laboratory comparison, where it may be important to determine whether isolates differ by only a small number of nucleotide changes and to place those isolates within a phylogenetic context.
+This makes SNP phylogenomics particularly useful for high-resolution outbreak investigation and inter-laboratory comparison, where it may be important to determine if isolates differ by only a small number of nucleotide changes and to place those isolates within a phylogenomic context.
 
-The key distinction is therefore:
-
-MLST provides broad classification into sequence types.
-cgMLST provides higher-resolution clustering using allele differences and can be used to identify potential outbreak clusters.
-Core-genome SNP phylogenomics provides nucleotide-level resolution and shows the evolutionary relationships between isolates, allowing the genetic structure of an outbreak cluster to be examined in greater detail.
+**The key distinction is therefore:**
+- **MLST** provides broad classification into sequence types
+- **cgMLST** provides higher-resolution clustering using allele differences and can be used to identify potential outbreak clusters
+- **Core-genome SNP phylogenomics** provides nucleotide-level resolution and shows the evolutionary relationships between isolates, allowing the genetic structure of an outbreak cluster to be examined in greater detail
 
 This practical covers the steps highlighted with a star in the workflow figure below.
 
@@ -32,7 +31,7 @@ This practical covers the steps highlighted with a star in the workflow figure b
 
 
 ## 1.1 Practical Overview
-For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the previous practicals. You will be undertaking sequence read mapping and variant calling for constructing phylogenomic trees and then visualise the tree alongside epidemiological data in microreact. This will provide you with an understanding of how to apply phylogenomics to public health settings. 
+For this practical you will be working with the same 9 Salmonella enterica sequences as you did in the previous practicals. You will be undertaking sequence read mapping and variant calling for constructing a phylogenomic tree and then visualise the tree alongside epidemiological data in microreact. This will provide you with an understanding of how to apply phylogenomics to public health settings. 
 
 ## 1.2 Learning Outcomes
 1.	Gain more in-depth knowledge and further practice on identifying variants 
