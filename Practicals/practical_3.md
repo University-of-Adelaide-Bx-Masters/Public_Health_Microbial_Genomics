@@ -8,6 +8,8 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
+**This practical will be run over two practical sessions - please take your time to understand each section**
+
 In the previous practical on bacterial genotyping, you used MLST to determine that the Salmonella enterica isolates belonged to two different sequence types (STs). You then used cgMLST to examine the isolates at higher genetic resolution and identified a cluster of five closely related isolates that were associated with the outbreak. The remaining isolates were sufficiently genetically distinct to indicate that they were not part of the outbreak.
 
 So, if cgMLST has already identified the outbreak-associated isolates, **why do we need to perform SNP phylogenomics?**
