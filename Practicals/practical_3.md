@@ -142,33 +142,47 @@ snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genom
 Now we wait for snippy to finish this should take ~2 minutes for one sample 
 
 ## 3.2 Examine snippy logs 
-To better understand how `snippy` processes sequencing reads and generates variant calls, we will inspect the `snp.log` output file. The log records the commands executed during the analysis, allowing you to trace each stage of the snippy pipeline, including read alignment, BAM processing, variant calling and variant filtering. If you run a tool and it fails – information on why the tool failed to run will often be in the .log file – so this is an important file. 
+To better understand how `snippy` processes sequencing reads and identifies genetic variants, we will inspect the `snps.log` output file.
 
-We will use `grep` to look at what is happening in the snippy log files and to understand the order in which the core tools used by `snippy` are executed. Note that for this section you do not need to understand all of the commands that snippy uses at each step (that would be alot of information), this is more so to understand the overall steps. 
+The log records the commands and outputs generated during the analysis. This allows you to trace the different stages of the `snippy` workflow, including read alignment, alignment processing, variant calling, variant filtering and consensus sequence generation.
 
-**First view the `snippy` command and parameters used when we you ran `snippy`:**
+Log files are also useful when troubleshooting. If a tool fails during an analysis, the log file will often contain information that can help you identify what went wrong. For this reason, it is good practice to know where to find and how to read log files.
+
+We will use `grep` to search the `snippy` log and identify the main tools used during the analysis. **You do not need to understand every command or parameter shown in the log**. The aim of this section is to understand the overall workflow and the role of each major tool.
+
+**Step 1: Examine the `snippy` command:**
+
+First, view the `snippy` command and parameters used when you ran snippy:
 
 ```bash
 grep "outdir" snippy/ERR10479021/snps.log
 ```
-You should see something like this on the terminal:
+
+You should see something similar to this on the terminal:
 
 ```bash
 /apps/conda3/singularity/envs/bioinf/bin/snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genomic.fasta --R1 reads/ERR10479021_1.fastq.gz --R2 reads/ERR10479021_2.fastq.gz
 ```
-This shows you the exact `snippy` command that you ran above, including all parameters. This is useful for reproducibility — you can see precisely how the analysis was performed.
 
-**`snippy` then maps the sequencing reads to the reference genome using `bwa mem`, run the below to see the `bwa mem`command:**
+This shows the exact `snippy` command that was run, including the reference genome and sequencing read files. Recording the command and parameters is important for reproducibility, because it allows you to determine exactly how an analysis was performed.
+
+**Step 2: Examine read alignment with BWA-MEM**
+
+The first major step is to map the sequencing reads to the reference genome. `snippy` uses `BWA-MEM` to perform this alignment.
+
+ Run the below to see the `bwa mem`command:**
 
 ```bash
 grep "bwa mem" snippy/ERR10479021/snps.log
 ```
-
-You should see the `bwa mem` command on the terminal - looks something like this: 
+You should see the `bwa mem` command on the terminal: 
 
 ```bash
 bwa mem  -Y -M -R '@RG\tID:ERR10479021\tSM:ERR10479021' -t 8 reference/ref.fa /shared/data/public_health_genomics/microbial_genomics/ERR10479021_1.fastq.gz /shared/data/public_health_genomics/microbial_genomics/ERR10479021_2.fastq.gz | samclip --max 10 --ref reference/ref.fa.fai | samtools sort -n -l 0 -T /tmp --threads 3 -m 2000M | samtools fixmate -m --threads 3 - - | samtools sort -l 0 -T /tmp --threads 3 -m 2000M | samtools markdup -T /tmp --threads 3 -r -s - - > snps.bam
 ```
+You do not need to understand every parameter in this command. The important point is:
+
+`BWA-MEM` determines where each sequencing read aligns to the reference genome. This alignment provides the basis for identifying differences between the isolate and the reference genome.
 
 **Then run the below to see the `samtools`command:**
 
