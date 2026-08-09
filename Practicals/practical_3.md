@@ -185,6 +185,7 @@ You do not need to understand every parameter in this command. The important poi
 `BWA-MEM` determines where each sequencing read aligns to the reference genome. This alignment provides the basis for identifying differences between the isolate and the reference genome.
 
 **Step 3: Examine SAMtools**
+
 The `BWA-MEM` output is processed using a series of tools, including `SAMtools`, to produce a sorted and processed BAM alignment file.
 
 Run:
@@ -201,12 +202,12 @@ You should see commands such as:
 
 For this practical, the important point is:
 
-`SAMtool`s processes the read alignments and produces the BAM file used for downstream variant calling.
+`SAMtools` processes the read alignments and produces the BAM file used for downstream variant calling.
 
 `SAMtools` performs several alignment-processing tasks within the `snippy` workflow, including sorting and marking/removing duplicate reads. The resulting BAM file contains the processed alignment information needed for variant calling.
 
 
-**Step 4: Examine variant calling with 1`FreeBayes`**
+**Step 4: Examine variant calling with `FreeBayes`**
 
 Once the reads have been aligned to the reference genome, `snippy` uses `FreeBayes` to identify positions where the isolate differs from the reference.
 
@@ -229,29 +230,53 @@ FreeBayes examines the aligned reads and identifies candidate SNPs, insertions a
 The .raw.vcf file therefore contains the variants identified before `snippy` applies its additional filtering criteria.
 
 
-**`Snippy` then applies some filters to assess the quality of those variants - retaining only high confidence variants.** 
-It then applies the high quality variants to the reference genome sequence to create a ‘pseudosequence consensus’ -  a version of the reference genome with the samples variants substituted in, run: 
+**Step 5: Variant filtering**
+
+Not every difference identified during variant calling represents a reliable biological variant. Low sequencing coverage, poor-quality bases or poorly mapped reads can produce unreliable variant calls.
+
+`snippy` therefore applies quality filters to the variants identified by `FreeBayes` and produces a set of higher-confidence variants.
+
+The filtered variants are used to generate the final Snippy variant outputs, including:
+
+`snps.vcf`
+`snps.tab`
+`snps.csv`
+
+For this practical, the important concept is:
+
+`FreeBayes` identifies candidate variants; `snippy` then applies filtering criteria to retain higher-confidence variants.
+
+
+**Step 6: Generate the consensus sequence with `bcftools`**
+
+Finally, `snippy` uses `bcftools consensus` to apply the identified high quality variants to the reference genome.
+
+Run:
 
 ```bash
 grep "bcftools consensus" snippy/ERR10479021/snps.log
 ```
 
-When you ran `snippy` above (in section 3.1) it created two versions of the pseudosequence consensus:
+The resulting sequence is a consensus sequence, which represents the reference genome with the variants identified in the isolate incorporated into it.
 
-- snps.consensus.fa, contains all high-quality variants (SNPs and INDELs)
-- snps.consensus.subs.fa, contains only high-quality SNPs (no INDELs)
+When you ran `snippy` above, it produced two consensus sequences:
+- `snps.consensus.fa` — the reference sequence with high-confidence SNPs and indels incorporated
+- `snps.consensus.subs.fa` — the reference sequence with only SNPs incorporated
+
+The consensus sequence is useful because it provides a reconstructed genome sequence representing the isolate relative to the reference.
 
 
 **Complete the below table:**
 
 What happens at each `snippy` step? 
 
-| **`snippy` step** | **What is the tool doing?**  |
-|:------------------|:---------------------------- |
-| BWA-MEM           |                              |                  
-| SAMtools          |                              |               
-| FreeBayes         |                              |                  
-| bcftools          |                              |      
+| **`snippy` step**     | **What is the tool doing?**  |
+|:----------------------|:---------------------------- |
+| `BWA-MEM`              |                              |                  
+| `SAMtools`              |                              |               
+| `FreeBayes`             |                              |                  
+| `snippy` filtering    |                              |
+| `bcftools` consensus    |                              |      
 
 
 
