@@ -184,29 +184,50 @@ You do not need to understand every parameter in this command. The important poi
 
 `BWA-MEM` determines where each sequencing read aligns to the reference genome. This alignment provides the basis for identifying differences between the isolate and the reference genome.
 
-**Then run the below to see the `samtools`command:**
+**Step 3: Examine SAMtools**
+The `BWA-MEM` output is processed using a series of tools, including `SAMtools`, to produce a sorted and processed BAM alignment file.
+
+Run:
 
 ```bash
 grep "COMMAND: samtools" snippy/ERR10479021/snps.log
 ```
 
-You should see the `samtools` command on the terminal - looks something like this: 
+You should see commands such as:
 
 ```bash
  samtools markdup -T /tmp --threads 3 -r -s - -
 ```
 
-**`snippy` then uses `freebays` to call variants in your sample against the reference genome, producing a variant call file (snps.raw.vcf), run:**
+For this practical, the important point is:
+
+`SAMtool`s processes the read alignments and produces the BAM file used for downstream variant calling.
+
+`SAMtools` performs several alignment-processing tasks within the `snippy` workflow, including sorting and marking/removing duplicate reads. The resulting BAM file contains the processed alignment information needed for variant calling.
+
+
+**Step 4: Examine variant calling with 1`FreeBayes`**
+
+Once the reads have been aligned to the reference genome, `snippy` uses `FreeBayes` to identify positions where the isolate differs from the reference.
+
+Run:
 
 ```bash
 grep "freebayes" snippy/ERR10479021/snps.log
 ```
 
-You should see something like this on the terminal:
+You should see something similar to this on your terminal:
 
 ```bash
 freebayes-parallel reference/ref.txt 8 -p 2 -P 0 -C 2 -F 0.05 --min-coverage 10 --min-repeat-entropy 1.0 -q 13 -m 60 --strict-vcf   -f reference/ref.fa snps.bam > snps.raw.vcf
 ```
+
+FreeBayes examines the aligned reads and identifies candidate SNPs, insertions and deletions (indels) relative to the reference genome. These initial variant calls are written to:
+
+`snps.raw.vcf`
+
+The .raw.vcf file therefore contains the variants identified before `snippy` applies its additional filtering criteria.
+
 
 **`Snippy` then applies some filters to assess the quality of those variants - retaining only high confidence variants.** 
 It then applies the high quality variants to the reference genome sequence to create a ‘pseudosequence consensus’ -  a version of the reference genome with the samples variants substituted in, run: 
