@@ -279,6 +279,13 @@ What happens at each `snippy` step?
 | `bcftools` consensus    |                              |      
 
 
+**As a summary you can think of each `snippy` step in this way**
+
+`BWA` asks: Where do the reads belong?
+`SAMtools` asks/handles: How do we process those alignments?
+`FreeBayes` asks: Do the reads provide evidence for a variant?
+`snippy` asks: Which variants meet our quality criteria?
+`bcftools` asks: What does the isolate's genome look like when those variants are applied to the reference?
 
 ## 3.3 Now let’s look at some of the snippy output files 
 
