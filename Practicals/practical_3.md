@@ -281,7 +281,7 @@ What happens at each `snippy` step?
 
 
 **As a summary you can think of each `snippy` step in this way**: 
-- BWA` asks: Where do the reads belong?
+- `BWA` asks: Where do the reads belong?
 - `SAMtools` asks/handles: How do we process those alignments?
 - `FreeBayes` asks: Do the reads provide evidence for a variant?
 - `snippy` asks: Which variants meet our quality criteria?
