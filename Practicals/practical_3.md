@@ -12,7 +12,7 @@ By Dr Jessica Webb
 
 In the previous practical on bacterial genotyping, you used MLST to determine that the Salmonella enterica isolates belonged to two different sequence types (STs). You then used cgMLST to examine the isolates at higher genetic resolution and identified a cluster of five closely related isolates that were associated with the outbreak. The remaining isolates were sufficiently genetically distinct to indicate that they were not part of the outbreak.
 
-So, if cgMLST has already identified the outbreak-associated isolates, **why do we need to perform SNP phylogenomics?**
+So, if cgMLST has already identified the outbreak-associated isolates, **why do we need to perform Single Nucleotide Polymorphism (SNP) phylogenomics?**
 
 In this practical, you will use core-genome SNP phylogenomics to examine the genetic relationships between the isolates in greater detail. Unlike cgMLST, which describes isolates according to differences in the alleles assigned to a defined set of core genes, SNP analysis compares the actual nucleotide differences across the core genome. This allows the genetic distance between isolates to be examined at the individual nucleotide level and represented in a phylogenomic tree.
 
