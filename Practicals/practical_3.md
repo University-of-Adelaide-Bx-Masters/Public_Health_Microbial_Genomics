@@ -105,11 +105,11 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 # **3. Mapping sequencing reads to a reference genome using snippy**
 
-A very talented bioinformatician who is a friend of mine (Torsten Seemann) wrote Snippy (https://github.com/tseemann/snippy). Snippy is a widely used pipeline that maps reads to a reference genome, to identify variants and produces a range of outputs. snippy uses BWA-MEM, SAMtools and FreeBayes, which we will learn more about in this practical. If you have done one of our bioinformatics courses you may find snippy familiar, however as a bioinformatician snippy will likely become one of the tools that you will most frequently use and so in this practical we will be looking at snippy in more detail. 
+A very talented bioinformatician who is a friend of mine (Torsten Seemann) wrote `snippy` (https://github.com/tseemann/snippy). `snippy` is a widely used pipeline that maps reads to a reference genome, to identify variants and produces a range of outputs. `snippy` uses BWA-MEM, SAMtools and FreeBayes, which we will learn more about in this practical. If you have done one of our bioinformatics courses you may find `snippy` familiar, however as a bioinformatician `snippy` will likely become one of the tools that you will most frequently use and so in this practical we will be looking at snippy in more detail. 
 
 ## 3.1 Run Snippy for variant calling 
 
-Snippy requires: 
+`snippy` requires: 
 
 - A reference genome (FASTA or GENBANK format)
 - Single- or paired-end sequencing reads from one or more isolates
@@ -141,7 +141,8 @@ snippy --outdir snippy/ERR10479021 --ref assembly/GCA_000009505.1_ASM950v1_genom
 ```
 Now we wait for snippy to finish this should take ~2 minutes for one sample 
 
-## 3.2 Examine snippy logs 
+## 3.2 Examine `snippy` logs 
+
 To better understand how `snippy` processes sequencing reads and identifies genetic variants, we will inspect the `snps.log` output file.
 
 The log records the commands and outputs generated during the analysis. This allows you to trace the different stages of the `snippy` workflow, including read alignment, alignment processing, variant calling, variant filtering and consensus sequence generation.
