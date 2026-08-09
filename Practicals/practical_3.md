@@ -148,7 +148,7 @@ The log records the commands and outputs generated during the analysis. This all
 
 Log files are also useful when troubleshooting. If a tool fails during an analysis, the log file will often contain information that can help you identify what went wrong. For this reason, it is good practice to know where to find and how to read log files.
 
-We will use `grep` to search the `snippy` log and identify the main tools used during the analysis. **You do not need to understand every command or parameter shown in the log**. The aim of this section is to understand the overall workflow and the role of each major tool.
+We will use `grep` to search the `snippy` log and identify the main tools used during the analysis. **You do not need to understand every command or parameter shown in the log**. The aim of this section is to understand the overall workflow and the role of each major tool that `snippy` uses. 
 
 **Step 1: Examine the `snippy` command:**
 
@@ -166,7 +166,7 @@ You should see something similar to this on the terminal:
 
 This shows the exact `snippy` command that was run, including the reference genome and sequencing read files. Recording the command and parameters is important for reproducibility, because it allows you to determine exactly how an analysis was performed.
 
-**Step 2: Examine read alignment with BWA-MEM**
+**Step 2: Examine read alignment with `BWA-MEM`**
 
 The first major step is to map the sequencing reads to the reference genome. `snippy` uses `BWA-MEM` to perform this alignment.
 
@@ -184,7 +184,7 @@ You do not need to understand every parameter in this command. The important poi
 
 `BWA-MEM` determines where each sequencing read aligns to the reference genome. This alignment provides the basis for identifying differences between the isolate and the reference genome.
 
-**Step 3: Examine SAMtools**
+**Step 3: Examine `SAMtools`**
 
 The `BWA-MEM` output is processed using a series of tools, including `SAMtools`, to produce a sorted and processed BAM alignment file.
 
@@ -279,13 +279,12 @@ What happens at each `snippy` step?
 | `bcftools` consensus    |                              |      
 
 
-**As a summary you can think of each `snippy` step in this way**
-
-`BWA` asks: Where do the reads belong?
-`SAMtools` asks/handles: How do we process those alignments?
-`FreeBayes` asks: Do the reads provide evidence for a variant?
-`snippy` asks: Which variants meet our quality criteria?
-`bcftools` asks: What does the isolate's genome look like when those variants are applied to the reference?
+**As a summary you can think of each `snippy` step in this way**: 
+- BWA` asks: Where do the reads belong?
+- `SAMtools` asks/handles: How do we process those alignments?
+- `FreeBayes` asks: Do the reads provide evidence for a variant?
+- `snippy` asks: Which variants meet our quality criteria?
+- `bcftools` asks: What does the isolate's genome look like when those variants are applied to the reference?
 
 ## 3.3 Now let’s look at some of the snippy output files 
 
