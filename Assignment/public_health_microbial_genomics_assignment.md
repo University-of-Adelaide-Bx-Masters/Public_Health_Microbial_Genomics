@@ -26,7 +26,10 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - e. Includes informative comments
     - f. Is clear, concise and easy to understand
 
+2. Based on the results from your species classification, what 
 
+ 
+3. Summarise the main findings from your mlst analysis **[5 marks]**. Make sure you include the following information:
 Report the resulting MLST Sequence Type (ST) for each isolate.
 
 
