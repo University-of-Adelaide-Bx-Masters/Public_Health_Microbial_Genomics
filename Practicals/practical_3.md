@@ -559,14 +559,14 @@ You will first need to download the two tree files, don't forget to also downloa
 
 Then, view each tree in Microreact. The easiest approach is to open two separate browser windows or tabs. In each browser, go to the Microreact website ((https://microreact.org)) and open one of the two trees. Follow the instructions in Step 6 to annotate each tree.
 
-**Using both trees, answer the following questions:** 
+**Compare the two trees**
+
+Using both trees, answer the following questions:
 - Did the overall structure of the tree change?
 - Does the outbreak cluster remain together?
 - Does the relationship between the outbreak isolates remain the same?
-- Did the branch lengths change? 
-
-
-
+- Did the branch lengths change?
+- What does this comparison tell you about the importance of choosing an appropriate reference genome for bacterial outbreak analysis?
 
 
 
