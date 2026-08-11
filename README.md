@@ -11,7 +11,7 @@
 
 - Practical 2 - [Bacterial species classification](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_1.html)
 - Practical 3 - [Bacterial genotyping](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_2.html)
-- Practical 4 and 5 - [Variant calling, phylogenetic trees & surveillance 1](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_3.html)
+- Practical 4 and 5 - [Variant calling, phylogenetic trees & surveillance ](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_3.html)
 
 **Antimicrobial resistance**
 
