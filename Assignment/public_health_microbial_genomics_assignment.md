@@ -2,7 +2,7 @@
 
 The data you need for this assignment can be found in `~/data/Assignment1b`. This includes:
 
-- Illumina data for 10 bacterial isolates (Part A)
+- Illumina data for 10 bacterial isolates (Part A and Part B)
 - A reference _B. pseudomallei_ genome, `todo.fasta` (Part B)
 - `Metadata.csv` file for interpreting the phylogenomics tree (Part B)
 - Genome assemblies for xx xx isolates (Part C)
@@ -26,12 +26,17 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - e. Includes informative comments
     - f. Is clear, concise and easy to understand
 
-2. Based on the results from your species classification, what 
+2. Based on the results from your species classification analysis, what bacterial species do the 10 isolates belong to? **[5 marks]**. 
 
  
-3. Summarise the main findings from your mlst analysis **[5 marks]**. Make sure you include the following information:
+3. Summarise the main findings from your mlst analysis **[8 marks]**. Make sure you include the following information:
 Report the resulting MLST Sequence Type (ST) for each isolate.
 
+    - a. How many MLST STs are present? 
+    - b. What are the MLST STs present? 
+    - c. How many samples belong to each MLST ST? 
+    - d. Do you think that an outbreak is present? explain your answer. 
+    
 
 ## Part B (Variant calling & phylogenetic tree) - xx marks
 
