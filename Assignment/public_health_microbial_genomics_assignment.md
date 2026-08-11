@@ -27,7 +27,6 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - f. Is clear, concise and easy to understand
 
 2. Based on the results from your species classification analysis, what bacterial species do the 10 isolates belong to? **[5 marks]**. 
-
  
 3. Summarise the main findings from your mlst analysis **[8 marks]**. Make sure you include the following information:
     - a. How many MLST STs are present? 
@@ -35,9 +34,16 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - c. How many samples belong to each MLST ST? 
     - d. Do you think that an outbreak is present? explain your answer. 
     
-
 ## Part B (Variant calling & phylogenetic tree) - xx marks
 
+1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) **[10 marks]** that: 
+    - a. Performs variant calling, 
+    - b. Performs species classification for each sample
+    - c. Summarises species classification results 
+    - d. Performs mlst to get a Sequence Type for each sample
+    - d. Summarises mlst results into a single output
+    - e. Includes informative comments
+    - f. Is clear, concise and easy to understand
 - script 
 
 
