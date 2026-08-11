@@ -231,7 +231,7 @@ The main output is `results_alleles.tsv`, which is a tab delimited file with:
 
 ### 4.3 Determine the set of loci that make up the core genome in our Salmonella enterica dataset
 
-In this section, you will use the `results_alleles.tsv` file generated in Step 4.4 as input to the `ExtractCgMLST` module in chewBBACA. The `ExtractCgMLST` module identifies the set of core genome loci, those present in all or most of the analysed genomes (in this case, the 9 Salmonella genomes). By default, ExtractCgMLST generates core genome schemes using locus presence thresholds of 95%, 99%, and 100% (for example present in 95% of samples), these thresholds are standard for defining the core genome. The resulting core genome locus list can then be used to perform allele calling at the cgMLST level, providing higher-resolution typing for strain discrimination. 
+In this section, you will use the `results_alleles.tsv` file generated in Step 4.2 as input to the `ExtractCgMLST` module in chewBBACA. The `ExtractCgMLST` module identifies the set of core genome loci, those present in all or most of the analysed genomes (in this case, the 9 Salmonella genomes). By default, ExtractCgMLST generates core genome schemes using locus presence thresholds of 95%, 99%, and 100% (for example present in 95% of samples), these thresholds are standard for defining the core genome. The resulting core genome locus list can then be used to perform allele calling at the cgMLST level, providing higher-resolution typing for strain discrimination. 
 
 To determine the cgMLST loci from the allele calling results, run the following command:
 
@@ -247,7 +247,7 @@ Parameters explained:
 
  The `ExtractCgMLST` module creates a file with the list of core loci and the cgMLST allelic profiles for each threshold (95%, 99% and 100%)
 
-We will use the cgMLST determined at the 95% threshold for further analyses. The 95% allows a balance between including a sufficient number of loci for high-resolution typing and accounting for potential missing data due to sequencing or assembly issues. The file `cgMLSTschema95.txt` contains a list of the core loci identified at the 95% threshold. In step 4.6 you will pass this file to the --gl parameter of the AlleleCall module to perform allele calling at the core genome MLST level.
+We will use the cgMLST determined at the 95% threshold for further analyses. The 95% allows a balance between including a sufficient number of loci for high-resolution typing and accounting for potential missing data due to sequencing or assembly issues. The file `cgMLSTschema95.txt` contains a list of the core loci identified at the 95% threshold. In step 4.4 you will pass this file to the --gl parameter of the AlleleCall module to perform allele calling at the core genome MLST level.
 
 
 ### 4.4 AlleleCall module to perform allele calling at the cgMLST level
@@ -264,7 +264,7 @@ The structure of the command is similar to the one used to perform allele callin
 
 # **5. View the chewBBACA output**
 
-The `chewBBACA` `AlleleCall` (the one you ran in step 4.6) output file `results_alleles.tsv` can be input in to the online tool known as PHYLOViZ (https://online2.phyloviz.net), whereby PHYLOViZ generates a Minimum Spanning Tree from the allelic profiles. 
+The `chewBBACA` `AlleleCall` (the one you ran in step 4.4) output file `results_alleles.tsv` can be input in to the online tool known as PHYLOViZ (https://online2.phyloviz.net), whereby PHYLOViZ generates a Minimum Spanning Tree from the allelic profiles. 
 
 The tree shows genetic relatedness based on allele differences, remember the fewer allele differences between samples the more closely related they are. 
 
