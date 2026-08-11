@@ -30,8 +30,6 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
 
  
 3. Summarise the main findings from your mlst analysis **[8 marks]**. Make sure you include the following information:
-Report the resulting MLST Sequence Type (ST) for each isolate.
-
     - a. How many MLST STs are present? 
     - b. What are the MLST STs present? 
     - c. How many samples belong to each MLST ST? 
