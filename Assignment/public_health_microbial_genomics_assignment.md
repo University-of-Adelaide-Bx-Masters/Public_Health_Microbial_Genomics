@@ -32,7 +32,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - c. How many samples belong to each MLST ST? 
     - d. Do you think that an outbreak is present? what analysis might you do next to confirm that an outbreak is present? explain your answer. 
     
-## Part B (Variant calling & phylogenetic tree) - 17 marks
+## Part B (Variant calling & phylogenomic tree) - 17 marks
 
 1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate phylogenomic tree, using the xxx.fasta as the reference genome. **[10 marks]**.
    The script should contain the following components:
