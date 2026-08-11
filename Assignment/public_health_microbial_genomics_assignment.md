@@ -40,7 +40,10 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - b. Creates a core genome alignment (`snippy-core`)
     - c. Generates a phylogenomic tree (`igtree`)
    
-2. microreact 
+2. microreact and provided metadata **[7 marks]**.
+    - a. dddd
+    - b. dddd
+    - c. ddddd
 
 ## Part C (antimicrobial resistance) - 5 marks
 Please answer the following questions about the two AMR practicals:
