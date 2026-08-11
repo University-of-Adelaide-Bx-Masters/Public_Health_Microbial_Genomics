@@ -517,12 +517,7 @@ Create a new script called `run_new_ref_snippy.sh` by typing `nano run_new_ref_s
 done
 ```
 
-**9.3 compare the number of SNPs identified**
-
-
-
-
-**9.4 Re-run snippy-core to generate input for a phylogenomic tree**
+**9.3 Re-run snippy-core to generate input for a phylogenomic tree**
 
 Next, use `snippy-core` to generate a core-genome alignment based on the results obtained using the closely related reference genome:
 
@@ -531,7 +526,7 @@ snippy-core --prefix snippy_new_ref/core_genome --ref  close_ref/close_ref.fasta
 ```
 This will generate the alignment that will be used to reconstruct the phylogenomic tree.
 
-**9.5 Reconstruct the phylogenomic tree**
+**9.4 Reconstruct the phylogenomic tree**
 
 Run `iqTree` to create a tree from the core genome alignment:
 
@@ -539,7 +534,7 @@ Run `iqTree` to create a tree from the core genome alignment:
 iqtree -T 2 --mem 16G -s snippy_new_ref/core_genome.full.aln
 ```
 
-**9.6 Compare the two phylogenomic trees** 
+**9.5 Compare the two phylogenomic trees** 
 
 You will now compare the phylogenomic tree generated using the original reference genome with the tree generated using the closely related reference genome.
 
@@ -555,7 +550,7 @@ For both analyses, the tree file you need is:
 
 `core_genome.full.aln.treefile`
 
-You will first need to download the two tree files, don't forget to also download the metadata file form step 6. 
+You will first need to download the two tree files, don't forget to also download the metadata file from step 6. 
 
 Then, view each tree in Microreact. The easiest approach is to open two separate browser windows or tabs. In each browser, go to the Microreact website ((https://microreact.org)) and open one of the two trees. Follow the instructions in Step 6 to annotate each tree.
 
