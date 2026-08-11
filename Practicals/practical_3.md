@@ -459,6 +459,105 @@ Complete the below table:
 - What do the longer branches of the ST1972 isolates indicate?
 - Can isolates with the same ST differ genetically? 
 
+# **9. Re-run analysis using a more closely related genome as the reference genome** 
+
+In the previous sections, you used a relatively distantly related reference genome to map the sequencing reads and identify genetic variants. The choice of reference genome is an important consideration in bacterial variant calling because the reference genome provides the coordinate system against which sequencing reads are mapped and variants are identified.
+
+The reference genome should ideally be closely related to the isolates being analysed. In the context of an outbreak investigation, a closely related reference would typically be a genome from the same sequence type (ST) as the outbreak isolates, or, preferably, a genome from the same outbreak, that is genetically very similar to the isolates under investigation. The closer the reference is to the outbreak isolates, the more likely it is to represent the genomic regions and sequence structure present in those isolates.
+
+Using a distantly related reference can introduce problems during read mapping. Sequence differences between the reference and the isolates can result in some regions mapping poorly or not mapping at all. Highly divergent or absent regions may therefore be excluded from the analysis, while differences between the reference and the isolates may be incorrectly identified as variants. Consequently, the choice of reference can influence both the number and distribution of SNPs identified and the resulting phylogenomic relationships.
+
+For this reason, reference genome selection is particularly important in outbreak investigations, where the aim is often to distinguish between very closely related isolates. A reference genome that is closely related to the outbreak strain can provide better mapping and variant detection across the regions shared by the isolates, potentially producing a more informative and accurate representation of their genetic relationships.
+
+In this section, you will repeat the snippy and snippy-core analyses using a more closely related reference genome and regenerate the phylogenomic tree. You will then compare the new tree with the one generated above to investigate how the choice of reference genome affects the resulting phylogenomic relationships.
+
+**9.1 Create additional directories and get reference genome required for this section of the practical** 
+
+Add additional directories: 
+
+```bash
+# navigate to working directory
+cd ~/Practical_variants_trees
+# create additional directories needed for this section of the practical
+mkdir tree_new_ref close_ref snippy_new_ref
+```
+
+A more closely related reference genome has been provided, get the new reference genome:
+
+```bash
+# navigate to working directory
+cd ~/Practical_variants_trees
+# create symlink to the closely related reference genome
+ln -s ~/data/public_health_genomics/close_ref/close_ref.fasta close_ref/
+```
+
+**9.2 Repeat snippy using the closely related reference genome**
+
+You will now repeat the `snippy` analysis using the closely related genome as the reference genome.
+
+Create a new script called `run_new_ref_snippy.sh` by typing `nano run_new_ref_snippy.sh` and pasting in the template below. Then fill in the missing gaps, save the file and close nano. Then run the script. 
+
+**Important: For this analysis, make sure that the output is directed to the `snippy_new_ref` directory**. Do not use the original `snippy` output directory, as this would overwrite the results from the previous analysis.
+
+
+**This script will take ~30 minutes to finish**
+
+```bash
+#!/bin/bash
+
+# Load software
+
+
+# List of samples with Illumina data
+
+# Loop over each sample
+
+
+# Run snippy over the remaining samples, Use close_ref/close_ref.fasta as the reference genome, and direct the results to snippy_new_ref/
+
+
+done
+```
+
+**9.3 compare the number of SNPs identified**
+
+
+
+
+**9.4 Re-run snippy-core to generate input for a phylogenomic tree**
+
+Next, use `snippy-core` to generate a core-genome alignment based on the results obtained using the closely related reference genome:
+
+```bash
+snippy-core --prefix snippy_new_ref/core_genome --ref  close_ref/close_ref.fasta snippy_new_ref/ERR10479021 snippy_new_ref/ERR10479025 snippy_new_ref/ERR10479028 snippy_new_ref/ERR10479029 snippy_new_ref/ERR10479032 snippy_new_ref/ERR10479034 snippy_new_ref/ERR10479035 snippy_new_ref/ERR10479037 snippy_new_ref/ERR10479039
+```
+This will generate the alignment that will be used to reconstruct the phylogenomic tree.
+
+**9.5 Reconstruct the phylogenomic tree**
+
+Run `iqTree` to create a tree from the core genome alignment:
+
+```bash
+iqtree -T 2 --mem 16G -s snippy_new_ref/core_genome.full.aln
+```
+
+**9.6 Compare the two phylogenomic trees** 
+
+You will now compare the phylogenomic tree generated using the original reference genome with the tree generated using the closely related reference genome.
+
+
+First you will need to download the trees, you can find the first tree you created located here `Practical_variants_trees/tree`, and the second is located here `Practical_variants_trees/snippy_new_ref`, remember the tree file is this one `core_genome.full.aln.treefile`
+
+Then view each tree in Microreact, the easiest way to do this is to open two separate web browsers. In each browser, go to the Microreact website (https://microreact.org) and open one of the two trees. Then, follow the instructions in Step 6 above to annotate each each tree.
+
+**Using both trees, answer the following questions:** 
+- Did the overall structure of the tree change?
+- Does the outbreak cluster remain together?
+- Does the relationship between the outbreak isolates remain the same?
+- Did the branch lengths change? 
+
+
+
 
 
 
