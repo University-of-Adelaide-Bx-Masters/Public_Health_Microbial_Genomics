@@ -5,8 +5,6 @@ The data you need for this assignment can be found in `~/data/Assignment1b`. Thi
 - Illumina data for 10 bacterial isolates (Part A and Part B)
 - A reference _B. pseudomallei_ genome, `todo.fasta` (Part B)
 - `Metadata.csv` file for interpreting the phylogenomics tree (Part B)
-- Genome assemblies for xx xx isolates (Part C)
-
 
 ### **You must use tools and approaches covered during the practicals and scripts are required to be formatted as done in the practicals. All analysis must be performed on your allocated VM in a directory named `~/Assignment1b`.**
 
@@ -34,7 +32,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - c. How many samples belong to each MLST ST? 
     - d. Do you think that an outbreak is present? what analysis might you do to confirm that an outbreak is present? explain your answer. 
     
-## Part B (Variant calling & phylogenetic tree) - xx marks
+## Part B (Variant calling & phylogenetic tree) - 17 marks
 
 1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate phylogenomic tree, using the xxx.fasta as the reference genome. **[10 marks]**.
    The script should contain the following components:
@@ -42,9 +40,9 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - b. Creates a core genome alignment (`snippy-core`)
     - c. Generates a phylogenomic tree (`igtree`)
    
-2. 
+2. microreact 
 
-## Part C (antimicrobial resistance) - 10 marks
+## Part C (antimicrobial resistance) - 5 marks
 Please answer the following questions about the two AMR practicals:
 1. something on genome annotation 
 
