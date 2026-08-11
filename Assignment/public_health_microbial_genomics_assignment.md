@@ -30,7 +30,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - a. How many MLST STs are present? 
     - b. What are the MLST STs present? 
     - c. How many samples belong to each MLST ST? 
-    - d. Do you think that an outbreak is present? what analysis might you do to confirm that an outbreak is present? explain your answer. 
+    - d. Do you think that an outbreak is present? what analysis might you do next to confirm that an outbreak is present? explain your answer. 
     
 ## Part B (Variant calling & phylogenetic tree) - 17 marks
 
