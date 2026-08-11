@@ -471,7 +471,7 @@ For this reason, reference genome selection is particularly important in outbrea
 
 In this section, you will repeat the snippy and snippy-core analyses using a more closely related reference genome and regenerate the phylogenomic tree. You will then compare the new tree with the one generated above to investigate how the choice of reference genome affects the resulting phylogenomic relationships.
 
-**9.1 Create additional directories and get reference genome required for this section of the practical** 
+## 9.1 Additional directories and data
 
 Add additional directories: 
 
@@ -489,7 +489,7 @@ A more closely related reference genome has been provided, get the new reference
 ln -s ~/data/public_health_genomics/close_ref/close_ref.fasta close_ref/
 ```
 
-**9.2 Repeat snippy using the closely related reference genome**
+## 9.2 Repeat snippy using the closely related reference genome
 
 You will now repeat the `snippy` analysis using the closely related genome as the reference genome.
 
@@ -517,7 +517,7 @@ Create a new script called `run_new_ref_snippy.sh` by typing `nano run_new_ref_s
 done
 ```
 
-**9.3 Re-run snippy-core to generate input for a phylogenomic tree**
+## 9.3 Re-run snippy-core to generate input for a phylogenomic tree
 
 Next, use `snippy-core` to generate a core-genome alignment based on the results obtained using the closely related reference genome:
 
@@ -526,7 +526,7 @@ snippy-core --prefix snippy_new_ref/core_genome --ref  close_ref/close_ref.fasta
 ```
 This will generate the alignment that will be used to reconstruct the phylogenomic tree.
 
-**9.4 Reconstruct the phylogenomic tree**
+## 9.4 Reconstruct the phylogenomic tree
 
 Run `iqTree` to create a tree from the core genome alignment:
 
@@ -534,7 +534,7 @@ Run `iqTree` to create a tree from the core genome alignment:
 iqtree -T 2 --mem 16G -s snippy_new_ref/core_genome.full.aln
 ```
 
-**9.5 Compare the two phylogenomic trees** 
+## 9.5 Compare the two phylogenomic trees
 
 You will now compare the phylogenomic tree generated using the original reference genome with the tree generated using the closely related reference genome.
 
@@ -554,9 +554,7 @@ You will first need to download the two tree files, don't forget to also downloa
 
 Then, view each tree in Microreact. The easiest approach is to open two separate browser windows or tabs. In each browser, go to the Microreact website ((https://microreact.org)) and open one of the two trees. Follow the instructions in Step 6 to annotate each tree.
 
-**Compare the two trees**
-
-Using both trees, answer the following questions:
+**Using both trees, answer the following questions:**
 - Did the overall structure of the tree change?
 - Does the outbreak cluster remain together?
 - Does the relationship between the outbreak isolates remain the same?
