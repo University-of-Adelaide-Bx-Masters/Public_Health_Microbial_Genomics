@@ -4,7 +4,7 @@ The data you need for this assignment can be found in `~/data/Assignment1b`. Thi
 
 - Illumina data for 10 bacterial isolates (Part A and Part B)
 - A reference _B. pseudomallei_ genome, `todo.fasta` (Part B)
-- `Metadata.csv` file for interpreting the phylogenomics tree (Part B)
+- Metadata file for interpreting the phylogenomics tree, `Metadata.csv` (Part B)
 
 ### **You must use tools and approaches covered during the practicals and scripts are required to be formatted as done in the practicals. All analysis must be performed on your allocated VM in a directory named `~/Assignment1b`.**
 
