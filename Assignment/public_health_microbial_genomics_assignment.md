@@ -4,20 +4,25 @@ The data you need for this assignment can be found in `~/data/Assignment1b`. Thi
 
 - Illumina data for 10 bacterial isolates (Part A)
 - A reference _B. pseudomallei_ genome, `todo.fasta` (Part B)
-- Metadata.csv file for interpreting the phylogenomics tree (Part B)
+- `Metadata.csv` file for interpreting the phylogenomics tree (Part B)
 - Genome assemblies for xx xx isolates (Part C)
 
 
 ### **You must use tools and approaches covered during the practicals and scripts are required to be formatted as done in the practicals. All analysis must be performed on your allocated VM in a directory named `~/Assignment1b`.**
 
 Your submission should include the following files:
-- Bash scripts named axxxxxxx_species_genotype.sh and axxxxxxx_variants_phylo.sh for Parts A and B, respectively (replacing axxxxxxx with your student number)
-- A single pdf file containing answers to all other questions and screenshots as specified below, named axxxxxxx_Assignment1b.pdf (replacing axxxxxxx with your student number). All screenshots must be clearly legible. Please ensure that this pdf file also includes your name and student number within the file.
+- Bash scripts named `axxxxxxx_species_genotype.sh` and `axxxxxxx_variants_phylo.sh` for Parts A and B, respectively (replacing axxxxxxx with your student number)
+- A single pdf file containing answers to all other questions and screenshots as specified below, named `axxxxxxx_Assignment1b.pdf` (replacing axxxxxxx with your student number). **All screenshots must be clearly legible.** Please ensure that this pdf file also includes your name and student number within the file.
 
 ## Part A (species classification and microbial genotyping) - xx marks
-You have been provided with paired-end Illumina whole-genome sequencing (WGS) data for 10 bacterial isolates. Your task for part A is to perform species classification to determine what bacterial species the 10 isolates belong to, and then based on the species result perform mlst to get a mlst Sequence Type. 
+You have been provided with paired-end Illumina whole-genome sequencing (WGS) data for 10 bacterial isolates. Your task for part A is to perform species classification for each of the 10 isolates to determine the bacterial species to which they belong. Based on the identified species, perform multilocus sequence typing (MLST) using the appropriate species-specific MLST scheme. 
 
- 1. script 
+ 1. Write a bash script called 
+
+
+
+
+Report the resulting MLST Sequence Type (ST) for each isolate.
 
 
 ## Part B (Variant calling & phylogenetic tree) - xx marks
