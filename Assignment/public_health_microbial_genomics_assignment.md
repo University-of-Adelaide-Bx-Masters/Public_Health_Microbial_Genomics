@@ -32,20 +32,17 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - a. How many MLST STs are present? 
     - b. What are the MLST STs present? 
     - c. How many samples belong to each MLST ST? 
-    - d. Do you think that an outbreak is present? explain your answer. 
+    - d. Do you think that an outbreak is present? what analysis might you do to confirm that an outbreak is present? explain your answer. 
     
 ## Part B (Variant calling & phylogenetic tree) - xx marks
 
-1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) **[10 marks]** that: 
-    - a. Performs variant calling, 
-    - b. Performs species classification for each sample
-    - c. Summarises species classification results 
-    - d. Performs mlst to get a Sequence Type for each sample
-    - d. Summarises mlst results into a single output
-    - e. Includes informative comments
-    - f. Is clear, concise and easy to understand
-- script 
-
+1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate phylogenomic tree, using the xxx.fasta as the reference genome. **[10 marks]**.
+   The script should contain the following components:
+    - a. Performs variant calling (`snippy`)
+    - b. Creates a core genome alignment (`snippy-core`)
+    - c. Generates a phylogenomic tree (`igtree`)
+   
+2. 
 
 ## Part C (antimicrobial resistance) - xx marks
 You have been provided with genome assemblies (`xx.fast`) .......
