@@ -461,39 +461,6 @@ Complete the below table:
 
 
 
-# **9. Re-run analysis using a more closely related genome as the reference genome** 
-
-In the previous sections, you used a distantly related reference genome to map the sequencing reads and identify variants. The choice of reference genome is an important consideration in bacterial variant calling because the reference provides the coordinate system against which sequencing reads are mapped.
-
-If the reference genome is relatively distantly related to the isolates being analysed, some regions of the isolate genomes may map poorly or fail to map at all. This can affect the number and distribution of SNPs identified.
-
-In a real outbreak investigation, it is therefore important to consider whether a closely related reference genome is available.
-
-In this section, we will repeat part of the SNP analysis using a more closely related reference genome and investigate whether this changes the SNP calls and phylogenomic relationships.
-
-
-
-
-**9.1 Repeat snippy using the alternative reference genome**
-
-
-
-**9.3 compare the number of SNPs identified**
-
-
-
-
-**9.2 Re run snippy-core to generate input for a phylogenomic tree**
-
-
-
-
-**9.3 reconstruct the phylogenomic tree**
-
-
-
-
-**9.4 Compare the two phylogenomic trees** 
 
 
 
