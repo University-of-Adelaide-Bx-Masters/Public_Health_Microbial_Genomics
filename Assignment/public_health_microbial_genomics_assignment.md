@@ -17,9 +17,14 @@ Your submission should include the following files:
 ## Part A (species classification and microbial genotyping) - xx marks
 You have been provided with paired-end Illumina whole-genome sequencing (WGS) data for 10 bacterial isolates. Your task for part A is to perform species classification for each of the 10 isolates to determine the bacterial species to which they belong. Based on the identified species, perform multilocus sequence typing (MLST) using the appropriate species-specific MLST scheme. 
 
- 1. Write a bash script called 
-
-
+ 1. Write a bash script called `axxxxxxx_species_genotype.sh` (replacing axxxxxxx with your student number) **[16 marks]** that: 
+    - a. Creates a suitable directory structure and creates symlinks for required data files
+    - b. Performs species classification for each sample
+    - c. Summarises species classification results 
+    - d. Performs mlst to get a Sequence Type for each sample
+    - d. Summarises mlst results into a single output
+    - e. Includes informative comments
+    - f. Is clear, concise and easy to understand
 
 
 Report the resulting MLST Sequence Type (ST) for each isolate.
