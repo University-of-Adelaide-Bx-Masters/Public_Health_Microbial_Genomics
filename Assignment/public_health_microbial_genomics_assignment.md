@@ -44,10 +44,9 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
    
 2. 
 
-## Part C (antimicrobial resistance) - xx marks
-You have been provided with genome assemblies (`xx.fast`) .......
-
-1. Run the xyz tool over the
+## Part C (antimicrobial resistance) - 10 marks
+Please answer the following questions about the two AMR practicals:
+1. something on genome annotation 
 
 ## Part D - 10 marks 
 Please answer the following questions about the microbial genotyping practical:
