@@ -485,8 +485,6 @@ mkdir tree_new_ref close_ref snippy_new_ref
 A more closely related reference genome has been provided, get the new reference genome:
 
 ```bash
-# navigate to working directory
-cd ~/Practical_variants_trees
 # create symlink to the closely related reference genome
 ln -s ~/data/public_health_genomics/close_ref/close_ref.fasta close_ref/
 ```
@@ -545,10 +543,21 @@ iqtree -T 2 --mem 16G -s snippy_new_ref/core_genome.full.aln
 
 You will now compare the phylogenomic tree generated using the original reference genome with the tree generated using the closely related reference genome.
 
+The first tree you created is located in:
 
-First you will need to download the trees, you can find the first tree you created located here `Practical_variants_trees/tree`, and the second is located here `Practical_variants_trees/snippy_new_ref`, remember the tree file is this one `core_genome.full.aln.treefile`
+`Practical_variants_trees/tree`
 
-Then view each tree in Microreact, the easiest way to do this is to open two separate web browsers. In each browser, go to the Microreact website (https://microreact.org) and open one of the two trees. Then, follow the instructions in Step 6 above to annotate each each tree.
+The new tree is located in:
+
+`Practical_variants_trees/snippy_new_ref`
+
+For both analyses, the tree file you need is:
+
+`core_genome.full.aln.treefile`
+
+You will first need to download the two tree files, don't forget to also download the metadata file form step 6. 
+
+Then, view each tree in Microreact. The easiest approach is to open two separate browser windows or tabs. In each browser, go to the Microreact website ((https://microreact.org)) and open one of the two trees. Follow the instructions in Step 6 to annotate each tree.
 
 **Using both trees, answer the following questions:** 
 - Did the overall structure of the tree change?
