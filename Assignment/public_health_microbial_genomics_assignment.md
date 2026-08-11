@@ -49,7 +49,10 @@ You have been provided with genome assemblies (`xx.fast`) .......
 
 1. Run the xyz tool over the
 
-## Part D - xx marks 
+## Part D - 10 marks 
 Please answer the following questions about the microbial genotyping practical:
-1. Insert questions relating to the cgMLST component 
+1. For the cgMLST results, at 10 allelic differences how many isolates remained clustered together and which isolates were they? Please include a screenshot demonstrating this **[5 marks]**
+2. Based on the MLST and cgMLST results how many outbreaks were present? explain your answer. **[5 marks]**
+
+
    
