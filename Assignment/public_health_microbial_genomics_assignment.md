@@ -15,8 +15,9 @@ Your submission should include the following files:
 - A single pdf file containing answers to all other questions and screenshots as specified below, named axxxxxxx_Assignment1b.pdf (replacing axxxxxxx with your student number). All screenshots must be clearly legible. Please ensure that this pdf file also includes your name and student number within the file.
 
 ## Part A (species classification and microbial genotyping) - xx marks
-You have been provided with paire-end Illumina whole-genome sequencing (WGS) data 
-- script 
+You have been provided with paired-end Illumina whole-genome sequencing (WGS) data for 10 bacterial isolates. Your task for part A is to perform species classification to determine what bacterial species the 10 isolates belong to, and then based on the species result perform mlst to get a mlst Sequence Type. 
+
+ 1. script 
 
 
 ## Part B (Variant calling & phylogenetic tree) - xx marks
@@ -28,4 +29,8 @@ You have been provided with paire-end Illumina whole-genome sequencing (WGS) dat
 You have been provided with genome assemblies (`xx.fast`) .......
 
 1. Run the xyz tool over the
+
+## Part D - xx marks 
+Please answer the following questions about the microbial genotyping practical:
+1. Insert questions relating to the cgMLST component 
    
