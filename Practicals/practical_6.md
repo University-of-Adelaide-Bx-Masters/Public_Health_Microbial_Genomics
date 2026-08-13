@@ -19,7 +19,7 @@ For this practical you will be working on the workflow step indicated with a sta
 
 In this practical, you will investigate a real-world  scenario involving _Burkholderia pseudomallei,_ the bacterium that causes melioidosis.
 
-Three patients in the Northern Territory, Australia developed serious bloodstream infections caused by B. pseudomallei. Each patient initially received the antibiotic meropenem but responded poorly to treatment. Following treatment, a second isolate was recovered from each patient that showed resistance to meropenem.
+Three patients in the Northern Territory, Australia developed serious bloodstream infections caused by _B. pseudomallei_. Each patient initially received the antibiotic meropenem but responded poorly to treatment. Following treatment, a second isolate was recovered from each patient that showed resistance to meropenem.
 
 Whole-genome sequencing (WGS) was performed on isolates collected:
 - before treatment: the primary isolate, which was susceptible to meropenem
