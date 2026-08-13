@@ -237,10 +237,13 @@ FEATURES             Location/Qualifiers
 - Why is genome annotation necessary before variant effect prediction?
 - What does the locus tag represent? 
 
-## 3.2 Identify variants 
-The annotated primary isolate genome (`MSHR3763_annotated.gbk`) will now be used as the reference genome for `snippy`. `snippy` compares the secondary isolate to the primary isolate by aligning sequencing reads to the reference genome, identifying genetic variants, and predicting their potential effects using the genome annotation.
+## 3.2 Identify variants in the resistant isolate
+You now want to identify differences MSHR3763 (susceptible primary isolate) and MSHR4083 (resistant secondary isolate), for patient 1. You will use sequencing reads from MSHR4083 and align them to the annotated MSHR3763 reference (`MSHR3763_annotated.gbk`) using `snippy`. Predicted variant effects
 
-Run `snippy` for Patient 1 using the annotated primary isolate genome as the reference and the sequencing reads from the secondary isolate as input:
+You are already familiar with the fact the `snippy` identifies differences between a reference genome and sequencing reads, including SNPs and insertions/deletions. When a GenBank reference is supplied (`MSHR3763_annotated.gbk`), `snippy` can also use the annotation to identify the affected feature and predict the consequence of the variant.
+
+
+Run `snippy` for Patient 1: 
 
 ``` bash
 snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz --report 
