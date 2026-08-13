@@ -240,7 +240,7 @@ FEATURES             Location/Qualifiers
 ## 3.2 Identify variants in the resistant isolate  
 You now want to identify differences between MSHR3763 (susceptible primary isolate) and MSHR4083 (resistant secondary isolate), for patient 1. You will use sequencing reads from MSHR4083 and align them to the annotated MSHR3763 reference (`MSHR3763_annotated.gbk`) using `snippy`. 
 
-You are already familiar with the fact that `snippy` identifies variants between a reference genome and sequencing reads, including SNPs and insertions/deletions. When a GenBank file (`MSHR3763_annotated.gbk`) is supplied to `snippy` as the reference genome, `snippy` uses the annotation to identify the affected feature and predict the consequence of the variant.
+You are already familiar with the fact that `snippy` identifies variants between a reference genome and sequencing reads, including SNPs and insertions/deletions. When a GenBank annotation file (`MSHR3763_annotated.gbk`) is supplied to `snippy` as the reference genome, `snippy` uses the annotation file to identify the affected feature and predict the consequence of the variant.
 
 
 Run `snippy` for Patient 1: 
