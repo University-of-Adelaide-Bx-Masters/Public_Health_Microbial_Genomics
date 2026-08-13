@@ -238,7 +238,7 @@ FEATURES             Location/Qualifiers
 - What does the locus tag represent? 
 
 ## 3.2 Identify variants in the resistant isolate  
-You now want to identify differences between MSHR3763 (susceptible primary isolate) and MSHR4083 (resistant secondary isolate), for patient 1. You will use sequencing reads from MSHR4083 and align them to the annotated MSHR3763 reference (`MSHR3763_annotated.gbk`) using `snippy`. Predicted variant effects
+You now want to identify differences between MSHR3763 (susceptible primary isolate) and MSHR4083 (resistant secondary isolate), for patient 1. You will use sequencing reads from MSHR4083 and align them to the annotated MSHR3763 reference (`MSHR3763_annotated.gbk`) using `snippy`. 
 
 You are already familiar with the fact that `snippy` identifies variants between a reference genome and sequencing reads, including SNPs and insertions/deletions. When a GenBank file (`MSHR3763_annotated.gbk`) is supplied to `snippy`  as the reference gene. `snippy` can also use the annotation to identify the affected feature and predict the consequence of the variant.
 
