@@ -321,7 +321,7 @@ See if you can find the **ttgR_2** variant in the `snps.report.txt`. Hint: To id
 | Patient 3              |    ttR_2  |             |            |
 
 **Answer the following questions:**
-- Were the ttgR-2 mutations the same or different among the patients?
+- Were the ttgR_2 mutations the same or different among the patients?
 - Why might different mutations in the same gene produce a similar resistance phenotype?
 - Does the genomic evidence suggest transmission of a resistant strain between patients, or does it suggest that resistance evolved independently during treatment?
 - Do the results prove that ttgR_2 mutations cause meropenem resistance, or would experimental validation be required to confirm that these variants contribute to meropenem resistance? Yes or no?
