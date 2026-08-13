@@ -8,43 +8,61 @@ By Dr Jessica Webb
 
 # **1. Introduction**
 
+Antimicrobial resistance (AMR) occurs when microorganisms acquire genetic changes that allow them to survive treatment with antimicrobial drugs. Identifying the genetic basis of AMR is an important application of bacterial whole-genome sequencing (WGS).
+
+For this practical you will be working on the workflow step indicated with a star as below. 
+
 <img width="857" height="586" alt="image" src="https://github.com/user-attachments/assets/fbac366b-6c0d-4e17-b43e-76bb52025f4c" />
 
 
 ## 1.1 Practical Overview 
 
-Consider the following scenario: Three patients (listed below) admitted to hospitals in northern Australia developed serious bloodstream infections caused by the bacterium *Burkholderia pseudomallei* (a soil bacterium that is found in the north of Australia that causes the serious infectious disease melioidosis). Each patient initially responded poorly to treatment with the antibiotic meropenem, before relapsing with an antibiotic resistant infection. 
+In this practical, you will investigate a real-world  scenario involving _Burkholderia pseudomallei,_ the bacterium that causes melioidosis.
 
-Whole-genome sequencing (WGS) was performed on isolates collected before treatment (primary isolates, susceptible to meropenem antibiotic) and after treatment failure (secondary isolates, resistant to meropenem antibiotic). 
+Three patients in the Northern Territory, Australia developed serious bloodstream infections caused by B. pseudomallei. Each patient initially received the antibiotic meropenem but responded poorly to treatment. Following treatment, a second isolate was recovered from each patient that showed resistance to meropenem.
 
-Previous genomic analyses were unable to identify the genetic mechanism responsible for resistance in the secondary isolates, suggesting that a previously uncharacterised mutation or novel genetic variant may be contributing to treatment failure. 
+Whole-genome sequencing (WGS) was performed on isolates collected:
+- before treatment: the primary isolate, which was susceptible to meropenem
+-  and after treatment failure: the secondary isolate, whihc was resistant to meropenem 
 
-You have been asked by the hospital microbiology laboratory to determine the genetic variant(s) present in the secondary isolates that could explain the observed drug resistance. Hint, we suspect that the resistance might be due to mutations in a **gene called ttR-2.** 
+Previous genomic analyses did not identify an obvious genetic explanation for the resistance phenotype. This suggests that the resistance may be associated with a previously uncharacterised genetic variant.
+
+**Your task**
+
+You have been asked by the hospital microbiology laboratory to investigate the genetic differences between the susceptible and resistant isolates.
+
+Previous evidence suggests that mutations in a gene called **ttgR_2** may be involved in meropenem resistance.
+
+Your aim is to determine whether mutations in ttgR_2 are present in the resistant isolates and therefore explain the resistance.
+ 
 
 **In this practical, you will:**
-- Annotate the primary isolate genome and use it as the reference genome for downstream analyses
-- Align sequencing reads from the secondary resistant isolate to the corresponding annotated reference genome
-- Identify genetic variants that distinguish the secondary resistant isolate from the reference genome
-- Annotate identified variants to predict their potential functional impacts, including synonymous, missense, nonsense, and frameshift mutations
-- Visualise genomic variants 
+- Annotate the genome of a susceptible primary isolate
+- Use the annotated genome as a reference for variant detection
+- Align sequencing reads from the resistant isolate to the susceptible reference
+- Identify genetic variants that distinguish the resistant isolate from the susceptible isolate
+- Determine whether ttgR_2 contains a mutation
+- Interpret the predicted effect of the mutation
 
-**The data that we will be working with today includes a primary isolate and secondary isolate from three patients:**
+**The data that we will be working with today:**
+
+Each patient has a susceptible primary isolate and a resistant secondary isolate. The primary isolate from each patient provides the most appropriate reference for analysing the corresponding secondary isolate.
 
 **Patient 1:**
-- MSHR3763 (primary isolate)
-- MSHR4083 (secondary isolate)
+- MSHR3763 (primary susceptible isolate)
+- MSHR4083 (secondary resistant isolate)
 
 **Patient 2:**
-- MSHR5864 (primary isolate)
-- MSHR6755 (secondary isolate)
+- MSHR5864 (primary susceptible isolate)
+- MSHR6755 (secondary resistant isolate)
 
 **Patient 3:**
-- MSHR6522 (primary isolate)
-- MSHR7929 (secondary isolate)
+- MSHR6522 (primary susceptible isolate)
+- MSHR7929 (secondary resistant isolate)
 
 ## 1.2 Learning Outcomes
 1. Learn how to annotate a genome
-2. Learn how to identify genetic variants that confer drug resistance 
+2. Learn how to identify genetic variants 
 
 # **2. Setup**
 
@@ -82,7 +100,7 @@ If you run the `tree` command, you can see the structure of all the directories 
 │   ├── MSHR3763_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_references/MSHR3763_genomic.fasta
 │   ├── MSHR5864_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_references/MSHR5864_genomic.fasta
 │   └── MSHR6522_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_references/MSHR6522_genomic.fasta
-├── bakta
+├── prokka
 ├── reads
 │   ├── MSHR4083_1.fastq.gz -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_reads/MSHR4083_1.fastq.gz
 │   ├── MSHR4083_2.fastq.gz -> /shared//a1237649/data/public_health_genomics/amr_variants/burk_reads/MSHR4083_2.fastq.gz
