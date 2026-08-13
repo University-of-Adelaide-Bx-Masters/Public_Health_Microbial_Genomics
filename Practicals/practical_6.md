@@ -134,7 +134,7 @@ prokka \
   assembly/MSHR3763_genomic.fasta
 ```
 
-**What do these parameters mean?:**
+**What do these parameters mean?**
   - outdir prokka/MSHR3763_annotation: Specifies the output directory where all Prokka results will be saved. If the directory exists, use --force to overwrite
   - prefix  MSHR3763_annotated: Sets the prefix for all output files (e.g., reference_annotated.gff, reference_annotated.gbk). This helps organise results when annotating multiple genomes
   - genus burkholderia: Specifies the genus of the organism. Prokka uses this information to search genus-specific databases for more accurate functional annotations
@@ -148,56 +148,54 @@ prokka \
 
 **Expected Runtime: 15 minutes**
 
-Whilst we wait for `prokka` to complete, here is some information on genome annotation. 
+**Whilst we wait for `prokka` to complete, here is some information on genome annotation.**
 
 **What is a genome annotation?**
-A genome sequence tells us the order of DNA bases, but the sequence alone does not tell us where genes are located or what those genes may encode.
-
-Genome annotation is the process of identifying biological features within a genome and assigning information to those features.
+A genome sequence tells us the order of DNA bases, but the sequence alone does not tell us where genes are located or what those genes may encode. Genome annotation is the process of identifying biological features within a genome and assigning information to those features.
 
 For example, annotation can identify:
-
-protein-coding genes
-ribosomal RNA genes
-transfer RNA genes
-predicted protein products
-gene locations
-gene identifiers
-predicted protein sequences
+- protein-coding genes
+- ribosomal RNA genes
+- transfer RNA genes
+- predicted protein products
+- gene locations
+- gene identifiers
+- predicted protein sequences
 
 This information becomes particularly useful when analysing mutations.
 
 For example, suppose we identify the following mutation:
 
+```bash
 Chromosome 1, position 1,234,567:
 A → G
-
+```
 By itself, this tells us that the DNA sequence differs at one position.
 
 If the genome is annotated, we can instead determine that the mutation occurs:
 
+```bash
 gene:       ttgR_2
 feature:    CDS
 nucleotide: 245/900
 amino acid: 82/300
 effect:     missense_variant
-
+```
 We can therefore begin to ask whether the mutation could alter the function of the encoded protein.
 
-Key concept: Variant calling tells us where the DNA differs. Genome annotation helps us understand what biological feature the difference affects.
+**Key concept:** Variant calling tells us where the DNA differs. Genome annotation helps us understand what biological feature the difference affects
 
+**Hopefully `prokka` has now finished**
 
+`prokka` generates several output files, including an annotated GenBank file (`MSHR3763.annotated.gbk`). For this practical, this is the most important output because it contains both the genome sequence and its annotation, and you will use this file as the reference genome to input into `snippy` in section 3.2.
 
-
-`prokka` generates multiple output files - the file we care most about for this practical is the `MSHR3763.annotated.gbk` file, you will use this file as the reference genome in section 3.2.
-
-The `.gbk` file is the complete annotated genome, it contains DNA or protein sequences alongside biological annotations. Look at the .gbk file to understand its contents: 
+The `.gbk` file contains both sequence information and biological annotations. Look at the .gbk file to understand its contents: 
 
 ``` bash
 less /prokka/MSHR3763_annotation/MSHR3763.annotated.gbk
 ```
 
-You should see something like this on your terminal, and I have added comments to explain what each section means. 
+You should see something like this on your terminal, and I have added comments to explain what the relevant sections mean.  
 
 ```bash
 LOCUS       BPS_1                4056707 bp    DNA     linear       24-JUL-2026
