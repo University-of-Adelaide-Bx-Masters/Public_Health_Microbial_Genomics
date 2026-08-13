@@ -278,9 +278,8 @@ click on the file and open it, you should see something like this:
 These annotation fields are generated because we supplied `snippy` with an annotated GenBank reference.
 
 **Questions:**
-Previous work suggests that mutations in **ttgR_2** may be associated with meropenem resistance.
 
-Use the `snippy` report to answer the following:
+Previous work suggests that mutations in **ttgR_2** may be associated with meropenem resistance. Use the `snippy` report to answer the following:
 - Is **ttgR_2** mutated?
 - What type of mutation has occurred (e.g. SNP/insertion/deletion)?
 - Is the mutation predicted to alter the protein sequence (e.g. synonymous, missense, frameshit, stop-gained)?
@@ -289,6 +288,7 @@ Use the `snippy` report to answer the following:
 - Is this a strong candidate resistance mutation?
 
 **Explore variant evidence**
+
 The variant table tells us which variants were identified, but it is also important to consider the sequencing evidence supporting each variant call.
 
 Open: 
@@ -309,25 +309,23 @@ See if you can find the **ttgR_2** variant in the `snps.report.txt`. Hint: To id
 
 1. Run `prokka` to annotate the genome assembly 
 2. Run `snippy` to identify variants
-3. View `snippy` results to identify variants in the gene ttR-2
+3. View `snippy` results to identify variants in the gene ttR_2
 
 
 **Once ran above for all patients, complete the below table:**
 
-| **Patient**            | **Gene**  | **Variant** | **Effect** | 
+| **Patient**            | **Gene**  | **Variant** | **Predicted effect** | 
 |:----------             |:----------|:----------- |:-----------|
-| Patient 1              |    ttR-2  |             |            |
-| Patient 2              |    ttR-2  |             |            |
-| Patient 3              |    ttR-2  |             |            |
+| Patient 1              |    ttR_2  |             |            |
+| Patient 2              |    ttR_2  |             |            |
+| Patient 3              |    ttR_2  |             |            |
 
 **Answer the following questions:**
-- Were the ttR-2 mutations identical across all three patients?
+- Were the ttgR-2 mutations the same or different among the patients?
 - Why might different mutations in the same gene produce a similar resistance phenotype?
-- Which mutation would you predict has the largest effect on protein function?
-- Does the genomic evidence suggest transmission of a resistant strain between patients?
-- Or does it suggest resistance evolved independently during treatment?
-- Would experimental validation be required to confirm that these variants contribute to meropenem resistance? yes or no?
-- Why do we compare the resistant isolate against the susceptible isolate from the same patient rather than against a public reference genome?
+- Does the genomic evidence suggest transmission of a resistant strain between patients, or does it suggest that resistance evolved independently during treatment?
+- Do the results prove that ttgR_2 mutations cause meropenem resistance, or would experimental validation be required to confirm that these variants contribute to meropenem resistance? Yes or no?
+- Why do we compare the resistant isolate with the susceptible isolate from the same patient, rather than with a public reference genome?
 
 
 
