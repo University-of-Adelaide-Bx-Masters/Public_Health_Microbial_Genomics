@@ -237,10 +237,10 @@ FEATURES             Location/Qualifiers
 - Why is genome annotation necessary before variant effect prediction?
 - What does the locus tag represent? 
 
-## 3.2 Identify variants in the resistant isolate
-You now want to identify differences MSHR3763 (susceptible primary isolate) and MSHR4083 (resistant secondary isolate), for patient 1. You will use sequencing reads from MSHR4083 and align them to the annotated MSHR3763 reference (`MSHR3763_annotated.gbk`) using `snippy`. Predicted variant effects
+## 3.2 Identify variants in the resistant isolatefile 
+You now want to identify differences between MSHR3763 (susceptible primary isolate) and MSHR4083 (resistant secondary isolate), for patient 1. You will use sequencing reads from MSHR4083 and align them to the annotated MSHR3763 reference (`MSHR3763_annotated.gbk`) using `snippy`. Predicted variant effects
 
-You are already familiar with the fact the `snippy` identifies differences between a reference genome and sequencing reads, including SNPs and insertions/deletions. When a GenBank reference is supplied (`MSHR3763_annotated.gbk`), `snippy` can also use the annotation to identify the affected feature and predict the consequence of the variant.
+You are already familiar with the fact that `snippy` identifies variants between a reference genome and sequencing reads, including SNPs and insertions/deletions. When a GenBank file (`MSHR3763_annotated.gbk`) is supplied to `snippy`  as the reference gene. `snippy` can also use the annotation to identify the affected feature and predict the consequence of the variant.
 
 
 Run `snippy` for Patient 1: 
@@ -249,20 +249,22 @@ Run `snippy` for Patient 1:
 snippy --outdir snippy/MSHR4083 --ref prokka/MSHR3763_annotation/MSHR3763_annotated.gbk --R1 reads/MSHR4083_1.fastq.gz --R2 reads/MSHR4083_2.fastq.gz --report 
 ```
 
+The `--report` option generates an additional report containing detailed information about the called variants
+
 **Expected run time: 6 minutes**
 
 `snippy` generates multiple output files - the relevant file for today's practical is the `snps.html` file. This file contains the differences between the secondary isolate and the reference genome. Each row is one detected variant.
 
 click on the file and open it, you should see something like this: 
 
-<img width="1864" height="189" alt="image" src="https://github.com/user-attachments/assets/1c3f2d4e-ba43-4663-be04-689d62a097f5" />
+<img alt="image" src="https://github.com/user-attachments/assets/1c3f2d4e-ba43-4663-be04-689d62a097f5" />
 
 **Here's what each column means:**
 - `CHROM`	Chromosome or contig where the variant occurs. (BPS_1, BPS_2)
 - `POS`	Position of the variant on the reference genome
-- `TYPE`	Type of mutation: snp (single nucleotide polymorphism), ins (insertion), del (deletion)
-- `REF`	Reference sequence
-- `ALT`	Sequence observed in your sample
+- `TYPE`	Type of variant, such as SNP, insertion or deletion
+- `REF`	Reference nucleotide(s)
+- `ALT`	Alternative nucleotide(s) observed in the resistant isolate
 - `EVIDENCE`	Number of sequencing reads supporting each allele
 - `FTYPE`	Feature type where the mutation occurs (e.g. CDS = coding sequence). Blank usually means the variant is outside annotated genes
 - `STRAND`	Gene orientation (+ or -)
@@ -273,27 +275,35 @@ click on the file and open it, you should see something like this:
 - `GENE`	Gene name
 - `PRODUCT`	Protein encoded by the gene
 
+These annotation fields are generated because we supplied `snippy` with an annotated GenBank reference.
+
 **Questions:**
-Previous work suggests mutations in ttgR_2 may contribute to meropenem resistance.
+Previous work suggests that mutations in **ttgR_2** may be associated with meropenem resistance.
 
-Use the Snippy report to answer the following:
+Use the `snippy` report to answer the following:
 - Is **ttgR_2** mutated?
-- What type of mutation has occurred?
-- Is the mutation predicted to alter the protein sequence?
-- Would you predict this mutation increases, decreases or abolishes protein function?
+- What type of mutation has occurred (e.g. SNP/insertion/deletion)?
+- Is the mutation predicted to alter the protein sequence (e.g. synonymous, missense, frameshit, stop-gained)?
+- Would you predict this mutation increases, decreases or abolishes protein function? 
+- What chromosome contains the mutation?
 - Is this a strong candidate resistance mutation?
-- What chromosome is it located on?
 
-**Explore the variant calls**
+**Explore variant evidence**
+The variant table tells us which variants were identified, but it is also important to consider the sequencing evidence supporting each variant call.
 
-The `snps.html` report provides a summary of every variant detected by Snippy. However, the `snps.report.txt` file contains the variants in a simple tabular format that is useful for searching and comparing genomic positions.
-
-Inspect the report:
+Open: 
 
 ``` bash
 less snippy/MSHR4083/snps.report.txt 
 ```
-To identify the mutation affecting **ttgR_2**, first determine the genomic coordinates of the gene from `snps.html`, then locate variants that fall within those coordinates in `snps.report.txt`.
+
+The `snps.report.txt` provides detailed information about individual variants and the reads supporting them. `snippy's` `--report` functionality generates this type of detailed report from the variant calls.
+
+See if you can find the **ttgR_2** variant in the `snps.report.txt`. Hint: To identify the **ttgR_2** mutation in the `snps.report.txt`, you can use the coordinates of the gene from `snps.html`, then locate variants that fall within those coordinates in `snps.report.txt`. **This might be tricky so please ask us for help if you need it.**
+
+**Question:**
+- Do you think a good number of reads cover the mutation?
+  
 
 # **4. Repeat the above steps for the remaining 2 patients**
 
