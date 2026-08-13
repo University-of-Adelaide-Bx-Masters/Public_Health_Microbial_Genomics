@@ -29,11 +29,7 @@ Previous genomic analyses did not identify an obvious genetic explanation for th
 
 **Your task**
 
-You have been asked by the hospital microbiology laboratory to investigate the genetic differences between the susceptible and resistant isolates.
-
-Previous evidence suggests that mutations in a gene called **ttgR_2** may be involved in meropenem resistance.
-
-Your aim is to determine whether mutations in ttgR_2 are present in the resistant isolates and therefore explain the resistance.
+You have been asked by the hospital microbiology laboratory to investigate the genetic differences between the susceptible and resistant isolates. Previous evidence suggests that mutations in a gene called **ttgR_2** may be involved in meropenem resistance. Your aim is to determine whether mutations in ttgR_2 are present in the resistant isolates and therefore explain the resistance.
  
 
 **In this practical, you will:**
@@ -113,10 +109,14 @@ If you run the `tree` command, you can see the structure of all the directories 
 
 # **3. AMR variant detection**
 
-## 3.1 Reference genome annotation 
-Whole genome annotation is the process of identifying features of interest in genomic DNA sequences and labeling them with useful information. `prokka` (https://github.com/tseemann/prokka) is a software tool to rapidly annotate bacterial, archaeal and viral genomes, and was written by a world leading bioinformatician, Torsten Seemann. 
+## 3.1 Annotate the reference genome
 
-You will first work with the isolates associated with patient 1. 
+You will first work with Patient 1 - you will use the susceptible isolate MSHR3763 as the reference genome
+
+You first need to annotate MSHR3763 so that, when you identify variants, you can determine whether they occur within genes and predict their possible consequences.
+
+ You will use `prokka` (https://github.com/tseemann/prokka), a software tool to rapidly annotate bacterial, archaeal and viral genomes, and was written by a world leading bioinformatician, Torsten Seemann. 
+
 
 Run `prokka` to annotate the primary isolate (MSHR3763) from patient 1: 
 
@@ -134,7 +134,7 @@ prokka \
   assembly/MSHR3763_genomic.fasta
 ```
 
-**Parameter explanations:**
+**What do these parameters mean?:**
   - outdir prokka/MSHR3763_annotation: Specifies the output directory where all Prokka results will be saved. If the directory exists, use --force to overwrite
   - prefix  MSHR3763_annotated: Sets the prefix for all output files (e.g., reference_annotated.gff, reference_annotated.gbk). This helps organise results when annotating multiple genomes
   - genus burkholderia: Specifies the genus of the organism. Prokka uses this information to search genus-specific databases for more accurate functional annotations
@@ -151,7 +151,40 @@ prokka \
 Whilst we wait for `prokka` to complete, here is some information on genome annotation. 
 
 **What is a genome annotation?**
-- bla bla 
+A genome sequence tells us the order of DNA bases, but the sequence alone does not tell us where genes are located or what those genes may encode.
+
+Genome annotation is the process of identifying biological features within a genome and assigning information to those features.
+
+For example, annotation can identify:
+
+protein-coding genes
+ribosomal RNA genes
+transfer RNA genes
+predicted protein products
+gene locations
+gene identifiers
+predicted protein sequences
+
+This information becomes particularly useful when analysing mutations.
+
+For example, suppose we identify the following mutation:
+
+Chromosome 1, position 1,234,567:
+A → G
+
+By itself, this tells us that the DNA sequence differs at one position.
+
+If the genome is annotated, we can instead determine that the mutation occurs:
+
+gene:       ttgR_2
+feature:    CDS
+nucleotide: 245/900
+amino acid: 82/300
+effect:     missense_variant
+
+We can therefore begin to ask whether the mutation could alter the function of the encoded protein.
+
+Key concept: Variant calling tells us where the DNA differs. Genome annotation helps us understand what biological feature the difference affects.
 
 
 
