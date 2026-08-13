@@ -314,7 +314,7 @@ See if you can find the **ttgR_2** variant in the `snps.report.txt`. Hint: To id
 
 **Once ran above for all patients, complete the below table:**
 
-| **Patient**            | **Gene**  | **Variant** | **Predicted effect** | 
+| **Patient**            | **Gene**  | **Variant** | **Effect** | 
 |:----------             |:----------|:----------- |:-----------|
 | Patient 1              |    ttR_2  |             |            |
 | Patient 2              |    ttR_2  |             |            |
