@@ -42,7 +42,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-cd 
+mkdir --parents ~/Practical_amr_genes/{assemblies,db,abritamr,amrfinder}
 ```
 
 ## 2.3 Get data
