@@ -14,7 +14,10 @@ By Dr Jessica Webb
 ## 1.1 Practical Overview
 
 Bacterial strains to be analysed in this practical: 
-- sss
+- s.aureus
+- s. typhi
+- s.thypi
+- 
 - sss
 - ss 
 
