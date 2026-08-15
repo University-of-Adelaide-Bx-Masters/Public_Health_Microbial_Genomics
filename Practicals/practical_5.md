@@ -13,13 +13,15 @@ By Dr Jessica Webb
 
 ## 1.1 Practical Overview
 
-Bacterial strains to be analysed in this practical: 
-- s.aureus
-- s. typhi
-- s.thypi
-- 
-- sss
-- ss 
+In this practical, you will analyse genome assemblies (FASAT files) from antimicrobial resistant bacterial isolates:
+| **Species**            | **Assembly file name**  | 
+|:----------             |:----------|
+| _Staphylococcus aureus_              |    ERR017261_Staphylococcus_aureus |   
+| _Salmonella typhi_              | ERR2093245_Salmonella_typhi |  
+| _Salmonella typhi_               |  ERR2093329_salmonella_typhi   |  
+| _Klebsiella pneumoniae_              | ERR4095909_Klebsiella_pneumoniae |  
+
+For each of the genomes, you will investigate if antimicrobial resistance determinants are present
 
 ## 1.2 Learning Outcomes
 
