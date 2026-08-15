@@ -83,7 +83,6 @@ amrfinder -n assemblies/ERR2093245_Salmonella_typhi -O Salmonella -o amrfinder/E
 - `-n` Specifies a nucleotide FASTA input
 - `-O` `Salmonella`	Specifies the AMRFinderPlus organism/taxonomic group
 - `-o`	Specifies the output file
-amrfinder/ERR10479021_amrfinder.txt	Location and name of the output file
 - `-d`	Specifies the AMRFinderPlus database
 
 **Important to remember**
@@ -98,12 +97,9 @@ Examine the `amrfinder` outputs:
 - What antimicrobial or antimicrobial class is it associated with?
 - Is the match complete or partial?
 - How similar is the detected sequence to the reference?
-- Is the determinant known to confer resistance in this bacterial species?
-- Could the result represent a pseudogene or disrupted determinant?
-- Does the genomic prediction agree with any available phenotypic antimicrobial susceptibility data?
-
 
 ```````````````````````````````````````````````````````````````````````````````````
+TO DELETEEEEEEEEEEEE
 
 ``THIS ONE WORKED over Bp in a previous run 
 
