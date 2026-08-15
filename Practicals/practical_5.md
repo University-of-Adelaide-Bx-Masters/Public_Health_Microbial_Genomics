@@ -67,7 +67,7 @@ AMRFinderPlus
 amrfinder - (what lacking that abritamr does?)
 
 
-**Now run amrfinder**
+**Now run `amrfinder`**
 
 Before you run `amrfinder` you would usually check to see if you have the most upto date AMR database downloaded. I have already done this step for you so you dont need to worry about that. `amrfinder` is a relatively simple tool to run - all you really need is a genome assembly as the input file. 
 
@@ -95,19 +95,8 @@ Questions:
 - Did you find any AMR genes in the results file?
 - What does this result mean? 
 
-You can see that for the Salmonella sample - that no AMR genes were detected. 
-
 
 # **4. Genomic detection of AMR using abritamr**
-
-Create a script called amrfinder.sh to run `amrfinder` over all Salmonella samples (Remember the genome assemblies are in the assemblies/ folder). 
-
-Questions:
-- Did you find any AMR genes in the results files?
-- What do these results mean?
-
-
-# **4. AMR detection using abritamr**
 abritamr - assemblies - antibiotic classes and custom reports 
 
 We can run `abritamr` based on the species we have in the samples. Before we run lets check if Salmonella is available:
