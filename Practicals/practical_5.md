@@ -98,21 +98,13 @@ Questions:
 You can see that for the Salmonella sample - that no AMR genes were detected. 
 
 
-# **4. Run AMRFinder plus over all Salmonella samples**
+# **4. Genomic detection of AMR using abritamr**
 
 Create a script called amrfinder.sh to run `amrfinder` over all Salmonella samples (Remember the genome assemblies are in the assemblies/ folder). 
 
 Questions:
 - Did you find any AMR genes in the results files?
 - What do these results mean?
-
-# **4. Run AMRFinder plus over a drug resistant Salmonella strain**
-
-```bash
-amrfinder -n salMDR_assembly/salMDR.fasta -O Salmonella -o amrfinder/salMDR_amrfinder.txt -d db/latest
-```
-
-This will take a couple of minutes to run.....
 
 
 # **4. AMR detection using abritamr**
@@ -141,5 +133,4 @@ Running `anritamr` `run` generates five outpur files per sample:
 
 Now write a script to repeat `abritamr` on the remaning samples 
 
-# **5. Overlay AMR data onto the Salmonella tree**
-Brining the data together to aid in intepretation 
+# **4. AMR detection using abritamr**
