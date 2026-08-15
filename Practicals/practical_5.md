@@ -79,23 +79,28 @@ Run `amrfinder` on one sample:
 amrfinder -n assemblies/ERR2093245_Salmonella_typhi -O Salmonella -o amrfinder/ERR2093245_Salmonella_typhi.txt -d db/latest
 ```
 
-The command explained: 
+**The command explained:** 
 - `-n` Specifies a nucleotide FASTA input
 - `-O` `Salmonella`	Specifies the AMRFinderPlus organism/taxonomic group
 - `-o`	Specifies the output file
 amrfinder/ERR10479021_amrfinder.txt	Location and name of the output file
 - `-d`	Specifies the AMRFinderPlus database
 
-**NOTE**
+**Important to remember**
 The `-O` option is particularly important when analysing organisms for which AMRFinderPlus contains curated information on resistance-associated mutations. When running AMRFinderPlus, you will need to specify the appropriate organism for each bacterial genome.
 
 The correct organism name must match one of the taxonomic groups recognised by AMRFinderPlus. **Before running your analysis, consider how you could identify the organism names available to AMRFinderPlus and use this information to ensure you provide the exact name required by the `-O` option when running `abritamr`.**
 
-Interpreting AMRFinderPlus results:
+Examine the `amrfinder` outputs:
 
-Questions:
-- Did you find any AMR genes in the results file?
-- What does this result mean?
+**Questions:**
+- What gene or resistance determinant was detected?
+- What antimicrobial or antimicrobial class is it associated with?
+- Is the match complete or partial?
+- How similar is the detected sequence to the reference?
+- Is the determinant known to confer resistance in this bacterial species?
+- Could the result represent a pseudogene or disrupted determinant?
+- Does the genomic prediction agree with any available phenotypic antimicrobial susceptibility data?
 
 
 ```````````````````````````````````````````````````````````````````````````````````
