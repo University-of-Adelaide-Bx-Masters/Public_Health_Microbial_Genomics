@@ -76,7 +76,7 @@ Before you run `amrfinder` you would check to see if the most up to date AMR dat
 Run `amrfinder` on one sample:
 
 ```bash
-amrfinder -n assemblies/ERR2093245_Salmonella_typhi -O Salmonella -o amrfinder/ERR2093245_Salmonella_typhi.txt -d db/latest
+amrfinder -n assemblies/ERR2093245_Salmonella_typhi.fasta -O Salmonella -o amrfinder/ERR2093245_Salmonella_typhi.txt -d db/latest
 ```
 
 **The command explained:** 
@@ -111,7 +111,7 @@ amrfinder -n /shared/a1237649/Practical_amr_variants/assembly/MSHR3763_genomic.f
 
 `abriTamr` is a pipeline designed to simplify the interpretation of antimicrobial resistant results. It runs AMRFinderPlus and then organises detected resistance determinants into functional antimicrobial classes. It also produces summary files that make it easier to compare resistance determinants across isolates.
 
-`amrfinder` is useful when we want to inspect the detailed evidence for an individual match, whereas `abriTamr` provides a more streamlined summary of the resistance determinants detected and their associated drug classes.
+`amrfinder` is useful when we want to inspect the detailed evidence for an individual match, whereas `abritamr` provides a more streamlined summary of the resistance determinants detected and their associated drug classes.
 
 Some resistance-associated point mutations are species-specific. Therefore, when using the species option, we need to specify a supported species.
 
@@ -126,15 +126,33 @@ You can search the help output for _Salmonella_
 ```bash
 abritamr run -h | grep Salmonella
 ```
-You should see Salmonella in the terminal output highlighted in red, confirming the species is available.
+You should see Salmonella in the terminal output highlighted in red, meaning it can be supplied to the `--species` option.
 
-Now run over one sample and include salmonella as the designated species: 
+**Note:** The species option is used when you want abriTAMR/AMRFinderPlus to include species-specific point-mutation analysis. It should not be interpreted as a species-identification method.
+
+Now run `abritamr` over one sample and include `Salmonella` as the designated species: 
 
 ```bash
-abritamr run --contigs assemblies/ERR10479021.fasta --prefix abritamr/ERR10479021 --species Salmonella 
+abritamr run --contigs assemblies/ERR2093245_Salmonella_typhi.fasta  --prefix abritamr/ERR2093245_Salmonella_typhi  --species Salmonella 
 ```
 
-Running `anritamr` `run` generates five outpur files per sample:
+The command:
+
+abritamr run	Run the abriTAMR analysis
+--contigs	Specify the genome assembly
+assemblies/ERR10479021.fasta	Input FASTA file
+--prefix	Specify the output location/prefix
+abritamr/ERR10479021	Output prefix
+--species Salmonella	Use Salmonella-specific analysis where available
+
+The current abriTAMR documentation describes the --contigs option as accepting either a single FASTA file or a tab-delimited file containing multiple samples and assembly paths.
+
+
+
+
+
+
+Running `anritamr` `run` generates five output files per sample:
 - amrfinder.out
 - summary_matches.txt
 - summary_partials.txt
