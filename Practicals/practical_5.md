@@ -12,7 +12,11 @@ By Dr Jessica Webb
 
 
 ## 1.1 Practical Overview
- - working with the same set of salmonella isolates - now know that these Salmonella belong to a clonal salmonella outbreak, and we want to determine wheather it is also an antimicrobial resistant outbreak. 
+
+Bacterial strains to be analysed in this practical: 
+- sss
+- sss
+- ss 
 
 ## 1.2 Learning Outcomes
 
@@ -30,7 +34,7 @@ source activate bioinf
 Let's create a new directory for today's practical and create subdirectories that reflect the main steps in our analysis. This will help us stay organised.
 
 ```bash
-mkdir --parents ~/Practical_amr_gene/{assemblies, salMDR_assembly, amrfinder, abritamr, salmonella_tree, db}
+mkdir --parents ~/Practical_amr_gene/{assemblies, amrfinder, abritamr, refinder, db}
 ```
 
 ## 2.3 Get data
@@ -39,13 +43,9 @@ The data for today's practical is located in `~/data/microbial_genomics`. As in 
 ```bash
 cd ~/Practical_amr_gene
 # create symlinks for genome assembly (FASTA format) files
-ln -s ~/data/public_health_genomics/microbial_genomics/assemblies/*.fasta assemblies/
-# create symlinks for an additional genome assembly (FASTA format) file
-ln -s ~/data/public_health_genomics/amr_genes/*.fasta salMDR_assembly/
+ln -s ~/data/public_health_genomics/amr_genes/fasta_files/*.fasta assemblies/
 # create symlink for amrfinder database 
 ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db/latest db/
-# create symlink for the tree you genertated in the variants and phylo practical
-ln -s ~/data/public_health_genomics/microbial_genomics/TODOOOO
 # we can confirm where we are 
 pwd
 ```
@@ -55,7 +55,7 @@ If you run the `tree` command, you can see the structure of all the directories 
 TO ADD IN
 ```
 
-# **3. AMR detection using AMRFinder plus**
+# **3. Genomic detection of AMR using AMRFinderplus**
 
 
 
@@ -86,7 +86,7 @@ The above command explained:
 - kkkk
 - kkkkk
 
-Now lets look at the AMRFinderPlus results:
+Interpreting AMRFinderPlus results:
 
 Questions:
 - Did you find any AMR genes in the results file?
