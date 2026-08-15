@@ -13,17 +13,20 @@ By Dr Jessica Webb
 
 ## 1.1 Practical Overview
 
-In this practical, you will analyse genome assemblies (FASAT files) from antimicrobial resistant bacterial isolates:
+In this practical, you will analyse genome assemblies (FASTA files) from antimicrobial resistant bacterial isolates:
 | **Species**            | **Assembly file name**  | 
 |:----------             |:----------|
 | _Staphylococcus aureus_              |    ERR017261_Staphylococcus_aureus |   
 | _Salmonella typhi_              | ERR2093245_Salmonella_typhi |  
 | _Salmonella typhi_               |  ERR2093329_salmonella_typhi   |  
 | _Klebsiella pneumoniae_              | ERR4095909_Klebsiella_pneumoniae |  
+| _Burkhodleria pseudomallei_              | MSHRxxxxx_ |  
 
 For each of the genomes, you will investigate if antimicrobial resistance determinants are present
 
 ## 1.2 Learning Outcomes
+1. Use command-line tools to screen bacterial genome assemblies for known AMR determinants
+2. Learn how to interperate the main fields in an `AMRFinderPlus` and `abritamr` output file
 
 
 # **2. Setup**
@@ -62,31 +65,21 @@ TO ADD IN
 
 # **3. Genomic detection of AMR using AMRFinderplus**
 
+To accurately detect antimicrobial resistant genes or mutations, the US National Center for Biotechnology Information (NCBI) developed the Bacterial Antimicrobial Resistance Reference Gene Database and AMRFinder, a tool for detecting AMR genes. More recently, NCBI released AMRFinderPlus, which includes additional functionality such as the detection of point mutations in protein and nucleotide sequences, as well as taxon-specific analyses that can include or exclude specific genes and mutations. AMRFinderPlus is available as a command-line tool. In this section, you will use AMRFinderPlus to analyse antimicrobial resistant bacterial strains. 
 
+**Now run `amrfinder` on one of the bacterial genomes**
 
-AMRFinderPlus
-- nnnnnn
-amrfinder - (what lacking that abritamr does?)
+Before you run `amrfinder` you would usually check to see if you have the most upto date AMR database downloaded. I have already done this step for you so you dont need to worry about that.
 
-
-**Now run `amrfinder`**
-
-Before you run `amrfinder` you would usually check to see if you have the most upto date AMR database downloaded. I have already done this step for you so you dont need to worry about that. `amrfinder` is a relatively simple tool to run - all you really need is a genome assembly as the input file. 
+`amrfinder` is a relatively simple tool to run - use a genome assembly as the input file. 
 
 Run `amrfinder` on one sample:
 
 ```bash
-amrfinder -n assemblies/ERR10479021.fasta -O Salmonella -o amrfinder/ERR10479021_amrfinder.txt -d db/latest
+amrfinder -n assemblies/ERR2093245_Salmonella_typhi -O Salmonella -o amrfinder/ERR2093245_Salmonella_typhi.txt -d db/latest
 ```
 
-THIS ONE WORKED over B.p so maybe no AMR in any of the salmonella
-
-amrfinder -n /shared/a1237649/Practical_amr_variants/assembly/MSHR3763_genomic.fasta -O Burkholderia_pseudomallei -o amrfinder/MSHR3763_amrfinder.txt -d db/latest
-
-
-This should run quickly
-
-The above command explained:
+The command explained:
 - lkkk
 - kkkk
 - kkkkk
@@ -95,8 +88,16 @@ Interpreting AMRFinderPlus results:
 
 Questions:
 - Did you find any AMR genes in the results file?
-- What does this result mean? 
+- What does this result mean?
 
+
+```````````````````````````````````````````````````````````````````````````````````
+
+``THIS ONE WORKED over Bp in a previous run 
+
+amrfinder -n /shared/a1237649/Practical_amr_variants/assembly/MSHR3763_genomic.fasta -O Burkholderia_pseudomallei -o amrfinder/MSHR3763_amrfinder.txt -d db/latest
+
+``````````````````````````````````````````````````````````````````````````````````````````
 
 # **4. Genomic detection of AMR using abritamr**
 abritamr - assemblies - antibiotic classes and custom reports 
