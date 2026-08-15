@@ -69,9 +69,9 @@ To accurately detect antimicrobial resistant genes or mutations, the US National
 
 **Now run `amrfinder` on one of the bacterial genomes**
 
-Before you run `amrfinder` you would usually check to see if you have the most upto date AMR database downloaded. I have already done this step for you so you dont need to worry about that.
+Before you run `amrfinder` you would check to see if the most up to date AMR database is downloaded. I have already done this step for you so you don't need to worry about that.
 
-`amrfinder` is a relatively simple tool to run - use a genome assembly as the input file. 
+`amrfinder` is a relatively simple tool to run, just give it a genome assembly as the input file. 
 
 Run `amrfinder` on one sample:
 
@@ -108,9 +108,20 @@ amrfinder -n /shared/a1237649/Practical_amr_variants/assembly/MSHR3763_genomic.f
 ``````````````````````````````````````````````````````````````````````````````````````````
 
 # **4. Genomic detection of AMR using abritamr**
-abritamr - assemblies - antibiotic classes and custom reports 
 
-We can run `abritamr` based on the species we have in the samples. Before we run lets check if Salmonella is available:
+`abriTamr` is a pipeline designed to simplify the interpretation of antimicrobial resistant results. It runs AMRFinderPlus and then organises detected resistance determinants into functional antimicrobial classes. It also produces summary files that make it easier to compare resistance determinants across isolates.
+
+`amrfinder` is useful when we want to inspect the detailed evidence for an individual match, whereas `abriTamr` provides a more streamlined summary of the resistance determinants detected and their associated drug classes.
+
+Some resistance-associated point mutations are species-specific. Therefore, when using the species option, we need to specify a supported species.
+
+Check the available options:
+
+```bash
+abritamr run -h
+```
+
+You can search the help output for _Salmonella_
 
 ```bash
 abritamr run -h | grep Salmonella
@@ -130,8 +141,6 @@ Running `anritamr` `run` generates five outpur files per sample:
 - sumamry_virulance.txt
 
 .....
-
-Now write a script to repeat `abritamr` on the remaning samples 
 
 # **5. Run amrfinder and abritamr over remaining assemblies**
 
