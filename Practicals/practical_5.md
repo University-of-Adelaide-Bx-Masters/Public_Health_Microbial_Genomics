@@ -158,9 +158,12 @@ Questions:
 - What information would you lose if you only looked at the summary file rather than the raw `amrfinder` output?
 
 
-# **5. Run `amrfinder` and `abritamr` over remaining bacterial assemblies**
+# **5. Run `amrfinder` and `abritamr` for the remaining bacterial assemblies**
 
 Now run `amrfinder` and `abritamr` on the remaining bacterial assemblies - make sure you designate the correct `-- species` flags when running each of the tools. 
 
-
+**Questions:**
+- Which genome contained the greatest number of detected AMR determinants?
+- Which antimicrobial classes were most frequently represented?
+- Were any isolates apparently free of known AMR genes?
 
