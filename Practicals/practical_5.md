@@ -165,5 +165,5 @@ Now run `amrfinder` and `abritamr` on the remaining bacterial assemblies - make 
 **Questions:**
 - Which genome contained the greatest number of detected AMR determinants?
 - Which antimicrobial classes were most frequently represented?
-- Were any isolates apparently free of known AMR genes?
+- Were any isolates free of known AMR genes?
 
