@@ -84,6 +84,12 @@ The command explained:
 - kkkk
 - kkkkk
 
+
+**NOTE**
+The -O option is particularly important when analysing organisms for which AMRFinderPlus contains curated information on resistance-associated mutations. When running AMRFinderPlus, you will need to specify the appropriate organism for each bacterial genome.
+
+The correct organism name must match one of the taxonomic groups recognised by AMRFinderPlus. **Before running your analysis, consider how you could identify the organism names available to AMRFinderPlus and use this information to ensure you provide the exact name required by the -O option when running abritamr.**
+
 Interpreting AMRFinderPlus results:
 
 Questions:
