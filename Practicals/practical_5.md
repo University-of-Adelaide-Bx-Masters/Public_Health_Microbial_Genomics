@@ -137,26 +137,15 @@ abritamr run --contigs assemblies/ERR2093245_Salmonella_typhi.fasta  --prefix ab
 ```
 
 The command:
+- `--contigs`	Specify the genome assembly
+- `--prefix`	Specify the output location/prefix
+- `--species` `Salmonella`	Use Salmonella-specific analysis 
 
-abritamr run	Run the abriTAMR analysis
---contigs	Specify the genome assembly
-assemblies/ERR10479021.fasta	Input FASTA file
---prefix	Specify the output location/prefix
-abritamr/ERR10479021	Output prefix
---species Salmonella	Use Salmonella-specific analysis where available
-
-The current abriTAMR documentation describes the --contigs option as accepting either a single FASTA file or a tab-delimited file containing multiple samples and assembly paths.
-
-
-
-
-
-
-Running `anritamr` `run` generates five output files per sample:
-- amrfinder.out
-- summary_matches.txt
-- summary_partials.txt
-- sumamry_virulance.txt
+`anritamr` `run` generates five output files per sample:
+- `amrfinder.out`
+- `summary_matches.txt`
+- `summary_partials.txt`
+- `sumamry_virulance.txt`
 
 .....
 
