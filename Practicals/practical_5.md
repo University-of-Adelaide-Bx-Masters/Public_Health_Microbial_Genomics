@@ -147,7 +147,6 @@ The command:
 - `summary_partials.txt`
 - `sumamry_virulance.txt`
 
-.....
 
 # **5. Run amrfinder and abritamr over remaining assemblies**
 
