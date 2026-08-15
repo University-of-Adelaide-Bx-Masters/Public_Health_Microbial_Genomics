@@ -20,7 +20,7 @@ In this practical, you will analyse genome assemblies (FASTA files) from antimic
 | _Salmonella typhi_              | ERR2093245_Salmonella_typhi |  
 | _Salmonella typhi_               |  ERR2093329_salmonella_typhi   |  
 | _Klebsiella pneumoniae_              | ERR4095909_Klebsiella_pneumoniae |  
-| _Burkhodleria pseudomallei_              | MSHRxxxxx_ |  
+
 
 For each of the genomes, you will investigate if antimicrobial resistance determinants are present
 
