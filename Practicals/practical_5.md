@@ -133,4 +133,8 @@ Running `anritamr` `run` generates five outpur files per sample:
 
 Now write a script to repeat `abritamr` on the remaning samples 
 
-# **4. AMR detection using abritamr**
+# **5. Run amrfinder and abritamr over remaining assemblies**
+
+
+
+
