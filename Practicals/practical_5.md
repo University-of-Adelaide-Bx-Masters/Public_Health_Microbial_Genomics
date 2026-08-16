@@ -22,7 +22,8 @@ In this practical, you will analyse genome assemblies (FASTA files) from a range
 | _Acinetobacter baumannii_              | cpe017_Acinetobacter_baumannii_genomic |  
 | _Pseudomonas aeruginosa_              | cpe019_Pseudomonas_aeruginosa_genomic |  
 | _Escherichia coli_              | cpe069_Escherichia_coli_genomic |  
-| _Staphylococcus aureus_              | HE681097_Staphylococcus_aureus_genomic   
+| _Staphylococcus aureus_              | HE681097_Staphylococcus_aureus_genomic |
+
 
 For each of the genomes, you will investigate if antimicrobial resistance determinants are present
 
@@ -104,13 +105,20 @@ The `-O` option is particularly important when analysing organisms for which AMR
 
 The correct organism name must match one of the taxonomic groups recognised by AMRFinderPlus. **Before running your analysis, consider how you could identify the organism names available to AMRFinderPlus and use this information to ensure you provide the exact name required by the `-O` option when running `abritamr`.**
 
-Examine the `amrfinder` outputs:
+Examine the `amrfinder` output:
+
+The table below includes the `amrfinder` output of ERR2093245_Salmonella_typhi (file `ERR2093245_Salmonella_typhi.txt`)
+
+<img alt="image" src="https://github.com/user-attachments/assets/7132f62b-a7a3-493f-ad61-6908a0feb894" />
+
+**If you need help with understanding what the columns in the table mean please ask :) and we wil talk you through it**
+
 
 **Questions:**
 - What gene or resistance determinant was detected?
 - What antimicrobial or antimicrobial class is it associated with?
 - Is the match complete or partial?
-- How similar is the detected sequence to the reference?
+- How similar is the detected sequence to the reference ('Target length` compared to `Reference sequence length`?
 
 
 # **4. Genomic detection of AMR using abritamr**
