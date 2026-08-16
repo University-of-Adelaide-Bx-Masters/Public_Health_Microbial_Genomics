@@ -13,7 +13,7 @@ By Dr Jessica Webb
 
 ## 1.1 Practical Overview
 
-In this practical, you will analyse genome assemblies (FASTA files) from antimicrobial resistant bacterial isolates:
+In this practical, you will analyse genome assemblies (FASTA files) from a range of bacterial isolates:
 | **Species**            | **Assembly file name**  | 
 |:----------             |:----------|
 | _Staphylococcus aureus_              |    07-02477_Staphylococcus_aureus_genomic |   
@@ -112,14 +112,6 @@ Examine the `amrfinder` outputs:
 - Is the match complete or partial?
 - How similar is the detected sequence to the reference?
 
-```````````````````````````````````````````````````````````````````````````````````
-TO DELETEEEEEEEEEEEE
-
-``THIS ONE WORKED over Bp in a previous run 
-
-amrfinder -n /shared/a1237649/Practical_amr_variants/assembly/MSHR3763_genomic.fasta -O Burkholderia_pseudomallei -o amrfinder/MSHR3763_amrfinder.txt -d db/latest
-
-``````````````````````````````````````````````````````````````````````````````````````````
 
 # **4. Genomic detection of AMR using abritamr**
 
@@ -147,7 +139,7 @@ You should see Salmonella in the terminal output highlighted in red, meaning it 
 Now run `abritamr` over one sample and include `Salmonella` as the designated species: 
 
 ```bash
-abritamr run --contigs assemblies/ERR2093245_Salmonella_typhi.fasta  --prefix abritamr/ERR2093245_Salmonella_typhi  --species Salmonella 
+abritamr run --contigs assemblies/1048349_Salmonella_enterica_genomic.fasta  --prefix abritamr/1048349_Salmonella_enterica_genomic  --species Salmonella 
 ```
 
 The command:
