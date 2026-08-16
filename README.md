@@ -16,7 +16,7 @@
 **Antimicrobial resistance**
 
 - Practical 6 - [AMR variant detection](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_6.html)
-- Practical 7 - [AMR gene detection]<!--(http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_5.html)-->
+- Practical 7 - [AMR gene detection](http://university-of-adelaide-bx-masters.github.io/Public_Health_Microbial_Genomics/Practicals/practical_5.html)
 
 
 ## Useful Links
