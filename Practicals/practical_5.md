@@ -53,7 +53,7 @@ The data for today's practical is located in `~/data/microbial_genomics`. As in 
 ```bash
 cd ~/Practical_amr_gene
 # create symlinks for genome assembly (FASTA format) files
-ln -s ~/data/public_health_genomics/amr_genes/fasta_files/*.fasta assemblies/
+ln -s ~/data/public_health_genomics/amr_genes/assemblies/*.fasta assemblies/
 # create symlink for amrfinder database 
 ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db/latest db/
 # we can confirm where we are 
