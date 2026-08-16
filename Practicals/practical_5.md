@@ -164,7 +164,7 @@ The command:
 
 Now compare these results with the `amrfinder` output from Section 3
 
-Questions:
+**Questions:**
 - Which AMR genes detected by `amrfinder` are present in the `abritamr` summary?
 - Which antimicrobial class(es) are associated with these genes?
 - Did `abritamr` identify any partial matches? If so, what might explain a partial match?
