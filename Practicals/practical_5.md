@@ -156,19 +156,20 @@ The command:
 - `--species` `Salmonella`	Use Salmonella-specific analysis 
 
 `anritamr` `run` generates five output files per sample:
+- `abritamr.txt` (This is the one you want to look at)
 - `amrfinder.out`
 - `summary_matches.txt`
 - `summary_partials.txt`
-- `sumamry_virulance.txt`
+- `sumamry_virulence.txt`
 
 Now compare these results with the `amrfinder` output from Section 3
 
 Questions:
-- Which AMR genes detected by AMRFinderPlus are present in the abriTAMR summary?
+- Which AMR genes detected by `amrfinder` are present in the `abritamr` summary?
 - Which antimicrobial class(es) are associated with these genes?
 - Did `abritamr` identify any partial matches? If so, what might explain a partial match?
-- Why might the `abritamr` summary be more useful than the raw `amrfinder` output when comparing many bacterial isolates?
-- What information would you lose if you only looked at the summary file rather than the raw `amrfinder` output?
+- Why might the `abritamr.txt` summary be more useful than the raw `amrfinder.out` output when comparing thousands of bacterial genomes?
+- What information would you lose if you only looked at the `abritamr.txt` summary file rather than the raw `amrfinder.out` output?
 
 
 # **5. Run `amrfinder` and `abritamr` for the remaining bacterial assemblies**
@@ -176,7 +177,9 @@ Questions:
 Now run `amrfinder` and `abritamr` on the remaining bacterial assemblies - make sure you designate the correct `-- species` flags when running each of the tools. 
 
 **Questions:**
-- Which genome contained the greatest number of detected AMR determinants?
+- Which genomes have the most or fewest number of AMR determinants?
+- Which genomes are multi-drug resistant?
+- How similar are the results from `amrfinder` and `abritamr`?
 - Which antimicrobial classes were most frequently represented?
 - Were any isolates free of known AMR genes?
 
