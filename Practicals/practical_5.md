@@ -55,14 +55,26 @@ cd ~/Practical_amr_gene
 # create symlinks for genome assembly (FASTA format) files
 ln -s ~/data/public_health_genomics/amr_genes/assemblies/*.fasta assemblies/
 # create symlink for amrfinder database 
-ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db/latest db/
+ln -s ~/data/public_health_genomics/microbial_genomics/amrfinder_db/2024-07-22.1 db/
 # we can confirm where we are 
 pwd
 ```
 
 If you run the `tree` command, you can see the structure of all the directories and symlinks you've created. It should look something like this:
 ```
-TO ADD IN
+.
+├── abritamr
+├── amrfinder
+├── assemblies
+│   ├── 07-02477_Staphylococcus_aureus_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_genes/assemblies/07-02477_Staphylococcus_aureus_genomic.fasta
+│   ├── 1048349_Salmonella_enterica_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_genes/assemblies/1048349_Salmonella_enterica_genomic.fasta
+│   ├── cpe004_Klebsiella_pneumoniae_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_genes/assemblies/cpe004_Klebsiella_pneumoniae_genomic.fasta
+│   ├── cpe017_Acinetobacter_baumannii_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_genes/assemblies/cpe017_Acinetobacter_baumannii_genomic.fasta
+│   ├── cpe019_Pseudomonas_aeruginosa_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_genes/assemblies/cpe019_Pseudomonas_aeruginosa_genomic.fasta
+│   ├── cpe069_Escherichia_coli_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_genes/assemblies/cpe069_Escherichia_coli_genomic.fasta
+│   └── HE681097_Staphylococcus_aureus_genomic.fasta -> /shared//a1237649/data/public_health_genomics/amr_genes/assemblies/HE681097_Staphylococcus_aureus_genomic.fasta
+└── db
+    └── 2024-07-22.1 -> /shared//a1237649/data/public_health_genomics/microbial_genomics/amrfinder_db/2024-07-22.1
 ```
 
 # **3. Genomic detection of AMR using AMRFinderplus**
@@ -78,7 +90,7 @@ Before you run `amrfinder` you would check to see if the most up to date AMR dat
 Run `amrfinder` on one sample:
 
 ```bash
-amrfinder -n assemblies/ERR2093245_Salmonella_typhi.fasta -O Salmonella -o amrfinder/ERR2093245_Salmonella_typhi.txt -d db/latest
+amrfinder -n assemblies/1048349_Salmonella_enterica_genomic.fasta -O Salmonella -o amrfinder/ERR2093245_Salmonella_typhi.txt -d db/2024-07-22.1
 ```
 
 **The command explained:** 
