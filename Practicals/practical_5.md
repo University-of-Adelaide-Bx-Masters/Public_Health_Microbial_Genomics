@@ -16,12 +16,13 @@ By Dr Jessica Webb
 In this practical, you will analyse genome assemblies (FASTA files) from antimicrobial resistant bacterial isolates:
 | **Species**            | **Assembly file name**  | 
 |:----------             |:----------|
-| _Staphylococcus aureus_              |    ERR017261_Staphylococcus_aureus |   
-| _Salmonella typhi_              | ERR2093245_Salmonella_typhi |  
-| _Salmonella typhi_               |  ERR2093329_salmonella_typhi   |  
-| _Klebsiella pneumoniae_              | ERR4095909_Klebsiella_pneumoniae |  
-| _Salmonella enterica_              | TODOOOOOOOO |  
-
+| _Staphylococcus aureus_              |    07-02477_Staphylococcus_aureus_genomic |   
+| _Salmonella enterica_              | 1048349_Salmonella_enterica_genomic|  
+| _Klebsiella pneumoniae_              | cpe004_Klebsiella_pneumoniae_genomic |  
+| _Acinetobacter baumannii_              | cpe017_Acinetobacter_baumannii_genomic |  
+| _Pseudomonas aeruginosa_              | cpe019_Pseudomonas_aeruginosa_genomic |  
+| _Escherichia coli_              | cpe069_Escherichia_coli_genomic |  
+| _Staphylococcus aureus_              | HE681097_Staphylococcus_aureus_genomic   
 
 For each of the genomes, you will investigate if antimicrobial resistance determinants are present
 
