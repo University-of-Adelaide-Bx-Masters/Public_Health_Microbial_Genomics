@@ -117,7 +117,7 @@ The table below includes the `amrfinder` output of ERR2093245_Salmonella_typhi (
 - Which antibiotics or antimicrobial classes are these genes/mutations associated with?
 - How strong is the sequence match for each AMR determinant (e.g., % coverage and % identity)?
 - Are there multiple AMR determinants associated with the same antimicrobial class?
-- What does the overall AMR profile tell you about the potential resistance of this bacterium? (**Hint:** In bacterial genomics, a bacterium is considered **multidrug-resistant (MDR)** if it has resistance to **3 or more drug classes.**)
+- What does the overall AMR profile tell you about the potential resistance of this bacterium? (**Hint:** A bacteria is considered **multidrug-resistant (MDR)** if it has resistance to **3 or more drug classes.**)
 
 # **4. Genomic detection of AMR using abritamr**
 
