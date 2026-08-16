@@ -111,15 +111,15 @@ The table below includes the `amrfinder` output of ERR2093245_Salmonella_typhi (
 
 <img alt="image" src="https://github.com/user-attachments/assets/7132f62b-a7a3-493f-ad61-6908a0feb894" />
 
-**If you need help with understanding what the columns in the table mean please ask :) and we wil talk you through it**
 
+**If you need any help understanding what each of the columns in the table means, please feel free to ask :) We’d be happy to talk you through it!**
 
 **Questions:**
-- What gene or resistance determinant was detected?
-- What antimicrobial or antimicrobial class is it associated with?
-- Is the match complete or partial?
-- How similar is the detected sequence to the reference ('Target length` compared to `Reference sequence length`?
-
+- Which antimicrobial resistance (AMR) genes or mutations are present in the genome?
+- Which antibiotics or antimicrobial classes are these genes/mutations associated with?
+- How strong is the sequence match for each AMR determinant (e.g., % coverage and % identity)?
+- Are there multiple AMR determinants associated with the same antimicrobial class?
+- What does the overall AMR profile tell you about the potential resistance of this bacterium? 
 
 # **4. Genomic detection of AMR using abritamr**
 
