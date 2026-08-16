@@ -181,5 +181,5 @@ Now run `amrfinder` and `abritamr` on the remaining bacterial assemblies - make 
 - Which genomes are multi-drug resistant?
 - How similar are the results from `amrfinder` and `abritamr`?
 - Which antimicrobial classes were most frequently represented?
-- Were any isolates free of known AMR genes?
+- Were any isolates free of AMR genes?
 
