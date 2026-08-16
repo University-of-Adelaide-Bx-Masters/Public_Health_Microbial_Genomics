@@ -25,8 +25,6 @@ In this practical, you will analyse seven genome assemblies (FASTA files) from a
 | _Escherichia coli_              | cpe069_Escherichia_coli_genomic |  
 
 
-For each of the genomes, you will investigate if antimicrobial resistance determinants are present
-
 ## 1.2 Learning Outcomes
 1. Use command-line tools to screen bacterial genome assemblies for known AMR determinants
 2. Learn how to interperate the main fields in an `AMRFinderPlus` and `abritamr` output file
