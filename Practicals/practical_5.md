@@ -12,8 +12,8 @@ By Dr Jessica Webb
 
 
 ## 1.1 Practical Overview
+In this practical, you will analyse seven genome assemblies (FASTA files) from a range of bacterial species to identify antimicrobial resistance (AMR) determinants and assess their potential clinical significance. 
 
-In this practical, you will analyse genome assemblies (FASTA files) from a range of bacterial isolates:
 | **Species**            | **Assembly file name**  | 
 |:----------             |:----------|
 | _Salmonella enterica_              | 1048349_Salmonella_enterica_genomic|  
