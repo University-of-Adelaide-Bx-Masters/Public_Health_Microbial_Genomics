@@ -50,7 +50,7 @@ mkdir --parents ~/Practical_amr_genes/{assemblies,db,abritamr,amrfinder}
 The data for today's practical is located in `~/data/microbial_genomics`. As in previous practicals, we will use symlinks instead of copying large data files.
 
 ```bash
-cd ~/Practical_amr_gene
+cd ~/Practical_amr_genes
 # create symlinks for genome assembly (FASTA format) files
 ln -s ~/data/public_health_genomics/amr_genes/assemblies/*.fasta assemblies/
 # create symlink for amrfinder database 
@@ -89,7 +89,7 @@ Before you run `amrfinder` you would check to see if the most up to date AMR dat
 Run `amrfinder` on one sample:
 
 ```bash
-amrfinder -n assemblies/1048349_Salmonella_enterica_genomic.fasta -O Salmonella -o amrfinder/ERR2093245_Salmonella_typhi.txt -d db/2024-07-22.1
+amrfinder -n assemblies/1048349_Salmonella_enterica_genomic.fasta -O Salmonella -o amrfinder/1048349_Salmonella_enterica.txt -d db/2024-07-22.1
 ```
 
 **The command explained:** 
@@ -105,7 +105,7 @@ The correct organism name must match one of the taxonomic groups recognised by A
 
 Examine the `amrfinder` output:
 
-The table below includes the `amrfinder` output of ERR2093245_Salmonella_typhi (file `ERR2093245_Salmonella_typhi.txt`)
+The table below includes the `amrfinder` output of 1048349_Salmonella_enterica (file `1048349_Salmonella_enterica.txt`)
 
 <img alt="image" src="https://github.com/user-attachments/assets/7132f62b-a7a3-493f-ad61-6908a0feb894" />
 
