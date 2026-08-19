@@ -15,7 +15,7 @@ Your submission should include the following files:
 ## Part A - **[28 marks]**
 You have been provided with paired-end Illumina whole-genome sequencing (WGS) data and corresponding genome assemblies for 7 bacterial isolates. Your task for part A is to perform species classification for each of the 7 isolates to determine the bacterial species to which they belong. Then based on the identified species, perform multilocus sequence typing (MLST) using the appropriate species specific MLST scheme. 
 
- 1. Write a bash script called `axxxxxxx_species_genotype.sh` (replacing axxxxxxx with your student number) **[15 marks]** that: 
+ 1. Write a bash script called `axxxxxxx_species_genotype.sh` (replacing axxxxxxx with your student number) **[12 marks]** that: 
     - a. Creates a suitable directory structure and creates symlinks for required data files
     - b. Performs species classification for each sample
     - c. Summarises species classification results 
@@ -24,16 +24,16 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - e. Includes informative comments
     - f. Is clear, concise and easy to understand
 
-2. Based on the results from your species classification analysis, what bacterial species do the 7 isolates belong to? **[3 marks]**. 
+2. Based on the results from your species classification analysis, what bacterial species do the 7 isolates belong to? **[4 marks]**. 
  
-3. Summarise the main findings from your MLST analysis **[8 marks]**. Make sure you include the following information:
+3. Summarise the main findings from your MLST analysis **[10 marks]**. Make sure you include the following information:
     - a. How many MLST STs are present? 
     - b. What are the MLST STs present? 
     - c. How many samples belong to each MLST ST? 
     - d. Do you think that an outbreak is present? what analysis might you do next to confirm that an outbreak is present? explain your answer.
     - e. What was the species specific flag that you provided to the MLST tool? 
   
- 4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[4 marks]**. 
+ 4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[2 marks]**. 
     
 ## Part B - **[20 marks]**
 
