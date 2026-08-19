@@ -37,7 +37,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     
 ## Part B (Variant calling & phylogenomic tree) -**[17 marks]**
 
-1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate phylogenomic tree, using the `ATS2021_genome_reference.fasta` as the reference genome. **[10 marks]**.
+1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate phylogenomic tree using the `ATS2021_genome_reference.fasta` as the reference genome. **[10 marks]**.
    The script should contain the following components:
     - a. Performs variant calling 
     - b. Creates a core genome alignment 
@@ -52,10 +52,12 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
 Please answer the following questions about the two AMR practicals:
 1. something on genome annotation 
 
-## Part D - 10 marks 
+## Part D - **[10 marks]**
 Please answer the following questions about the microbial genotyping practical:
+
 1. For the cgMLST results, at 10 allelic differences how many isolates remained clustered together and which isolates were they? Please include a screenshot demonstrating this **[5 marks]**
-2. Based on the MLST and cgMLST results how many outbreaks were present? explain your answer. **[5 marks]**
+      
+2. Based on the MLST and cgMLST results how many outbreaks were present and what was the source of the outbreak? explain your answer. **[5 marks]**
 
 
    
