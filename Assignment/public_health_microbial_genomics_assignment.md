@@ -13,7 +13,7 @@ Your submission should include the following files:
 - A single pdf file containing answers to all other questions and screenshots as specified below, named `axxxxxxx_Assignment1b.pdf` (replacing axxxxxxx with your student number). **All screenshots must be clearly legible.** Please ensure that this pdf file also includes your name and student number within the file.
 
 ## Part A (species classification and microbial genotyping) - 28 marks
-You have been provided with paired-end Illumina whole-genome sequencing (WGS) data for 7 bacterial isolates. Your task for part A is to perform species classification for each of the 7 isolates to determine the bacterial species to which they belong. Based on the identified species, perform multilocus sequence typing (MLST) using the appropriate species-specific MLST scheme. 
+You have been provided with paired-end Illumina whole-genome sequencing (WGS) data and corresponding genome assemblies for 7 bacterial isolates. Your task for part A is to perform species classification for each of the 7 isolates to determine the bacterial species to which they belong. Then based on the identified species, perform multilocus sequence typing (MLST) using the appropriate species specific MLST scheme. 
 
  1. Write a bash script called `axxxxxxx_species_genotype.sh` (replacing axxxxxxx with your student number) **[15 marks]** that: 
     - a. Creates a suitable directory structure and creates symlinks for required data files
@@ -30,17 +30,19 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - a. How many MLST STs are present? 
     - b. What are the MLST STs present? 
     - c. How many samples belong to each MLST ST? 
-    - d. Do you think that an outbreak is present? what analysis might you do next to confirm that an outbreak is present? explain your answer. 
+    - d. Do you think that an outbreak is present? what analysis might you do next to confirm that an outbreak is present? explain your answer.
+  
+ 4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[2 marks]**. 
     
 ## Part B (Variant calling & phylogenomic tree) -**[17 marks]**
 
 1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate phylogenomic tree, using the `ATS2021_genome_reference.fasta` as the reference genome. **[10 marks]**.
    The script should contain the following components:
-    - a. Performs variant calling (`snippy`)
-    - b. Creates a core genome alignment (`snippy-core`)
-    - c. Generates a phylogenomic tree (`igtree`)
+    - a. Performs variant calling 
+    - b. Creates a core genome alignment 
+    - c. Generates a phylogenomic tree 
    
-2. microreact and provided metadata **[7 marks]**.
+2. Input the final tree file into Microreact. Annotate the tree as demonstrated in the corresponding practical session, and overlay the provided metadata file (`Metadata.csv`) onto the tree. **[7 marks]**.
     - a. dddd
     - b. dddd
     - c. ddddd
