@@ -51,7 +51,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
 ## Part C - **[6 marks]**
 Please answer the following questions about the two AMR practicals:
 
-1.For the `Antimicrobial resistance variant detection` practical, which `ttR_2` variants were detected in patients 1, 2, and 3? For each patient, list the detected variant and their effect on protein function.**[2 marks]**
+1. For the `Antimicrobial resistance variant detection` practical, which `ttR_2` variants were detected in patients 1, 2, and 3? For each patient, list the detected variant and their effect on protein function.**[2 marks]**
 
 2. For the `Antimicrobial resistance gene detection` practical which bacterial isolates were multi-drug resistant? list them. **[2 marks]**
    
