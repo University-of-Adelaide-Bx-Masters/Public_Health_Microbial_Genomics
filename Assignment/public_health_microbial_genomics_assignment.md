@@ -51,11 +51,11 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
 ## Part C - **[6 marks]**
 Please answer the following questions about the two AMR practicals:
 
-1. something on genome annotation
+1.For the `Antimicrobial resistance variant detection` practical, which `ttR_2` variants were detected in patients 1, 2, and 3? For each patient, list the detected variant and their effect on protein function.**[2 marks]**
 
-2. For the `Antimicrobial resistance gene detection` practical which bacterial isolates were multi-drug resistant? list them.
+2. For the `Antimicrobial resistance gene detection` practical which bacterial isolates were multi-drug resistant? list them. **[2 marks]**
    
-4. For the isolates used in the `Antimicrobial resistance gene detection` practical, what species name did you provide for the `--species` flag in the abritamr tool?
+4. For the isolates used in the `Antimicrobial resistance gene detection` practical, what species name did you provide for the `--species` flag in the abritamr tool? list the names. **[2 marks]**
 
 ## Part D - **[6 marks]**
 Please answer the following questions about the microbial genotyping practical:
