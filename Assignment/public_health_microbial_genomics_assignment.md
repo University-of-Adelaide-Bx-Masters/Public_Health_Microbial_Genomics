@@ -35,7 +35,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
   
  4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[4 marks]**. 
     
-## Part B - **[17 marks]**
+## Part B - **[20 marks]**
 
 1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate phylogenomic tree using the `ATS2021_genome_reference.fasta` as the reference genome. **[10 marks]**.
    The script should contain the following components:
@@ -43,11 +43,13 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - b. Creates a core genome alignment 
     - c. Generates a phylogenomic tree 
    
-2. Input the final tree file into Microreact, overlay the metadata file (`Metadata.csv`) onto the tree and annotate the tree as you did during the corresponding practical session. **[7 marks]**.
+2. Input the final tree file into Microreact, overlay the metadata file (`Metadata.csv`) onto the tree and annotate the tree as you did during the corresponding practical session. **[10 marks]**.
     - a. Include a screenshot of your final phylogenomic tree
-    - b. dddd
-    - c. ddddd
-
+    - b. Which isolates appear to represent an outbreak? and what ST do they belong to? 
+    - c. How many human isolates are linked to the outbreak?
+    - d. What is the source of the outbreak?
+    - e. In what country did the outbreak occur in? 
+  
 ## Part C - **[6 marks]**
 Please answer the following questions about the two AMR practicals:
 
