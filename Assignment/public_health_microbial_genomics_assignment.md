@@ -32,7 +32,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - c. How many samples belong to each MLST ST? 
     - d. Do you think that an outbreak is present? what analysis might you do next to confirm that an outbreak is present? explain your answer.
   
- 4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[2 marks]**. 
+ 4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[4 marks]**. 
     
 ## Part B (Variant calling & phylogenomic tree) -**[17 marks]**
 
@@ -42,8 +42,8 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - b. Creates a core genome alignment 
     - c. Generates a phylogenomic tree 
    
-2. Input the final tree file into Microreact. Annotate the tree as demonstrated in the corresponding practical session, and overlay the provided metadata file (`Metadata.csv`) onto the tree. **[7 marks]**.
-    - a. dddd
+2. Input the final tree file into Microreact, overlay the provided metadata file (`Metadata.csv`) onto the tree and annotate the tree as you did during the corresponding practical session. **[7 marks]**.
+    - a. Include a screenshot of your final phylogenomic tree 
     - b. dddd
     - c. ddddd
 
