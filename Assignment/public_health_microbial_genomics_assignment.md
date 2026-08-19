@@ -43,7 +43,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - b. Creates a core genome alignment 
     - c. Generates a phylogenomic tree 
    
-2. Input the final tree file into Microreact, overlay the provided metadata file (`Metadata.csv`) onto the tree and annotate the tree as you did during the corresponding practical session. **[7 marks]**.
+2. Input the final tree file into Microreact, overlay the metadata file (`Metadata.csv`) onto the tree and annotate the tree as you did during the corresponding practical session. **[7 marks]**.
     - a. Include a screenshot of your final phylogenomic tree
     - b. dddd
     - c. ddddd
