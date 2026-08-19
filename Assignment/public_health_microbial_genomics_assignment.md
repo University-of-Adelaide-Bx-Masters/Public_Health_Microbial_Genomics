@@ -24,7 +24,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - e. Includes informative comments
     - f. Is clear, concise and easy to understand
 
-2. Based on the results from your species classification analysis, what bacterial species do the 7 isolates belong to? **[4 marks]**. 
+2. Based on the results from your species classification analysis, what bacterial species do the 7 isolates belong to? **[4 marks]**
  
 3. Summarise the main findings from your MLST analysis **[10 marks]**. Make sure you include the following information:
     - a. How many MLST STs are present? 
@@ -33,17 +33,17 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
     - d. Do you think that an outbreak is present? what analysis might you do next to confirm that an outbreak is present? explain your answer.
     - e. What was the species specific flag that you provided to the MLST tool? 
   
- 4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[2 marks]**. 
+ 4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[2 marks]**
     
 ## Part B - **[20 marks]**
 
-1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate phylogenomic tree using the `ATS2021_genome_reference.fasta` as the reference genome. **[10 marks]**.
+1. Write a bash script called `axxxxxxx_variants_phylo.sh` (replacing axxxxxxx with your student number) to generate a phylogenomic tree using the `ATS2021_genome_reference.fasta` as the reference genome. **[10 marks]**
    The script should contain the following components:
     - a. Performs variant calling 
     - b. Creates a core genome alignment 
     - c. Generates a phylogenomic tree 
    
-2. Input the final tree file into Microreact, overlay the metadata file (`Metadata.csv`) onto the tree and annotate the tree as you did during the corresponding practical session. **[10 marks]**.
+2. Input the final tree file into Microreact, overlay the metadata file (`Metadata.csv`) onto the tree and annotate the tree as you did during the corresponding practical session. **[10 marks]**
     - a. Include a screenshot of your final phylogenomic tree
     - b. Which isolates appear to represent an outbreak? and what ST do they belong to? 
     - c. How many human isolates are linked to the outbreak?
@@ -53,7 +53,7 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
 ## Part C - **[6 marks]**
 Please answer the following questions about the two AMR practicals:
 
-1. For the `Antimicrobial resistance variant detection` practical, which `ttR_2` variants were detected in patients 1, 2, and 3? For each patient, list the detected variant and their effect on protein function.**[2 marks]**
+1. For the `Antimicrobial resistance variant detection` practical, which `ttR_2` variants were detected in patients 1, 2, and 3? For each patient list the detected variant and their effect on protein function.**[2 marks]**
 
 2. For the `Antimicrobial resistance gene detection` practical which bacterial isolates were multi-drug resistant? list them. **[2 marks]**
    
@@ -62,7 +62,7 @@ Please answer the following questions about the two AMR practicals:
 ## Part D - **[6 marks]**
 Please answer the following questions about the microbial genotyping practical:
 
-1. For the cgMLST results, at 10 allelic differences how many isolates remained clustered together and which isolates were they? Please include a screenshot demonstrating this **[2 marks]**
+1. For the cgMLST results, at 10 allelic differences how many isolates remained clustered together and which isolates were they? Please list the isolates and include a screenshot demonstrating this **[2 marks]**
       
 2. Based on the MLST and cgMLST results how many outbreaks were present and what was the source of the outbreak? explain your answer. **[4 marks]**
 
