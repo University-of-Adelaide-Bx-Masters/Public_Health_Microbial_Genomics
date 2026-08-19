@@ -60,9 +60,9 @@ Please answer the following questions about the two AMR practicals:
 ## Part D - **[6 marks]**
 Please answer the following questions about the microbial genotyping practical:
 
-1. For the cgMLST results, at 10 allelic differences how many isolates remained clustered together and which isolates were they? Please include a screenshot demonstrating this **[3 marks]**
+1. For the cgMLST results, at 10 allelic differences how many isolates remained clustered together and which isolates were they? Please include a screenshot demonstrating this **[2 marks]**
       
-2. Based on the MLST and cgMLST results how many outbreaks were present and what was the source of the outbreak? explain your answer. **[3 marks]**
+2. Based on the MLST and cgMLST results how many outbreaks were present and what was the source of the outbreak? explain your answer. **[4 marks]**
 
 
    
