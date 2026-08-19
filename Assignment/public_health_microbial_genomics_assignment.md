@@ -26,11 +26,12 @@ You have been provided with paired-end Illumina whole-genome sequencing (WGS) da
 
 2. Based on the results from your species classification analysis, what bacterial species do the 7 isolates belong to? **[3 marks]**. 
  
-3. Summarise the main findings from your mlst analysis **[8 marks]**. Make sure you include the following information:
+3. Summarise the main findings from your MLST analysis **[8 marks]**. Make sure you include the following information:
     - a. How many MLST STs are present? 
     - b. What are the MLST STs present? 
     - c. How many samples belong to each MLST ST? 
     - d. Do you think that an outbreak is present? what analysis might you do next to confirm that an outbreak is present? explain your answer.
+    - e. What was the species specific flag that you provided to the MLST tool? 
   
  4. Based on the results from your species classification and mlst analysis, complete the `species` and `mlst_ST` columns in the provided `Metadata.csv` file. **[4 marks]**. 
     
